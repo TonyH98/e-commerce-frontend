@@ -1,15 +1,12 @@
 import ReviewForm from "./ReviewEdit"
 import { useState } from "react";
-
+import ReadMore from "./ReadMore";
 function Review({ review, handleDelete, handleEdit }) {
   const [viewEditForm , toggleEditForm] = useState(false)
 
   const toggleView = () => {
     toggleEditForm(!viewEditForm)
   }
-
-  
-
 
 
     return (
@@ -20,7 +17,9 @@ function Review({ review, handleDelete, handleEdit }) {
             {review.title} <span>{review.rating}</span>
           </h4>
           <h5>{review.reviewer}</h5>
-          <p>{review.content}</p>
+          <ReadMore>
+          {review.content}
+          </ReadMore>
           <button onClick={() => handleDelete(review.id)}>delete</button>
           </>
         )}
