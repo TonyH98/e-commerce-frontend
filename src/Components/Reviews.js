@@ -9,12 +9,16 @@ const API = process.env.REACT_APP_API_URL;
 function Reviews(){
 
     const [reviews, setReviews] = useState([]);
+    const [filterReviews , setFilterReviews] = useState([])
+
+
     const { id } = useParams();
   
     useEffect(() => {
       axios.get(`${API}/products/${id}/reviews`)
-      .then((response) => {
-        setReviews(response.data);
+      .then((res) => {
+        setReviews(res.data)
+        setFilterReviews(res.data)
       });
     }, [id]);
 
@@ -52,16 +56,73 @@ function Reviews(){
       };
     
 
+      const map = reviews.map((x) => {
+        return x.rating
+      })
+
+      let average = 0
+
+      for(let i = 0 ; i < map.length; i++){
+        average += Number(map[i])
+       
+      }
       
+ average = average/ map.length
+
+ 
+
+function handleCategory(category){
+        setFilterReviews(category)
+
+      }  
+      function filterScore(e){
+        const filter = reviews.filter((r) => r.rating === e.target.value);
+        
+    if (e.target.value === ""){
+            handleCategory(reviews)
+          }
+    else{
+       handleCategory(filter)
+      }
+      }
+
+
+
+
+
 
 
       return (
         <section className="Reviews">
-          <Link to={`/products/${id}/new`}>
-          <button>Write a Review</button>
-          </Link>
           <h2>Reviews</h2>
-          {reviews.map((review) => (
+          <div className="review-data">
+            <h2>Customer Reviews</h2>
+            <p>Global Review Number: {map.length}</p>
+            <p>Average Score: {average.toFixed(2)} </p>
+            <div className="category-filter">
+        <label
+            htmlFor="searchProduct"
+          >
+            Select Rating:
+          </label>
+          <select onChange={filterScore}>
+            <option value="">Select All</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">5</option>
+            <option value="5">5</option>
+          </select>
+
+        </div>
+
+
+          </div>
+          <Link to={`/products/${id}/new`}>
+          <button className="create-review">Write a Review</button>
+          </Link>
+          {filterReviews.map((review) => (
             <Review key={review.id} review={review} handleDelete={handleDelete}handleEdit={handleEdit}/>
           ))}
         </section>

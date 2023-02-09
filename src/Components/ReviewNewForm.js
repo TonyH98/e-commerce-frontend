@@ -92,7 +92,7 @@ function ReviewNewForm(){
 
         <input type="submit" />
       </form>
-      <Link to="/">
+      <Link to={`/products/${id}`}>
         Back
       </Link>
     </div>

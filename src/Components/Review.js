@@ -1,28 +1,45 @@
 import ReviewForm from "./ReviewEdit"
 import { useState } from "react";
+import { Link , useParams} from "react-router-dom";
 import ReadMore from "./ReadMore";
 function Review({ review, handleDelete, handleEdit }) {
-  const [viewEditForm , toggleEditForm] = useState(false)
+  const [hidden , setHidden] = useState(false)
 
   const toggleView = () => {
-    toggleEditForm(!viewEditForm)
+    setHidden(!hidden)
   }
+
+  const {id} = useParams()
 
 
     return (
       <div className="Review">
-        {viewEditForm ? (<ReviewForm reviewDetails={review} toggleView={toggleView} handleEdit={handleEdit}/>) : (
+        {hidden ? (<ReviewForm reviewDetails={review} toggleView={toggleView} handleEdit={handleEdit}/>) : (
           <>
-          <h4>
-            {review.title} <span>{review.rating}</span>
+
+          <h2 className="reviewer">{review.reviewer}</h2>
+          <div className="title-score">
+          <h4 className="review-title">
+            <Link to={`/products/${id}/reviews/${review.id}`}>
+            {review.title}
+            </Link>
           </h4>
-          <h5>{review.reviewer}</h5>
+          <h4 className="rating">
+          Rating: {review.rating}
+          </h4>
+          </div>
+
+
+          <div className="review-content">
           <ReadMore>
           {review.content}
           </ReadMore>
-          <button onClick={() => handleDelete(review.id)}>delete</button>
+          </div>
+
+       
           </>
         )}
+        <button onClick={() => handleDelete(review.id)}>delete</button>
         <button onClick = {toggleView}>edit this review</button>
       </div>
     );

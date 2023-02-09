@@ -2,17 +2,18 @@ import { useState } from "react"
 
 function ReadMore({children}){
 
-    const [viewEditForm , toggleEditForm] = useState(false)
+  const [hidden , setHidden] = useState(false)
 
   const toggleView = () => {
-    toggleEditForm(!viewEditForm)
+    setHidden(!hidden)
   }
 
 
     return(
-        <div className="read-more">
-           {viewEditForm ? children : children.substring(0, 200)}
-           {children.length > 200 ? <button onClick={toggleView}>{!viewEditForm ? `Read More` : `Read Less` }</button> : null}
+        <div className="readmore">
+           {hidden ? children : `${children.substring(0, 200)}`}
+           <br></br>
+           {children.length > 200 ? <button onClick={toggleView} className="readmore-btn">{!hidden ? `Read More...` : `Read Less...` }</button> : null}
            
         </div>
     )

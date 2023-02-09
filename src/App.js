@@ -4,6 +4,7 @@ import Nav from "./Components/Nav"
 import ProductDetails from "./Components/ProductDetail"
 import ReviewNewForm from "./Components/ReviewNewForm";
 import Apps from "./App.css"
+import ReviewDetails from "./Components/ReviewDetails";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products/:id" element={<ProductDetails/>}/>
           <Route path="/products/:id/new" element={<ReviewNewForm/>}/>
+          <Route path="/products/:id/reviews/:id" element={<ReviewDetails/>}/>
           </Routes>
         </main>
       </Router>

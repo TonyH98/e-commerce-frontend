@@ -51,9 +51,8 @@ function Home(){
 
 
 return (
-    <article className="flex flex-col justify-center items-center">
-      <div className="sm:flex flex-wrap justify-center items-start m-2">
-        <div>
+    <article className="">
+        <div className="category-filter">
         <label
             htmlFor="searchProduct"
           >
@@ -69,14 +68,17 @@ return (
           </select>
 
         </div>
+        <br></br>
+        <br></br>
+        <div className="products">
           {filterProducts.map((product) => {
             return(
-                <div key={product.id}>
+                <div key={product.id} >
                     <Product product={product}/>
                 </div>
             )
           })}
-      </div>
+        </div>
     </article>
   );
 }

@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Reviews from "./Reviews";
+import ReadMore from "./ReadMore";
+
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -12,9 +14,7 @@ function ProductDetails(){
     const { id } = useParams();
     const [product , setProduct] = useState([])
 
-    let navigate = useNavigate();
-
-
+    
     useEffect(() => {
         axios
           .get(`${API}/products/${id}`)
@@ -27,39 +27,40 @@ function ProductDetails(){
           });
       }, [id]);
 
-      console.log(product)
-      console.log(id)
+console.log(`${product.description}`)
+
+
     return(
         <div>
-        <div className="details-wrapper md:flex">
-          <div className="relative p-0 m-0">
+          <div className="product-details">
+          <div className="image-container">
             <img 
                 src={product.image} 
-                className="images"
+                className="image"
                 alt={`${product.product_name}`} 
               />
           </div>
           <section className="info">
               <div>
-                  <p>
+                  <h1>
                     {product.product_name}
-                  </p>
+                  </h1>
+                  
               </div>
               <div>
                 <p>
-                    ${product.price}
+                  <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
                 </p>
               </div>
+                 <ReadMore>
+                 {`${product.description}`}
+                </ReadMore> 
               <div>
-                <p>
-                  {product.description}
-                </p>
-              </div>
-              <div>
-                <p>{product.manufacturer}</p>
+                <p> By: {product.manufacturer}</p>
               </div>
           </section>
-        </div>
+          </div>
+          <br></br>
         <Reviews/>
     </div>
     )

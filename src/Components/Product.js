@@ -8,7 +8,7 @@ function Product({product}){
     
 
     return(
-        <section >
+        <section>
         <div>
           <Link to={`/products/${product.id}`}>
             <img
