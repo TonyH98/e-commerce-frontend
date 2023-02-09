@@ -29,7 +29,9 @@ function ProductCart(){
           {products.map((product) => {
            if(cartItems[product.id] !==0){
             return(
+              <div key={product.id} className="product-card">
                 <CartItem product={product}/>
+              </div>
             )
            }
           })}

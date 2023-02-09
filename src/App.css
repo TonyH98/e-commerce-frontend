@@ -174,3 +174,21 @@ textarea {
   text-align: left;
   margin-left: 70px;
 }
+
+
+.Navigation{
+  border: rgb(0, 0, 0) 1px solid;
+  background-color: rgb(79, 119, 189);
+}
+
+.cart-images{
+  width:100px;
+  height: 100px
+}
+
+.products-cart{
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-row-gap: 25px;
+}
+
