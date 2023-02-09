@@ -1,10 +1,10 @@
 import axios from "axios";
+import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ProductContext } from "./Product-Context";
 import Reviews from "./Reviews";
 import ReadMore from "./ReadMore";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -29,9 +29,10 @@ function ProductDetails(){
           });
       }, [id]);
 
-const notify = () => {
-  toast(`You added ${product.product_name} to your cart`)
-}
+
+
+const {addToCart} = useContext(ProductContext)
+
 
     return(
         <div>
@@ -69,8 +70,8 @@ const notify = () => {
           <div className="cart">
 
 
-          <button className="cart-btns" onClick={notify}>Add to Cart</button>
-          <ToastContainer />
+          <button className="cart-btns" onClick={() => addToCart(product.id)}>Add to Cart</button>
+      
 
           </div>
      

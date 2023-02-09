@@ -6,10 +6,10 @@ import Product from "./Product"
 
 
 const API = process.env.REACT_APP_API_URL;
-
 function Home(){
-
-    const [products , setProducts] = useState([])
+  
+  
+  const [products , setProducts] = useState([])
    const [filterProducts , setFilterProducts] = useState([])
 
     useEffect(() => {
@@ -52,6 +52,7 @@ function Home(){
 
 return (
     <article className="">
+      <br></br>
         <div className="category-filter">
         <label
             htmlFor="searchProduct"
@@ -71,10 +72,10 @@ return (
         <br></br>
         <br></br>
         <div className="products">
-          {filterProducts.map((product) => {
+          {filterProducts.map((product , index) => {
             return(
                 <div key={product.id} className="product-card" >
-                    <Product product={product}/>
+                    <Product product={product} index={index}/>
                 </div>
             )
           })}

@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { ProductContext } from "./Product-Context";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const API = process.env.REACT_APP_API_URL;
 
-function Product({product}){
-
+function Product(props){
   const [reviews, setReviews] = useState([]);
 
+
+
+
   useEffect(() => {
-    axios.get(`${API}/products/${product.id}/reviews`)
+    axios.get(`${API}/products/${props.product.id}/reviews`)
     .then((res) => {
       setReviews(res.data)
       
@@ -23,7 +25,7 @@ function Product({product}){
     return x.rating
   })
 
-console.log(reviews)
+
 
 
 
@@ -37,25 +39,27 @@ console.log(reviews)
 average = average/ map.length  
 
 
-console.log(average)
+const {addToCart} = useContext(ProductContext)
+
     return(
         <section>
         <div>
-          <Link to={`/products/${product.id}`}>
+          <Link to={`/products/${props.product.id}`}>
             <img
-              src={product.image}
-              alt={product.product_name}
+              src={props.product.image}
+              alt={props.product.product_name}
               className="images"
             ></img>
           </Link>
           <div>
           <h5 className="product-name">
-            <Link to={`/products/${product.id}`}>{product.product_name}</Link>
+            <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
           </h5>
-          <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
+          <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price}
           <p>Average Review: {map.length === 0 ? `No Reviews` : average.toFixed(2)}</p>
           </div>
         </div>
+        <button className="cart-btns" onClick={() => addToCart(props.product.id)}>Add to Cart</button>
       </section>
     )
 }
