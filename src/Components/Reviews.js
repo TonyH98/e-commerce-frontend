@@ -76,7 +76,7 @@ function handleCategory(category){
 
       }  
       function filterScore(e){
-        const filter = reviews.filter((r) => r.rating === e.target.value);
+        const filter = filterReviews.filter((r) => r.rating === e.target.value);
         
     if (e.target.value === ""){
             handleCategory(reviews)
@@ -98,7 +98,7 @@ function handleCategory(category){
           <div className="review-data">
             <h2>Customer Reviews</h2>
             <p>Global Review Number: {map.length}</p>
-            <p>Average Score: {average.toFixed(2)} </p>
+            <p>Average Score: {map.length === 0 ? `No Reviews`: average.toFixed(2)} </p>
             <div className="category-filter">
         <label
             htmlFor="searchProduct"
@@ -111,7 +111,7 @@ function handleCategory(category){
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
-            <option value="4">5</option>
+            <option value="4">4</option>
             <option value="5">5</option>
           </select>
 

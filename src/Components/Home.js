@@ -73,7 +73,7 @@ return (
         <div className="products">
           {filterProducts.map((product) => {
             return(
-                <div key={product.id} >
+                <div key={product.id} className="product-card" >
                     <Product product={product}/>
                 </div>
             )

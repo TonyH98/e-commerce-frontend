@@ -35,12 +35,12 @@ function Review({ review, handleDelete, handleEdit }) {
           {review.content}
           </ReadMore>
           </div>
-
-       
           </>
         )}
-        <button onClick={() => handleDelete(review.id)}>delete</button>
-        <button onClick = {toggleView}>edit this review</button>
+        <br></br>
+        <div className="review-btns">
+        <button  className="delete" onClick={() => handleDelete(review.id)}>delete</button> <button className="edit" onClick = {toggleView}>edit this review</button>
+        </div>
       </div>
     );
   }

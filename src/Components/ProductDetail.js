@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Reviews from "./Reviews";
 import ReadMore from "./ReadMore";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const API = process.env.REACT_APP_API_URL;
+
 
 
 
@@ -13,7 +15,7 @@ function ProductDetails(){
 
     const { id } = useParams();
     const [product , setProduct] = useState([])
-
+   
     
     useEffect(() => {
         axios
@@ -27,8 +29,9 @@ function ProductDetails(){
           });
       }, [id]);
 
-console.log(`${product.description}`)
-
+const notify = () => {
+  toast(`You added ${product.product_name} to your cart`)
+}
 
     return(
         <div>
@@ -59,8 +62,18 @@ console.log(`${product.description}`)
                 <p> By: {product.manufacturer}</p>
               </div>
           </section>
+          
           </div>
           <br></br>
+          <br></br>
+          <div className="cart">
+
+
+          <button className="cart-btns" onClick={notify}>Add to Cart</button>
+          <ToastContainer />
+
+          </div>
+     
         <Reviews/>
     </div>
     )
