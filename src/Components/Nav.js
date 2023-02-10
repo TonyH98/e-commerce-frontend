@@ -31,6 +31,11 @@ for(let i = 0 ; i < value.length; i++ ){
         <h2>
           <Link to="/favorites">Favorite Items</Link>
         </h2>
+
+      <Link to="/newProduct">
+        <button className="new-product">Create New Product</button>
+      </Link>
+
       </nav>
     )
 }

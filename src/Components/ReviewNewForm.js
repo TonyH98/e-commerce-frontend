@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
 function ReviewNewForm(){
-
+  const [product , setProduct] = useState([])
 
   let { id } = useParams();
 
@@ -18,6 +18,20 @@ function ReviewNewForm(){
     rating: "",
     product_id: id,
   });
+
+
+  useEffect(() => {
+    axios
+      .get(`${API}/products/${id}`)
+      .then((res) => {
+        setProduct(res.data);
+       
+      })
+      .catch((c) => {
+        console.warn("catch", c);
+      });
+  }, [id]);
+
 
 
       const handleAdd = (newReview) => {
@@ -39,7 +53,7 @@ function ReviewNewForm(){
       };
 
       
-
+console.log(product)
 
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -48,8 +62,8 @@ function ReviewNewForm(){
       };
 
     return(
-      <div className="Review-Form">
-        <h1>Review Form</h1>
+      <div className="new-form">
+        <h1>Review: {product.product_name}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="reviewer">Name:</label>
         <input
@@ -92,9 +106,7 @@ function ReviewNewForm(){
           placeholder="What do you think..."
           onChange={handleTextChange}
         />
-
         <br />
-
         <input type="submit" />
       </form>
       <Link to={`/products/${id}`}>
