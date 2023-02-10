@@ -40,22 +40,32 @@ function NewProducts(){
       };
 
 
+      const handleSelect = (event) => {
+        setProduct({...product, category: event.target.value })
+      }
+
       const handleSubmit = (event) => {
         event.preventDefault();
           addProduct(product);
       };
 
 
-    //   product_name: "",
-    //   release_date: "",
-    //   image: "",
-    //   description: "",
-    //   price: "",
-    //   category: "",
-    //   favorites: false,
-    //   manufacturer: ""
+    const category = ["Sports", "Books", "Video Games", "Anime/Manga", "Cloths", "Technology", "Toys", "Furniture", "Comics"]
 
     console.log(product)
+
+    // <label htmlFor="category">Category:</label>
+    // <select onChange={handleSelect}>
+    //   <option value=""></option>
+    //   {category.map((c) => {
+    //     return(
+    //       <option value={c}>{c}</option>
+    //     )
+    //   })} 
+    // </select>
+
+console.log(product)
+
 
     return (
        <div className="new-form">
@@ -98,14 +108,16 @@ function NewProducts(){
         required
         />
         <br></br>
-         <label htmlFor="category">Category:</label>
-        <input
-        id="category"
-        value={product.category}
-        type="text"
-        onChange={handleTextChange}
-        required
-        />
+        <label htmlFor="category">Category:</label>
+    <select onChange={handleSelect}>
+      <option value=""></option>
+      {category.map((c) => {
+        return(
+          <option value={c}>{c}</option>
+        )
+      })} 
+    </select>
+       
         <br></br>
         <label htmlFor="manufacturer">Manufacturer:</label>
         <input

@@ -243,7 +243,7 @@ input[type=submit] {
 }
 
 select {
-  width: 10%;
+  width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
