@@ -1,10 +1,5 @@
-import React, { useContext } from "react";
+
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useEffect, useState } from "react";
-
-
-
 
 function Favorite(props){
    return (

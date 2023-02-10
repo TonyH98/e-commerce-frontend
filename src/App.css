@@ -197,3 +197,15 @@ textarea {
   text-align: center;
 }
 
+
+.favorites-section{
+  text-align: left;
+  margin-left: 75px;
+}
+
+.favorites-btn{
+  border: none
+}
+.favorites-btn:hover{
+  cursor: pointer
+}

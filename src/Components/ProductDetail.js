@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { ProductContext } from "./Product-Context";
 import { FaBookmark } from "react-icons/fa"
 import { FaRegBookmark } from "react-icons/fa"
@@ -34,7 +34,7 @@ function ProductDetails(){
       }, [id]);
 
 
-      const {addToCart , getFavorite} = useContext(ProductContext)
+      const {addToCart} = useContext(ProductContext)
 
       const updateProduct = (updatedProduct, id) => {
         axios
@@ -42,6 +42,8 @@ function ProductDetails(){
           .then(() => navigate(`/products/${id}`))
           .catch(c => console.warn('catch', c));
     }
+
+
 
     const handleFavorite = () => {
       setFavorite(!favorite)
@@ -54,8 +56,11 @@ function ProductDetails(){
     }
 
 
-console.log(product)
 
+
+
+
+    
     return(
       
         <div>
@@ -91,10 +96,22 @@ console.log(product)
           </div>
           <br></br>
           <br></br>
+          <div className="favorites-section">
+          { 
+            favorite ? (
+              <>
+                <button onClick={handleFavorite} className="favorites-btn"> <FaBookmark size={25}/>  </button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleFavorite} className="favorites-btn">  <FaRegBookmark size={25}/> </button>
+              </>    
+              )
+            }
+          </div>
+          <br></br>
           <div className="cart">
-          <button className="favorite-btns" onClick={handleFavorite}>Add to Favorites</button>
-          <br></br>
-          <br></br>
+          
           <button className="cart-btns" onClick={() => addToCart(product.id)}>Add to Cart</button>
           
           </div>

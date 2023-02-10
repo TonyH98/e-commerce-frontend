@@ -33,7 +33,7 @@ function Reviews(){
                 return review.id === id;
               });
               copyReviewArray.splice(indexDeletedReview, 1);
-              setReviews(copyReviewArray);
+              setFilterReviews(copyReviewArray);
             },
             (error) => console.error(error)
           )
@@ -50,13 +50,13 @@ function Reviews(){
               return review.id === updatedReview.id;
             });
             copyReviewArray[indexUpdatedReview] = response.data;
-            setReviews(copyReviewArray);
+            setFilterReviews(copyReviewArray);
           })
           .catch((c) => console.warn("catch", c));
       };
     
 
-      const map = reviews.map((x) => {
+      const map = filterReviews.map((x) => {
         return x.rating
       })
 
@@ -76,7 +76,7 @@ function handleCategory(category){
 
       }  
       function filterScore(e){
-        const filter = filterReviews.filter((r) => r.rating === e.target.value);
+        const filter = reviews.filter((r) => r.rating === e.target.value);
         
     if (e.target.value === ""){
             handleCategory(reviews)

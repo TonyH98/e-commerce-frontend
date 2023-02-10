@@ -8,9 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function Product(props){
   const [reviews, setReviews] = useState([]);
-
-
-
+  
 
   useEffect(() => {
     axios.get(`${API}/products/${props.product.id}/reviews`)
@@ -40,6 +38,7 @@ average = average/ map.length
 
 
 const {addToCart} = useContext(ProductContext)
+
 
 
 
