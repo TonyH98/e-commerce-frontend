@@ -5,7 +5,7 @@ import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion"
 
 
 import { useState , useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useParams , Link } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL
@@ -71,6 +71,9 @@ function getByRating(data){
     return(
         <div>
             { reviews.length === 0 ? <h1>No Reviews Provided</h1> : <ReactFC {...chartConfigs} />}
+            <Link to={`/products/${id}`}>
+            <button>Go Back</button>
+            </Link>
         </div>
     )
 }

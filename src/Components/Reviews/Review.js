@@ -1,7 +1,7 @@
 import ReviewForm from "./ReviewEdit"
 import { useState } from "react";
 import { Link , useParams} from "react-router-dom";
-import ReadMore from "./ReadMore";
+import ReadMore from "../ReadMore";
 function Review({ review, handleDelete, handleEdit }) {
   const [hidden , setHidden] = useState(false)
 

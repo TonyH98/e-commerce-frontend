@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ProductContext } from "./Product-Context";
+import { ProductContext } from "../Product-Context";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

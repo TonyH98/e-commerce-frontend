@@ -7,7 +7,7 @@ import { FaBookmark } from "react-icons/fa"
 import { FaRegBookmark } from "react-icons/fa"
 
 
-import Reviews from "./Reviews";
+import Reviews from "./Reviews/Reviews";
 import ReadMore from "./ReadMore";
 
 import { ToastContainer, toast } from 'react-toastify';

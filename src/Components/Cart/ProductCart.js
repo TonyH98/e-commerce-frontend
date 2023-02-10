@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import CartItem from "./CartItem";
-import { ProductContext } from "./Product-Context";
+import { ProductContext } from "../Product-Context";
 import { ShoppingCart } from "phosphor-react";
 
 import axios from "axios";
