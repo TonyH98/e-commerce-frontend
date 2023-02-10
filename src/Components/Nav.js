@@ -28,6 +28,9 @@ for(let i = 0 ; i < value.length; i++ ){
         <ShoppingCart color="black" size={30}/>
         </Link>
         {sum}
+        <h2>
+          <Link to="/favorites">Favorite Items</Link>
+        </h2>
       </nav>
     )
 }

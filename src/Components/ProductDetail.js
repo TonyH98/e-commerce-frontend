@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { ProductContext } from "./Product-Context";
+import { FaBookmark } from "react-icons/fa"
+import { FaRegBookmark } from "react-icons/fa"
 import Reviews from "./Reviews";
 import ReadMore from "./ReadMore";
 
@@ -15,8 +17,10 @@ function ProductDetails(){
 
     const { id } = useParams();
     const [product , setProduct] = useState([])
-   
-    
+    const [favorite, setFavorite] = useState()
+    let navigate = useNavigate();
+
+
     useEffect(() => {
         axios
           .get(`${API}/products/${id}`)
@@ -30,9 +34,27 @@ function ProductDetails(){
       }, [id]);
 
 
+      const {addToCart , getFavorite} = useContext(ProductContext)
 
-const {addToCart} = useContext(ProductContext)
+      const updateProduct = (updatedProduct, id) => {
+        axios
+          .put(`${API}/products/${id}`, updatedProduct)
+          .then(() => navigate(`/products/${id}`))
+          .catch(c => console.warn('catch', c));
+    }
 
+    const handleFavorite = () => {
+      setFavorite(!favorite)
+  
+      const copyProduct = {...product}
+      copyProduct.favorites = !product.favorites
+      setProduct(copyProduct)
+      
+      updateProduct(copyProduct, id)
+    }
+
+
+console.log(product)
 
     return(
       
@@ -70,11 +92,11 @@ const {addToCart} = useContext(ProductContext)
           <br></br>
           <br></br>
           <div className="cart">
-
-
+          <button className="favorite-btns" onClick={handleFavorite}>Add to Favorites</button>
+          <br></br>
+          <br></br>
           <button className="cart-btns" onClick={() => addToCart(product.id)}>Add to Cart</button>
-      
-
+          
           </div>
      
         <Reviews/>

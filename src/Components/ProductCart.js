@@ -27,8 +27,6 @@ function ProductCart(){
       const every = value.every((x) => {
         return x == 0 
       })
-      
-      console.log(every)
 
 
     return(

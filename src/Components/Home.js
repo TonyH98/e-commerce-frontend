@@ -47,7 +47,7 @@ function Home(){
       }
       }
       
-      
+
 
 
 return (

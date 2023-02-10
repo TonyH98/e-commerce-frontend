@@ -29,14 +29,38 @@ const GetDefaultCart = () => {
   return cart;
 };
 
+let favorite = {}
+
+const GetFavorite = () => {
+  const [products , setProducts] = useState([])
 
 
+
+  useEffect(() => {
+    axios
+      .get(`${API}/products`)
+      .then((res) => {
+        setProducts(res.data);
+     
+      })
+      .catch((c) => console.warn("catch, c"));
+  }, []);
+
+
+  for (let i = 1; i < products.length + 1; i++) {
+    favorite[i] = false
+  }
+
+  return favorite;
+};
 
 
 export const ProductContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(GetDefaultCart());
 
+  const [getFavorite , setGetFavorite] = useState(GetFavorite())
   
+
   const TotalCart = () => {
     let total = 0;
 
@@ -68,7 +92,7 @@ export const ProductContextProvider = (props) => {
   };
 
   const removeCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]: Number(prev[itemId]) - 1 }));
   };
 
 
@@ -76,16 +100,23 @@ const updateCounter = (newAmount , itemId) => {
   setCartItems((prev) => ({...prev, [itemId]: newAmount}))
 }
  
-
+ const favoriteCart = (itemId) => {
+    setGetFavorite((prev) => ({ ...prev, [itemId]: !prev[itemId] }));
+  };
 
   const contextValue = {
     cartItems,
     addToCart,
    removeCart,
    updateCounter,
-   TotalCart
+   TotalCart,
+   favoriteCart,
+   getFavorite
   };
 
+
+
+  console.log(getFavorite)
 
   return (
     <ProductContext.Provider value={contextValue}>

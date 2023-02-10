@@ -41,6 +41,8 @@ average = average/ map.length
 
 const {addToCart} = useContext(ProductContext)
 
+
+
     return(
         <section>
         <div>
