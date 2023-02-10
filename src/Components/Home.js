@@ -22,14 +22,6 @@ function Home(){
           .catch((c) => console.warn("catch, c"));
       }, []);
 
-
-      const map = products.map((x) => {
-        return x.category
-      })
-      
-      const category = [...new Set(map)]
-      
-      
       
       function handleCategory(category){
         setFilterProducts(category)
@@ -48,7 +40,7 @@ function Home(){
       }
       
 
-
+      const category = ["Sports", "Books", "Video Games", "Anime/Manga", "Cloths", "Technology", "Toys", "Furniture", "Comics"]
 
 return (
     <article className="">
