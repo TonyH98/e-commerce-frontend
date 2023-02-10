@@ -19,6 +19,7 @@ ReactFC.fcRoot(FusionCharts, pie2D, FusionTheme);
 
 function ReviewChart(){
      const [reviews , setReviews] = useState([])
+     const [product , setProduct] = useState([])
 
 const {id} = useParams()
 
@@ -28,6 +29,20 @@ const {id} = useParams()
         .then((res) => setReviews(res.data))
         .catch(err => console.log(err))
       }, [])
+
+
+      useEffect(() => {
+        axios
+          .get(`${API}/products/${id}`)
+          .then((res) => {
+            setProduct(res.data);
+           
+          })
+          .catch((c) => {
+            console.warn("catch", c);
+          });
+      }, [id]);
+
 
 
 function getByRating(data){
@@ -48,7 +63,7 @@ function getByRating(data){
       dataFormat: "json", 
       dataSource: {
         chart: {
-          caption: "Products Reviews",    
+          caption: `${product.product_name} Reviews`,    
           xAxisName: "Rating",
           yAxisName: "Number of Reviews",
           
