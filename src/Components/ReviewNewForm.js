@@ -48,7 +48,8 @@ function ReviewNewForm(){
       };
 
     return(
-      <div className="Edit">
+      <div className="Review-Form">
+        <h1>Review Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="reviewer">Name:</label>
         <input
@@ -59,6 +60,7 @@ function ReviewNewForm(){
           placeholder="Your name"
           required
         />
+        <br></br>
         <label htmlFor="title">Title:</label>
         <input
           id="title"
@@ -67,6 +69,7 @@ function ReviewNewForm(){
           value={review.title}
           onChange={handleTextChange}
         />
+        <br></br>
         <label htmlFor="rating">Rating:</label>
         <input
           id="rating"
@@ -78,6 +81,8 @@ function ReviewNewForm(){
           value={review.rating}
           onChange={handleTextChange}
         />
+        <br></br>
+        <br></br>
         <label htmlFor="content">Review:</label>
         <textarea
           id="content"

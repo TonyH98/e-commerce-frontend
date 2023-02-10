@@ -5,9 +5,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ProductContext } from "./Product-Context";
 import { FaBookmark } from "react-icons/fa"
 import { FaRegBookmark } from "react-icons/fa"
+
+
 import Reviews from "./Reviews";
 import ReadMore from "./ReadMore";
 
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const API = process.env.REACT_APP_API_URL;
 
 
@@ -54,13 +58,15 @@ function ProductDetails(){
       
       updateProduct(copyProduct, id)
     }
+    const notify = () => toast(`You added ${product.product_name} to your cart`);
+
+   function handleClick(){
+      notify()
+      addToCart(product.id)
+    }
 
 
-
-
-
-
-    
+ 
     return(
       
         <div>
@@ -100,11 +106,13 @@ function ProductDetails(){
           { 
             favorite ? (
               <>
-                <button onClick={handleFavorite} className="favorites-btn"> <FaBookmark size={25}/>  </button>
+              <button onClick={handleFavorite} className="favorites-btn"> <FaBookmark size={25}/>  </button>
+      
               </>
             ) : (
               <>
-                <button onClick={handleFavorite} className="favorites-btn">  <FaRegBookmark size={25}/> </button>
+                <button onClick={ handleFavorite } className="favorites-btn">  <FaRegBookmark size={25}/> </button>
+ 
               </>    
               )
             }
@@ -112,8 +120,8 @@ function ProductDetails(){
           <br></br>
           <div className="cart">
           
-          <button className="cart-btns" onClick={() => addToCart(product.id)}>Add to Cart</button>
-          
+          <button className="cart-btns" onClick={() => handleClick()}>Add to Cart</button>
+          <ToastContainer />
           </div>
      
         <Reviews/>
