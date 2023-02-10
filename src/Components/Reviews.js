@@ -86,12 +86,6 @@ function handleCategory(category){
       }
       }
 
-
-
-
-
-
-
       return (
         <section className="Reviews">
           <h2>Reviews</h2>
@@ -99,6 +93,9 @@ function handleCategory(category){
             <h2>Customer Reviews</h2>
             <p>Global Review Number: {map.length}</p>
             <p>Average Score: {map.length === 0 ? `No Reviews`: average.toFixed(2)} </p>
+            <Link to={`/products/${id}/reviews/chart`}>
+            Review Statistics
+            </Link>
             <div className="category-filter">
         <label
             htmlFor="searchProduct"

@@ -8,6 +8,7 @@ import ReviewDetails from "./Components/ReviewDetails";
 import ProductCart from "./Components/ProductCart";
 import FavoriteProduct from "./Components/FavoriteProduct";
 import NewProducts from "./Components/NewProducts";
+import ReviewChart from "./Components/ReviewChart";
 import { ProductContextProvider } from "./Components/Product-Context";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/cart" element={<ProductCart/>}/>
           <Route path="/favorites" element={<FavoriteProduct/>}/>
           <Route path="/newProduct" element={<NewProducts/>}/>
+          <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
           </Routes>
         </main>
       </Router>
