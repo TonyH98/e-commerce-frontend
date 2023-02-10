@@ -35,9 +35,11 @@ const {addToCart} = useContext(ProductContext)
 
 
     return(
+      
         <div>
           <div className="product-details">
           <div className="image-container">
+       <br></br>
             <img 
                 src={product.image} 
                 className="image"

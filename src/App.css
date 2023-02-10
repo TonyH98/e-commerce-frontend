@@ -192,3 +192,8 @@ textarea {
   grid-row-gap: 25px;
 }
 
+.count-number{
+  width: 30px;
+  text-align: center;
+}
+

@@ -39,7 +39,13 @@ function CartItem(props){
 average = average/ map.length  
 
 
-const {addToCart} = useContext(ProductContext)
+const { cartItems, addToCart, removeCart, updateCounter, TotalCart} = useContext(ProductContext)
+
+
+
+console.log(TotalCart)
+
+
 
     return(
         <section>
@@ -59,6 +65,17 @@ const {addToCart} = useContext(ProductContext)
           <p>Average Review: {map.length === 0 ? `No Reviews` : average.toFixed(2)}</p>
           </div>
         </div>
+      <div className="product-count">
+        <button onClick={() => removeCart(props.product.id)}>-</button>
+        <input 
+        onChange={((e) => updateCounter(Number(e.target.value), props.product.id))}
+        value={cartItems[props.product.id]} 
+        className="count-number"/>
+        <button onClick={() => addToCart(props.product.id)}>+</button>
+      </div>
+      <div>
+        <p>Subtotal: ${TotalCart}</p>
+      </div>
       </section>
     )
 }

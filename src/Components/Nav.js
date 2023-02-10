@@ -17,7 +17,7 @@ for(let i = 0 ; i < value.length; i++ ){
   sum += value[i]
 }
 
-console.log(sum)
+
 
     return(
         <nav className="Navigation">

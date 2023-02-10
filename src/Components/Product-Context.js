@@ -29,28 +29,65 @@ const GetDefaultCart = () => {
   return cart;
 };
 
+
+
+
+
 export const ProductContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(GetDefaultCart());
 
   
+  const TotalCart = () => {
+    let total = 0
+    const [products , setProducts] = useState([])
+
+
+    useEffect(() => {
+      axios
+        .get(`${API}/products`)
+        .then((res) => {
+          setProducts(res.data);
+       
+        })
+        .catch((c) => console.warn("catch, c"));
+    }, []);
+
+
+    for(let item in cartItems){
+      if(cartItems[item] > 0){
+        let itemInfo = products.find((p) => 
+          p.id === Number(item)
+        )
+        total += (cartItems[item] * itemInfo.price)
+      }
+    }
+    return total
+
+  }
+
+
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: Number(prev[itemId]) + 1 }));
   };
 
-  const removeFromCart = (itemId) => {
+  const removeCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
 
-
+const updateCounter = (newAmount , itemId) => {
+  setCartItems((prev) => ({...prev, [itemId]: newAmount}))
+}
  
-  console.log(cartItems)
+
 
   const contextValue = {
     cartItems,
     addToCart,
-   removeFromCart
+   removeCart,
+   updateCounter,
+   TotalCart
   };
 
 
