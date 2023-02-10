@@ -38,9 +38,9 @@ export const ProductContextProvider = (props) => {
 
   
   const TotalCart = () => {
-    let total = 0
-    const [products , setProducts] = useState([])
+    let total = 0;
 
+    const [products , setProducts] = useState([])
 
     useEffect(() => {
       axios
@@ -53,18 +53,14 @@ export const ProductContextProvider = (props) => {
     }, []);
 
 
-    for(let item in cartItems){
-      if(cartItems[item] > 0){
-        let itemInfo = products.find((p) => 
-          p.id === Number(item)
-        )
-        total += (cartItems[item] * itemInfo.price)
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = products.find((product) => product.id === Number(item));
+        total += cartItems[item] * itemInfo.price;
       }
     }
-    return total
-
-  }
-
+    return total;
+  };
 
 
   const addToCart = (itemId) => {

@@ -39,16 +39,21 @@ function CartItem(props){
 average = average/ map.length  
 
 
-const { cartItems, addToCart, removeCart, updateCounter, TotalCart} = useContext(ProductContext)
+const { cartItems, addToCart, removeCart, updateCounter  } = useContext(ProductContext)
 
 
+const value = Object.values(cartItems)
+    
+const every = value.every((x) => {
+  return x == 0 
+})
 
-console.log(TotalCart)
-
+console.log(every)
 
 
     return(
         <section>
+       
         <div>
           <Link to={`/products/${props.product.id}`}>
             <img
@@ -72,9 +77,6 @@ console.log(TotalCart)
         value={cartItems[props.product.id]} 
         className="count-number"/>
         <button onClick={() => addToCart(props.product.id)}>+</button>
-      </div>
-      <div>
-        <p>Subtotal: ${TotalCart}</p>
       </div>
       </section>
     )
