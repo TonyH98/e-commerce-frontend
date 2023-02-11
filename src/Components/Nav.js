@@ -21,20 +21,39 @@ for(let i = 0 ; i < value.length; i++ ){
 
     return(
         <nav className="Navigation">
+
         <h1 className="home-page-link">
           <Link to="/">E-Commerce App</Link>
         </h1>
+
+
+
+
+
+
+      <div className="dropdown">
+        <button className="dropbtn"> Items </button>
+        <div className="items">
+
+          <div>
         <Link to="/cart">
         <ShoppingCart color="black" size={30}/>
-        </Link>
         {sum}
-        <h2>
-          <Link to="/favorites">Favorite Items</Link>
-        </h2>
+        </Link>
+          </div>
 
+        <h3>
+          <Link to="/favorites">Favorite Items</Link>
+        </h3>
+
+      <div className="link-new">
       <Link to="/newProduct">
-        <button className="new-product">Create New Product</button>
+        <h3> Create New Product </h3>
       </Link>
+      </div>
+
+        </div>
+      </div>
 
       </nav>
     )
