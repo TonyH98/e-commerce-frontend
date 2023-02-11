@@ -39,8 +39,9 @@
 
 
 .images{
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 180px;
+  margin-top: 5px;
 }
 
 
@@ -154,14 +155,15 @@ textarea {
     margin: auto;
     text-align: center;
     font-family: arial;
-    background-color: rgb(194, 241, 241);
+    color: white;
+    background-color: rgb(19, 26, 26);
 
 }
 
 .product-card:hover{
-  -ms-transform: scale(1.3); /* IE 9 */
-  -webkit-transform: scale(1.3); /* Safari 3-8 */
-  transform: scale(1.2); 
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
 }
 
 
