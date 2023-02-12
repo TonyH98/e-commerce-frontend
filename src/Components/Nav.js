@@ -1,22 +1,40 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { ShoppingCart } from "phosphor-react";
-import { ProductContext } from "./Product-Context";
 
+import { Link } from "react-router-dom";
+import { ShoppingCart, X } from "phosphor-react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+
+
+const API = process.env.REACT_APP_API_URL;
 
 function Nav(){
 
-const {cartItems} = useContext(ProductContext)
 
-const value = Object.values(cartItems)
+  const [products , setProducts] = useState([])
+  
+  useEffect(() => {
+    axios
+      .get(`${API}/products`)
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((c) => console.warn("catch, c"));
+  }, []);
 
-let sum = 0 
 
-for(let i = 0 ; i < value.length; i++ ){
-  sum += value[i]
+  
+  const map = products.map((x) => {
+    return(
+      x.cart_counter
+      )
+    })
+    
+    let sum = 0
+
+for(let i = 0 ; i < map.length; i++){
+  sum += map[i]
 }
-
-
 
     return(
         <nav className="Navigation">
@@ -26,11 +44,6 @@ for(let i = 0 ; i < value.length; i++ ){
           <img src="/logo192.png" width="40"/> React Commerce
           </Link>
         </h1>
-
-
-
-
-
 
       <div className="dropdown">
         <button className="dropbtn"> User </button>

@@ -1,14 +1,17 @@
-import React, { useContext } from "react";
+
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
-import { ProductContext } from "../Product-Context";
-import { ShoppingCart } from "phosphor-react";
+
 
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 function ProductCart(){
     const [products , setProducts] = useState([])
+
+  let navigate = useNavigate()
+
 
     useEffect(() => {
         axios
@@ -19,39 +22,38 @@ function ProductCart(){
           .catch((c) => console.warn("catch, c"));
       }, []);
 
-      const {cartItems} = useContext(ProductContext)
 
+      const handleEdit = (updatedCart) => {
+        axios
+          .put(`${API}/products/${updatedCart.id}`, updatedCart)
+          .then((response) => {
+            const copyCartArray = [...products];
+            const indexUpdatedCart = copyCartArray.findIndex((cart) => {
+              return cart.id === updatedCart.id;
+            });
+            copyCartArray[indexUpdatedCart] = response.data;
+            setProducts(copyCartArray);
+          })
+          .then(() => {
+            navigate(`/cart`)
+          })
+          .catch((c) => console.warn("catch", c));
+      };
       
-      const value = Object.values(cartItems)
-    
-      const every = value.every((x) => {
-        return x == 0 
-      })
-
-
+   
     return(
         <div>
             <div>
             <h1>Your Cart Items</h1>
             </div>
-              {every ? 
-              <div>
-              <ShoppingCart color="black" size={100}/>
-                <div style={{fontWeight: "bold"}}>
-
-              Your cart is empy
-                </div>
-              </div>
-              :
-              (
-                
+             
                 <div className="products-cart">
 
                   {products.map((product) => {
-                   if(cartItems[product.id] !==0){
+                   if(product.cart_counter !== 0 ){
                     return(
                       <div key={product.id} className="product-card">
-                        <CartItem product={product}/>
+                        <CartItem product={product} handleEdit={handleEdit}/>
                 
                   </div>
                     )
@@ -59,8 +61,8 @@ function ProductCart(){
         
                   })}
                 </div>
-              )
-              }
+            
+            
         
         </div>
     )

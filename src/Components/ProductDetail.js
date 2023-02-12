@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useContext } from "react";
+
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ProductContext } from "./Product-Context";
+
 import { FaBookmark } from "react-icons/fa"
 import { FaRegBookmark } from "react-icons/fa"
 
@@ -38,8 +38,6 @@ function ProductDetails(){
       }, [id]);
 
 
-      const {addToCart} = useContext(ProductContext)
-
       const updateProduct = (updatedProduct, id) => {
         axios
           .put(`${API}/products/${id}`, updatedProduct)
@@ -72,20 +70,15 @@ function handleCart(){
   let copyCart = {...product}
 
   
-  // setProduct({...copyCart, cart_counter: copyCart.cart_counter + 1})
+  
   
   copyCart.cart_counter = ( product.cart_counter + 1 )
 
   setProduct(copyCart)
   
   updateProduct(copyCart , id)
-
+notify()
 }
-
-  //  function handleClick(){
-  //     notify()
-  //     addToCart(product.id)
-  //   }
 
 
 console.log(product.cart_counter)
@@ -143,7 +136,7 @@ console.log(product.cart_counter)
           <br></br>
           <div className="cart">
           
-          <button className="cart-btns" onClick={handleCart}>Add to Cart</button>
+          <button className="cart-btns" onClick={() => handleCart()}>Add to Cart</button>
           <ToastContainer />
           </div>
      

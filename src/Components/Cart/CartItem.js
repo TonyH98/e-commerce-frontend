@@ -1,16 +1,12 @@
-import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ProductContext } from "../Product-Context";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const API = process.env.REACT_APP_API_URL;
 
 function CartItem(props){
+
   const [reviews, setReviews] = useState([]);
-
-
-
 
   useEffect(() => {
     axios.get(`${API}/products/${props.product.id}/reviews`)
@@ -19,7 +15,6 @@ function CartItem(props){
       
     });
   }, []);
-
 
   const map = reviews.map((x) => {
     return x.rating
@@ -39,16 +34,17 @@ function CartItem(props){
 average = average/ map.length  
 
 
-const { cartItems, addToCart, removeCart, updateCounter  } = useContext(ProductContext)
 
 
-const value = Object.values(cartItems)
-    
-const every = value.every((x) => {
-  return x == 0 
-})
+const cartIncrease = (event) => {
+ 
 
-console.log(every)
+  
+  props.handleEdit({ ...props.product, [event.target.id]: Number(event.target.value) })
+};
+
+
+
 
 
     return(
@@ -70,14 +66,16 @@ console.log(every)
           <p>Average Review: {map.length === 0 ? `No Reviews` : average.toFixed(2)}</p>
           </div>
         </div>
-      <div className="product-count">
-        <button onClick={() => removeCart(props.product.id)}>-</button>
+     
+       
         <input 
-        onChange={((e) => updateCounter(Number(e.target.value), props.product.id))}
-        value={cartItems[props.product.id]} 
-        className="count-number"/>
-        <button onClick={() => addToCart(props.product.id)}>+</button>
-      </div>
+        id="cart_counter"
+        type="number"
+        value={props.product.cart_counter} 
+        onChange={cartIncrease}
+        className="count-number"
+        />
+   
       </section>
     )
 }
