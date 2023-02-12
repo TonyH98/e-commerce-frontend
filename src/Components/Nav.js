@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 import { ProductContext } from "./Product-Context";
@@ -23,7 +22,9 @@ for(let i = 0 ; i < value.length; i++ ){
         <nav className="Navigation">
 
         <h1 className="home-page-link">
-          <Link to="/">E-Commerce App</Link>
+          <Link to="/">
+          <img src="/logo192.png" width="40"/> React Commerce
+          </Link>
         </h1>
 
 
@@ -32,7 +33,7 @@ for(let i = 0 ; i < value.length; i++ ){
 
 
       <div className="dropdown">
-        <button className="dropbtn"> Items </button>
+        <button className="dropbtn"> User </button>
         <div className="items">
 
           <div>

@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Home from "./Components/Home"
 import Nav from "./Components/Nav"
 import ProductDetails from "./Components/ProductDetail"
@@ -11,11 +13,25 @@ import NewProducts from "./Components/NewProducts";
 import ReviewChart from "./Components/Reviews/ReviewChart"
 import { ProductContextProvider } from "./Components/Product-Context";
 
+
+
+const API = process.env.REACT_APP_API_URL;
+
 function App() {
+  const [products , setProducts] = useState([])
 
-
+  useEffect(() => {
+    axios
+      .get(`${API}/products`)
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((c) => console.warn("catch, c"));
+  }, []);
 
   
+
+
   return (
     <div className="App">
 <ProductContextProvider>

@@ -21,7 +21,7 @@ function ProductDetails(){
 
     const { id } = useParams();
     const [product , setProduct] = useState([])
-    const [favorite, setFavorite] = useState()
+
     let navigate = useNavigate();
 
 
@@ -50,22 +50,45 @@ function ProductDetails(){
 
 
     const handleFavorite = () => {
-      setFavorite(!favorite)
-  
+      
       const copyProduct = {...product}
+
       copyProduct.favorites = !product.favorites
+
       setProduct(copyProduct)
       
+ 
+
       updateProduct(copyProduct, id)
     }
+
+
     const notify = () => toast(`You added ${product.product_name} to your cart`);
 
-   function handleClick(){
-      notify()
-      addToCart(product.id)
-    }
 
 
+function handleCart(){
+
+  let copyCart = {...product}
+
+  
+  // setProduct({...copyCart, cart_counter: copyCart.cart_counter + 1})
+  
+  copyCart.cart_counter = ( product.cart_counter + 1 )
+
+  setProduct(copyCart)
+  
+  updateProduct(copyCart , id)
+
+}
+
+  //  function handleClick(){
+  //     notify()
+  //     addToCart(product.id)
+  //   }
+
+
+console.log(product.cart_counter)
  
     return(
       
@@ -104,7 +127,7 @@ function ProductDetails(){
           <br></br>
           <div className="favorites-section">
           { 
-            favorite ? (
+            product.favorites ? (
               <>
               <button onClick={handleFavorite} className="favorites-btn"> <FaBookmark size={25}/>  </button>
       
@@ -120,7 +143,7 @@ function ProductDetails(){
           <br></br>
           <div className="cart">
           
-          <button className="cart-btns" onClick={() => handleClick()}>Add to Cart</button>
+          <button className="cart-btns" onClick={handleCart}>Add to Cart</button>
           <ToastContainer />
           </div>
      

@@ -23,6 +23,7 @@ function Home(){
       }, []);
 
       
+      
       function handleCategory(category){
         setFilterProducts(category)
 
@@ -40,7 +41,8 @@ function Home(){
       }
       
 
-      const category = ["Sports", "Books", "Video Games", "Anime/Manga", "Cloths", "Technology", "Toys", "Furniture", "Comics"]
+ const category = ["Sports", "Books", "Video Games", "Anime/Manga", "Cloths", "Technology", "Toys", "Furniture", "Comics"]
+
 
 return (
     <article className="">
