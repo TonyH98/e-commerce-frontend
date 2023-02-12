@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ProductContext } from "./Product-Context";
 import axios from "axios";
@@ -37,9 +36,6 @@ function Product(props){
 average = average/ map.length  
 
 
-const {addToCart} = useContext(ProductContext)
-
-
 
 
     return(
@@ -60,7 +56,7 @@ const {addToCart} = useContext(ProductContext)
           <p>Average Review: {map.length === 0 ? `No Reviews` : average.toFixed(2)}</p>
           </div>
         </div>
-        <button className="cart-btns" onClick={() => addToCart(props.product.id)}>Add to Cart</button>
+
       </section>
     )
 }

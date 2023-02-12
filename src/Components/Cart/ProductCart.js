@@ -40,6 +40,24 @@ function ProductCart(){
           .catch((c) => console.warn("catch", c));
       };
       
+const map = products.map((x) => {
+  if(x.cart_counter !== 0 ){
+    return Number((x.cart_counter * x.price).toFixed(2))
+  }
+  else{
+    return 0
+  }
+})
+
+
+let sum = 0
+
+for(let i = 0 ; i <map.length; i++){
+  sum += map[i]
+}
+
+console.log(sum)
+
    
     return(
         <div>
@@ -61,7 +79,11 @@ function ProductCart(){
         
                   })}
                 </div>
-            
+                <br></br>
+                <br></br>
+            <div className="subtotal">
+              <h2>Subtotal: ${sum}</h2>
+            </div>
             
         
         </div>

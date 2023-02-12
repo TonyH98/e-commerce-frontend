@@ -1,40 +1,10 @@
 
 import { Link } from "react-router-dom";
-import { ShoppingCart, X } from "phosphor-react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-
-
-
-const API = process.env.REACT_APP_API_URL;
+import { ShoppingCart} from "phosphor-react";
 
 function Nav(){
 
 
-  const [products , setProducts] = useState([])
-  
-  useEffect(() => {
-    axios
-      .get(`${API}/products`)
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((c) => console.warn("catch, c"));
-  }, []);
-
-
-  
-  const map = products.map((x) => {
-    return(
-      x.cart_counter
-      )
-    })
-    
-    let sum = 0
-
-for(let i = 0 ; i < map.length; i++){
-  sum += map[i]
-}
 
     return(
         <nav className="Navigation">
@@ -52,7 +22,6 @@ for(let i = 0 ; i < map.length; i++){
           <div>
         <Link to="/cart">
         <ShoppingCart color="black" size={30}/>
-        {sum}
         </Link>
           </div>
 

@@ -86,6 +86,7 @@ function handleCategory(category){
       }
       }
 
+      
       return (
         <section className="Reviews">
           <h2>Reviews</h2>
