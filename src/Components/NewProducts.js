@@ -50,7 +50,7 @@ function NewProducts(){
       };
 
 
-    const category = ["Sports", "Books", "Video Games", "Anime/Manga", "Cloths", "Technology", "Toys", "Furniture", "Comics"]
+      const category = ["Books", "Video Games", "Anime/Manga","Comics"]
 
     console.log(product)
 

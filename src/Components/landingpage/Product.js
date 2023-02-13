@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ProductContext } from "./Product-Context";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -39,8 +39,9 @@ average = average/ map.length
 
 
     return(
-        <section>
-        <div>
+        <div className="landing-products">
+
+          <div>
           <Link to={`/products/${props.product.id}`}>
             <img
               src={props.product.image}
@@ -48,20 +49,17 @@ average = average/ map.length
               className="images"
             ></img>
           </Link>
-          <div>
-          <h5 className="product-name">
-            <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
-          </h5>
-          <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price}
-          <p>Average Review: {map.length === 0 ? `No Reviews` : average.toFixed(2)}</p>
           </div>
-          {props.product.favorites ? 
-          <>
-          ⭐
-          </> : null}
+
+          <div>
+          <h1 className="product-name">
+            <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
+          </h1>
+          <p style={{fontWeight: "bold", fontSize: "25px"}}>{props.product.description}</p>
+          <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price}
+          </div>  
         </div>
 
-      </section>
     )
 }
 

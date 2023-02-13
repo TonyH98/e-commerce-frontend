@@ -8,12 +8,35 @@ function Nav(){
 
     return(
         <nav className="Navigation">
+         
 
         <h1 className="home-page-link">
           <Link to="/">
           <img src="/logo192.png" width="40"/> React Commerce
           </Link>
         </h1>
+  
+
+      <div className="Nav-Category">
+
+        <Link to="/books">
+        <div className="product-category">Books</div>
+        </Link>
+
+        <Link to="/videogames">
+        <div className="product-category">Video Games</div>
+        </Link>
+
+        <Link to="/mangas">
+        <div className="product-category">Anime/Manga</div>
+        </Link>
+
+        <Link to="comics">
+        <div className="product-category">Comics</div>
+        </Link>
+
+      </div>
+
 
       <div className="dropdown">
         <button className="dropbtn"> User </button>
