@@ -55,6 +55,10 @@ average = average/ map.length
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price}
           <p>Average Review: {map.length === 0 ? `No Reviews` : average.toFixed(2)}</p>
           </div>
+          {props.product.favorites ? 
+          <>
+          ⭐
+          </> : null}
         </div>
 
       </section>

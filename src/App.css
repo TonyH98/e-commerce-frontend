@@ -270,3 +270,8 @@ select {
   cursor: pointer;
 }
 
+
+.cart-details{
+  display: grid;
+  grid-template-columns: repeat(2, 34%);
+}

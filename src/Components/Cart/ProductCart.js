@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
-
+import { ShoppingCart} from "phosphor-react";
 
 import axios from "axios";
 
@@ -56,7 +56,15 @@ for(let i = 0 ; i <map.length; i++){
   sum += map[i]
 }
 
-console.log(sum)
+const cartCounter = products.map((x) => { 
+ return Number(x.cart_counter * x.price)
+})
+
+
+const every = cartCounter.every((x) => {
+  return x === 0 
+})
+
 
    
     return(
@@ -64,7 +72,23 @@ console.log(sum)
             <div>
             <h1>Your Cart Items</h1>
             </div>
-             
+
+             <br></br>
+             <br></br>
+
+            {every ? (
+                <div>
+            
+                    <ShoppingCart color="black" size={100}/>
+              
+                No Item in Cart
+
+            
+                </div>
+            ) : (
+             <section className="cart-details">
+
+
                 <div className="products-cart">
 
                   {products.map((product) => {
@@ -79,15 +103,24 @@ console.log(sum)
         
                   })}
                 </div>
-                <br></br>
-                <br></br>
             <div className="subtotal">
-              <h2>Subtotal: ${sum}</h2>
+
+              <h2>Subtotal: ${sum.toFixed(2)}</h2>
+
+                  <br></br>
+                  <br></br>
+              <button  className="cart-btns">Checkout</button>
+         
             </div>
-            
+     
+             </section>
+              
+            )}
         
         </div>
     )
 }
 
 export default ProductCart
+
+
