@@ -41,7 +41,7 @@ function App() {
         <Nav/>
         <main>
           <Routes>
-          <Route path="/" element={<Home products={products}/>} />
+          <Route path="/" element={<Home setProducts={setProducts} products={products}/>} />
           <Route path="/products/:id" element={<ProductDetails/>}/>
           <Route path="/products/:id/new" element={<ReviewNewForm/>}/>
           <Route path="/products/:id/reviews/:id" element={<ReviewDetails/>}/>

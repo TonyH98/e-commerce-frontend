@@ -1,20 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
-
+import axios from "axios";
 import Product from "./Product"
 
 
-
+const API = process.env.REACT_APP_API_URL;
 
 const pageData = 1
 
-function Home({products}){
+function Home({products , setProducts}){
 
 
   const [currentPage, setCurrentPage] = useState(0)
 
   const copy = [...products]
+
+let navigate = useNavigate()
 
       
 const filter = copy.filter((product) => {
@@ -30,16 +33,34 @@ function handlePageChange ({selected: selectedPage}){
 
 const offSet = currentPage * pageData
 
+
+
+const handleEdit = (updatedCart) => {
+  axios
+  .put(`${API}/products/${updatedCart.id}`, updatedCart)
+  .then((response) => {
+    const copyCartArray = [...products];
+    const indexUpdatedCart = copyCartArray.findIndex((cart) => {
+      return cart.id === updatedCart.id;
+    });
+    copyCartArray[indexUpdatedCart] = response.data;
+    setProducts(copyCartArray);
+  })
+  .then(() => {
+    navigate(`/`)
+  })
+  .catch((c) => console.warn("catch", c));
+};
+
+
+
 const currentPageData = filter
 .slice(offSet, offSet + pageData)
  .map((product , index) => <Product
-  key={index} product={product} index={index}/>)
+  key={index} product={product} index={index} handleEdit={handleEdit}/>)
 
 
   const pageCount =  Math.ceil(filter.length/pageData) 
-
- const category = ["Books", "Video Games", "Anime/Manga","Comics"]
-
 
 return (
     <article className="landing-page">

@@ -81,7 +81,8 @@ notify()
 }
 
 
-console.log(product.cart_counter)
+
+
  
     return(
       

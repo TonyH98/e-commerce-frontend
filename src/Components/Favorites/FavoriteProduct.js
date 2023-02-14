@@ -24,7 +24,7 @@ function FavoriteProduct(){
             <div>
             <h1>Your Favorite Items</h1>
             </div>
-                <div className="products">
+                <div className="product-card favorite-card">
                   {products.map((product) => {
                     if(product.favorites){
                         return(

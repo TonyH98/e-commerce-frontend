@@ -11,7 +11,7 @@ function Favorite(props){
         <img
           src={props.product.image}
           alt={props.product.product_name}
-          className="images"
+          className="favorite-images"
         ></img>
       </Link>
       <div>

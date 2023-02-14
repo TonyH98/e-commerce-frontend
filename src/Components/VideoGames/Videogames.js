@@ -14,11 +14,12 @@ function Videogames({products}){
 
     return(
         <div>
+            <br></br>
         <br></br>
     <div className="product-card">
         {games.map((game) => {
             return(
-                <div key={game.id}>
+                <div key={game.id} className="product">
                     <Videogame game={game}/>
                 </div>
             )

@@ -15,6 +15,7 @@ function NewProducts(){
         price: "",
         category: "",
         favorites: false,
+        cart_counter: 0,
         manufacturer: ""
     })
 
@@ -51,22 +52,7 @@ function NewProducts(){
 
 
       const category = ["Books", "Video Games", "Anime/Manga","Comics"]
-
-    console.log(product)
-
-    // <label htmlFor="category">Category:</label>
-    // <select onChange={handleSelect}>
-    //   <option value=""></option>
-    //   {category.map((c) => {
-    //     return(
-    //       <option value={c}>{c}</option>
-    //     )
-    //   })} 
-    // </select>
-
-console.log(product)
-
-
+ 
     return (
        <div className="new-form">
         <h1>Create New Product</h1>
