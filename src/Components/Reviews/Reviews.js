@@ -71,20 +71,20 @@ function Reviews(){
 
  
 
-function handleCategory(category){
-        setFilterReviews(category)
+// function handleCategory(category){
+//         setFilterReviews(category)
 
-      }  
-      function filterScore(e){
-        const filter = reviews.filter((r) => r.rating === e.target.value);
+//       }  
+//       function filterScore(e){
+//         const filter = reviews.filter((r) => r.rating === e.target.value);
         
-    if (e.target.value === ""){
-            handleCategory(reviews)
-          }
-    else{
-       handleCategory(filter)
-      }
-      }
+//     if (e.target.value === ""){
+//             handleCategory(reviews)
+//           }
+//     else{
+//        handleCategory(filter)
+//       }
+//       }
 
       
       return (
@@ -97,7 +97,7 @@ function handleCategory(category){
             <Link to={`/products/${id}/reviews/chart`}>
             Review Statistics
             </Link>
-            <div className="category-filter">
+            {/* <div className="category-filter">
         <label
             htmlFor="searchProduct"
           >
@@ -113,7 +113,7 @@ function handleCategory(category){
             <option value="5">5</option>
           </select>
 
-        </div>
+        </div> */}
 
 
           </div>

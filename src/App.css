@@ -169,13 +169,14 @@ textarea {
 
 .cart-images{
   width:100px;
-  height: 100px
+  height: 125px
 }
 
 .products-cart{
   display: grid;
   grid-template-columns: repeat(2, 300px);
   grid-row-gap: 25px;
+ 
 }
 
 .count-number{
