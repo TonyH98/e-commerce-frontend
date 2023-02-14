@@ -81,7 +81,7 @@ notify()
 }
 
 
-
+const date = new Date(product.release_date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"2-digit"})
 
  
     return(
@@ -98,10 +98,7 @@ notify()
           </div>
           <section className="info">
               <div>
-                  <h1>
-                    {product.product_name}
-                  </h1>
-                  
+                 <p style={{fontSize:"30px"}}> {product.product_name},  <span style={{fontSize: "15px" , color: "gray"}}>{date}</span></p> 
               </div>
               <div>
                 <p>

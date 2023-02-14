@@ -1,6 +1,25 @@
 import Videogame from "./Videogame"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function Videogames({products}){
+const API = process.env.REACT_APP_API_URL;
+
+
+function Videogames(){
+
+    const [products , setProducts] = useState([])
+
+    useEffect(() => {
+      axios
+        .get(`${API}/products`)
+        .then((res) => {
+          setProducts(res.data);
+        })
+        .catch((c) => console.warn("catch, c"));
+    }, []);
+
+
+
 
     const games = products.filter((product) => {
         if(product.category === "Video Games"){

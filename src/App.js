@@ -31,7 +31,14 @@ function App() {
       .catch((c) => console.warn("catch, c"));
   }, []);
 
-  
+  function categoryFilter(category){
+    const filter = products.filter((product) => {
+      if(product.category === category){
+        return product
+      }
+    })
+    return filter
+  }
 
 
   return (
@@ -51,7 +58,7 @@ function App() {
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
           <Route path="/books" element={<Books products={products}/>}/>
           <Route path="/comics" element={<Comics products={products}/>}/>
-          <Route path="/mangas" element={<Mangas products={products}/>}/>
+          <Route path="/mangas" element={<Mangas products={products} categoryFilter={categoryFilter}/>}/>
           <Route path="/videogames" element={<Videogames products={products}/>}/>
           </Routes>
         </main>

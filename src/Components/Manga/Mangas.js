@@ -1,6 +1,21 @@
 import Manga from "./Manga"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function Mangas({products}){
+const API = process.env.REACT_APP_API_URL;
+function Mangas(){
+
+    const [products , setProducts] = useState([])
+
+    useEffect(() => {
+      axios
+        .get(`${API}/products`)
+        .then((res) => {
+          setProducts(res.data);
+        })
+        .catch((c) => console.warn("catch, c"));
+    }, []);
+
 
     const manga = products.filter((product) => {
         if(product.category === "Anime/Manga"){
@@ -8,7 +23,6 @@ function Mangas({products}){
         }
       })
 
-      console.log(manga)
 
     return(
         <div>
