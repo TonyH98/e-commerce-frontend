@@ -1,6 +1,6 @@
 Frontend-Github: https://github.com/TonyH98/e-commerce-frontend
 
-Netlify Deployment: https://frabjous-bavarois-dc41cd.netlify.app/
+Netlify Deployment: https://e-commerce-app-project.netlify.app/
 
 Backend-Github: https://github.com/TonyH98/e-commerce-backend
 

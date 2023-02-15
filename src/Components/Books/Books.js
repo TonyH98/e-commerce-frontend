@@ -13,7 +13,7 @@ function Books(){
 
     useEffect(() => {
       axios
-        .get(`${API}/products`)
+        .get(`${API}/products?category=Books&`)
         .then((res) => {
           setProducts(res.data);
         })
@@ -22,19 +22,11 @@ function Books(){
   
 
 
-    const books = products.filter((product) => {
-        if(product.category === "Books"){
-          return product
-        }
-      })
-
-      console.log(books)
-
     return(
         <div>
             <br></br>
         <div className="product-card">
-            {books.map((book) => {
+            {products.map((book) => {
                 return(
                     <div key={book.id}>
                         <Book book={book}/>

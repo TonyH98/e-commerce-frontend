@@ -9,7 +9,7 @@ function Comics(){
 
     useEffect(() => {
       axios
-        .get(`${API}/products`)
+        .get(`${API}/products?category=Comics`)
         .then((res) => {
           setProducts(res.data);
         })
@@ -18,18 +18,12 @@ function Comics(){
 
 
 
-    const comics = products.filter((product) => {
-        if(product.category === "Comics"){
-          return product
-        }
-      })
-
-  
+    
     return (
         <div>
         <br></br>
     <div className="product-card">
-        {comics.map((comic) => {
+        {products.map((comic) => {
             return(
                 <div key={comic.id}>
                     <Comic comic={comic}/>

@@ -2,8 +2,43 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart} from "phosphor-react";
 
-function Nav(){
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
+const API = process.env.REACT_APP_API_URL;
+
+
+function Nav({productSearch , setProductSearch}){
+
+
+  const [search, setSearch] = useState("");
+
+  let navigate = useNavigate()
+
+
+  function handleTextChange(event) {
+    let title = event.target.value; 
+
+    setSearch(title)
+  }
+
+
+
+
+const searchProduct = (search) => {
+  axios
+  .get(`${API}/products?product_name=${search}`)
+  .then((res) => {
+    setProductSearch(res.data);
+    setSearch("")
+  })
+  .then(() => {
+    navigate("/search")
+  })
+}
+
+console.log(productSearch)
 
 
     return(
@@ -15,7 +50,18 @@ function Nav(){
           <img src="/logo192.png" width="40"/> React Commerce
           </Link>
         </h1>
-  
+        <div className="search-feature">
+
+
+<input
+
+ className="search"
+ type="text"
+ placeholder="Search..."
+ onChange={handleTextChange}/>
+ 
+ <button onClick={() => searchProduct(search)}>Submit</button>
+</div>
 
       <div className="Nav-Category">
 

@@ -15,12 +15,15 @@ import Books from "./Components/Books/Books"
 import Comics from "./Components/Comics/Comics"
 import Mangas from "./Components/Manga/Mangas";
 import Videogames from "./Components/VideoGames/Videogames";
+import Search from "./Components/Search/Search"
 
 
 const API = process.env.REACT_APP_API_URL;
 
 function App() {
   const [products , setProducts] = useState([])
+
+  const [productSearch , setProductSearch] = useState([])
 
   useEffect(() => {
     axios
@@ -45,7 +48,7 @@ function App() {
     <div className="App">
 
       <Router>
-        <Nav/>
+        <Nav productSearch={productSearch} setProductSearch={setProductSearch}/>
         <main>
           <Routes>
           <Route path="/" element={<Home setProducts={setProducts} products={products}/>} />
@@ -60,6 +63,7 @@ function App() {
           <Route path="/comics" element={<Comics products={products}/>}/>
           <Route path="/mangas" element={<Mangas products={products} categoryFilter={categoryFilter}/>}/>
           <Route path="/videogames" element={<Videogames products={products}/>}/>
+          <Route path="/search" element={<Search productSearch={productSearch}/>}/>
           </Routes>
         </main>
       </Router>

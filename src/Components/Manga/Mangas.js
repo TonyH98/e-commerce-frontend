@@ -9,7 +9,7 @@ function Mangas(){
 
     useEffect(() => {
       axios
-        .get(`${API}/products`)
+        .get(`${API}/products?category=Anime/Manga`)
         .then((res) => {
           setProducts(res.data);
         })
@@ -17,18 +17,18 @@ function Mangas(){
     }, []);
 
 
-    const manga = products.filter((product) => {
-        if(product.category === "Anime/Manga"){
-          return product
-        }
-      })
+    // const manga = products.filter((product) => {
+    //     if(product.category === "Anime/Manga"){
+    //       return product
+    //     }
+    //   })
 
 
     return(
         <div>
         <br></br>
     <div className="product-card">
-        {manga.map((manga) => {
+        {products.map((manga) => {
             return(
                 <div key={manga.id}>
                     <Manga manga={manga}/>
