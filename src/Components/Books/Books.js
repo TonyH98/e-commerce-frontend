@@ -1,5 +1,6 @@
 import Book from "./Book"
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -11,6 +12,9 @@ function Books(){
 
     const [products , setProducts] = useState([])
 
+
+    let navigate = useNavigate()
+
     useEffect(() => {
       axios
         .get(`${API}/products?category=Books`)
@@ -21,6 +25,25 @@ function Books(){
     }, []);
   
 
+    const handleEdit = (updatedCart) => {
+        axios
+        .put(`${API}/products/${updatedCart.id}`, updatedCart)
+        .then((response) => {
+          const copyCartArray = [...products];
+          const indexUpdatedCart = copyCartArray.findIndex((cart) => {
+            return cart.id === updatedCart.id;
+          });
+          copyCartArray[indexUpdatedCart] = response.data;
+          setProducts(copyCartArray);
+        })
+        .then(() => {
+          navigate(`/books`)
+        })
+        .catch((c) => console.warn("catch", c));
+      };
+      
+
+
 
     return(
         <div>
@@ -29,7 +52,7 @@ function Books(){
             {products.map((book) => {
                 return(
                     <div key={book.id}>
-                        <Book book={book}/>
+                        <Book book={book} handleEdit={handleEdit}/>
                     </div>
                 )
             })}

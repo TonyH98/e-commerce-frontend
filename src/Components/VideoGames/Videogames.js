@@ -1,5 +1,6 @@
 import Videogame from "./Videogame"
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
@@ -9,9 +10,11 @@ function Videogames(){
 
     const [products , setProducts] = useState([])
 
+    let navigate = useNavigate()
+
     useEffect(() => {
       axios
-        .get(`${API}/products`)
+        .get(`${API}/products?category=video+games`)
         .then((res) => {
           setProducts(res.data);
         })
@@ -19,16 +22,22 @@ function Videogames(){
     }, []);
 
 
-
-
-    const games = products.filter((product) => {
-        if(product.category === "Video Games"){
-          return product
-        }
+    const handleEdit = (updatedCart) => {
+      axios
+      .put(`${API}/products/${updatedCart.id}`, updatedCart)
+      .then((response) => {
+        const copyCartArray = [...products];
+        const indexUpdatedCart = copyCartArray.findIndex((cart) => {
+          return cart.id === updatedCart.id;
+        });
+        copyCartArray[indexUpdatedCart] = response.data;
+        setProducts(copyCartArray);
       })
-
-      console.log(games)
-
+      .then(() => {
+        navigate(`/videogames`)
+      })
+      .catch((c) => console.warn("catch", c));
+    };
 
 
     return(
@@ -36,10 +45,10 @@ function Videogames(){
             <br></br>
         <br></br>
     <div className="product-card">
-        {games.map((game) => {
+        {products.map((game) => {
             return(
                 <div key={game.id} className="product">
-                    <Videogame game={game}/>
+                    <Videogame game={game} handleEdit={handleEdit}/>
                 </div>
             )
         })}

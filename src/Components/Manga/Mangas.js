@@ -1,11 +1,16 @@
 import Manga from "./Manga"
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
+
+
 function Mangas(){
 
     const [products , setProducts] = useState([])
+
+    let navigate = useNavigate()
 
     useEffect(() => {
       axios
@@ -16,12 +21,22 @@ function Mangas(){
         .catch((c) => console.warn("catch, c"));
     }, []);
 
-
-    // const manga = products.filter((product) => {
-    //     if(product.category === "Anime/Manga"){
-    //       return product
-    //     }
-    //   })
+    const handleEdit = (updatedCart) => {
+        axios
+        .put(`${API}/products/${updatedCart.id}`, updatedCart)
+        .then((response) => {
+          const copyCartArray = [...products];
+          const indexUpdatedCart = copyCartArray.findIndex((cart) => {
+            return cart.id === updatedCart.id;
+          });
+          copyCartArray[indexUpdatedCart] = response.data;
+          setProducts(copyCartArray);
+        })
+        .then(() => {
+          navigate(`/mangas`)
+        })
+        .catch((c) => console.warn("catch", c));
+      };
 
 
     return(
@@ -31,7 +46,7 @@ function Mangas(){
         {products.map((manga) => {
             return(
                 <div key={manga.id}>
-                    <Manga manga={manga}/>
+                    <Manga manga={manga} handleEdit={handleEdit}/>
                 </div>
             )
         })}

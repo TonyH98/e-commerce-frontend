@@ -355,10 +355,24 @@ select {
   background-color: gray;
 }
 
-/* .dropdown-link{
-margin-left: 10px;
-} */
+.dataResult::-webkit-scrollbar{
+  display: none
+}
 
 a{
   text-decoration: none;
+}
+
+.review-image{
+  height: 300px;
+  width: 250px
+}
+
+.review-container{
+  display: grid;
+  grid-template-columns: repeat(2 , 40%);
+}
+
+.review-content{
+  margin-top: 10px;
 }
