@@ -21,6 +21,7 @@ function ProductDetails(){
 
     const { id } = useParams();
     const [product , setProduct] = useState([])
+    const [related , setRelated] = useState([])
 
     let navigate = useNavigate();
 
@@ -38,6 +39,16 @@ function ProductDetails(){
       }, [id]);
 
 
+      useEffect(() => {
+        axios
+          .get(`${API}/products?category=${product.category}`)
+          .then((res) => {
+            setRelated(res.data);
+          })
+          .catch((c) => console.warn("catch, c"));
+      }, [id]);
+
+      
       const updateProduct = (updatedProduct, id) => {
         axios
           .put(`${API}/products/${id}`, updatedProduct)
@@ -82,6 +93,12 @@ notify()
 
 
 const date = new Date(product.release_date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"2-digit"})
+
+
+
+
+console.log(related)
+
 
  
     return(

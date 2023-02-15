@@ -2,43 +2,57 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart} from "phosphor-react";
 
-import { useNavigate } from "react-router-dom";
+import {  MagnifyingGlass  } from "phosphor-react"
+import { X } from "phosphor-react"
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 const API = process.env.REACT_APP_API_URL;
 
 
-function Nav({productSearch , setProductSearch}){
+function Nav(){
+  let [filterSearch , setFilterSearch] = useState([])
+  let [productSearch , setProductSearch] = useState([])
+
+ let [search , setSearch] = useState("")
 
 
-  const [search, setSearch] = useState("");
-
-  let navigate = useNavigate()
-
-
-  function handleTextChange(event) {
-    let title = event.target.value; 
-
-    setSearch(title)
-  }
-
-
-
-
-const searchProduct = (search) => {
+useEffect(() => {
   axios
-  .get(`${API}/products?product_name=${search}`)
+  .get(`${API}/products`)
   .then((res) => {
     setProductSearch(res.data);
-    setSearch("")
+ 
   })
-  .then(() => {
-    navigate("/search")
+  
+  
+},[])
+ 
+
+
+
+
+function handleFilter(event){
+  let searchResult = event.target.value
+  setSearch(searchResult)
+  const filter = productSearch.filter((product) => {
+    return product.product_name.toLowerCase().includes(searchResult.toLowerCase())
   })
+
+  if(searchResult === ""){
+    setFilterSearch([])
+  }
+  else{
+    setFilterSearch(filter)
+
+  }
 }
 
-console.log(productSearch)
+function clear(){
+  setFilterSearch([])
+  setSearch("")
+}
 
 
     return(
@@ -50,18 +64,34 @@ console.log(productSearch)
           <img src="/logo192.png" width="40"/> React Commerce
           </Link>
         </h1>
-        <div className="search-feature">
+        
+       <div className="search">
+          <div className="searchInputs">
+            <input 
+            type="text"
+            value={search}
+            onChange={handleFilter} 
+            className="searchbar"/>
+            <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} />: <X  onClick={clear} size={25} className="clear-bar"/>}</div>
+          </div>
+          {filterSearch.length !== 0 &&(
 
+          <div className="dataResult">
+            {filterSearch.slice(0 , 10).map((product) => {
+              return(
+                <div className="search-link">
+                  <br></br>
+                <Link to={`/products/${product.id}`}>
+                <p className="dropdown-link">{product.product_name}</p>
+                </Link>
 
-<input
-
- className="search"
- type="text"
- placeholder="Search..."
- onChange={handleTextChange}/>
- 
- <button onClick={() => searchProduct(search)}>Submit</button>
-</div>
+                </div>
+                
+              )
+            })}
+          </div>
+          )}
+       </div>
 
       <div className="Nav-Category">
 

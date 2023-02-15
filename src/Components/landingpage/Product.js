@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ReadMore from "../ReadMore";
 
 function Product(props){
  
@@ -27,7 +28,15 @@ function Product(props){
           <h1 className="product-name">
             <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
           </h1>
-          <p style={{fontWeight: "bold", fontSize: "25px"}}>{props.product.description}</p>
+
+        <div style={{fontWeight:"bold", fontSize:"20px"}}>
+          <ReadMore>
+         {`${props.product.description}`}
+
+          </ReadMore>
+
+        </div>
+      
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price} 
            <button className="cart-btns" onClick={cartIncrease}>Add to Cart</button>
           </div> 

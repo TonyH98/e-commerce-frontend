@@ -19,12 +19,14 @@ function Home({products , setProducts}){
 
 let navigate = useNavigate()
 
-      
-const filter = copy.filter((product) => {
-  if(product.product_name === "Metroid Dread" || product.product_name === "One Piece Vol 1" || product.product_name === "Saga Vol 2"){
-    return product
-  }
-})
+
+const number = 3;
+
+const filter = copy 
+.map(x => ({x, r: Math.random()}))
+.sort((a , b) => a.r - b.r)
+.map(a => a.x)
+.slice(0 , number)
 
 
 function handlePageChange ({selected: selectedPage}){

@@ -13,7 +13,7 @@ function Books(){
 
     useEffect(() => {
       axios
-        .get(`${API}/products?category=Books&`)
+        .get(`${API}/products?category=Books`)
         .then((res) => {
           setProducts(res.data);
         })
