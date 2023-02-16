@@ -10,8 +10,6 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-// const API2 = process.env.REACT_APP_STRIPE_KEY;
-
 
 function ProductCart(){
 
@@ -98,6 +96,24 @@ return axios(`${API}/payment`, {
 }
 
 
+
+const clearCart = () => {
+
+  const clear = products.filter((x) => {
+    if(x.cart_counter !== 0){
+      return x
+    }
+  })
+
+for(let i = 0; i < clear.length; i++){
+  handleEdit({...clear[i], cart_counter: clear[i].cart_counter = 0})
+}
+
+}
+
+
+
+
    
     return(
         <div>
@@ -144,7 +160,7 @@ return axios(`${API}/payment`, {
               billingAddress
 
               >
-                <button className="cart-btns">Checkout Product</button>
+                <button className="cart-btns" onClick={clearCart}>Checkout Product</button>
              </StripeCheckout>
             </div>
      
