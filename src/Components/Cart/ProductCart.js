@@ -79,12 +79,8 @@ const every = cartCounter.every((x) => {
 
             {every ? (
                 <div>
-            
-                    <ShoppingCart color="black" size={100}/>
-              
+             <ShoppingCart color="black" size={100}/>
                 No Item in Cart
-
-            
                 </div>
             ) : (
              <section className="cart-details">

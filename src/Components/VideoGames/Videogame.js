@@ -27,7 +27,7 @@ function Videogame(props){
           </h3>
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.game.price}
           <br></br>
-          <button className="cart-btns" onClick={cartIncrease}>Add to Cart</button>
+          <button className="cart-btns-category" onClick={cartIncrease}>Add to Cart</button>
           </div>  
         </div>
 

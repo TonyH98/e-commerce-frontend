@@ -85,7 +85,7 @@ function getByRating(data){
 
     return(
         <div>
-            { reviews.length === 0 ? <h1>No Reviews Provided</h1> : <ReactFC {...chartConfigs} />}
+            { reviews.length === 0 ? <h1>No Reviews Provided</h1> : <ReactFC {...chartConfigs} className="review-chart" />}
             <Link to={`/products/${id}`}>
             <button>Go Back</button>
             </Link>

@@ -122,17 +122,19 @@ console.log(related)
                   <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
                 </p>
               </div>
+              <div className="product-description">
                  <ReadMore>
                  {`${product.description}`}
                 </ReadMore> 
+
+              </div>
               <div>
                 <p> By: {product.manufacturer}</p>
               </div>
           </section>
           
           </div>
-          <br></br>
-          <br></br>
+    
           <div className="favorites-section">
           { 
             product.favorites ? (
@@ -148,9 +150,8 @@ console.log(related)
               )
             }
           </div>
-          <br></br>
+      
           <div className="cart">
-          
           <button className="cart-btns" onClick={() => handleCart()}>Add to Cart</button>
           <ToastContainer />
           </div>

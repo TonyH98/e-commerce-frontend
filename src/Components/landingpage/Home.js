@@ -66,7 +66,7 @@ const currentPageData = filter
 
 return (
     <article className="landing-page">
-      <p style={{fontWeight: "bold", fontSize: "30px"}}>Featured Items</p>
+      <p style={{fontWeight: "bold", fontSize: "30px" , textAlign:"center"}}>Featured Items</p>
         <div className="products">
         {currentPageData}
         </div>
