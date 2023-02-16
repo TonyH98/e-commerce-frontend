@@ -233,6 +233,7 @@ select {
   margin-top: 10px;
   position: relative;
   display: inline-block;
+  margin-left: 80px;
 }
 
 .items{
@@ -322,6 +323,11 @@ select {
 }
 
 
+.search{
+  margin-left: 30px;
+  margin-top: 8px;
+}
+
 .search .searchbar{
   border: 0px;
   border-radius: 2px;
@@ -406,6 +412,29 @@ a{
 height:100px;
 width: 75px;
 }
+
+
+
+.FormGroup {
+	margin: 0 15px 20px;
+	padding: 0;
+	border-style: none;
+	background-color: #7795f8;
+	will-change: opacity, transform;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+	border-radius: 4px;
+}
+
+.FormRow {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-left: 15px;
+	border-top: 1px solid #819efc;
+}
+
+
 
 @media all and (max-width: 375px){
   .Navigation{

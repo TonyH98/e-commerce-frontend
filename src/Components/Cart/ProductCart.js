@@ -4,10 +4,17 @@ import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import { ShoppingCart} from "phosphor-react";
 
+import StripeCheckout from "react-stripe-checkout";
+
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
+
+// const API2 = process.env.REACT_APP_STRIPE_KEY;
+
+
 function ProductCart(){
+
   
     const [products , setProducts] = useState([])
 
@@ -67,6 +74,30 @@ const every = cartCounter.every((x) => {
 })
 
 
+const makePayment = token => {
+  const body = {
+    token,
+    products
+    
+  }
+const headers = {
+  "Content-Type": "application/json"
+}
+
+return axios(`${API}/payment`, {
+  method: "POST",
+  headers,
+  body: JSON.stringify(body)
+}).then(res => {
+  console.log(res)
+})
+.catch(err => {
+  console.log(err)
+})
+
+}
+
+
    
     return(
         <div>
@@ -106,8 +137,15 @@ const every = cartCounter.every((x) => {
 
                   <br></br>
                   <br></br>
-              <button  className="cart-btns">Checkout</button>
-         
+             <StripeCheckout 
+             stripeKey="pk_test_51McALmHgd5U2y6vdyJDBrouUoY8PTbvjURc8eRi1yc4ar5lN8PdgSZrt7EpBErloqHKgcv3uz2PLhUcjlBaxKnRh00HMEGjp7J"
+              token={makePayment}
+              shippingAddress
+              billingAddress
+
+              >
+                <button className="cart-btns">Checkout Product</button>
+             </StripeCheckout>
             </div>
      
              </section>

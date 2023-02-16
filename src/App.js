@@ -63,7 +63,7 @@ function App() {
           <Route path="/comics" element={<Comics products={products}/>}/>
           <Route path="/mangas" element={<Mangas products={products} categoryFilter={categoryFilter}/>}/>
           <Route path="/videogames" element={<Videogames products={products}/>}/>
-  
+   
           </Routes>
         </main>
       </Router>
