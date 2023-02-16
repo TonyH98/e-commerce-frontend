@@ -20,13 +20,30 @@ User Story:
 
 
 - The user should see a search bar, 4 categories, and User on the navbar.
+<img src="/screenshots/nav.png" width="100">
+
 - The user should be able to click on the one of the categories and send them to where all the product of that category are at. 
+<img src="/screenshots/category.png" width="100">
+
 - The user also be able to search for an item on the search bar clicking on it will send them to the that product page. 
+
 - The user should be to click on the the product image and title to bring them the product details page where they learn more about the product. 
+<img src="/screenshots/details.png" width="100">
 - In the product details page they should be able to click on the Add to Cart button which will then add the product the their cart.
+
 - The user should then be able to click on the bookmark icon which then add that item to their favorites list 
+
 - Underneath the product there related items in which the user should be able to click on to bring them to that the product page.
+
 - Right underneath the related product section, there is the Review section where the user should see other reviews, how many reviews are there, average review score, a button that show them the review statistics, and be able to write their own reviews. 
+<img src="/screenshots/review.png" width="100"> <img src="/screenshots/reviewform.png" width="100"> <img src="/screenshots/chart.png" width="100">
+
+
+- User should also be to click on a review to only view that review.
+<img src="/screenshots/reviewcontent.png" width="100">
+
 - Hovering over the User part of the navbar should review three options, cart area where the user should see all their item in the cart and their total amount, favorite area where the user be able to see all the products that they favorite, and create product where the user should be able to add in their own product to the store. 
 
-
+<img src="/screenshots/favorite.png" width="100">
+<img src="/screenshots/productform.png" width="100">
+<img src="/screenshots/cart.png" width="100">
