@@ -1,8 +1,8 @@
 import Book from "./Book"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CategoryHeading from "../CategoryHeading";
 import axios from "axios";
-
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -47,6 +47,9 @@ function Books(){
 
     return(
         <div>
+          <CategoryHeading>
+            Books Section
+          </CategoryHeading>
             <br></br>
         <div className="product-card">
             {products.map((book) => {

@@ -1,6 +1,7 @@
 import Videogame from "./Videogame"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CategoryHeading from "../CategoryHeading";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
@@ -42,6 +43,9 @@ function Videogames(){
 
     return(
         <div>
+          <CategoryHeading>
+            Video Games Section
+          </CategoryHeading>
             <br></br>
         <br></br>
     <div className="product-card">

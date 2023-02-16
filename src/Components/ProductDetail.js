@@ -46,7 +46,7 @@ function ProductDetails(){
             setRelated(res.data);
           })
           .catch((c) => console.warn("catch, c"));
-      }, [product]);
+      }, [product, id]);
 
       
       const updateProduct = (updatedProduct, id) => {
@@ -108,8 +108,9 @@ const relatedItem = related
 .map(a => a.x)
 .slice(0 , number)
 
+
  
-console.log(relatedItem)
+
 
 
     return(
@@ -180,6 +181,9 @@ console.log(relatedItem)
                 alt={`${relate.product_name}`} 
               />
            </Link> 
+           <br></br>
+           
+           <p style={{fontWeight:"bold"}}>{relate.product_name}</p>
           </div>
         )
       })}

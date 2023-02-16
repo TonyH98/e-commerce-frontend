@@ -1,6 +1,7 @@
 import Comic from "./Comic"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CategoryHeading from "../CategoryHeading";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
@@ -44,6 +45,9 @@ function Comics(){
     
     return (
         <div>
+          <CategoryHeading>
+            Comic Book Section
+          </CategoryHeading>
         <br></br>
     <div className="product-card">
         {products.map((comic) => {

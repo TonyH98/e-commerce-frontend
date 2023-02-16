@@ -2,7 +2,7 @@ import Manga from "./Manga"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import CategoryHeading from "../CategoryHeading";
 const API = process.env.REACT_APP_API_URL;
 
 
@@ -41,6 +41,9 @@ function Mangas(){
 
     return(
         <div>
+          <CategoryHeading>
+            Anime/Manga Section
+          </CategoryHeading>
         <br></br>
     <div className="product-card">
         {products.map((manga) => {
