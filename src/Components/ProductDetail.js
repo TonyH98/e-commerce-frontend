@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { FaBookmark } from "react-icons/fa"
 import { FaRegBookmark } from "react-icons/fa"
@@ -46,7 +46,7 @@ function ProductDetails(){
             setRelated(res.data);
           })
           .catch((c) => console.warn("catch, c"));
-      }, [id]);
+      }, [product]);
 
       
       const updateProduct = (updatedProduct, id) => {
@@ -100,7 +100,18 @@ const date = new Date(product.release_date).toLocaleDateString('en-us', { year:"
 console.log(related)
 
 
+let number = 3
+
+const relatedItem = related
+.map(x => ({x, r: Math.random()}))
+.sort((a , b) => a.r - b.r)
+.map(a => a.x)
+.slice(0 , number)
+
  
+console.log(relatedItem)
+
+
     return(
       
         <div>
@@ -155,7 +166,25 @@ console.log(related)
           <button className="cart-btns" onClick={() => handleCart()}>Add to Cart</button>
           <ToastContainer />
           </div>
-     
+<br></br>
+
+      <h1>Related Products</h1>
+     <div className="relatedItem">
+      {relatedItem.map((relate) => {
+        return(
+          <div>
+            <Link to={`/products/${relate.id}`}> 
+          <img 
+                src={relate.image} 
+                className="related-image"
+                alt={`${relate.product_name}`} 
+              />
+           </Link> 
+          </div>
+        )
+      })}
+     </div>
+     <br></br>
         <Reviews/>
     </div>
     )

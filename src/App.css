@@ -396,6 +396,17 @@ a{
 }
 
 
+.relatedItem{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.related-image{
+height:100px;
+width: 75px;
+}
+
 @media all and (max-width: 375px){
   .Navigation{
     display: grid;
