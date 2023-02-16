@@ -278,6 +278,8 @@ select {
   list-style: none;
 }
 
+
+
 .landing-products{
   display: grid;
   grid-template-columns: repeat(2, 40%);
@@ -376,6 +378,23 @@ a{
 .review-content{
   margin-top: 10px;
 }
+
+
+.cart-btns-category{
+  background-color: black;
+  color: white;
+  border: none;
+  height: 25px
+}
+
+.cart-btns-category:hover{
+  cursor: pointer;
+}
+
+.cart-btns-category:active{
+  background-color: blue;
+}
+
 
 @media all and (max-width: 375px){
   .Navigation{
