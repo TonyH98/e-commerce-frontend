@@ -49,3 +49,5 @@ User Story:
 <img src="/screenshots/favorite.png" width="100">
 <img src="/screenshots/productform.png" width="100">
 <img src="/screenshots/cart.png" width="100">
+
+- The user should also be able to purchase their item by clicking on the Checkout Button.

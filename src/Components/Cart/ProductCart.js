@@ -158,9 +158,10 @@ for(let i = 0; i < clear.length; i++){
               token={makePayment}
               shippingAddress
               billingAddress
-
+                name="Purchase Cart"
               >
                 <button className="cart-btns" onClick={clearCart}>Checkout Product</button>
+                
              </StripeCheckout>
             </div>
      
