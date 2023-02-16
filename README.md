@@ -36,7 +36,9 @@ User Story:
 - Underneath the product there related items in which the user should be able to click on to bring them to that the product page.
 
 - Right underneath the related product section, there is the Review section where the user should see other reviews, how many reviews are there, average review score, a button that show them the review statistics, and be able to write their own reviews. 
-<img src="/screenshots/review.png" width="100"> <img src="/screenshots/reviewform.png" width="100"> <img src="/screenshots/chart.png" width="100">
+<img src="/screenshots/review.png" width="100"> 
+<img src="/screenshots/reviewform.png" width="100"> 
+<img src="/screenshots/chart.png" width="100">
 
 
 - User should also be to click on a review to only view that review.
