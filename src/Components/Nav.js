@@ -61,7 +61,7 @@ function clear(){
 
         <h1 className="home-page-link">
           <Link to="/">
-          <img src="/logo192.png" width="40"/> React Commerce
+          T-Commerce
           </Link>
         </h1>
         
@@ -69,6 +69,7 @@ function clear(){
           <div className="searchInputs">
             <input 
             type="text"
+            placeholder="Search..."
             value={search}
             onChange={handleFilter} 
             className="searchbar"/>
