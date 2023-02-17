@@ -1,3 +1,5 @@
+ 
+  
   .App {
   text-align: center;
 }
@@ -173,7 +175,8 @@ textarea {
 }
 
 .favorites-btn{
-  border: none
+  border: none; 
+  background-color: white;
 }
 .favorites-btn:hover{
   cursor: pointer

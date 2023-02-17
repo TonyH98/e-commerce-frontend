@@ -96,10 +96,6 @@ const date = new Date(product.release_date).toLocaleDateString('en-us', { year:"
 
 
 
-
-console.log(related)
-
-
 let number = 3
 
 const relatedItem = related
@@ -144,7 +140,7 @@ const relatedItem = related
                 <p> By: {product.manufacturer}</p>
               </div>
           </section>
-          
+          <br></br>
           </div>
     
           <div className="favorites-section">
