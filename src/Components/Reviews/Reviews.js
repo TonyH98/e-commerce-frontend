@@ -70,23 +70,6 @@ function Reviews(){
  average = average/ map.length
 
  
-
-// function handleCategory(category){
-//         setFilterReviews(category)
-
-//       }  
-//       function filterScore(e){
-//         const filter = reviews.filter((r) => r.rating === e.target.value);
-        
-//     if (e.target.value === ""){
-//             handleCategory(reviews)
-//           }
-//     else{
-//        handleCategory(filter)
-//       }
-//       }
-
-      
       return (
         <section className="Reviews">
           <h2>Reviews</h2>
@@ -97,25 +80,7 @@ function Reviews(){
             <Link to={`/products/${id}/reviews/chart`}>
             Review Statistics
             </Link>
-            {/* <div className="category-filter">
-        <label
-            htmlFor="searchProduct"
-          >
-            Select Rating:
-          </label>
-          <select onChange={filterScore}>
-            <option value="">Select All</option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-
-        </div> */}
-
-
+           
           </div>
           <Link to={`/products/${id}/new`}>
           <button className="create-review">Write a Review</button>
