@@ -11,9 +11,10 @@ import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
 
 
-function Nav(){
+function Nav({isLogged}){
   let [filterSearch , setFilterSearch] = useState([])
   let [productSearch , setProductSearch] = useState([])
+  const [user, setUser] = useState();
 
  let [search , setSearch] = useState("")
 
@@ -29,6 +30,11 @@ useEffect(() => {
   
 },[])
  
+
+  useEffect(() => {
+    const loggedUser = JSON.parse(window.localStorage.getItem('user'));
+    setUser(loggedUser);
+  }, [isLogged]);
 
 
 
@@ -53,6 +59,7 @@ function clear(){
   setFilterSearch([])
   setSearch("")
 }
+
 
 
     return(
@@ -116,7 +123,7 @@ function clear(){
 
 
       <div className="dropdown">
-        <button className="dropbtn"> User </button>
+        <button className="dropbtn"> {!isLogged ? user?.name : "User"}</button>
         <div className="items">
 
           <div>
@@ -132,6 +139,12 @@ function clear(){
       <div className="link-new">
       <Link to="/newProduct">
         <h3> Create New Product </h3>
+      </Link>
+      </div>
+
+      <div className="link-new">
+      <Link to="/login">
+        <h3> Login </h3>
       </Link>
       </div>
 

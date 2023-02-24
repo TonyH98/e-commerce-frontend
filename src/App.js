@@ -15,6 +15,8 @@ import Books from "./Components/Books/Books"
 import Comics from "./Components/Comics/Comics"
 import Mangas from "./Components/Manga/Mangas";
 import Videogames from "./Components/VideoGames/Videogames";
+import Login from "./Components/Users/Login";
+import Signup from "./Components/Users/Signup";
 
 
 
@@ -24,6 +26,8 @@ function App() {
   const [products , setProducts] = useState([])
 
   const [productSearch , setProductSearch] = useState([])
+
+  const [user, setUser] = useState();
 
   useEffect(() => {
     axios
@@ -44,11 +48,28 @@ function App() {
   }
 
 
+  const [isLogged, setIsLogged] = useState(false);
+
+  const newLogin = () => {
+    setIsLogged(true);
+  };
+
+
+
+  useEffect(() => {
+    const loggedUser = JSON.parse(window.localStorage.getItem('user'));
+    setUser(loggedUser);
+  }, [isLogged]);
+
+
+
+
+
   return (
     <div className="App">
 
       <Router>
-        <Nav productSearch={productSearch} setProductSearch={setProductSearch}/>
+        <Nav productSearch={productSearch} setProductSearch={setProductSearch} isLogged={isLogged}/>
         <main>
           <Routes>
           <Route path="/" element={<Home setProducts={setProducts} products={products}/>} />
@@ -63,7 +84,8 @@ function App() {
           <Route path="/comics" element={<Comics products={products}/>}/>
           <Route path="/mangas" element={<Mangas products={products} categoryFilter={categoryFilter}/>}/>
           <Route path="/videogames" element={<Videogames products={products}/>}/>
-   
+          <Route path="/signup" element={<Signup/>}/>
+            <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           </Routes>
         </main>
       </Router>
