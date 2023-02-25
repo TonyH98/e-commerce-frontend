@@ -1,16 +1,47 @@
 import { Link } from "react-router-dom";
+import axios from "axios";
 import ReadMore from "../ReadMore";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+const API = process.env.REACT_APP_API_URL;
 
 function Product(props){
  
-  const cartIncrease = () => {
-    props.handleEdit({ ...props.product, cart_counter: Number(props.product.cart_counter) + 1 })
-  };
+const [userCart , setUserCart] = useState([])
+
+let navigate = useNavigate()
+
+  // const cartIncrease = () => {
+  //   props.handleEdit({ ...props.product, cart_counter: Number(props.product.cart_counter) + 1 })
+  // };
 
 
 
-
+  // users.post("/:userId/products/:productsId", async (req , res) => {
   
+
+
+function addToUser(){
+  axios
+  .post(`${API}/users/${props.user?.id}/products/${props.product.id}`)
+  .then(() => {
+    navigate("/")
+  })
+}
+
+
+useEffect(() => {
+  axios
+    .get(`${API}/users/${props.user?.id}/products`)
+    .then((res) => {
+      setUserCart(res.data);
+    })
+    .catch((c) => console.warn("catch, c"));
+}, [props.product.id]);
+
+console.log(userCart)
+
     return(
         <div className="landing-products">
 
@@ -38,7 +69,7 @@ function Product(props){
         </div>
       
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price} 
-           <button className="cart-btns" onClick={cartIncrease}>Add to Cart</button>
+           <button className="cart-btns" onClick={addToUser}>Add to Cart</button>
           </div> 
         </div>
 

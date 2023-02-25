@@ -51,7 +51,7 @@ function App() {
   const [isLogged, setIsLogged] = useState(false);
 
   const newLogin = () => {
-    setIsLogged(true);
+    setIsLogged(!isLogged);
   };
 
 
@@ -62,7 +62,7 @@ function App() {
   }, [isLogged]);
 
 
-
+console.log(user)
 
 
   return (
@@ -72,12 +72,12 @@ function App() {
         <Nav productSearch={productSearch} setProductSearch={setProductSearch} isLogged={isLogged}/>
         <main>
           <Routes>
-          <Route path="/" element={<Home setProducts={setProducts} products={products}/>} />
+          <Route path="/" element={<Home setProducts={setProducts} products={products} user={user}/>} />
           <Route path="/products/:id" element={<ProductDetails/>}/>
           <Route path="/products/:id/new" element={<ReviewNewForm/>}/>
           <Route path="/products/:id/reviews/:ids" element={<ReviewDetails/>}/>
-          <Route path="/cart" element={<ProductCart/>}/>
-          <Route path="/favorites" element={<FavoriteProduct/>}/>
+          <Route path={`/cart/${user?.id}`} element={<ProductCart/>}/>
+          <Route path={`/favorites/${user?.id}`} element={<FavoriteProduct/>}/>
           <Route path="/newProduct" element={<NewProducts/>}/>
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
           <Route path="/books" element={<Books products={products}/>}/>

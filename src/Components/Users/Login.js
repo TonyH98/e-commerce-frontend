@@ -22,7 +22,7 @@ function Login( {newLogin} ){
       axios
     .post(`${API}/users/login`, login)
     .then((res) => {
-      newLogin(true)
+      newLogin()
       window.localStorage.setItem("user", JSON.stringify({name: res.data.username, id: res.data.id}))
   
     })

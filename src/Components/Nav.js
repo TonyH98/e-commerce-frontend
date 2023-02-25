@@ -8,10 +8,16 @@ import { X } from "phosphor-react"
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 const API = process.env.REACT_APP_API_URL;
 
 
 function Nav({isLogged}){
+
+let navigate = useNavigate()
+
+
   let [filterSearch , setFilterSearch] = useState([])
   let [productSearch , setProductSearch] = useState([])
   const [user, setUser] = useState();
@@ -123,17 +129,17 @@ function clear(){
 
 
       <div className="dropdown">
-        <button className="dropbtn"> {!isLogged ? user?.name : "User"}</button>
+        <button className="dropbtn">User</button>
         <div className="items">
-
+         
           <div>
-        <Link to="/cart">
+        <Link to={`/cart/${user?.id}`}>
         <ShoppingCart color="black" size={30}/>
         </Link>
           </div>
 
         <h3>
-          <Link to="/favorites">Favorite Items</Link>
+          <Link to={`/favorites/${user?.id}`}>Favorite Items</Link>
         </h3>
 
       <div className="link-new">
@@ -146,6 +152,8 @@ function clear(){
       <Link to="/login">
         <h3> Login </h3>
       </Link>
+
+       
       </div>
 
         </div>
