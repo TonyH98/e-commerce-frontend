@@ -10,6 +10,10 @@ function Product(props){
  
 const [userCart , setUserCart] = useState([])
 
+const [newCart , setNewCart] = useState([])
+
+const [toggle, setToggle] = useState(false)
+
 let navigate = useNavigate()
 
   // const cartIncrease = () => {
@@ -20,6 +24,10 @@ let navigate = useNavigate()
 
   // users.post("/:userId/products/:productsId", async (req , res) => {
   
+
+function toggleSwitch(){
+  setToggle(!toggle)
+}
 
 
 function addToUser(){
@@ -36,6 +44,7 @@ useEffect(() => {
     .get(`${API}/users/${props.user?.id}/products`)
     .then((res) => {
       setUserCart(res.data);
+      setNewCart(res.data)
     })
     .catch((c) => console.warn("catch, c"));
 }, [props.product.id]);
@@ -59,7 +68,9 @@ const deleteCartItem = ( id, ids) => {
 
 }
 
-console.log(userCart)
+const map = newCart.map((x) => {
+  return x.product_name
+})
 
 
 
@@ -90,12 +101,20 @@ console.log(userCart)
         </div>
       
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price} 
-           <button className="cart-btns" onClick={addToUser}>Add to Cart</button>
-           <button onClick={() => deleteCartItem(props.user?.id , props.product.id)}>Delete from Cart</button>
+
+          {map.includes(props.product.product_name) ? <button className="cart-btns"   onClick={() => {deleteCartItem(props.user?.id , props.product.id)}}>Delete from Cart</button>:
+          
+<button className="cart-btns" onClick={() => {addToUser()}}>Add to Cart</button>
+          }
+ 
           </div> 
         </div>
 
     )
 }
+
+
+
+
 
 export default Product
