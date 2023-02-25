@@ -64,6 +64,11 @@ const currentPageData = filter
 
   const pageCount =  Math.ceil(filter.length/pageData) 
 
+
+
+
+
+  
 return (
     <article className="landing-page">
       <p style={{fontWeight: "bold", fontSize: "30px" , textAlign:"center"}}>Featured Items</p>

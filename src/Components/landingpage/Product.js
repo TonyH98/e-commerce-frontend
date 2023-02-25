@@ -40,7 +40,28 @@ useEffect(() => {
     .catch((c) => console.warn("catch, c"));
 }, [props.product.id]);
 
+
+const deleteCartItem = ( id, ids) => {
+    axios
+    .delete(`${API}/users/${id}/products/${ids}`)
+    .then((res) => {
+
+      const indexDeleteCart = userCart.findIndex((cart) => {
+        return cart.products_id === ids;
+      });
+      userCart.splice(indexDeleteCart , 1)
+      setUserCart([...userCart])
+    })
+.catch((err) => {
+  console.log(err)
+  return err
+})
+
+}
+
 console.log(userCart)
+
+
 
     return(
         <div className="landing-products">
@@ -70,6 +91,7 @@ console.log(userCart)
       
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price} 
            <button className="cart-btns" onClick={addToUser}>Add to Cart</button>
+           <button onClick={() => deleteCartItem(props.user?.id , props.product.id)}>Delete from Cart</button>
           </div> 
         </div>
 
