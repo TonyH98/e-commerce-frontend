@@ -29,24 +29,27 @@ function Manga(props){
   let navigate = useNavigate()
 
   // const cartIncrease = () => {
-  //   props.handleEdit({ ...props.manga, cart_counter: Number(props.manga.cart_counter) + 1 })
-  // };
-
-  const map = newCart.map((x) => {
-    return x.product_name
-  })
-
-  let addToUser = (id , ids) => {
-    axios
-    .post(`${API}/users/${id}/products/${ids}`, newProduct)
-    .then(() => {
-      setNewCart([...userCart, {...newProduct}])
-      setUserCart([...userCart, {...newProduct}])
-      navigate("/mangas")
+    // };
+    
+    const map = newCart.map((x) => {
+      return x.product_name
     })
-  }
-  useEffect(() => { 
-    axios
+    
+    let addToUser = (id , ids) => {
+      axios
+      .post(`${API}/users/${id}/products/${ids}`, newProduct)
+      .then(() => {
+        setNewCart([...userCart, {...newProduct}])
+        setUserCart([...userCart, {...newProduct}])
+        navigate("/mangas")
+      })
+     
+
+        props.handleEdit({ ...props.manga, cart_counter: Number(props.manga.cart_counter) + 1 })
+      
+    }
+    useEffect(() => { 
+      axios
       .get(`${API}/users/${props.user?.id}/products`)
       .then((res) => {
         setUserCart(res.data);
@@ -75,7 +78,7 @@ function Manga(props){
       console.log(err)
       return err
     })
-    
+    props.handleEdit({ ...props.manga, cart_counter: Number(props.manga.cart_counter) - 1 })
   }
   
 console.log(userCart)

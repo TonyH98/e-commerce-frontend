@@ -7,7 +7,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function Videogame(props){
   
-  let [newProduct , setNewProduct] = useState({
+  let [newProduct] = useState({
     cart_counter: props.game.cart_counter,
     category: props.game.category,
     description: props.game.description,
@@ -29,21 +29,21 @@ function Videogame(props){
   let navigate = useNavigate()
 
   // const cartIncrease = () => {
-  //   props.handleEdit({ ...props.game, cart_counter: Number(props.game.cart_counter) + 1 })
-  // };
-
-  const map = newCart.map((x) => {
-    return x.product_name
-  })
-
-  let addToUser = (id , ids) => {
-    axios
-    .post(`${API}/users/${id}/products/${ids}`, newProduct)
-    .then(() => {
-      setNewCart([...userCart, {...newProduct}])
-      setUserCart([...userCart, {...newProduct}])
-      navigate("/videogames")
+    // };
+    
+    const map = newCart.map((x) => {
+      return x.product_name
     })
+    
+    let addToUser = (id , ids) => {
+      axios
+      .post(`${API}/users/${id}/products/${ids}`, newProduct)
+      .then(() => {
+        setNewCart([...userCart, {...newProduct}])
+        setUserCart([...userCart, {...newProduct}])
+        navigate("/videogames")
+      })
+      props.handleEdit({ ...props.game, cart_counter: Number(props.game.cart_counter) + 1 })
   }
   useEffect(() => { 
     axios
@@ -75,7 +75,7 @@ function Videogame(props){
       console.log(err)
       return err
     })
-    
+    props.handleEdit({ ...props.game, cart_counter: Number(props.game.cart_counter) - 1 })
   }
   
 console.log(userCart)

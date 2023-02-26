@@ -11,7 +11,7 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 
-function ProductCart(){
+function ProductCart({user}){
 
   
     const [products , setProducts] = useState([])
@@ -41,7 +41,7 @@ function ProductCart(){
             setProducts(copyCartArray);
           })
           .then(() => {
-            navigate(`/cart`)
+            navigate(`/cart/${user?.id}`)
           })
           .catch((c) => console.warn("catch", c));
       };
