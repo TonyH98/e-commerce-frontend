@@ -12,8 +12,6 @@ const [userCart , setUserCart] = useState([])
 
 const [newCart , setNewCart] = useState([])
 
-const [toggle, setToggle] = useState(false)
-
 let navigate = useNavigate()
 
   // const cartIncrease = () => {
@@ -21,13 +19,6 @@ let navigate = useNavigate()
   // };
 
 
-
-  // users.post("/:userId/products/:productsId", async (req , res) => {
-  
-
-function toggleSwitch(){
-  setToggle(!toggle)
-}
 
 
 function addToUser(){
@@ -47,7 +38,7 @@ useEffect(() => {
       setNewCart(res.data)
     })
     .catch((c) => console.warn("catch, c"));
-}, [props.product.id]);
+}, [props.product.id, props.user]);
 
 
 const deleteCartItem = ( id, ids) => {
@@ -72,7 +63,7 @@ const map = newCart.map((x) => {
   return x.product_name
 })
 
-
+console.log(userCart)
 
     return(
         <div className="landing-products">

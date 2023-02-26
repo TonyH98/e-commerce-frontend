@@ -38,16 +38,7 @@ function App() {
       .catch((c) => console.warn("catch, c"));
   }, []);
 
-  function categoryFilter(category){
-    const filter = products.filter((product) => {
-      if(product.category === category){
-        return product
-      }
-    })
-    return filter
-  }
-
-
+  
   const [isLogged, setIsLogged] = useState(false);
 
   const newLogin = () => {
@@ -62,7 +53,9 @@ function App() {
   }, [isLogged]);
 
 
-console.log(user)
+
+
+  
 
   return (
     <div className="App">
@@ -72,17 +65,17 @@ console.log(user)
         <main>
           <Routes>
           <Route path="/" element={<Home setProducts={setProducts} products={products} user={user}/>} />
-          <Route path="/products/:id" element={<ProductDetails/>}/>
+          <Route path="/products/:id" element={<ProductDetails user={user}/>}/>
           <Route path="/products/:id/new" element={<ReviewNewForm/>}/>
           <Route path="/products/:id/reviews/:ids" element={<ReviewDetails/>}/>
           <Route path={`/cart/${user?.id}`} element={<ProductCart/>}/>
           <Route path={`/favorites/${user?.id}`} element={<FavoriteProduct/>}/>
           <Route path="/newProduct" element={<NewProducts/>}/>
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
-          <Route path="/books" element={<Books products={products}/>}/>
-          <Route path="/comics" element={<Comics products={products}/>}/>
-          <Route path="/mangas" element={<Mangas products={products} categoryFilter={categoryFilter}/>}/>
-          <Route path="/videogames" element={<Videogames products={products}/>}/>
+          <Route path="/books" element={<Books/>}/>
+          <Route path="/comics" element={<Comics/>}/>
+          <Route path="/mangas" element={<Mangas />}/>
+          <Route path="/videogames" element={<Videogames user={user}/>}/>
           <Route path="/signup" element={<Signup/>}/>
             <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           </Routes>
