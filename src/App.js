@@ -31,6 +31,10 @@ function App() {
 
   const [user, setUser] = useState();
 
+ 
+
+
+
   useEffect(() => {
     axios
       .get(`${API}/products`)
@@ -67,9 +71,8 @@ useEffect(() => {
   setHistory(history);
 }, []);
 
-console.log(history)
 
-console.log(user)
+
 
   return (
     <div className="App">
@@ -91,7 +94,7 @@ console.log(user)
           <Route path="/mangas" element={<Mangas  saveHistory={saveHistory} user={user}/>}/>
           <Route path="/videogames" element={<Videogames user={user} saveHistory={saveHistory}/>}/>
           <Route path="/signup" element={<Signup/>}/>
-            <Route path="/login" element={<Login newLogin={newLogin}/>}/>
+          <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           </Routes>
         </main>
       </Router>

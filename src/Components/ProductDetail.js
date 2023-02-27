@@ -17,26 +17,29 @@ const API = process.env.REACT_APP_API_URL;
 
 
 
-function ProductDetails(){
+function ProductDetails({user, newCart}){
 
     const { id } = useParams();
     const [product , setProduct] = useState([])
     const [related , setRelated] = useState([])
+    
 
     let navigate = useNavigate();
-
-
+    
+    
     useEffect(() => {
-        axios
-          .get(`${API}/products/${id}`)
-          .then((res) => {
-            setProduct(res.data);
-           
-          })
-          .catch((c) => {
-            console.warn("catch", c);
-          });
-      }, [id]);
+      axios
+      .get(`${API}/products/${id}`)
+      .then((res) => {
+        setProduct(res.data);
+        
+      })
+      .catch((c) => {
+        console.warn("catch", c);
+      });
+    }, [id]);
+    
+    
 
 
       useEffect(() => {
@@ -66,8 +69,6 @@ function ProductDetails(){
 
       setProduct(copyProduct)
       
- 
-
       updateProduct(copyProduct, id)
     }
 
@@ -80,9 +81,6 @@ function handleCart(){
 
   let copyCart = {...product}
 
-  
-  
-  
   copyCart.cart_counter = ( product.cart_counter + 1 )
 
   setProduct(copyCart)
@@ -90,6 +88,22 @@ function handleCart(){
   updateProduct(copyCart , id)
 notify()
 }
+
+
+function handleCart2(){
+
+  let copyCart = {...product}
+
+  copyCart.cart_counter = ( product.cart_counter = 0 )
+
+  setProduct(copyCart)
+  
+  updateProduct(copyCart , id)
+notify()
+}
+
+
+
 
 
 const date = new Date(product.release_date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"2-digit"})
@@ -104,13 +118,23 @@ const relatedItem = related
 .map(a => a.x)
 .slice(0 , number)
 
+function handleDelete(ids){
+  axios.delete(`${API}/users/${user?.id}/products/${ids}`)
+  handleCart2()
+ }
 
- 
+function addToUser(id){
+  axios
+  .post(`${API}/users/${user?.id}/products/${id}`)
+ handleCart()
+}
+
+console.log(product)
+
 
 
 
     return(
-      
         <div>
           <div className="product-details">
           <div className="image-container">
@@ -160,8 +184,15 @@ const relatedItem = related
           </div>
       
           <div className="cart">
-          <button className="cart-btns" onClick={() => handleCart()}>Add to Cart</button>
-          <ToastContainer />
+            {product.cart_counter > 0 ? (
+              <button className="cart-btns" onClick={() => handleDelete(product.id)}>Delete From Cart</button>
+
+            ) : (
+
+          <button className="cart-btns" onClick={() => addToUser(product.id)}>Add to Cart</button>
+            )}
+           
+
           </div>
 <br></br>
 
@@ -169,7 +200,7 @@ const relatedItem = related
      <div className="relatedItem">
       {relatedItem.map((relate) => {
         return(
-          <div>
+          <div key={relate.id}>
             <Link to={`/products/${relate.id}`}> 
           <img 
                 src={relate.image} 
