@@ -44,6 +44,10 @@ function ProductCart({user}){
             navigate(`/cart/${user?.id}`)
           })
           .catch((c) => console.warn("catch", c));
+
+
+
+          
       };
       
 const map = products.map((x) => {
@@ -139,7 +143,7 @@ for(let i = 0; i < clear.length; i++){
                    if(product.cart_counter !== 0 ){
                     return(
                       <div key={product.id} className="product-card">
-                        <CartItem product={product} handleEdit={handleEdit}/>
+                        <CartItem product={product} handleEdit={handleEdit} user={user}/>
                 
                   </div>
                     )

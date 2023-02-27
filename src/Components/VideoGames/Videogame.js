@@ -75,7 +75,7 @@ function Videogame(props){
       console.log(err)
       return err
     })
-    props.handleEdit({ ...props.game, cart_counter: Number(props.game.cart_counter) - 1 })
+    props.handleEdit({ ...props.game, cart_counter: props.game.cart_counter = 0 })
   }
   
 console.log(userCart)

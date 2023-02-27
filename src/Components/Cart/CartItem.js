@@ -1,12 +1,59 @@
 import { Link } from "react-router-dom";
 
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+const API = process.env.REACT_APP_API_URL;
+
+
+
 function CartItem(props){
 
+  const [userCart , setUserCart] = useState([])
+
+  const [newCart , setNewCart] = useState([])
+  
   
 
+
+  useEffect(() => {
+    axios
+      .get(`${API}/users/${props.user?.id}/products`)
+      .then((res) => {
+        setUserCart(res.data);
+        setNewCart(res.data)
+      })
+      .catch((c) => console.warn("catch, c"));
+  }, [props.product.id, props.user]);
+
+
 const cartIncrease = (event) => {
+
   props.handleEdit({ ...props.product, [event.target.id]: Number(event.target.value) })
+
+if(event.target.value == 0 ){
+  axios
+  .delete(`${API}/users/${props.user?.id}/products/${props.product.id}`)
+  .then((res) => {
+
+    const indexDeleteCart = userCart.findIndex((cart) => {
+      return cart.products_id === props.product.id
+    });
+    userCart.splice(indexDeleteCart , 1)
+    setUserCart([...userCart])
+  })
+.catch((err) => {
+console.log(err)
+return err
+})
+
+}
+
+
 };
+
+console.log(props.user)
 
 
     return(

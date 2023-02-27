@@ -8,7 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function Manga(props){
 
-  let [newProduct , setNewProduct] = useState({
+  let [newProduct] = useState({
     cart_counter: props.manga.cart_counter,
     category: props.manga.category,
     description: props.manga.description,
@@ -78,7 +78,7 @@ function Manga(props){
       console.log(err)
       return err
     })
-    props.handleEdit({ ...props.manga, cart_counter: Number(props.manga.cart_counter) - 1 })
+    props.handleEdit({ ...props.manga, cart_counter: props.manga.cart_counter = 0 })
   }
   
 console.log(userCart)
