@@ -36,6 +36,7 @@ function Login( {newLogin} ){
 
       return(
         <div className="New">
+          <h1>Login</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
             <input
@@ -45,6 +46,7 @@ function Login( {newLogin} ){
               onChange={handleTextChange}
               required
             />
+            <br></br>
             <label htmlFor="password">Password:</label>
             <input
               id="password"

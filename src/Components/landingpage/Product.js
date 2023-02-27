@@ -15,7 +15,7 @@ const [newCart , setNewCart] = useState([])
 let navigate = useNavigate()
 
   // const cartIncrease = () => {
-  //   props.handleEdit({ ...props.product, cart_counter: Number(props.product.cart_counter) + 1 })
+    
   // };
 
 
@@ -25,6 +25,7 @@ function addToUser(){
   .then(() => {
     navigate("/")
   })
+  props.handleEdit({ ...props.product, cart_counter: Number(props.product.cart_counter) + 1 })
 }
 
 
@@ -54,7 +55,7 @@ const deleteCartItem = ( id, ids) => {
   console.log(err)
   return err
 })
-
+props.handleEdit({ ...props.product, cart_counter: props.product.cart_counter = 0 })
 }
 
 const map = newCart.map((x) => {

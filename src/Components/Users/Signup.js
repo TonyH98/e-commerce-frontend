@@ -22,6 +22,9 @@ function Signup(){
 
     const [user, setUser] = useState({
         username: '',
+        firstName: '',
+        lastName: '',
+        email: '',
         password: '',
       });
     
@@ -37,6 +40,7 @@ function Signup(){
 
 return(
     <div className="New">
+      <h1>Sign Up Form</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
@@ -46,6 +50,34 @@ return(
           onChange={handleTextChange}
           required
         />
+        <br></br>
+        <label htmlFor="firstName">First Name:</label>
+        <input
+          id="firstName"
+          type="text"
+          required
+          value={user.firstName}
+          onChange={handleTextChange}
+        />
+        <br></br>
+         <label htmlFor="lastName">Last Name:</label>
+        <input
+          id="lastName"
+          type="text"
+          required
+          value={user.lastName}
+          onChange={handleTextChange}
+        />
+        <br></br>
+         <label htmlFor="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          required
+          value={user.email}
+          onChange={handleTextChange}
+        />
+      <br></br>
         <label htmlFor="password">Password:</label>
         <input
           id="password"

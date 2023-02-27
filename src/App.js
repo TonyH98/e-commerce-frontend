@@ -69,6 +69,8 @@ useEffect(() => {
 
 console.log(history)
 
+console.log(user)
+
   return (
     <div className="App">
 
