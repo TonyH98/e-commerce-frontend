@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
 
-function Nav({isLogged}){
+function Nav({isLogged , saveHistory}){
 
 let navigate = useNavigate()
 
@@ -95,7 +95,7 @@ function clear(){
               return(
                 <div className="search-link">
                   <br></br>
-                <Link to={`/products/${product.id}`}>
+                <Link to={`/products/${product.id}`} onClick={() => saveHistory(product)}>
                 <p className="dropdown-link">{product.product_name}</p>
                 </Link>
 

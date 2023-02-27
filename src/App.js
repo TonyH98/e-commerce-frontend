@@ -67,17 +67,16 @@ useEffect(() => {
   setHistory(history);
 }, []);
 
-
 console.log(history)
 
   return (
     <div className="App">
 
       <Router>
-        <Nav productSearch={productSearch} setProductSearch={setProductSearch} isLogged={isLogged}/>
+        <Nav productSearch={productSearch} setProductSearch={setProductSearch} isLogged={isLogged} saveHistory={saveHistory}/>
         <main>
           <Routes>
-          <Route path="/" element={<Home setProducts={setProducts} products={products} user={user}/>} />
+          <Route path="/" element={<Home setProducts={setProducts} products={products} user={user} saveHistory={saveHistory}/>} />
           <Route path="/products/:id" element={<ProductDetails user={user}/>}/>
           <Route path="/products/:id/new" element={<ReviewNewForm/>}/>
           <Route path="/products/:id/reviews/:ids" element={<ReviewDetails/>}/>
@@ -88,7 +87,7 @@ console.log(history)
           <Route path="/books" element={<Books/>}/>
           <Route path="/comics" element={<Comics/>}/>
           <Route path="/mangas" element={<Mangas  saveHistory={saveHistory} user={user}/>}/>
-          <Route path="/videogames" element={<Videogames user={user} />}/>
+          <Route path="/videogames" element={<Videogames user={user} saveHistory={saveHistory}/>}/>
           <Route path="/signup" element={<Signup/>}/>
             <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           </Routes>

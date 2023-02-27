@@ -66,7 +66,7 @@ const map = newCart.map((x) => {
         <div className="landing-products">
 
           <div>
-          <Link to={`/products/${props.product.id}`}>
+          <Link to={`/products/${props.product.id}`} onClick={() => props.saveHistory(props.product)}>
             <img
               src={props.product.image}
               alt={props.product.product_name}
