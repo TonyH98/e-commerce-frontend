@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "./Components/landingpage/Home"
@@ -27,6 +27,8 @@ function App() {
 
   const [productSearch , setProductSearch] = useState([])
 
+  const [history , setHistory] = useState([])
+
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -52,10 +54,21 @@ function App() {
     setUser(loggedUser);
   }, [isLogged]);
 
+function saveHistory(product){
+window.localStorage.setItem("history", JSON.stringify([...history, {
+  name: product.product_name, 
+  image: product.image,
+  id: product.id}]))
+}
 
 
+useEffect(() => {
+  const history = JSON.parse(window.localStorage.getItem('history'));
+  setHistory(history);
+}, []);
 
-  
+
+console.log(history)
 
   return (
     <div className="App">
@@ -74,8 +87,8 @@ function App() {
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
           <Route path="/books" element={<Books/>}/>
           <Route path="/comics" element={<Comics/>}/>
-          <Route path="/mangas" element={<Mangas user={user}/>}/>
-          <Route path="/videogames" element={<Videogames user={user}/>}/>
+          <Route path="/mangas" element={<Mangas  saveHistory={saveHistory} user={user}/>}/>
+          <Route path="/videogames" element={<Videogames user={user} />}/>
           <Route path="/signup" element={<Signup/>}/>
             <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           </Routes>

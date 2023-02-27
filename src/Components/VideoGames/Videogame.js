@@ -78,12 +78,10 @@ function Videogame(props){
     props.handleEdit({ ...props.game, cart_counter: props.game.cart_counter = 0 })
   }
   
-console.log(userCart)
-
     return(
         <div>
           <div>
-          <Link to={`/products/${props.game.id}`}>
+          <Link to={`/products/${props.game.id}`} onClick={() => props.saveHistory(props.game)}>
             <img
               src={props.game.image}
               alt={props.game.product_name}

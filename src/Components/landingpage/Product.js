@@ -19,8 +19,6 @@ let navigate = useNavigate()
   // };
 
 
-
-
 function addToUser(){
   axios
   .post(`${API}/users/${props.user?.id}/products/${props.product.id}`)
@@ -63,7 +61,6 @@ const map = newCart.map((x) => {
   return x.product_name
 })
 
-console.log(userCart)
 
     return(
         <div className="landing-products">

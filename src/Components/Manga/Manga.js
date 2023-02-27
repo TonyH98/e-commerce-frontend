@@ -28,8 +28,7 @@ function Manga(props){
 
   let navigate = useNavigate()
 
-  // const cartIncrease = () => {
-    // };
+  
     
     const map = newCart.map((x) => {
       return x.product_name
@@ -81,13 +80,15 @@ function Manga(props){
     props.handleEdit({ ...props.manga, cart_counter: props.manga.cart_counter = 0 })
   }
   
-console.log(userCart)
+
+
 
 
     return(
         <div>
+         
           <div>
-          <Link to={`/products/${props.manga.id}`}>
+          <Link to={`/products/${props.manga.id}`} onClick={() => props.saveHistory(props.manga)}>
             <img
               src={props.manga.image}
               alt={props.manga.product_name}
