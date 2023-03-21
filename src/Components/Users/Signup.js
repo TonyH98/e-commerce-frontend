@@ -28,15 +28,45 @@ function Signup(){
         password: '',
       });
     
+      const [passwordError, setPasswordError] = useState("");
+
+      const [emailError, setEmailError] = useState("");
+
       const handleTextChange = (event) => {
         setUser({ ...user, [event.target.id]: event.target.value });
       };
 
+      function validatePassword(){
+       const validate = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[0-9a-zA-Z@$!%*?&]{8,}$/
+
+       return validate.test(user.password)
+      }
+
+      function validateEmail(){
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if(!regex.test(user.email)){
+          return false
+        }
+        return true
+      }
       const handleSubmit = (event) => {
         event.preventDefault();
-        addUser(user);
+        if(validatePassword()){
+          addUser(user);
+        }
+        else{
+          setPasswordError("Password must have at least 8 characters long, 1 uppercase letter, 1 lowercase letter, 1 number, and a special character ")
+        }
+        if(validateEmail()){
+          addUser(user)
+        }
+        else{
+          setEmailError("Please enter a valid email address")
+        }
       };
 
+      
 
 return(
     <div className="New">
@@ -77,6 +107,7 @@ return(
           value={user.email}
           onChange={handleTextChange}
         />
+         {emailError && <p>{emailError}</p>}
       <br></br>
         <label htmlFor="password">Password:</label>
         <input
@@ -87,6 +118,7 @@ return(
           placeholder="******"
           onChange={handleTextChange}
         />
+        {passwordError && <p>{passwordError}</p>}
         <br />
         <input type="submit" />
       </form>
