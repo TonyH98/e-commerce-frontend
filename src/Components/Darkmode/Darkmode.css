@@ -1,0 +1,65 @@
+:root{
+    --font-color: #333;
+    --background-color: #eee;
+    --link-color: cornflowerblue;
+}
+
+[data-theme="dark"]{
+    --font-color: #eee;
+    --background-color: #333;
+    --link-color: lightblue;
+
+}
+
+body{
+   background-color: var(--background-color); 
+   color: var(--font-color)
+}
+
+a{
+    color: var(--link-color)
+}
+
+.toggle{
+    -webkit-appearance: none;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border-radius: 25px;
+    background-color:gainsboro;
+    transition: background .3s;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .toggle::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    background-color: rgb(255, 255, 255);
+    transition: left .3s;
+  
+  }
+  
+  .toggle:checked{
+    background-color: gainsboro;
+  }
+  
+  .toggle:checked:after{
+    left:70%
+  }
+  
+  .darkmode{
+    display: grid;
+    grid-template-columns: repeat(3, 15pt);
+    margin-top: 5px;
+  }
+  
+  .moon{
+    margin-left: 35px
+  }

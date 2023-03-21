@@ -14,10 +14,7 @@ const [newCart , setNewCart] = useState([])
 
 let navigate = useNavigate()
 
-  // const cartIncrease = () => {
-    
-  // };
-
+ 
 
 function addToUser(){
   axios
@@ -39,6 +36,7 @@ useEffect(() => {
     .catch((c) => console.warn("catch, c"));
 }, [props.product.id, props.user]);
 
+console.log(userCart)
 
 const deleteCartItem = ( id, ids) => {
     axios

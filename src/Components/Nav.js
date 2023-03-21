@@ -10,12 +10,12 @@ import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+import Darkmode from "./Darkmode/Darkmode"
+
 const API = process.env.REACT_APP_API_URL;
 
 
 function Nav({isLogged , saveHistory}){
-
-let navigate = useNavigate()
 
 
   let [filterSearch , setFilterSearch] = useState([])
@@ -66,7 +66,22 @@ function clear(){
   setSearch("")
 }
 
+const navigate = useNavigate()
 
+const handleLogout = () => {
+  localStorage.clear()
+
+  fetch('/logout', {
+    method: "POST",
+    credentials: 'include',
+  })
+  .then(() => {
+    navigate('/login')
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+}
 
     return(
         <nav className="Navigation">
@@ -132,15 +147,16 @@ function clear(){
         <button className="dropbtn">User</button>
         <div className="items">
          
-          <div>
+         {user ?  <div>
         <Link to={`/cart/${user?.id}`}>
         <ShoppingCart color="black" size={30}/>
         </Link>
-          </div>
-
-        <h3>
+          </div> : null }
+         
+          {user ?  <h3>
           <Link to={`/favorites/${user?.id}`}>Favorite Items</Link>
-        </h3>
+        </h3> : null}
+        
 
       <div className="link-new">
       <Link to="/newProduct">
@@ -148,13 +164,26 @@ function clear(){
       </Link>
       </div>
 
-      <div className="link-new">
+      {user ? <div className="link-new">
+      <Link to="/history">
+        <h3> Search History </h3>
+      </Link>
+      </div> : null}
+      
+      {user ? 
+      <button onClick={handleLogout}> Logout</button>
+      :<div className="link-new">
       <Link to="/login">
         <h3> Login </h3>
       </Link>
+      </div> }
+      
 
-       
-      </div>
+      <div className="darkmode">
+        <div>{"☀️"}</div>
+        <input className="toggle"type="checkbox" />
+        <div className="moon">{"🌙"}</div>
+        </div>
 
         </div>
       </div>

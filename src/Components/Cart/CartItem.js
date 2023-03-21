@@ -53,7 +53,7 @@ return err
 
 };
 
-console.log(props.user)
+
 
 
     return(

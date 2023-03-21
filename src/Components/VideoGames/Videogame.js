@@ -78,6 +78,9 @@ function Videogame(props){
     props.handleEdit({ ...props.game, cart_counter: props.game.cart_counter = 0 })
   }
   
+console.log(userCart)
+
+
     return(
         <div>
           <div>

@@ -41,6 +41,7 @@ function Videogames({user , saveHistory}){
     };
 
 
+
     return(
         <div>
           <CategoryHeading>

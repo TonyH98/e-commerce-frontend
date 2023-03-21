@@ -4,7 +4,7 @@ import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
-function ReviewNewForm(){
+function ReviewNewForm(user){
   const [product , setProduct] = useState([])
 
   let { id } = useParams();
@@ -12,13 +12,15 @@ function ReviewNewForm(){
  let navigate = useNavigate();
 
  const [review, setReview] = useState({
-    reviewer: "",
+    reviewer: user.user?.name,
     title: "",
     content: "",
     rating: "",
+    user_id: user.user?.id,
     product_id: id,
   });
 
+  console.log(user.user?.name)
 
   useEffect(() => {
     axios
@@ -72,7 +74,6 @@ console.log(product)
           id="reviewer"
           value={review.reviewer}
           type="text"
-          onChange={handleTextChange}
           placeholder="Your name"
           required
         />

@@ -115,10 +115,6 @@ for(let i = 0; i < clear.length; i++){
 
 }
 
-
-
-
-   
     return(
         <div>
             <div>

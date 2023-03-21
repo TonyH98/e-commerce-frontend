@@ -10,8 +10,7 @@ import { FaRegBookmark } from "react-icons/fa"
 import Reviews from "./Reviews/Reviews";
 import ReadMore from "./ReadMore";
 
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+
 const API = process.env.REACT_APP_API_URL;
 
 
@@ -73,7 +72,7 @@ function ProductDetails({user, newCart}){
     }
 
 
-    const notify = () => toast(`You added ${product.product_name} to your cart`);
+   
 
 
 
@@ -86,7 +85,7 @@ function handleCart(){
   setProduct(copyCart)
   
   updateProduct(copyCart , id)
-notify()
+
 }
 
 
@@ -99,7 +98,7 @@ function handleCart2(){
   setProduct(copyCart)
   
   updateProduct(copyCart , id)
-notify()
+
 }
 
 
