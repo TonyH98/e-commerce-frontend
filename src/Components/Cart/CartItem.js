@@ -12,7 +12,7 @@ function CartItem(props){
 
   const [userCart , setUserCart] = useState([])
 
-  const [newCart , setNewCart] = useState([])
+  
   
   
 
@@ -22,7 +22,7 @@ function CartItem(props){
       .get(`${API}/users/${props.user?.id}/products`)
       .then((res) => {
         setUserCart(res.data);
-        setNewCart(res.data)
+       
       })
       .catch((c) => console.warn("catch, c"));
   }, [props.product.id, props.user]);
@@ -54,7 +54,7 @@ return err
 };
 
 
-
+console.log(props.product.cart_counter)
 
     return(
         <section>

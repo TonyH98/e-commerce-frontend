@@ -6,12 +6,12 @@ import Favorite from "./Favorite";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
-function FavoriteProduct(){
+function FavoriteProduct({user}){
     const [products , setProducts] = useState([])
 
     useEffect(() => {
         axios
-          .get(`${API}/products`)
+          .get(`${API}/users/${user?.id}/products`)
           .then((res) => {
             setProducts(res.data);
           })

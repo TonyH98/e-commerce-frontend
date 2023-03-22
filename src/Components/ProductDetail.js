@@ -16,7 +16,7 @@ const API = process.env.REACT_APP_API_URL;
 
 
 
-function ProductDetails({user, newCart}){
+function ProductDetails({user}){
 
     const { id } = useParams();
     const [product , setProduct] = useState([])
@@ -59,7 +59,6 @@ function ProductDetails({user, newCart}){
     }
 
 
-
     const handleFavorite = () => {
       
       const copyProduct = {...product}
@@ -69,6 +68,8 @@ function ProductDetails({user, newCart}){
       setProduct(copyProduct)
       
       updateProduct(copyProduct, id)
+
+
     }
 
 
@@ -128,8 +129,11 @@ function addToUser(id){
  handleCart()
 }
 
-console.log(product)
-
+function addToFavorite(id){
+  axios
+  .post(`${API}/users/${user?.id}/products/${id}`)
+ handleFavorite()
+}
 
 
 
@@ -170,12 +174,12 @@ console.log(product)
           { 
             product.favorites ? (
               <>
-              <button onClick={handleFavorite} className="favorites-btn"> <FaBookmark size={25}/>  </button>
+              <button onClick={() => addToFavorite(product.id)} className="favorites-btn"> <FaBookmark size={25}/>  </button>
       
               </>
             ) : (
               <>
-                <button onClick={ handleFavorite } className="favorites-btn">  <FaRegBookmark size={25}/> </button>
+                <button onClick={ () => addToFavorite(product.id) } className="favorites-btn">  <FaRegBookmark size={25}/> </button>
  
               </>    
               )

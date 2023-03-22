@@ -21,7 +21,7 @@ function ProductCart({user}){
 
     useEffect(() => {
         axios
-          .get(`${API}/products`)
+          .get(`${API}/users/${user?.id}/products`)
           .then((res) => {
             setProducts(res.data);
           })
@@ -31,7 +31,7 @@ function ProductCart({user}){
 
       const handleEdit = (updatedCart) => {
         axios
-          .put(`${API}/products/${updatedCart.id}`, updatedCart)
+          .put(`${API}/users/${user?.id}/products/${updatedCart.id}`, updatedCart)
           .then((response) => {
             const copyCartArray = [...products];
             const indexUpdatedCart = copyCartArray.findIndex((cart) => {

@@ -88,7 +88,7 @@ console.log(user)
           <Route path="/products/:id/new" element={<ReviewNewForm user={user}/>}/>
           <Route path="/products/:id/reviews/:ids" element={<ReviewDetails/>}/>
           <Route path={`/cart/${user?.id}`} element={<ProductCart user={user}/>}/>
-          <Route path={`/favorites/${user?.id}`} element={<FavoriteProduct/>}/>
+          <Route path={`/favorites/${user?.id}`} element={<FavoriteProduct  user={user}/>}/>
           <Route path="/newProduct" element={<NewProducts/>}/>
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
           <Route path="/books" element={<Books/>}/>

@@ -21,6 +21,7 @@ function Mangas({user, saveHistory}){
         .catch((c) => console.warn("catch, c"));
     }, []);
 
+    
     const handleEdit = (updatedCart) => {
         axios
         .put(`${API}/products/${updatedCart.id}`, updatedCart)

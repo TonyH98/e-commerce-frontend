@@ -12,6 +12,7 @@ function Login( {newLogin} ){
       password: '',
     });
     
+    
     const handleTextChange = (event) => {
       setLogin({ ...login, [event.target.id]: event.target.value });
     };

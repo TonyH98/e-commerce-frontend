@@ -107,7 +107,7 @@ return(
           value={user.email}
           onChange={handleTextChange}
         />
-         {emailError && <p>{emailError}</p>}
+         {emailError && <p style={{color:"red"}}>{emailError}</p>}
       <br></br>
         <label htmlFor="password">Password:</label>
         <input
@@ -118,7 +118,7 @@ return(
           placeholder="******"
           onChange={handleTextChange}
         />
-        {passwordError && <p>{passwordError}</p>}
+        {passwordError && <p style={{color:"red"}}>{passwordError}</p>}
         <br />
         <input type="submit" />
       </form>
