@@ -18,7 +18,8 @@ import Videogames from "./Components/VideoGames/Videogames";
 import Login from "./Components/Registration/Login"
 import Signup from "./Components/Registration/Signup"
 import UserDetails from "./Components/UserInfo/UserDetails";
-
+import SearchHistories from "./Components/History/SearchHistories";
+import PurchaseHistory from "./Components/History/PurchaseHistory";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -83,6 +84,8 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login newLogin={newLogin}/>}/>
          <Route path={`/userInfo/${user?.id}`} element={<UserDetails user={user}/>}/>
+         <Route path={`/searchHistory/${user?.id}`} element={<SearchHistories/>}/>
+         <Route path={`/purchaseHistory/${user?.id}`} element={<PurchaseHistory/>}/>
           </Routes>
         </main>
       </Router>

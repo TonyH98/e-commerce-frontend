@@ -148,26 +148,12 @@ function clear(){
         Login
       </Link>}</button>
         <div className="items">
-         
+
          {user ?  <div>
         <Link to={`/cart/${user?.id}`}>
         <ShoppingCart color="black" size={30}/>
         </Link>
           </div> : null }
-         
-          {user ?  <h3>
-          <Link to={`/favorites/${user?.id}`}>Favorite Items</Link>
-        </h3> : null}
-        
-
-      <div className="link-new">
-      <Link to="/newProduct">
-        <h3> Create New Product </h3>
-      </Link>
-      </div>
-
-
-      
       {user ? 
      <p style={{fontWeight:"bold"}}><Link to={`/userInfo/${user?.id}`}>Details</Link></p>
       :<div className="link-new">
@@ -175,12 +161,14 @@ function clear(){
         <h3> Login </h3>
       </Link>
       </div> }
-{/*       
-      <div className="darkmode">
-        <div>{"☀️"}</div>
-        <input className="toggle"type="checkbox" />
-        <div className="moon">{"🌙"}</div>
-        </div> */}
+         
+      <div className="link-new">
+      <Link to="/newProduct">
+        <h3> Create New Product </h3>
+      </Link>
+      </div>
+
+
 
         </div>
       </div>
