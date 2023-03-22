@@ -25,12 +25,15 @@ function Signup(){
         firstName: '',
         lastName: '',
         email: '',
+        phoneNumber:'',
         password: '',
       });
     
       const [passwordError, setPasswordError] = useState("");
 
       const [emailError, setEmailError] = useState("");
+
+      const [phoneError, setPhoneError] = useState("")
 
       const handleTextChange = (event) => {
         setUser({ ...user, [event.target.id]: event.target.value });
@@ -50,6 +53,12 @@ function Signup(){
         }
         return true
       }
+
+      function validatePhoneNumber(){
+        const phoneRegex = /^\(\d{3}\)\d{3}-\d{4}$/;
+        return phoneRegex.test(user.phoneNumber)
+      }
+
       const handleSubmit = (event) => {
         event.preventDefault();
         if(validatePassword()){
@@ -63,6 +72,12 @@ function Signup(){
         }
         else{
           setEmailError("Please enter a valid email address")
+        }
+        if(!validatePhoneNumber()){
+          setPhoneError("Please enter in the require format of (xxx)xxx-xxxx")
+        }
+        else{
+          addUser(user)
         }
       };
 
@@ -109,6 +124,18 @@ return(
         />
          {emailError && <p style={{color:"red"}}>{emailError}</p>}
       <br></br>
+      <label htmlFor='phoneNumber'>Phone Number:</label>
+      <input
+          id="phoneNumber"
+          type="text"
+          required
+          value={user.phoneNumber}
+          placeholder="(xxx)xxx-xxxx"
+          onChange={handleTextChange}
+        />
+        
+        {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
+        <br></br>
         <label htmlFor="password">Password:</label>
         <input
           id="password"
