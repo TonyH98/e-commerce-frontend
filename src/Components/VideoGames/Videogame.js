@@ -84,7 +84,7 @@ console.log(userCart)
     return(
         <div>
           <div>
-          <Link to={`/products/${props.game.id}`} onClick={() => props.saveHistory(props.game)}>
+          <Link to={`/products/${props.game.id}`}>
             <img
               src={props.game.image}
               alt={props.game.product_name}

@@ -10,7 +10,7 @@ const API = process.env.REACT_APP_API_URL;
 
 const pageData = 1
 
-function Home({products , setProducts, user, saveHistory}){
+function Home({products , setProducts, user}){
 
 
   const [currentPage, setCurrentPage] = useState(0)
@@ -59,7 +59,7 @@ const handleEdit = (updatedCart) => {
 const currentPageData = filter
 .slice(offSet, offSet + pageData)
  .map((product , index) => <Product
-  key={index} product={product} index={index} handleEdit={handleEdit} user={user} saveHistory={saveHistory}/>)
+  key={index} product={product} index={index} handleEdit={handleEdit} user={user}/>)
 
 
   const pageCount =  Math.ceil(filter.length/pageData) 

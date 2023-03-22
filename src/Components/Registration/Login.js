@@ -24,7 +24,7 @@ function Login( {newLogin} ){
     .post(`${API}/users/login`, login)
     .then((res) => {
       newLogin()
-      window.localStorage.setItem("user", JSON.stringify({name: res.data.username, id: res.data.id}))
+      window.localStorage.setItem("user", JSON.stringify({firstname: res.data.firstName, lastname: res.data.lastName, email: res.data.email, username: res.data.username, id: res.data.id}))
   
     })
     .catch((err) => {

@@ -88,7 +88,7 @@ function Manga(props){
         <div>
          
           <div>
-          <Link to={`/products/${props.manga.id}`} onClick={() => props.saveHistory(props.manga)}>
+          <Link to={`/products/${props.manga.id}`}>
             <img
               src={props.manga.image}
               alt={props.manga.product_name}

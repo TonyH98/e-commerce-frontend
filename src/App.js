@@ -15,9 +15,9 @@ import Books from "./Components/Books/Books"
 import Comics from "./Components/Comics/Comics"
 import Mangas from "./Components/Manga/Mangas";
 import Videogames from "./Components/VideoGames/Videogames";
-import Login from "./Components/Users/Login";
-import Signup from "./Components/Users/Signup";
-import Histories from "./Components/History/Histories";
+import Login from "./Components/Registration/Login"
+import Signup from "./Components/Registration/Signup"
+import UserDetails from "./Components/UserInfo/UserDetails";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -27,7 +27,7 @@ function App() {
 
   const [productSearch , setProductSearch] = useState([])
 
-  const [history , setHistory] = useState([])
+
 
   const [user, setUser] = useState();
 
@@ -60,30 +60,15 @@ function App() {
   
   const date = new Date().toLocaleDateString('en-us', { year:"numeric", month:"short", day:"2-digit"})
 
-function saveHistory(product){
-window.localStorage.setItem("history", JSON.stringify([...history, {
-  name: product.product_name, 
-  image: product.image,
-  timeStamp: date,
-  id: product.id}]))
-}
 
-
-useEffect(() => {
-  const history = JSON.parse(window.localStorage.getItem('history'));
-  setHistory(history);
-}, []);
-
-
-console.log(user)
 
   return (
     <div className="App">
       <Router>
-        <Nav productSearch={productSearch} setProductSearch={setProductSearch} isLogged={isLogged} user={user} saveHistory={saveHistory}/>
+        <Nav productSearch={productSearch} setProductSearch={setProductSearch} isLogged={isLogged} user={user}/>
         <main>
           <Routes>
-          <Route path="/" element={<Home setProducts={setProducts} products={products} user={user} saveHistory={saveHistory}/>} />
+          <Route path="/" element={<Home setProducts={setProducts} products={products} user={user} />} />
           <Route path="/products/:id" element={<ProductDetails user={user}/>}/>
           <Route path="/products/:id/new" element={<ReviewNewForm user={user}/>}/>
           <Route path="/products/:id/reviews/:ids" element={<ReviewDetails/>}/>
@@ -93,11 +78,11 @@ console.log(user)
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
           <Route path="/books" element={<Books/>}/>
           <Route path="/comics" element={<Comics/>}/>
-          <Route path="/mangas" element={<Mangas  saveHistory={saveHistory} user={user}/>}/>
-          <Route path="/videogames" element={<Videogames user={user} saveHistory={saveHistory}/>}/>
+          <Route path="/mangas" element={<Mangas   user={user}/>}/>
+          <Route path="/videogames" element={<Videogames user={user} />}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login newLogin={newLogin}/>}/>
-          <Route path="/history" element={<Histories history={history}/>}/>
+         <Route path={`/userInfo/${user?.id}`} element={<UserDetails user={user}/>}/>
           </Routes>
         </main>
       </Router>

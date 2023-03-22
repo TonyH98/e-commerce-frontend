@@ -7,7 +7,7 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 
-function Videogames({user , saveHistory}){
+function Videogames({user}){
 
     const [products , setProducts] = useState([])
 
@@ -53,7 +53,7 @@ function Videogames({user , saveHistory}){
         {products.map((game) => {
             return(
                 <div key={game.id} className="product">
-                    <Videogame game={game} handleEdit={handleEdit} user={user} saveHistory={saveHistory}/>
+                    <Videogame game={game} handleEdit={handleEdit} user={user}/>
                 </div>
             )
         })}

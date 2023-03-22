@@ -66,22 +66,22 @@ function clear(){
   setSearch("")
 }
 
-const navigate = useNavigate()
+// const navigate = useNavigate()
 
-const handleLogout = () => {
-  localStorage.clear()
+// const handleLogout = () => {
+//   localStorage.clear()
 
-  fetch('/logout', {
-    method: "POST",
-    credentials: 'include',
-  })
-  .then(() => {
-    navigate('/login')
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-}
+//   fetch('/logout', {
+//     method: "POST",
+//     credentials: 'include',
+//   })
+//   .then(() => {
+//     navigate('/login')
+//   })
+//   .catch((error) => {
+//     console.error(error)
+//   })
+// }
 
     return(
         <nav className="Navigation">
@@ -144,7 +144,9 @@ const handleLogout = () => {
 
 
       <div className="dropdown">
-        <button className="dropbtn">User</button>
+        <button className="dropbtn"> {user ? user?.username :  <Link to="/login">
+        Login
+      </Link>}</button>
         <div className="items">
          
          {user ?  <div>
@@ -164,31 +166,26 @@ const handleLogout = () => {
       </Link>
       </div>
 
-      {user ? <div className="link-new">
-      <Link to="/history">
-        <h3> Search History </h3>
-      </Link>
-      </div> : null}
+
       
       {user ? 
-      <button onClick={handleLogout}> Logout</button>
+     <p style={{fontWeight:"bold"}}><Link to={`/userInfo/${user?.id}`}>Details</Link></p>
       :<div className="link-new">
       <Link to="/login">
         <h3> Login </h3>
       </Link>
       </div> }
-      
-
+{/*       
       <div className="darkmode">
         <div>{"☀️"}</div>
         <input className="toggle"type="checkbox" />
         <div className="moon">{"🌙"}</div>
-        </div>
+        </div> */}
 
         </div>
       </div>
-
       </nav>
+
     )
 }
 

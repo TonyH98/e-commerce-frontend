@@ -6,7 +6,7 @@ import CategoryHeading from "../CategoryHeading";
 const API = process.env.REACT_APP_API_URL;
 
 
-function Mangas({user, saveHistory}){
+function Mangas({user}){
 
     const [products , setProducts] = useState([])
 
@@ -50,7 +50,7 @@ function Mangas({user, saveHistory}){
         {products.map((manga) => {
             return(
                 <div key={manga.id}>
-                    <Manga manga={manga} handleEdit={handleEdit} user={user} saveHistory={saveHistory}/>
+                    <Manga manga={manga} handleEdit={handleEdit} user={user}/>
                 </div>
             )
         })}
