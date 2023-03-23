@@ -21,7 +21,7 @@ function ProductDetails({user}){
     const { id } = useParams();
     const [product , setProduct] = useState([])
     const [related , setRelated] = useState([])
-    
+    const [counter , setCounter] = useState(0)    
 
     let navigate = useNavigate();
     
@@ -80,8 +80,12 @@ function ProductDetails({user}){
 function handleCart(){
 
   let copyCart = {...product}
-
-  copyCart.cart_counter = ( product.cart_counter + 1 )
+  if(counter === 0){
+    copyCart.cart_counter = ( product.cart_counter + 1 )
+  }
+  else{
+    copyCart.cart_counter = ( product.cart_counter + counter )
+  }
 
   setProduct(copyCart)
   
@@ -135,7 +139,7 @@ function addToFavorite(id){
  handleFavorite()
 }
 
-
+console.log(counter)
 
     return(
         <div>
@@ -147,6 +151,7 @@ function addToFavorite(id){
                 className="image"
                 alt={`${product.product_name}`} 
               />
+
           </div>
           <section className="info">
               <div>
@@ -169,8 +174,7 @@ function addToFavorite(id){
           </section>
           <br></br>
           </div>
-    
-          <div className="favorites-section">
+      <div className="favorites-section">
           { 
             product.favorites ? (
               <>
@@ -184,8 +188,19 @@ function addToFavorite(id){
               </>    
               )
             }
+          </div>   
+          <br></br>
+          <div className="cart-counter-input">
+            <input
+            className="cart-input"
+            type="number"
+            value={counter}
+            min="0"
+            onChange={(e) => setCounter(e.target.value)}
+            />
           </div>
-      
+         
+      <br></br>
           <div className="cart">
             {product.cart_counter > 0 ? (
               <button className="cart-btns" onClick={() => handleDelete(product.id)}>Delete From Cart</button>

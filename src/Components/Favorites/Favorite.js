@@ -2,12 +2,15 @@
 import { Link } from "react-router-dom";
 
 function Favorite(props){
+
+console.log(props.product.products_id)
+
    return (
 
     <section>
        
     <div>
-      <Link to={`/products/${props.product.id}`}>
+      <Link to={`/products/${props.product.products_id}`}>
         <img
           src={props.product.image}
           alt={props.product.product_name}
@@ -16,7 +19,7 @@ function Favorite(props){
       </Link>
       <div>
       <h5 className="product-name">
-        <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
+        <Link to={`/products/${props.product.products_id}`}>{props.product.product_name}</Link>
       </h5>
       <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price}
      
