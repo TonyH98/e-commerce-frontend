@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Favorite(props){
 
-console.log(props.product.products_id)
+console.log(props.product)
 
    return (
 

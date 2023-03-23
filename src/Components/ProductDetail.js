@@ -18,128 +18,97 @@ const API = process.env.REACT_APP_API_URL;
 
 function ProductDetails({user}){
 
-    const { id } = useParams();
-    const [product , setProduct] = useState([])
-    const [related , setRelated] = useState([])
-    const [counter , setCounter] = useState(0)    
+  const { id } = useParams();
+  const [product, setProduct] = useState({});
+  const [related, setRelated] = useState([]);
+  const [counter, setCounter] = useState(0);
+  const navigate = useNavigate();
 
-    let navigate = useNavigate();
-    
-    
-    useEffect(() => {
-      axios
+  useEffect(() => {
+    axios
       .get(`${API}/products/${id}`)
-      .then((res) => {
-        setProduct(res.data);
-        
-      })
-      .catch((c) => {
-        console.warn("catch", c);
-      });
-    }, [id]);
-    
-    
+      .then((res) => setProduct(res.data))
+      .catch((err) => console.error(err));
+  }, [id]);
 
+  useEffect(() => {
+    axios
+      .get(`${API}/products?category=${product.category}`)
+      .then((res) => setRelated(res.data))
+      .catch((err) => console.error(err));
+  }, [product.category]);
 
-      useEffect(() => {
-        axios
-          .get(`${API}/products?category=${product.category}`)
-          .then((res) => {
-            setRelated(res.data);
-          })
-          .catch((c) => console.warn("catch, c"));
-      }, [product, id]);
-
-      
-      const updateProduct = (updatedProduct, id) => {
-        axios
-          .put(`${API}/products/${id}`, updatedProduct)
-          .then(() => navigate(`/products/${id}`))
-          .catch(c => console.warn('catch', c));
-    }
-
-
-    const handleFavorite = () => {
-      
-      const copyProduct = {...product}
-
-      copyProduct.favorites = !product.favorites
-
-      setProduct(copyProduct)
-      
-      updateProduct(copyProduct, id)
-
-
-    }
-
-
-   
-
-
-
-function handleCart(){
-
-  let copyCart = {...product}
-  if(counter === 0){
-    copyCart.cart_counter = ( product.cart_counter + 1 )
-  }
-  else{
-    copyCart.cart_counter = ( product.cart_counter + counter )
+  function updateProduct(updatedProduct, id) {
+    axios
+      .put(`${API}/products/${id}`, updatedProduct)
+      .then(() => navigate(`/products/${id}`))
+      .catch((err) => console.error(err));
   }
 
-  setProduct(copyCart)
-  
-  updateProduct(copyCart , id)
+  function handleFavorite() {
+    const updatedProduct = { ...product, favorites: !product.favorites };
+    setProduct(updatedProduct);
+    updateProduct(updatedProduct, id);
+  }
 
-}
+  function handleCart() {
+    const updatedProduct = {
+      ...product,
+      cart_counter: product.cart_counter + (counter || 1),
+    };
+    setProduct(updatedProduct);
+    updateProduct(updatedProduct, id);
+  }
+
+  function handleCart2() {
+    const updatedProduct = { ...product, cart_counter: 0 };
+    setProduct(updatedProduct);
+    updateProduct(updatedProduct, id);
+  }
+
+  function handleDelete() {
+    axios
+      .delete(`${API}/users/${user?.id}/products/${product.id}`)
+      .then(() => handleCart2())
+      .catch((err) => console.error(err));
+  }
+
+  function addToUser() {
+    axios
+      .post(`${API}/users/${user?.id}/products/${product.id}`)
+      .then(() => handleCart())
+      .catch((err) => console.error(err));
+  }
 
 
-function handleCart2(){
-
-  let copyCart = {...product}
-
-  copyCart.cart_counter = ( product.cart_counter = 0 )
-
-  setProduct(copyCart)
-  
-  updateProduct(copyCart , id)
-
-}
 
 
+  function addToFavorite() {
+    
+    
+    if (product.favorites) {
+     
+      axios.delete(`${API}/users/${user.id}/products/${product.id}`)
+        .then(() => handleFavorite(false))
+        .catch((err) => console.error(err));
+    } else {
 
+      axios.post(`${API}/users/${user.id}/products/${product.id}`)
+        .then(() => handleFavorite(true))
+        .catch((err) => console.error(err));
+    }
+  }
 
+  const date = new Date(product.release_date)?.toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
 
-const date = new Date(product.release_date).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"2-digit"})
+  const relatedItems = related
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
 
-
-
-let number = 3
-
-const relatedItem = related
-.map(x => ({x, r: Math.random()}))
-.sort((a , b) => a.r - b.r)
-.map(a => a.x)
-.slice(0 , number)
-
-function handleDelete(ids){
-  axios.delete(`${API}/users/${user?.id}/products/${ids}`)
-  handleCart2()
- }
-
-function addToUser(id){
-  axios
-  .post(`${API}/users/${user?.id}/products/${id}`)
- handleCart()
-}
-
-function addToFavorite(id){
-  axios
-  .post(`${API}/users/${user?.id}/products/${id}`)
- handleFavorite()
-}
-
-console.log(counter)
 
     return(
         <div>
@@ -216,7 +185,7 @@ console.log(counter)
 
       <h1>Related Products</h1>
      <div className="relatedItem">
-      {relatedItem.map((relate) => {
+      {relatedItems.map((relate) => {
         return(
           <div key={relate.id}>
             <Link to={`/products/${relate.id}`}> 
