@@ -61,8 +61,7 @@ function App() {
   
   const date = new Date().toLocaleDateString('en-us', { year:"numeric", month:"short", day:"2-digit"})
 
-
-
+console.log(user)
   return (
     <div className="App">
       <Router>

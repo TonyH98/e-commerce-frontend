@@ -23,6 +23,7 @@ function ReviewForm(props) {
     }
   }, [id, reviewDetails, props]);
 
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     props.handleEdit(review, id);

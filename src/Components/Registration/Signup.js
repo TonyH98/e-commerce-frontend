@@ -22,10 +22,10 @@ function Signup(){
 
     const [user, setUser] = useState({
         username: '',
-        firstName: '',
-        lastName: '',
+        firstname: '',
+        lastname: '',
         email: '',
-        phoneNumber:'',
+        phonenumber:'',
         password: '',
       });
     
@@ -96,21 +96,21 @@ return(
           required
         />
         <br></br>
-        <label htmlFor="firstName">First Name:</label>
+        <label htmlFor="firstname">First Name:</label>
         <input
-          id="firstName"
+          id="firstname"
           type="text"
           required
-          value={user.firstName}
+          value={user.firstname}
           onChange={handleTextChange}
         />
         <br></br>
-         <label htmlFor="lastName">Last Name:</label>
+         <label htmlFor="lastname">Last Name:</label>
         <input
-          id="lastName"
+          id="lastname"
           type="text"
           required
-          value={user.lastName}
+          value={user.lastname}
           onChange={handleTextChange}
         />
         <br></br>
@@ -124,12 +124,12 @@ return(
         />
          {emailError && <p style={{color:"red"}}>{emailError}</p>}
       <br></br>
-      <label htmlFor='phoneNumber'>Phone Number:</label>
+      <label htmlFor='phonenumber'>Phone Number:</label>
       <input
-          id="phoneNumber"
+          id="phonenumber"
           type="text"
           required
-          value={user.phoneNumber}
+          value={user.phonenumber}
           placeholder="(xxx)xxx-xxxx"
           onChange={handleTextChange}
         />
