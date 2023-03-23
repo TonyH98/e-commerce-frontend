@@ -1,9 +1,10 @@
 
 import { useState, useEffect } from "react";
 import Favorite from "./Favorite";
-
+import UserLink from "../UserInfo/UserLink";
 
 import axios from "axios";
+import { User } from "phosphor-react";
 
 const API = process.env.REACT_APP_API_URL;
 function FavoriteProduct({user}){
@@ -20,6 +21,7 @@ function FavoriteProduct({user}){
 
 
     return(
+      <UserLink>
         <div>
             <div>
             <h1>Your Favorite Items</h1>
@@ -35,8 +37,8 @@ function FavoriteProduct({user}){
                     }
                   })}
                 </div>
-            
         </div>
+      </UserLink>
     )
 }
 

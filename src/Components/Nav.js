@@ -155,7 +155,7 @@ function clear(){
         </Link>
           </div> : null }
       {user ? 
-     <p style={{fontWeight:"bold"}}><Link to={`/userInfo/${user?.id}`}>Details</Link></p>
+     <p style={{fontWeight:"bold"}}><Link to={`/userDetails/${user?.id}`}>Details</Link></p>
       :<div className="link-new">
       <Link to="/login">
         <h3> Login </h3>

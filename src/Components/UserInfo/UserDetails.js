@@ -1,76 +1,48 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UserEdit from "./UserEdit";
 import axios from "axios";
-
+import UserLink from "./UserLink";
 const API = process.env.REACT_APP_API_URL;
 
-function UserDetails({ user }) {
-  const [hidden, setHidden] = useState(false);
-  const [detail, setDetail] = useState({});
+function UserDetails({user}){
 
-  const navigate = useNavigate();
+    const [hidden, setHidden] = useState(false);
+    const [detail, setDetail] = useState({});
+  
+    const navigate = useNavigate();
+  
+   
+  
+    useEffect(() => {
+      axios
+        .get(`${API}/users/${user?.id}`)
+        .then((res) => {
+          setDetail(res.data);
+        })
+        .then(() => {
+          navigate(`/userDetails/${user?.id}`);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }, []);
+  
+    const toggleView = () => {
+      setHidden(!hidden);
+    };
+  
+    const handleUserUpdate = (updatedUser) => {
+      setDetail(updatedUser);
+    };
 
-  const handleLogout = () => {
-    localStorage.clear();
 
-    fetch("/logout", {
-      method: "POST",
-      credentials: "include",
-    })
-      .then(() => {
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
-  useEffect(() => {
-    axios
-      .get(`${API}/users/${user?.id}`)
-      .then((res) => {
-        setDetail(res.data);
-      })
-      .then(() => {
-        navigate(`/userInfo/${user?.id}`);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+    return(
+      <UserLink>
 
-  const toggleView = () => {
-    setHidden(!hidden);
-  };
+        <div className="user-details">
 
-  const handleUserUpdate = (updatedUser) => {
-    setDetail(updatedUser);
-  };
-
-  return (
-    <div className="userDetails">
-      <div className="userLink">
-        <Link to={`/favorites/${user?.id}`}>
-          <p>Favorite Item</p>
-        </Link>
-        <br />
-        <Link to={`/searchHistory/${user?.id}`}>
-          <p>Search History</p>
-        </Link>
-        <br />
-        <Link to={`/purchaseHistory/${user?.id}`}>
-          <p>Purchase History</p>
-        </Link>
-        <br />
-        <div className="darkmode">
-          <input className="toggle" type="checkbox" />
-        </div>
-        <br />
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-      <div className="vertical"></div>
-      <div className="userInfo">
         <h1>{`${detail.firstname} ${detail.lastname} Information`}</h1>
         <br />
         {hidden ? (
@@ -110,9 +82,9 @@ function UserDetails({ user }) {
         <button className="edit" onClick={toggleView}>
           Edit User
         </button>
-      </div>
-    </div>
-  );
+        </div>
+      </UserLink>
+    )
 }
 
-export default UserDetails;
+export default UserDetails
