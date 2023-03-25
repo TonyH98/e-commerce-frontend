@@ -9,7 +9,7 @@ const API = process.env.REACT_APP_API_URL;
 function Manga(props){
 
   let [newProduct] = useState({
-    cart_counter: props.manga.cart_counter,
+    quantity: props.manga.quantity,
     category: props.manga.category,
     description: props.manga.description,
     favorites: props.manga.favorites,
@@ -44,7 +44,7 @@ function Manga(props){
       })
      
 
-        props.handleEdit({ ...props.manga, cart_counter: Number(props.manga.cart_counter) + 1 })
+        props.handleEdit({ ...props.manga, quantity: Number(props.manga.quantity) + 1 })
       
     }
     useEffect(() => { 
@@ -77,7 +77,7 @@ function Manga(props){
       console.log(err)
       return err
     })
-    props.handleEdit({ ...props.manga, cart_counter: props.manga.cart_counter = 0 })
+    props.handleEdit({ ...props.manga, quantity: props.manga.quantity = 0 })
   }
   
 

@@ -8,7 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 function Videogame(props){
   
   let [newProduct] = useState({
-    cart_counter: props.game.cart_counter,
+    quantity: props.game.quantity,
     category: props.game.category,
     description: props.game.description,
     favorites: props.game.favorites,
@@ -43,7 +43,7 @@ function Videogame(props){
         setUserCart([...userCart, {...newProduct}])
         navigate("/videogames")
       })
-      props.handleEdit({ ...props.game, cart_counter: Number(props.game.cart_counter) + 1 })
+      props.handleEdit({ ...props.game, quantity: Number(props.game.quantity) + 1 })
   }
   useEffect(() => { 
     axios
@@ -75,16 +75,21 @@ function Videogame(props){
       console.log(err)
       return err
     })
-    props.handleEdit({ ...props.game, cart_counter: props.game.cart_counter = 0 })
+    props.handleEdit({ ...props.game, quantity: props.game.quantity = 0 })
   }
   
 console.log(userCart)
 
 
+
+function addToSearchHistory(id ,ids){
+  axios.post(`${API}/users/${id}/search/${ids}`)
+}
+
     return(
         <div>
           <div>
-          <Link to={`/products/${props.game.id}`}>
+          <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
             <img
               src={props.game.image}
               alt={props.game.product_name}

@@ -17,7 +17,7 @@ function UserLink({children}) {
     setUser(loggedUser);
   }, []);
 
-  console.log(user)
+
 
   const navigate = useNavigate();
 

@@ -15,7 +15,7 @@ function NewProducts(){
         price: "",
         category: "",
         favorites: false,
-        cart_counter: 0,
+        quantity: 0,
         manufacturer: ""
     })
 

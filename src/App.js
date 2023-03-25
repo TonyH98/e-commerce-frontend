@@ -20,6 +20,9 @@ import Signup from "./Components/Registration/Signup"
 import SearchHistories from "./Components/History/SearchHistories";
 import PurchaseHistory from "./Components/History/PurchaseHistory";
 import UserDetails from "./Components/UserInfo/UserDetails";
+import Success from "./Components/CheckoutURL/Success"
+import Cancel from "./Components/CheckoutURL/Cancel"
+
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -83,8 +86,10 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           <Route path={`/userDetails/${user?.id}`} element={<UserDetails user={user}/>}/>
-         <Route path={`/searchHistory/${user?.id}`} element={<SearchHistories/>}/>
+         <Route path={`/searchHistory/${user?.id}`} element={<SearchHistories user={user}/>}/>
          <Route path={`/purchaseHistory/${user?.id}`} element={<PurchaseHistory/>}/>
+         <Route path="/success" element={<Success/>}/>
+         <Route path="/cancel" element={<Cancel/>}/>
           </Routes>
         </main>
       </Router>
@@ -95,3 +100,36 @@ function App() {
 }
 
 export default App;
+
+
+// const handleEdit = (updatedCart) => {
+//   axios
+//     .put(`${API}/users/${user?.id}/products/${updatedCart.id}`, updatedCart)
+//     .then((response) => {
+//       const copyCartArray = [...products];
+//       const indexUpdatedCart = copyCartArray.findIndex((cart) => {
+//         return cart.id === updatedCart.id;
+//       });
+//       copyCartArray[indexUpdatedCart] = response.data;
+//       setProducts(copyCartArray);
+//     })
+//     .then(() => {
+//       navigate(`/cart/${user?.id}`);
+//     })
+//     .catch((c) => console.warn("catch", c));
+// };
+
+// const cartCounter = products.map((product) =>
+//   Number(product.cart_counter * product.price)
+// );
+
+// const every = cartCounter.every((x) => {
+//   return x === 0;
+// });
+
+// const clearCart = () => {
+//   const clear = products.filter((x) => x.cart_counter !== 0);
+//   clear.forEach((product) => {
+//     handleEdit({ ...product, cart_counter: 0 });
+//   });
+// };

@@ -6,7 +6,7 @@ import Review from "./Review";
 
 const API = process.env.REACT_APP_API_URL;
 
-function Reviews(){
+function Reviews({user}){
 
     const [reviews, setReviews] = useState([]);
     const [filterReviews , setFilterReviews] = useState([])
@@ -69,7 +69,6 @@ function Reviews(){
       
  average = average/ map.length
 
- 
       return (
         <section className="Reviews">
           <h2>Reviews</h2>
@@ -86,7 +85,7 @@ function Reviews(){
           <button className="create-review">Write a Review</button>
           </Link>
           {filterReviews.map((review) => (
-            <Review key={review.id} review={review} handleDelete={handleDelete}handleEdit={handleEdit}/>
+            <Review key={review.id} review={review} handleDelete={handleDelete}handleEdit={handleEdit} user={user}/>
           ))}
         </section>
       );

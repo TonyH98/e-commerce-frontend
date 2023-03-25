@@ -6,88 +6,77 @@ import { useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-
-
-function CartItem(props){
-
-  const [userCart , setUserCart] = useState([])
-
-  
-  
-  
-
+function CartItem(props) {
+  const [userCart, setUserCart] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${API}/users/${props.user?.id}/products`)
       .then((res) => {
         setUserCart(res.data);
-       
       })
-      .catch((c) => console.warn("catch, c"));
-  }, [props.product.id, props.user]);
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  }, [props.product.products_id, props.user?.id]);
 
+  const cartIncrease = (event) => {
+    const newCounter = Number(event.target.value);
+    const updatedProduct = { ...props.product, quantity: newCounter };
 
-const cartIncrease = (event) => {
+    props.handleEdit(updatedProduct);
 
-  props.handleEdit({ ...props.product, [event.target.id]: Number(event.target.value) })
+    if (newCounter === 0) {
+      axios
+        .delete(`${API}/users/${props.user?.id}/products/${props.product.products_id}`)
+        .then((res) => {
+          const updatedCart = userCart.filter((cart) => cart.products_id !== props.product.products_id);
+          setUserCart(updatedCart);
+        })
+        .catch((err) => {
+          console.log(err);
+          return err;
+        });
+    } else {
+      const updatedCart = userCart.map((cart) => {
+        if (cart.products_id === props.product.products_id) {
+          return { ...cart, quantity: newCounter };
+        } else {
+          return cart;
+        }
+      });
+      setUserCart(updatedCart);
+    }
+  };
 
-if(event.target.value == 0 ){
-  axios
-  .delete(`${API}/users/${props.user?.id}/products/${props.product.id}`)
-  .then((res) => {
-
-    const indexDeleteCart = userCart.findIndex((cart) => {
-      return cart.products_id === props.product.id
-    });
-    userCart.splice(indexDeleteCart , 1)
-    setUserCart([...userCart])
-  })
-.catch((err) => {
-console.log(err)
-return err
-})
-
-}
-
-
-};
-
-
-console.log(props.product.cart_counter)
-
-    return(
-        <section>
-       
+  return (
+    <section>
+      <div>
+        <Link to={`/products/${props.product.products_id}`}>
+          <img
+            src={props.product.image}
+            alt={props.product.product_name}
+            className="cart-images"
+          />
+        </Link>
         <div>
-          <Link to={`/products/${props.product.products_id}`}>
-            <img
-              src={props.product.image}
-              alt={props.product.product_name}
-              className="cart-images"
-            ></img>
-          </Link>
-          <div>
           <h5 className="product-name">
             <Link to={`/products/${props.product.products_id}`}>{props.product.product_name}</Link>
           </h5>
-          <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price}
-         
-          </div>
+          <span style={{ fontWeight: "bold" }}>Price:</span> ${props.product.price}
         </div>
-     
-       
-        <input 
-        id="cart_counter"
+      </div>
+
+      <input
+        id="quantity"
         type="number"
-        value={props.product.cart_counter} 
+        value={props.product.quantity}
         onChange={cartIncrease}
         className="count-number"
-        />
-   
-      </section>
-    )
+      />
+    </section>
+  );
 }
 
-
-export default CartItem
+export default CartItem;

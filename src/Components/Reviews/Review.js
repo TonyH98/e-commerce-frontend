@@ -2,7 +2,7 @@ import ReviewForm from "./ReviewEdit"
 import { useState } from "react";
 import { Link , useParams} from "react-router-dom";
 import ReadMore from "../ReadMore";
-function Review({ review, handleDelete, handleEdit }) {
+function Review({ review, handleDelete, handleEdit, user }) {
   const [hidden , setHidden] = useState(false)
 
   const toggleView = () => {
@@ -11,6 +11,8 @@ function Review({ review, handleDelete, handleEdit }) {
 
   const {id} = useParams()
 
+  
+ 
 
     return (
       <div className="Review">
@@ -39,7 +41,11 @@ function Review({ review, handleDelete, handleEdit }) {
         )}
         <br></br>
         <div className="review-btns">
-        <button  className="delete" onClick={() => handleDelete(review.id)}>delete</button> <button className="edit" onClick = {toggleView}>edit this review</button>
+          {user?.id === review.user_id ? (
+            <>
+            <button  className="delete" onClick={() => handleDelete(review.id)}>delete</button> <button className="edit" onClick = {toggleView}>edit this review</button>
+            </>
+          ) : null}
         </div>
       </div>
     );

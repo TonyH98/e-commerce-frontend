@@ -4,7 +4,8 @@ import Favorite from "./Favorite";
 import UserLink from "../UserInfo/UserLink";
 
 import axios from "axios";
-import { User } from "phosphor-react";
+
+
 
 const API = process.env.REACT_APP_API_URL;
 function FavoriteProduct({user}){
@@ -12,13 +13,15 @@ function FavoriteProduct({user}){
 
     useEffect(() => {
         axios
-          .get(`${API}/users/${user?.id}/products`)
+          .get(`${API}/users/${user?.id}/favorites`)
           .then((res) => {
             setProducts(res.data);
           })
           .catch((c) => console.warn("catch, c"));
       }, []);
 
+
+console.log(products)
 
     return(
       <UserLink>

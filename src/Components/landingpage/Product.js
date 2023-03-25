@@ -22,7 +22,7 @@ function addToUser(){
   .then(() => {
     navigate("/")
   })
-  props.handleEdit({ ...props.product, cart_counter: Number(props.product.cart_counter) + 1 })
+  props.handleEdit({ ...props.product, quantity: Number(props.product.quantity) + 1 })
 }
 
 
@@ -53,7 +53,7 @@ const deleteCartItem = ( id, ids) => {
   console.log(err)
   return err
 })
-props.handleEdit({ ...props.product, cart_counter: props.product.cart_counter = 0 })
+props.handleEdit({ ...props.product, quantity: props.product.quantity = 0 })
 }
 
 const map = newCart.map((x) => {

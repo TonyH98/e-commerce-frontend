@@ -45,23 +45,23 @@ function ProductDetails({user}){
       .catch((err) => console.error(err));
   }
 
-  function handleFavorite() {
-    const updatedProduct = { ...product, favorites: !product.favorites };
-    setProduct(updatedProduct);
-    updateProduct(updatedProduct, id);
-  }
+  // function handleFavorite() {
+  //   const updatedProduct = { ...product, favorites: !product.favorites };
+  //   setProduct(updatedProduct);
+  //   updateProduct(updatedProduct);
+  // }
 
   function handleCart() {
     const updatedProduct = {
       ...product,
-      cart_counter: product.cart_counter + (counter || 1),
+      quantity: product.quantity + (counter || 1),
     };
     setProduct(updatedProduct);
     updateProduct(updatedProduct, id);
   }
 
   function handleCart2() {
-    const updatedProduct = { ...product, cart_counter: 0 };
+    const updatedProduct = { ...product, quantity: 0 };
     setProduct(updatedProduct);
     updateProduct(updatedProduct, id);
   }
@@ -84,20 +84,26 @@ function ProductDetails({user}){
 
 
   function addToFavorite() {
-    
-    
-    if (product.favorites) {
-     
-      axios.delete(`${API}/users/${user.id}/products/${product.id}`)
-        .then(() => handleFavorite(false))
+      axios.post(`${API}/users/${user.id}/favorites/${product.id}`)
+      .then(() => {
+        const updatedProduct = { ...product, favorites: product.favorites };
+        setProduct(updatedProduct);
+        updateProduct(updatedProduct);
+      })
         .catch((err) => console.error(err));
-    } else {
-
-      axios.post(`${API}/users/${user.id}/products/${product.id}`)
-        .then(() => handleFavorite(true))
-        .catch((err) => console.error(err));
-    }
   }
+
+
+function removeFromFavorite(){
+  axios.delete(`${API}/users/${user.id}/favorites/${product.id}`)
+  .then(() => {
+    const updatedProduct = { ...product, favorites: !product.favorites };
+    setProduct(updatedProduct);
+    updateProduct(updatedProduct);
+  })
+  .catch((err) => console.error(err));
+}
+
 
   const date = new Date(product.release_date)?.toLocaleDateString("en-us", {
     year: "numeric",
@@ -108,6 +114,9 @@ function ProductDetails({user}){
   const relatedItems = related
     .sort(() => Math.random() - 0.5)
     .slice(0, 3);
+
+
+console.log(product.favorites)
 
 
     return(
@@ -147,12 +156,12 @@ function ProductDetails({user}){
           { 
             product.favorites ? (
               <>
-              <button onClick={() => addToFavorite(product.id)} className="favorites-btn"> <FaBookmark size={25}/>  </button>
+              <button onClick={removeFromFavorite} className="favorites-btn"> <FaBookmark size={25}/>  </button>
       
               </>
             ) : (
               <>
-                <button onClick={ () => addToFavorite(product.id) } className="favorites-btn">  <FaRegBookmark size={25}/> </button>
+                <button onClick={addToFavorite} className="favorites-btn">  <FaRegBookmark size={25}/> </button>
  
               </>    
               )
@@ -171,7 +180,7 @@ function ProductDetails({user}){
          
       <br></br>
           <div className="cart">
-            {product.cart_counter > 0 ? (
+            {product.quantity > 0 ? (
               <button className="cart-btns" onClick={() => handleDelete(product.id)}>Delete From Cart</button>
 
             ) : (
@@ -203,7 +212,7 @@ function ProductDetails({user}){
       })}
      </div>
      <br></br>
-        <Reviews/>
+        <Reviews user={user}/>
     </div>
     )
 }

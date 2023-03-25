@@ -448,7 +448,7 @@ width: 75px;
 
 .userDetails{
   display: grid;
-  grid-template-columns: repeat(3, 400px);
+  grid-template-columns: 15% 25% 60%
 }
 
 .vertical {
@@ -476,6 +476,11 @@ width: 75px;
 
 .cart-input{
   width: 30px;
+}
+
+
+.showMore{
+  height: 20px;
 }
 
 @media all and (max-width: 375px){
