@@ -81,14 +81,43 @@ function Manga(props){
   }
   
 
-
+  function addToSearchHistory(id, gameId) {
+    axios.get(`${API}/users/${id}/search?products_id=${gameId}`)
+      .then(res => {
+        const searchHistory = res.data;
+        const latestSearch = searchHistory.length > 0 ? searchHistory[searchHistory.length - 1] : null;
+        if (latestSearch && latestSearch.products_id === gameId) {
+          return;
+        }
+        axios.post(`${API}/users/${id}/search/${gameId}`)
+          .then(() => {
+            const uniqueSearchHistory = [...searchHistory, { products_id: gameId }].filter((search, index, array) => {
+              return search.products_id === gameId && index === array.findIndex(s => s.products_id === gameId);
+            });
+            if (uniqueSearchHistory.length > 1) {
+              const deletePromises = uniqueSearchHistory.slice(0, -1).map(search => {
+                return axios.delete(`${API}/users/${id}/search/${search.id}`);
+              });
+              Promise.all(deletePromises).catch(err => {
+                console.log(err);
+              });
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
 
     return(
         <div>
          
           <div>
-          <Link to={`/products/${props.manga.id}`}>
+          <Link to={`/products/${props.manga.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
             <img
               src={props.manga.image}
               alt={props.manga.product_name}
@@ -99,7 +128,9 @@ function Manga(props){
 
           <div>
           <h3>
-            <Link to={`/products/${props.manga.id}`}>{props.manga.product_name}</Link>
+            <Link to={`/products/${props.manga.id}`} onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
+              {props.manga.product_name}
+              </Link>
           </h3>
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.manga.price}
           <br></br>
