@@ -1,6 +1,4 @@
 import { useState, useEffect} from "react";
-import { useNavigate, Link } from "react-router-dom";
-
 
 import axios from "axios"
 import UserLink from "../UserInfo/UserLink"

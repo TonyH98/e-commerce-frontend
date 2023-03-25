@@ -5,10 +5,17 @@ function Searches({product}){
 console.log(product)
 
 
+const date = new Date(product.created)?.toLocaleDateString("en-us", {
+  year: "2-digit",
+  month: "short",
+  day: "2-digit",
+});
+
+
     return(
 
         <section>
-       
+      <p>Search: {date}</p>
     <div>
       <Link to={`/products/${product.products_id}`}>
         <img
