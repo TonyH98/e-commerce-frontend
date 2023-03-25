@@ -12,7 +12,8 @@ const API = process.env.REACT_APP_API_URL;
 function SearchHistories({user}){
 
     const [histories, setHistories] = useState([])
-
+    const [filterHistory, setFilterHistory] = useState([])
+    const [search , setSearch] = useState("")
 
     let navigate = useNavigate()
 
@@ -21,6 +22,7 @@ function SearchHistories({user}){
           .get(`${API}/users/${user?.id}/search`)
           .then((res) => {
             setHistories(res.data);
+            setFilterHistory(res.data)
           })
           .catch((c) => console.warn("catch, c"));
       }, []);
@@ -63,19 +65,45 @@ function SearchHistories({user}){
               (history) => !deletedProductIds.includes(history.products_id)
             );
             setHistories(updatedHistories);
+            setFilterHistory(updatedHistories); // update filterHistory state
           })
           .catch((error) => console.error(error));
       }
+     
+// Filter function for handleTextChange function below
+function filteredHistory(search) {
+  return histories.filter((history) =>
+    history.product_name.toLowerCase().match(search.toLowerCase())
+  );
+}
 
+// Function that searchs through the snacks array for a match to the search
+const handleTextChange = (e) => {
+  const search = e.target.value;
+  const result = search ? filteredHistory(search) : filterHistory;
+  setHistories(result);
+  setSearch(search);
+};
 
 
 
     return(
         <UserLink>
         <div>
-          <button onClick={deleteMultiple}>Delete</button>
             <div>
             <h1>Search History</h1>
+            <>
+            <label htmlFor="search-history">Search:</label>
+            <br></br>
+            <input
+            className="search-history"
+            type="text"
+            value={search}
+            onChange={handleTextChange}
+            />
+
+          <button onClick={deleteMultiple}>Delete</button>
+            </>
             </div>
                 <div className="product-card favorite-card">
                   {histories.map((product) => {
