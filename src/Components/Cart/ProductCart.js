@@ -31,7 +31,7 @@ function ProductCart({user}){
 
       const handleEdit = (updatedCart) => {
         axios
-          .put(`${API}/users/${user?.id}/products/${updatedCart.id}`, updatedCart)
+          .put(`${API}/users/${user?.id}/products/${updatedCart.products_id}`, updatedCart)
           .then((response) => {
             const copyCartArray = [...products];
             const indexUpdatedCart = copyCartArray.findIndex((cart) => {
@@ -43,16 +43,13 @@ function ProductCart({user}){
           .then(() => {
             navigate(`/cart/${user?.id}`)
           })
-          .catch((c) => console.warn("catch", c));
-
-
-
+          .catch((c) => console.warn("catch", c))
           
       };
       
 const map = products.map((x) => {
   if(x.cart_counter !== 0 ){
-    return Number((x.cart_counter * x.price).toFixed(2))
+    return Number((x.quantity * x.price).toFixed(2))
   }
   else{
     return 0
@@ -63,7 +60,7 @@ const map = products.map((x) => {
 let sum = 0
 
 for(let i = 0 ; i <map.length; i++){
-  sum += map[i]
+  sum += Number(map[i])
 }
 
 const cartCounter = products.map((x) => { 
@@ -136,15 +133,14 @@ for(let i = 0; i < clear.length; i++){
                 <div className="products-cart">
 
                   {products.map((product) => {
-                   if(product.cart_counter !== 0 ){
+                
                     return(
                       <div key={product.id} className="product-card">
                         <CartItem product={product} handleEdit={handleEdit} user={user}/>
                 
                   </div>
                     )
-                   }
-        
+                   
                   })}
                 </div>
             <div className="subtotal">
