@@ -76,6 +76,9 @@ function Reviews({ user }) {
         <p>Global Review Number: {filterReviews.length}</p>
         <p>Average Score: {isNaN(average) ? `No Reviews` : average.toFixed(2)}</p>
 
+
+        <Link to={`/products/${id}/reviews/chart`}>Review Statistics</Link>
+        <br></br>
         <select onChange={(e) => handleCategory(e.target.value)}>
           <option value="">All Reviews</option>
           {[...Array(5)].map((_, i) => (
@@ -85,12 +88,12 @@ function Reviews({ user }) {
           ))}
         </select>
 
-        <br />
-        <Link to={`/products/${id}/reviews/chart`}>Review Statistics</Link>
       </div>
       <Link to={`/products/${id}/new`}>
         <button className="create-review">Write a Review</button>
       </Link>
+
+
       {filterReviews.map((review) => (
         <Review
           key={review.id}

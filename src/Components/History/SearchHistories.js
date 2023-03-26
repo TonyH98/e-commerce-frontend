@@ -65,19 +65,19 @@ function SearchHistories({user}){
               (history) => !deletedProductIds.includes(history.products_id)
             );
             setHistories(updatedHistories);
-            setFilterHistory(updatedHistories); // update filterHistory state
+            setFilterHistory(updatedHistories);
           })
           .catch((error) => console.error(error));
       }
      
-// Filter function for handleTextChange function below
+
 function filteredHistory(search) {
   return histories.filter((history) =>
     history.product_name.toLowerCase().match(search.toLowerCase())
   );
 }
 
-// Function that searchs through the snacks array for a match to the search
+
 const handleTextChange = (e) => {
   const search = e.target.value;
   const result = search ? filteredHistory(search) : filterHistory;
@@ -93,7 +93,7 @@ const handleTextChange = (e) => {
             <div>
             <h1>Search History</h1>
             <>
-            <label htmlFor="search-history">Search:</label>
+            <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
             <br></br>
             <input
             className="search-history"

@@ -22,7 +22,7 @@ import PurchaseHistory from "./Components/History/PurchaseHistory";
 import UserDetails from "./Components/UserInfo/UserDetails";
 import Success from "./Components/CheckoutURL/Success"
 import Cancel from "./Components/CheckoutURL/Cancel"
-
+import Footer from "./Components/Footer/Footer";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -92,6 +92,15 @@ function App() {
          <Route path="/cancel" element={<Cancel/>}/>
           </Routes>
         </main>
+        <footer className="footer">
+        <br/>
+          <Footer/>
+          <br></br>
+          <hr></hr>
+          <div style={{color:"white", textAlign: "left"}}>
+          <span style={{color:"white"}}  dangerouslySetInnerHTML={{ "__html": "&copy;" }} />2023 Tony Hoang. All Rights Reserved
+          </div>
+        </footer>
       </Router>
 
     

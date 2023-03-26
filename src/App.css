@@ -483,6 +483,22 @@ width: 75px;
   height: 20px;
 }
 
+
+.footer{
+  background-color: #000;
+  height: 25vh;
+}
+
+.footer-link{
+  color: white
+}
+
+
+.footers{
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+}
+
 @media all and (max-width: 375px){
   .Navigation{
     display: grid;
