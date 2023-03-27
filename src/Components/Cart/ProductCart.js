@@ -106,6 +106,26 @@ for(let i = 0; i < products.length; i++){
 
 
 
+const handleDelete = (id) => {
+  axios
+    .delete(`${API}/users/${user?.id}/products/${id}`)
+    .then(
+      (response) => {
+        const copyProductArray = [...products];
+        const indexDeletedProduct = copyProductArray.findIndex((product) => {
+          return product.products_id === id;
+        });
+        copyProductArray.splice(indexDeletedProduct, 1);
+        setProducts(copyProductArray); // Update the reviews state array
+      },
+      (error) => console.error(error)
+    )
+    .catch((c) => console.warn("catch", c));
+};
+
+
+
+
     return(
         <div>
             <div>
@@ -129,8 +149,8 @@ for(let i = 0; i < products.length; i++){
                   {products.map((product) => {
                 
                     return(
-                      <div key={`${user?.id}-${product.products_id}`} className="product-card">
-                        <CartItem product={product} handleEdit={handleEdit} user={user}/>
+                      <div key={`${user?.id}-${product.products_id}`} className="product-card-section">
+                        <CartItem product={product} handleEdit={handleEdit} user={user} handleDelete={handleDelete}/>
                 
                   </div>
                     )
@@ -166,7 +186,7 @@ for(let i = 0; i < products.length; i++){
                   <div className="product-quantity-price">
 
                   <div>Grand Total:</div>
-                  <div style={{color:"green"}}>${sum}</div>
+                  <div style={{color:"green"}}>${sum.toFixed(2)}</div>
 
                   </div>
             
