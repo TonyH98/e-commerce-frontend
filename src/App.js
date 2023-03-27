@@ -92,15 +92,6 @@ function App() {
          <Route path="/cancel" element={<Cancel/>}/>
           </Routes>
         </main>
-        {/* <footer className="footer">
-        <br/>
-          <Footer/>
-          <br></br>
-          <hr></hr>
-          <div style={{color:"white", textAlign: "left"}}>
-          <span style={{color:"white"}}  dangerouslySetInnerHTML={{ "__html": "&copy;" }} />2023 Tony Hoang. All Rights Reserved
-          </div>
-        </footer> */}
       </Router>
 
     
@@ -109,36 +100,3 @@ function App() {
 }
 
 export default App;
-
-
-// const handleEdit = (updatedCart) => {
-//   axios
-//     .put(`${API}/users/${user?.id}/products/${updatedCart.id}`, updatedCart)
-//     .then((response) => {
-//       const copyCartArray = [...products];
-//       const indexUpdatedCart = copyCartArray.findIndex((cart) => {
-//         return cart.id === updatedCart.id;
-//       });
-//       copyCartArray[indexUpdatedCart] = response.data;
-//       setProducts(copyCartArray);
-//     })
-//     .then(() => {
-//       navigate(`/cart/${user?.id}`);
-//     })
-//     .catch((c) => console.warn("catch", c));
-// };
-
-// const cartCounter = products.map((product) =>
-//   Number(product.cart_counter * product.price)
-// );
-
-// const every = cartCounter.every((x) => {
-//   return x === 0;
-// });
-
-// const clearCart = () => {
-//   const clear = products.filter((x) => x.cart_counter !== 0);
-//   clear.forEach((product) => {
-//     handleEdit({ ...product, cart_counter: 0 });
-//   });
-// };

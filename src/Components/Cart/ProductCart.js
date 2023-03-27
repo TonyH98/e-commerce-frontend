@@ -35,8 +35,9 @@ function ProductCart({user}){
           .then((response) => {
             const copyCartArray = [...products];
             const indexUpdatedCart = copyCartArray.findIndex((cart) => {
-              return cart.id === updatedCart.id;
+              return cart.products_id === updatedCart.products_id;
             });
+            
             copyCartArray[indexUpdatedCart] = response.data;
             setProducts(copyCartArray);
           })
@@ -135,7 +136,7 @@ for(let i = 0; i < clear.length; i++){
                   {products.map((product) => {
                 
                     return(
-                      <div key={product.id} className="product-card">
+                      <div key={`${user?.id}-${product.products_id}`} className="product-card">
                         <CartItem product={product} handleEdit={handleEdit} user={user}/>
                 
                   </div>
