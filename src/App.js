@@ -92,7 +92,7 @@ function App() {
          <Route path="/cancel" element={<Cancel/>}/>
           </Routes>
         </main>
-        <footer className="footer">
+        {/* <footer className="footer">
         <br/>
           <Footer/>
           <br></br>
@@ -100,7 +100,7 @@ function App() {
           <div style={{color:"white", textAlign: "left"}}>
           <span style={{color:"white"}}  dangerouslySetInnerHTML={{ "__html": "&copy;" }} />2023 Tony Hoang. All Rights Reserved
           </div>
-        </footer>
+        </footer> */}
       </Router>
 
     

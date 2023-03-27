@@ -313,6 +313,12 @@ select {
   font-size: 20px;
 }
 
+.product-category:hover , .dropbtn:hover{
+  color: cornflowerblue
+}
+
+
+
 
 .product-card{
   display: grid;
