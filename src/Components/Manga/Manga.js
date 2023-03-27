@@ -134,6 +134,7 @@ function Manga(props){
           </h3>
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.manga.price}
           <br></br>
+          <br></br>
           {map.includes(props.manga.product_name) ? 
           <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.manga.id)}>Delete From Cart</button> :
           <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.manga.id)}>Add to Cart</button>

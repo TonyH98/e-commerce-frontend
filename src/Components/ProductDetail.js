@@ -21,7 +21,7 @@ function ProductDetails({user}){
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
-  const [counter, setCounter] = useState(0);
+  let [counter, setCounter] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -116,8 +116,18 @@ function removeFromFavorite(){
     .slice(0, 3);
 
 
-console.log(product.favorites)
+function counterIncrease(){
+  setCounter(counter += 1)
+}
 
+function counterDecrease(){
+  setCounter(counter -= 1)
+  if(counter <0 ){
+    setCounter(0)
+  }
+}
+
+console.log(counter)
 
     return(
         <div>
@@ -169,13 +179,12 @@ console.log(product.favorites)
           </div>   
           <br></br>
           <div className="cart-counter-input">
+            <button className="decrease-increase" onClick={counterDecrease}>-</button>
             <input
             className="cart-input"
-            type="number"
             value={counter}
-            min="0"
-            onChange={(e) => setCounter(e.target.value)}
             />
+            <button className="decrease-increase"  onClick={counterIncrease}>+</button>
           </div>
          
       <br></br>

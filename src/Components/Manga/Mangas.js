@@ -116,7 +116,7 @@ function Mangas({user}){
           </div>
           
         </div>
-
+        
         <br></br>
     <div className="product-card">
         {products.map((manga) => {

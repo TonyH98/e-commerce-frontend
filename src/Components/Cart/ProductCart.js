@@ -178,6 +178,7 @@ const handleDelete = (id) => {
                   })}
                 </div>
             <div className="order-details">
+              <div className="price-quantity">
                 <h2>Order Summary</h2>
                 <div className="product-quantity-price">
 
@@ -209,6 +210,8 @@ const handleDelete = (id) => {
                   <div style={{color:"green"}}>${sum.toFixed(2)}</div>
 
                   </div>
+
+              </div>
             
                 <br></br>
                 <br></br>

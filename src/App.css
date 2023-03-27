@@ -35,6 +35,7 @@ hr{
   background-color: white;
   border-radius: 10%;
   margin-left: 50px;
+  box-shadow: 2px 2px 4px #000000;
 }
 
 .image{
@@ -459,7 +460,7 @@ a{
   background-color: black;
   color: white;
   border: none;
-  height: 25px
+  height: 45px
 }
 
 .cart-btns-category:hover{
@@ -532,9 +533,10 @@ width: 75px;
 }
 
 .cart-input{
-  width: 30px;
+  width: 40px;
+  text-align: center;
+  
 }
-
 
 .showMore{
   height: 20px;
@@ -586,6 +588,35 @@ width: 75px;
 
 .clear-cart{
   border: none;
+}
+
+/* /* .New {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+} 
+
+label {
+  margin: 10px;
+}
+
+textarea{
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+
+} 
+
+.price-quantity{
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 
