@@ -21,36 +21,15 @@ function CartItem(props) {
       });
   }, [props.product.products_id, props.user?.id]);
 
-  const cartIncrease = (event) => {
-    const newCounter = Number(event.target.value);
-    const updatedProduct = { ...props.product, quantity: newCounter };
-
+  const cartIncrease = () => {
+    const updatedProduct = { ...props.product, quantity: props.product.quantity += 1 };
     props.handleEdit(updatedProduct);
-
-    // if (newCounter === 0) {
-    //   axios
-    //     .delete(`${API}/users/${props.user?.id}/products/${props.product.products_id}`)
-    //     .then((res) => {
-    //       const updatedCart = userCart.filter((cart) => cart.products_id !== props.product.products_id);
-    //       setUserCart(updatedCart);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //       return err;
-    //     });
-    // } else {
-    //   const updatedCart = userCart.map((cart) => {
-    //     if (cart.products_id === props.product.products_id) {
-    //       return { ...cart, quantity: newCounter };
-    //     } else {
-    //       return cart;
-    //     }
-    //   });
-    //   setUserCart(updatedCart);
-    // }
   };
 
-
+  const cartDecrease = () => {
+    const updatedProduct = { ...props.product, quantity: props.product.quantity -= 1 };
+    props.handleEdit(updatedProduct);
+  };
 
 
   return (
@@ -76,15 +55,14 @@ function CartItem(props) {
           <br></br>
           <br></br>
 
-          <input  
-        id="quantity"
+        <button onClick={cartDecrease}>-</button>
+          <input
+          
         min="1"
-        type="number"
         value={props.product.quantity}
-        onChange={cartIncrease}
         className="count-number"
       />
-
+      <button onClick={cartIncrease}>+</button>
         </div>
     <div>
       <br></br>

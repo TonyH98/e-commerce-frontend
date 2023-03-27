@@ -5,6 +5,14 @@
 }
 
 
+hr{
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color: #333;  /* old IE */
+  background-color: #333;  /* Modern Browsers */
+}
+
 .images{
   height: 500px;
   width: 300px;
@@ -132,6 +140,25 @@ textarea {
 .cart-btns:hover{
   background-color: rgb(25, 17, 68);
 }
+
+
+.add-delete{
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 10px;
+  width: 15%
+}
+
+.add-delete:hover{
+  background-color: rgb(25, 17, 68);
+}
+
 
 
 .image:hover{

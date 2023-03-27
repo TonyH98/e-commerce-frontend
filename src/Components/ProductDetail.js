@@ -181,11 +181,11 @@ console.log(product.favorites)
       <br></br>
           <div className="cart">
             {product.quantity > 0 ? (
-              <button className="cart-btns" onClick={() => handleDelete(product.id)}>Delete From Cart</button>
+              <button className="add-delete" onClick={() => handleDelete(product.id)}>Delete From Cart</button>
 
             ) : (
 
-          <button className="cart-btns" onClick={() => addToUser(product.id)}>Add to Cart</button>
+          <button className="add-delete" onClick={() => addToUser(product.id)}>Add to Cart</button>
             )}
            
 

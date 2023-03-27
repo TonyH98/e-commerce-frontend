@@ -131,7 +131,10 @@ const handleDelete = (id) => {
             <div>
             <h1>Shopping Cart</h1>
             </div>
+
               <hr></hr>
+
+
              <br></br>
              <br></br>
 
