@@ -96,6 +96,8 @@ function Mangas({user}){
             Anime/Manga Section
           </CategoryHeading>
 
+        <div className="filter-products">
+          
           <div>
             <label>Sort by Price:</label>
             <select onChange={(e) => handlePrice(e.target.value)}>
@@ -112,12 +114,14 @@ function Mangas({user}){
             <option value="Z-A">Z-A</option>
             </select>
           </div>
+          
+        </div>
 
         <br></br>
     <div className="product-card">
         {products.map((manga) => {
             return(
-                <div key={manga.id}>
+              <div key={manga.id} className="product">
                     <Manga manga={manga} handleEdit={handleEdit} user={user}/>
                 </div>
             )

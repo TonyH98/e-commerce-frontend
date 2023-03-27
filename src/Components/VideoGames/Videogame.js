@@ -129,10 +129,11 @@ function addToSearchHistory(id, gameId) {
           </div>
 
           <div>
-          <h3>
+          <h2>
             <Link to={`/products/${props.game.id}`}>{props.game.product_name}</Link>
-          </h3>
+          </h2>
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.game.price}
+          <br></br>
           <br></br>
           {map.includes(props.game.product_name) ? 
           <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.game.id)}>Delete From Cart</button> :

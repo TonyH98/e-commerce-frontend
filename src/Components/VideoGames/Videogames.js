@@ -92,6 +92,9 @@ function Videogames({user}){
           <CategoryHeading>
             Video Games Section
           </CategoryHeading>
+          
+          <div className="filter-products">
+          
           <div>
             <label>Sort by Price:</label>
             <select onChange={(e) => handlePrice(e.target.value)}>
@@ -108,6 +111,8 @@ function Videogames({user}){
             <option value="Z-A">Z-A</option>
             </select>
           </div>
+          
+        </div>
             <br></br>
         <br></br>
     <div className="product-card">

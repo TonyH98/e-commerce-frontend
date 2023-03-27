@@ -4,6 +4,11 @@
   text-align: center;
 }
 
+.filter-products{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 
 hr{
   border: none;
@@ -23,10 +28,13 @@ hr{
 }
 
 
-.products{
-  text-align: left;
-  margin-left: 15%;
-  margin-top: 5%;
+.product{
+  height: 120%;
+  width: 70%;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 10%;
+  margin-left: 50px;
 }
 
 .image{
@@ -35,9 +43,9 @@ hr{
 }
 
 .product-image{
-  margin-top: 5px;
-  height: 150px;
-  width: 100px;
+  margin-top: 10px;
+  height: 170px;
+  width: 115px;
 }
 
 
@@ -351,8 +359,10 @@ select {
 
 .product-card{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 20px;
+  grid-column-gap: 10px;
+  text-align: center;
   
 }
 
