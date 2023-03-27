@@ -117,7 +117,6 @@ textarea {
 }
 
 .cart-btns{
-
   border: none;
   outline: 0;
   padding: 12px;
@@ -127,6 +126,7 @@ textarea {
   cursor: pointer;
   font-size: 18px;
   margin-left: 10px;
+  width: 95%
 }
 
 .cart-btns:hover{
@@ -504,6 +504,28 @@ width: 75px;
   display: grid;
   grid-template-columns: repeat(3, 2fr);
 }
+
+.order-details{
+  border: black solid 1px;
+  margin-bottom: 150px;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.products_summary{
+  display: grid;
+  grid-row-gap: 20px;
+}
+
+
+.product-quantity-price{
+  display: grid;
+
+  grid-template-columns: 85% 100%;
+}
+
+
+
 
 @media all and (max-width: 375px){
   .Navigation{

@@ -98,27 +98,20 @@ return axios(`${API}/payment`, {
 }
 
 
+let totalQuantity = 0
 
-const clearCart = () => {
-
-  const clear = products.filter((x) => {
-    if(x.cart_counter !== 0){
-      return x
-    }
-  })
-
-for(let i = 0; i < clear.length; i++){
-  handleEdit({...clear[i], cart_counter: clear[i].cart_counter = 0})
+for(let i = 0; i < products.length; i++){
+  totalQuantity += Number(products[i].quantity)
 }
 
-}
+
 
     return(
         <div>
             <div>
-            <h1>Your Cart Items</h1>
+            <h1>Shopping Cart</h1>
             </div>
-
+              <hr></hr>
              <br></br>
              <br></br>
 
@@ -144,32 +137,62 @@ for(let i = 0; i < clear.length; i++){
                    
                   })}
                 </div>
-            <div className="subtotal">
+            <div className="order-details">
+                <h2>Order Summary</h2>
+                <div className="product-quantity-price">
 
-              <h2>Subtotal: ${sum.toFixed(2)}</h2>
+                <div>Total Items:</div>
+              <div>{totalQuantity}</div>
 
-                  <br></br>
-                  <br></br>
-             <StripeCheckout 
-             stripeKey="pk_test_51McALmHgd5U2y6vdyJDBrouUoY8PTbvjURc8eRi1yc4ar5lN8PdgSZrt7EpBErloqHKgcv3uz2PLhUcjlBaxKnRh00HMEGjp7J"
-              token={makePayment}
-              shippingAddress
-              billingAddress
-              name="Purchase Cart"
-              >
-                <button className="cart-btns" onClick={clearCart}>Checkout Product</button>
-                
-             </StripeCheckout>
+                  </div>
+                <br></br>
+                <div className="products_summary">
+                  {products.map((product) => {
+                    return(
+                      <div className="product-quantity-price">
+
+                        <div>{product.product_name} x{product.quantity}: </div>
+
+                          <div>${(Number(product.quantity) * Number(product.price)).toFixed(2)}</div>
+
+                      </div>
+                      
+                    )
+                  })}
+                </div>
+                <br></br>
+
+                <hr></hr>
+                  <div className="product-quantity-price">
+
+                  <div>Grand Total:</div>
+                  <div style={{color:"green"}}>${sum}</div>
+
+                  </div>
+            
+                <br></br>
+                <br></br>
+           <StripeCheckout 
+           stripeKey="pk_test_51McALmHgd5U2y6vdyJDBrouUoY8PTbvjURc8eRi1yc4ar5lN8PdgSZrt7EpBErloqHKgcv3uz2PLhUcjlBaxKnRh00HMEGjp7J"
+            token={makePayment}
+            shippingAddress
+            billingAddress
+            name="Purchase Cart"
+            >
+              <button className="cart-btns" >Checkout</button>
+              
+           </StripeCheckout>
             </div>
      
              </section>
               
-            )}
+              )}
         
         </div>
     )
-}
-
-export default ProductCart
-
-
+  }
+  
+  export default ProductCart
+  
+  
+  
