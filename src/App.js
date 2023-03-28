@@ -62,7 +62,7 @@ function App() {
     setUser(loggedUser);
   }, [isLogged]);
   
-  const date = new Date().toLocaleDateString('en-us', { year:"numeric", month:"short", day:"2-digit"})
+ 
 
 
   return (

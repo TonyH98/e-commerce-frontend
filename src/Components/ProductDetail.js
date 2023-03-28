@@ -45,11 +45,7 @@ function ProductDetails({user}){
       .catch((err) => console.error(err));
   }
 
-  // function handleFavorite() {
-  //   const updatedProduct = { ...product, favorites: !product.favorites };
-  //   setProduct(updatedProduct);
-  //   updateProduct(updatedProduct);
-  // }
+  
 
   function handleCart() {
     const updatedProduct = {
@@ -83,26 +79,7 @@ function ProductDetails({user}){
 
 
 
-  function addToFavorite() {
-      axios.post(`${API}/users/${user.id}/favorites/${product.id}`)
-      .then(() => {
-        const updatedProduct = { ...product, favorites: product.favorites };
-        setProduct(updatedProduct);
-        updateProduct(updatedProduct);
-      })
-        .catch((err) => console.error(err));
-  }
-
-
-function removeFromFavorite(){
-  axios.delete(`${API}/users/${user.id}/favorites/${product.id}`)
-  .then(() => {
-    const updatedProduct = { ...product, favorites: !product.favorites };
-    setProduct(updatedProduct);
-    updateProduct(updatedProduct);
-  })
-  .catch((err) => console.error(err));
-}
+  
 
 
   const date = new Date(product.release_date)?.toLocaleDateString("en-us", {
@@ -166,12 +143,12 @@ console.log(counter)
           { 
             product.favorites ? (
               <>
-              <button onClick={removeFromFavorite} className="favorites-btn"> <FaBookmark size={25}/>  </button>
+              <button  className="favorites-btn"> <FaBookmark size={25}/>  </button>
       
               </>
             ) : (
               <>
-                <button onClick={addToFavorite} className="favorites-btn">  <FaRegBookmark size={25}/> </button>
+                <button className="favorites-btn">  <FaRegBookmark size={25}/> </button>
  
               </>    
               )

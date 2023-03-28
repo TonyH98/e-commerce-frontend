@@ -8,14 +8,14 @@ import { X } from "phosphor-react"
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import { useNavigate } from "react-router-dom";
+
 
 import Darkmode from "./Darkmode/Darkmode"
 
 const API = process.env.REACT_APP_API_URL;
 
 
-function Nav({isLogged , saveHistory}){
+function Nav({isLogged}){
 
 
   let [filterSearch , setFilterSearch] = useState([])
@@ -66,22 +66,6 @@ function clear(){
   setSearch("")
 }
 
-// const navigate = useNavigate()
-
-// const handleLogout = () => {
-//   localStorage.clear()
-
-//   fetch('/logout', {
-//     method: "POST",
-//     credentials: 'include',
-//   })
-//   .then(() => {
-//     navigate('/login')
-//   })
-//   .catch((error) => {
-//     console.error(error)
-//   })
-// }
 
     return(
         <nav className="Navigation">
@@ -110,10 +94,9 @@ function clear(){
               return(
                 <div className="search-link">
                   <br></br>
-                <Link to={`/products/${product.id}`} onClick={() => saveHistory(product)}>
+                <Link to={`/products/${product.id}`}>
                 <p className="dropdown-link">{product.product_name}</p>
                 </Link>
-
                 </div>
                 
               )

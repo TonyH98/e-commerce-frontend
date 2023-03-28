@@ -32,6 +32,18 @@ function CartItem(props) {
   };
 
 
+  function deleteItem() {
+    const updatedProduct = { ...props.product, quantity: 0 };
+    
+    if (props.product.quantity === 0) {
+      props.handleDelete(props.product.products_id);
+      return;
+    }
+
+    props.handleEdit(updatedProduct);
+  }
+
+
   return (
     <section className="product-box">
       
@@ -66,7 +78,7 @@ function CartItem(props) {
         </div>
     <div>
       <br></br>
-      <button className="clear-cart" onClick={() => props.handleDelete(props.product.products_id)}>
+      <button className="clear-cart" onClick={deleteItem}>
         <Trash size={30}/>
       </button>
     </div>
