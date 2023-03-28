@@ -14,23 +14,28 @@ function Searches({product}){
   
   return(
     
-    <section>
-      <p>Search: {date}</p>
-    <div>
+    <section className="history-box">
+
+      <div className="search-image">
       <Link to={`/products/${product.products_id}`}>
         <img
           src={product.image}
           alt={product.product_name}
-          className="favorite-images"
+          className="search-images"
           ></img>
       </Link>
-      <div>
-      <h5 className="product-name">
+          <p>Search: {date}</p>
+      </div>
+      
+
+
+    <div>
+      <h3 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
-      </h5>
+      </h3>
       <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
      
-       <div>
+      <br></br>
       <input
       type="checkbox"
       onChange={(e) => {
@@ -39,10 +44,11 @@ function Searches({product}){
         return product
      }}
       />
-    </div> 
-      </div>
+
     </div>
-  
+
+    
+
   </section>
 
     )

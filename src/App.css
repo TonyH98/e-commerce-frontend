@@ -28,6 +28,16 @@ hr{
 }
 
 
+.history-box{
+  display: grid;
+  grid-template-columns: 30% 40%;
+}
+
+
+.search-image{
+  margin-top: 10px;
+}
+
 .product{
   height: 120%;
   width: 70%;
@@ -209,6 +219,16 @@ textarea {
   
 }
 
+
+.search-cart{
+  display: grid;
+  grid-template-columns: repeat(1);
+  grid-row-gap: 40px;
+  margin-left: 20px;
+  
+}
+
+
 .count-number{
   width: 70px;
   text-align: center;
@@ -376,6 +396,21 @@ select {
   box-shadow: 2px 2px 4px #000000;
   border-radius: 5px;
 }
+
+.search-images{
+  height:110px;
+  width: 90px
+}
+
+.search-section{
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 70%;
+  height: 110%;
+  box-shadow: 2px 2px 4px #000000;
+  border-radius: 5px;
+}
+
 
 
 .favorite-images{

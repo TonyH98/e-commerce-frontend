@@ -21,6 +21,7 @@ function ProductDetails({user}){
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
+  
   let [counter, setCounter] = useState(0);
   const navigate = useNavigate();
 
@@ -38,6 +39,8 @@ function ProductDetails({user}){
       .catch((err) => console.error(err));
   }, [product.category]);
 
+
+
   function updateProduct(updatedProduct, id) {
     axios
       .put(`${API}/products/${id}`, updatedProduct)
@@ -45,6 +48,47 @@ function ProductDetails({user}){
       .catch((err) => console.error(err));
   }
 
+
+
+  
+  
+  // function handleFavorite() {
+  //   const updatedProduct = { ...product, favorites: true };
+  //   debugger;
+  //   setProduct(updatedProduct);
+  //   updateProduct(updatedProduct, id);
+  // }
+  
+  function handleFavorite2() {
+    const updatedProduct = { ...product, favorites: false };
+    debugger;
+    setProduct(updatedProduct);
+    updateProduct(updatedProduct, id);
+  }
+  
+  function addToFavorite() {
+    const updatedProduct = { ...product, favorites: true };
+    setProduct(updatedProduct);
+  
+    axios
+      .post(`${API}/users/${user?.id}/favorites/${product.id}`)
+      .catch((err) => console.error(err));
+  }
+
+  function deleteFromFavorite() {
+    axios
+    .delete(`${API}/users/${user?.id}/favorites/${product.id}`)
+    .then(() => handleFavorite2())
+    .catch((err) => console.error(err));
+  }
+  
+  function addToUser() {
+    axios
+      .post(`${API}/users/${user?.id}/products/${product.id}`)
+      .then(() => handleCart())
+      .catch((err) => console.error(err));
+  }
+  
   
 
   function handleCart() {
@@ -55,6 +99,13 @@ function ProductDetails({user}){
     setProduct(updatedProduct);
     updateProduct(updatedProduct, id);
   }
+
+
+
+
+
+
+
 
   function handleCart2() {
     const updatedProduct = { ...product, quantity: 0 };
@@ -69,17 +120,11 @@ function ProductDetails({user}){
       .catch((err) => console.error(err));
   }
 
-  function addToUser() {
-    axios
-      .post(`${API}/users/${user?.id}/products/${product.id}`)
-      .then(() => handleCart())
-      .catch((err) => console.error(err));
-  }
 
 
 
 
-  
+
 
 
   const date = new Date(product.release_date)?.toLocaleDateString("en-us", {
@@ -104,7 +149,9 @@ function counterDecrease(){
   }
 }
 
-console.log(counter)
+
+
+
 
     return(
         <div>
@@ -143,12 +190,12 @@ console.log(counter)
           { 
             product.favorites ? (
               <>
-              <button  className="favorites-btn"> <FaBookmark size={25}/>  </button>
+              <button onClick={() =>deleteFromFavorite(product.id)} className="favorites-btn"> <FaBookmark size={25}/>  </button>
       
               </>
             ) : (
               <>
-                <button className="favorites-btn">  <FaRegBookmark size={25}/> </button>
+                <button onClick={() =>addToFavorite(product.id)}  className="favorites-btn">  <FaRegBookmark size={25}/> </button>
  
               </>    
               )

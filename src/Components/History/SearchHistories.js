@@ -105,10 +105,11 @@ const handleTextChange = (e) => {
           <button onClick={deleteMultiple}>Delete</button>
             </>
             </div>
-                <div className="product-card favorite-card">
+            <br></br>
+                <div className="search-cart">
                   {histories.map((product) => {
                         return(
-                          <div key={product.products_id} className="product-card">
+                          <div key={product.products_id} className="search-section">
                             <Searches product={product} user={user} handleEdit={handleEdit}/>
                       </div>
                         )
