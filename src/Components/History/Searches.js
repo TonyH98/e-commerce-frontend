@@ -6,7 +6,7 @@ function Searches({product}){
 
   
   const date = new Date(product.created)?.toLocaleDateString("en-us", {
-    year: "2-digit",
+    year: "numeric",
     month: "short",
     day: "2-digit",
   });
@@ -24,7 +24,7 @@ function Searches({product}){
           className="search-images"
           ></img>
       </Link>
-          <p>Search: {date}</p>
+          <p> <span style={{fontWeight:"bold"}}>Search:</span> {date}</p>
       </div>
       
 
@@ -35,6 +35,7 @@ function Searches({product}){
       </h3>
       <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
      
+      <br></br>
       <br></br>
       <input
       type="checkbox"

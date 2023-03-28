@@ -3,17 +3,22 @@ import { useState, useEffect} from "react";
 import axios from "axios"
 import UserLink from "../UserInfo/UserLink"
 import Searches from "./Searches";
+import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 
 
 const API = process.env.REACT_APP_API_URL;
 
+const pageData = 2
 
 function SearchHistories({user}){
 
     const [histories, setHistories] = useState([])
     const [filterHistory, setFilterHistory] = useState([])
     const [search , setSearch] = useState("")
+
+    const [currentPage, setCurrentPage] = useState(0)
+
 
     let navigate = useNavigate()
 
@@ -28,6 +33,24 @@ function SearchHistories({user}){
       }, []);
 
 
+
+
+      const sortByDate = (date) => {
+        if (date === "") {
+          setHistories(filterHistory);
+        } else if (date === "Latest to Earliest") {
+          const sort = [...filterHistory].sort((a, b) => {
+            return new Date(b.created) - new Date(a.created);
+          });
+          setHistories(sort);
+        } else if (date === "Earliest to Latest") {
+          const sort = [...filterHistory].sort((a, b) => {
+            return new Date(a.created) - new Date(b.created);
+          });
+          setHistories(sort);
+        }
+        setCurrentPage(0);
+      };
 
 
       const handleEdit = (updatedCart) => {
@@ -71,19 +94,30 @@ function SearchHistories({user}){
       }
      
 
-function filteredHistory(search) {
-  return histories.filter((history) =>
-    history.product_name.toLowerCase().match(search.toLowerCase())
-  );
-}
+      function filteredHistory(histories, search) {
+        return histories.filter((history) =>
+          history.product_name.toLowerCase().match(search.toLowerCase())
+        );
+      }
+      
+      const handleTextChange = (e) => {
+        const search = e.target.value;
+        const result = search ? filteredHistory(filterHistory , search) : filterHistory;
+        setHistories(result);
+        setSearch(search);
+        setCurrentPage(0); 
+      };
+      
 
-
-const handleTextChange = (e) => {
-  const search = e.target.value;
-  const result = search ? filteredHistory(search) : filterHistory;
-  setHistories(result);
-  setSearch(search);
-};
+      function handlePageChange ({selected: selectedPage}){
+        setCurrentPage(selectedPage);
+      }
+      
+      const offSet = currentPage * pageData;
+      
+      const currentHistories = search ? filteredHistory(histories, search) : histories;
+      
+      const pageCount = Math.ceil(currentHistories.length / pageData);
 
 
 
@@ -105,16 +139,51 @@ const handleTextChange = (e) => {
           <button onClick={deleteMultiple}>Delete</button>
             </>
             </div>
+
+          <select onChange={sortByDate}>
+            <option value="">Select</option>
+            <option value="Latest to Earliest">Latest to Earliest</option>
+            <option value="Earliest to Latest">Earliest to Latest</option>
+          </select>
+
+
+          {/* const currentPageData = currentHistories
+        .slice(offSet, offSet + pageData)
+        .map((product) => <Searches product={product} user={user} handleEdit={handleEdit} />); */}
+
             <br></br>
                 <div className="search-cart">
-                  {histories.map((product) => {
-                        return(
-                          <div key={product.products_id} className="search-section">
-                            <Searches product={product} user={user} handleEdit={handleEdit}/>
-                      </div>
-                        )
-                  })}
+                
+                {currentHistories.slice(offSet, offSet + pageData).map((product) => {
+                  return(
+
+                          <div className="search-section">
+                            <Searches product={product} user={user} handleEdit={handleEdit} />
+                          </div>
+                  )
+                })}
+                        
+        
                 </div>
+
+                  <br></br>
+          { 
+          histories.length > 0 ? (
+            <div className="page-count">
+          <ReactPaginate
+         previousLabel={"<"}
+         nextLabel={">"}
+         pageCount={pageCount}
+         onPageChange={handlePageChange}
+         containerClassName={"pagination"}
+         previousLinkClassName={"pagination-link"}
+         nextLinkClassName={"pagination-link"}
+         pageClassName={"pageCount"}
+         />  
+            
+          </div>
+            
+            ) : null}
         </div>
         </UserLink>
     )
