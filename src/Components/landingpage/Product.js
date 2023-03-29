@@ -64,11 +64,57 @@ function Product(props){
     return x.product_name;
   })
 
+
+  function addToSearchHistory(id, ids) {
+
+    if (!id) {
+      return;
+    }
+
+    axios.get(`${API}/users/${id}/search?products_id=${ids}`)
+    .then(res => {
+      const searchHistory = res.data;
+      const latestSearch = searchHistory.length > 0 ? searchHistory[searchHistory.length - 1] : null;
+      if (latestSearch && latestSearch.products_id === ids) {
+        return;
+      }
+      axios.post(`${API}/users/${id}/search/${ids}`)
+      .then(() => {
+        const uniqueSearchHistory = [...searchHistory, { products_id: ids }].filter((search, index, array) => {
+          return search.products_id === ids && index === array.findIndex(s => s.products_id === ids);
+        });
+        if (uniqueSearchHistory.length > 1) {
+          const deletePromises = uniqueSearchHistory.slice(0, -1).map(search => {
+            return axios.delete(`${API}/users/${id}/search/${search.id}`);
+          });
+          Promise.all(deletePromises).catch(err => {
+            console.log(err);
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+  
+
+
+
+
+
+
+
+
+
   return(
     <div className="landing-products">
 
       <div>
-        <Link to={`/products/${props.product.id}`}>
+        <Link to={`/products/${props.product.id}`}   onClick={() => addToSearchHistory(props.user?.id , props.product.id)}>
           <img
             src={props.product.image}
             alt={props.product.product_name}
@@ -79,7 +125,8 @@ function Product(props){
 
       <div>
         <h1 className="product-name">
-          <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
+          <Link to={`/products/${props.product.id}`}   onClick={() => addToSearchHistory(props.user?.id , props.product.id)}
+          >{props.product.product_name}</Link>
         </h1>
         <p><span style={{fontWeight: "bold"}}>Price:</span>  ${props.product.price} </p> 
 

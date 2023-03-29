@@ -54,10 +54,6 @@ function UserLink({children}) {
           <p>Search History</p>
         </Link>
         <br />
-        <Link to={`/purchaseHistory/${user?.id}`}>
-          <p>Purchase History</p>
-        </Link>
-        <br />
         <button onClick={handleLogout}>Logout</button>
       </div>
       <div className="vertical"></div>

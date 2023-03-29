@@ -89,9 +89,12 @@ function Reviews({ user }) {
         </select>
 
       </div>
+      {user ? (
       <Link to={`/products/${id}/new`}>
         <button className="create-review">Write a Review</button>
       </Link>
+
+      ) : null}
 
 
       {filterReviews.map((review) => (

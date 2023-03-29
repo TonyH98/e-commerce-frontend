@@ -18,7 +18,6 @@ import Videogames from "./Components/VideoGames/Videogames";
 import Login from "./Components/Registration/Login"
 import Signup from "./Components/Registration/Signup"
 import SearchHistories from "./Components/History/SearchHistories";
-import PurchaseHistory from "./Components/History/PurchaseHistory";
 import UserDetails from "./Components/UserInfo/UserDetails";
 
 import Footer from "./Components/Footer/Footer";

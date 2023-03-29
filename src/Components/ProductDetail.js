@@ -9,18 +9,19 @@ import { FaRegBookmark } from "react-icons/fa"
 
 import Reviews from "./Reviews/Reviews";
 import ReadMore from "./ReadMore";
-
+import SearchProduct from "./History/searchProduct";
 
 const API = process.env.REACT_APP_API_URL;
 
 
 
 
-function ProductDetails({user}){
+function ProductDetails({user , children}){
 
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
+ 
   
   let [counter, setCounter] = useState(0);
   const navigate = useNavigate();
@@ -38,7 +39,6 @@ function ProductDetails({user}){
       .then((res) => setRelated(res.data))
       .catch((err) => console.error(err));
   }, [product.category]);
-
 
 
   function updateProduct(updatedProduct, id) {
@@ -83,10 +83,16 @@ function ProductDetails({user}){
   }
   
   function addToUser() {
-    axios
-      .post(`${API}/users/${user?.id}/products/${product.id}`)
-      .then(() => handleCart())
-      .catch((err) => console.error(err));
+
+    if(user?.id){
+      axios
+        .post(`${API}/users/${user?.id}/products/${product.id}`)
+        .then(() => handleCart())
+        .catch((err) => console.error(err));
+    }
+    else{
+      navigate("/login")
+    }
   }
   
   
@@ -246,6 +252,11 @@ function counterDecrease(){
      </div>
      <br></br>
         <Reviews user={user}/>
+
+        <div className="user-search-history">
+          <h2>Previous Searches</h2>
+          <SearchProduct user={user}/>
+        </div>
     </div>
     )
 }
