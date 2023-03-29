@@ -30,37 +30,25 @@ function Manga(props){
 
   
     
-    const map = newCart.map((x) => {
-      return x.product_name
+  
+  let addToUser = (id , ids) => {
+    axios
+    .post(`${API}/users/${id}/products/${ids}`, newProduct)
+    .then(() => {
+      setNewCart([...userCart, {...newProduct}])
+      setUserCart([...userCart, {...newProduct}])
+      navigate("/mangas")
     })
     
-    let addToUser = (id , ids) => {
-      axios
-      .post(`${API}/users/${id}/products/${ids}`, newProduct)
-      .then(() => {
-        setNewCart([...userCart, {...newProduct}])
-        setUserCart([...userCart, {...newProduct}])
-        navigate("/mangas")
-      })
-     
-
-        props.handleEdit({ ...props.manga, quantity: Number(props.manga.quantity) + 1 })
-      
-    }
-    useEffect(() => { 
-      axios
-      .get(`${API}/users/${props.user?.id}/products`)
-      .then((res) => {
-        setUserCart(res.data);
-        setNewCart(res.data)
-      })
     
-  }, [ map.length ]);
-
+    props.handleEdit({ ...props.manga, quantity: Number(props.manga.quantity) + 1 })
+    
+  }
   
-
   
-
+  
+  
+  
   const deleteCartItem = ( id, ids) => {
     axios
     .delete(`${API}/users/${id}/products/${ids}`)
@@ -80,39 +68,52 @@ function Manga(props){
     props.handleEdit({ ...props.manga, quantity: props.manga.quantity = 0 })
   }
   
-
+  
   function addToSearchHistory(id, gameId) {
     axios.get(`${API}/users/${id}/search?products_id=${gameId}`)
-      .then(res => {
-        const searchHistory = res.data;
-        const latestSearch = searchHistory.length > 0 ? searchHistory[searchHistory.length - 1] : null;
-        if (latestSearch && latestSearch.products_id === gameId) {
-          return;
-        }
-        axios.post(`${API}/users/${id}/search/${gameId}`)
-          .then(() => {
-            const uniqueSearchHistory = [...searchHistory, { products_id: gameId }].filter((search, index, array) => {
-              return search.products_id === gameId && index === array.findIndex(s => s.products_id === gameId);
-            });
-            if (uniqueSearchHistory.length > 1) {
-              const deletePromises = uniqueSearchHistory.slice(0, -1).map(search => {
-                return axios.delete(`${API}/users/${id}/search/${search.id}`);
-              });
-              Promise.all(deletePromises).catch(err => {
-                console.log(err);
-              });
-            }
-          })
-          .catch(err => {
+    .then(res => {
+      const searchHistory = res.data;
+      const latestSearch = searchHistory.length > 0 ? searchHistory[searchHistory.length - 1] : null;
+      if (latestSearch && latestSearch.products_id === gameId) {
+        return;
+      }
+      axios.post(`${API}/users/${id}/search/${gameId}`)
+      .then(() => {
+        const uniqueSearchHistory = [...searchHistory, { products_id: gameId }].filter((search, index, array) => {
+          return search.products_id === gameId && index === array.findIndex(s => s.products_id === gameId);
+        });
+        if (uniqueSearchHistory.length > 1) {
+          const deletePromises = uniqueSearchHistory.slice(0, -1).map(search => {
+            return axios.delete(`${API}/users/${id}/search/${search.id}`);
+          });
+          Promise.all(deletePromises).catch(err => {
             console.log(err);
           });
+        }
       })
       .catch(err => {
         console.log(err);
       });
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
-
-
+  
+  useEffect(() => {
+    if (props.user) {
+      axios.get(`${API}/users/${props.user?.id}/products`)
+      .then(res => {
+        setUserCart(res.data);
+        setNewCart(res.data);
+      })
+      .catch(err => console.log(err));
+    } else {
+      setNewCart([]);
+    }
+  }, [props.user?.id]);
+  
+  const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
     return(
         <div>
          
@@ -135,10 +136,10 @@ function Manga(props){
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.manga.price}
           <br></br>
           <br></br>
-          {map.includes(props.manga.product_name) ? 
+          {props.user && inCart.includes(props.manga.product_name) ? 
           <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.manga.id)}>Delete From Cart</button> :
           <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.manga.id)}>Add to Cart</button>
-          }
+        }
           </div>  
         </div>
 

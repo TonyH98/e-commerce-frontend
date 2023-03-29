@@ -8,100 +8,93 @@ const API = process.env.REACT_APP_API_URL;
 
 function Product(props){
  
-const [userCart , setUserCart] = useState([])
+  const [userCart , setUserCart] = useState([]);
+  const [newCart , setNewCart] = useState([]);
 
-const [newCart , setNewCart] = useState([])
+  let navigate = useNavigate();
 
-let navigate = useNavigate()
-
- 
-
-function addToUser(){
-  axios
-  .post(`${API}/users/${props.user?.id}/products/${props.product.id}`)
-  .then(() => {
-    navigate("/")
-  })
-  props.handleEdit({ ...props.product, quantity: Number(props.product.quantity) + 1 })
-}
-
-
-useEffect(() => {
-  axios
-    .get(`${API}/users/${props.user?.id}/products`)
-    .then((res) => {
-      setUserCart(res.data);
-      setNewCart(res.data)
-    })
-    .catch((c) => console.warn("catch, c"));
-}, [props.product.id, props.user]);
-
-console.log(userCart)
-
-const deleteCartItem = ( id, ids) => {
+  function addToUser(){
     axios
-    .delete(`${API}/users/${id}/products/${ids}`)
-    .then((res) => {
+      .post(`${API}/users/${props.user?.id}/products/${props.product.id}`)
+      .then(() => {
+        navigate("/");
+      })
+    props.handleEdit({ ...props.product, quantity: Number(props.product.quantity) + 1 });
+  }
 
-      const indexDeleteCart = userCart.findIndex((cart) => {
-        return cart.products_id === ids;
-      });
-      userCart.splice(indexDeleteCart , 1)
-      setUserCart([...userCart])
-    })
-.catch((err) => {
-  console.log(err)
-  return err
-})
-props.handleEdit({ ...props.product, quantity: props.product.quantity = 0 })
-}
+  useEffect(() => {
+    if (props.user) {
+      axios
+        .get(`${API}/users/${props.user?.id}/products`)
+        .then((res) => {
+          setUserCart(res.data);
+          setNewCart(res.data);
+        })
+        .catch((c) => console.warn("catch, c"));
+    }
+  }, [props.product.id, props.user]);
 
-const map = newCart.map((x) => {
-  return x.product_name
-})
+  console.log(userCart);
 
+  const deleteCartItem = ( id, ids) => {
+    axios
+      .delete(`${API}/users/${id}/products/${ids}`)
+      .then((res) => {
+        const indexDeleteCart = userCart.findIndex((cart) => {
+          return cart.products_id === ids;
+        });
+        userCart.splice(indexDeleteCart , 1);
+        setUserCart([...userCart]);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      })
+    props.handleEdit({ ...props.product, quantity: props.product.quantity = 0 });
+  }
 
-    return(
-        <div className="landing-products">
+  const map = newCart.map((x) => {
+    return x.product_name;
+  })
 
-          <div>
-          <Link to={`/products/${props.product.id}`}>
-            <img
-              src={props.product.image}
-              alt={props.product.product_name}
-              className="images"
-            ></img>
-          </Link>
-          </div>
+  return(
+    <div className="landing-products">
 
-          <div>
-          <h1 className="product-name">
-            <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
-          </h1>
+      <div>
+        <Link to={`/products/${props.product.id}`}>
+          <img
+            src={props.product.image}
+            alt={props.product.product_name}
+            className="images"
+          ></img>
+        </Link>
+      </div>
+
+      <div>
+        <h1 className="product-name">
+          <Link to={`/products/${props.product.id}`}>{props.product.product_name}</Link>
+        </h1>
+        <p><span style={{fontWeight: "bold"}}>Price:</span>  ${props.product.price} </p> 
 
         <div style={{fontWeight:"bold", fontSize:"20px"}}>
           <ReadMore>
-         {`${props.product.description}`}
-
+            {`${props.product.description}`}
           </ReadMore>
-
-        </div>
-      
-          <span style={{fontWeight: "bold"}}>Price:</span> ${props.product.price} 
-
-          {map.includes(props.product.product_name) ? <button className="cart-btns"   onClick={() => {deleteCartItem(props.user?.id , props.product.id)}}>Delete from Cart</button>:
-          
-<button className="cart-btns" onClick={() => {addToUser()}}>Add to Cart</button>
-          }
- 
-          </div> 
         </div>
 
-    )
+        <br></br>
+        {props.user && map.includes(props.product.product_name) ? (
+          <button className="cart-btns" onClick={() => {deleteCartItem(props.user?.id , props.product.id)}}>
+            Delete from Cart
+          </button>
+        ) : (
+          <button className="cart-btns" onClick={() => {addToUser()}}>
+            Add to Cart
+          </button>
+        )}
+      </div> 
+    </div>
+  )
 }
 
-
-
-
-
-export default Product
+export default Product;

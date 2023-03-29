@@ -23,18 +23,12 @@ function Videogame(props){
  
   const [userCart , setUserCart] = useState([])
 
-  const [newCart , setNewCart] = useState([])
+  const [newCart , setNewCart] = useState()
 
 
   let navigate = useNavigate()
 
-  // const cartIncrease = () => {
-    // };
-    
-    const map = newCart.map((x) => {
-      return x.product_name
-    })
-    
+
     let addToUser = (id , ids) => {
       axios
       .post(`${API}/users/${id}/products/${ids}`, newProduct)
@@ -44,18 +38,8 @@ function Videogame(props){
         navigate("/videogames")
       })
       props.handleEdit({ ...props.game, quantity: Number(props.game.quantity) + 1 })
-  }
-  useEffect(() => { 
-    axios
-      .get(`${API}/users/${props.user?.id}/products`)
-      .then((res) => {
-        setUserCart(res.data);
-        setNewCart(res.data)
-      })
-    
-  }, [ map.length ]);
-
-  
+    }
+   
 
   
 
@@ -113,34 +97,51 @@ function addToSearchHistory(id, gameId) {
 }
 
 
+useEffect(() => {
+  if (props.user) {
+    axios.get(`${API}/users/${props.user?.id}/products`)
+      .then(res => {
+        setUserCart(res.data);
+        setNewCart(res.data);
+      })
+      .catch(err => console.log(err));
+  } else {
+    setNewCart([]);
+  }
+}, [props.user?.id]);
+
+const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
+
 
 
 
     return(
-        <div>
-          <div>
-          <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
-            <img
-              src={props.game.image}
-              alt={props.game.product_name}
-              className="product-image"
-            ></img>
-          </Link>
-          </div>
+      <div>
+      <div>
+        <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
+          <img
+            src={props.game.image}
+            alt={props.game.product_name}
+            className="product-image"
+          ></img>
+        </Link>
+      </div>
 
-          <div>
-          <h2>
-            <Link to={`/products/${props.game.id}`}>{props.game.product_name}</Link>
-          </h2>
-          <span style={{fontWeight: "bold"}}>Price:</span> ${props.game.price}
-          <br></br>
-          <br></br>
-          {map.includes(props.game.product_name) ? 
+      <div>
+        <h2>
+          <Link to={`/products/${props.game.id}`}>{props.game.product_name}</Link>
+        </h2>
+        <span style={{fontWeight: "bold"}}>Price:</span> ${props.game.price}
+        <br></br>
+        <br></br>
+        {props.user && inCart.includes(props.game.product_name) ? 
           <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.game.id)}>Delete From Cart</button> :
           <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.game.id)}>Add to Cart</button>
-          }
-          </div>  
-        </div>
+        }
+      </div>  
+    </div>
+
+
 
     )
 }

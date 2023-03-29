@@ -58,10 +58,6 @@ function UserLink({children}) {
           <p>Purchase History</p>
         </Link>
         <br />
-        <div className="darkmode">
-          <input className="toggle" type="checkbox" />
-        </div>
-        <br />
         <button onClick={handleLogout}>Logout</button>
       </div>
       <div className="vertical"></div>
