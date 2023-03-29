@@ -168,7 +168,7 @@ function SearchHistories({user}){
 
                   <br></br>
           { 
-          histories.length > 0 ? (
+          histories.length > 2 ? (
             <div className="page-count">
           <ReactPaginate
          previousLabel={"<"}
