@@ -30,14 +30,22 @@ function Videogame(props){
 
 
     let addToUser = (id , ids) => {
-      axios
-      .post(`${API}/users/${id}/products/${ids}`, newProduct)
-      .then(() => {
-        setNewCart([...userCart, {...newProduct}])
-        setUserCart([...userCart, {...newProduct}])
-        navigate("/videogames")
-      })
-      props.handleEdit({ ...props.game, quantity: Number(props.game.quantity) + 1 })
+
+      if(id){
+        axios
+        .post(`${API}/users/${id}/products/${ids}`, newProduct)
+        .then(() => {
+          setNewCart([...userCart, {...newProduct}])
+          setUserCart([...userCart, {...newProduct}])
+          navigate("/videogames")
+        })
+        props.handleEdit({ ...props.game, quantity: Number(props.game.quantity) + 1 })
+
+      }
+
+      else{
+        navigate("/login")
+      }
     }
    
 
@@ -66,6 +74,10 @@ console.log(userCart)
 
 
 function addToSearchHistory(id, gameId) {
+  if (!id) {
+    return;
+  }
+  
   axios.get(`${API}/users/${id}/search?products_id=${gameId}`)
     .then(res => {
       const searchHistory = res.data;

@@ -32,16 +32,22 @@ function Manga(props){
     
   
   let addToUser = (id , ids) => {
-    axios
-    .post(`${API}/users/${id}/products/${ids}`, newProduct)
-    .then(() => {
-      setNewCart([...userCart, {...newProduct}])
-      setUserCart([...userCart, {...newProduct}])
-      navigate("/mangas")
-    })
-    
-    
-    props.handleEdit({ ...props.manga, quantity: Number(props.manga.quantity) + 1 })
+
+    if(id){
+      axios
+      .post(`${API}/users/${id}/products/${ids}`, newProduct)
+      .then(() => {
+        setNewCart([...userCart, {...newProduct}])
+        setUserCart([...userCart, {...newProduct}])
+        navigate("/mangas")
+      })
+      
+      
+      props.handleEdit({ ...props.manga, quantity: Number(props.manga.quantity) + 1 })
+    }
+    else{
+      navigate("/login")
+    }
     
   }
   
@@ -70,6 +76,11 @@ function Manga(props){
   
   
   function addToSearchHistory(id, gameId) {
+
+    if (!id) {
+      return;
+    }
+
     axios.get(`${API}/users/${id}/search?products_id=${gameId}`)
     .then(res => {
       const searchHistory = res.data;
@@ -114,6 +125,9 @@ function Manga(props){
   }, [props.user?.id]);
   
   const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
+
+
+
     return(
         <div>
          

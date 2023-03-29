@@ -14,12 +14,19 @@ function Product(props){
   let navigate = useNavigate();
 
   function addToUser(){
-    axios
-      .post(`${API}/users/${props.user?.id}/products/${props.product.id}`)
-      .then(() => {
-        navigate("/");
-      })
-    props.handleEdit({ ...props.product, quantity: Number(props.product.quantity) + 1 });
+
+    if(props.user?.id){
+      axios
+        .post(`${API}/users/${props.user?.id}/products/${props.product.id}`)
+        .then(() => {
+          navigate("/");
+        })
+      props.handleEdit({ ...props.product, quantity: Number(props.product.quantity) + 1 });
+    }
+
+    else{
+    navigate("/login")
+    }
   }
 
   useEffect(() => {
