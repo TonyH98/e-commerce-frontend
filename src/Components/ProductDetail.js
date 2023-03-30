@@ -156,7 +156,7 @@ function counterDecrease(){
 }
 
 
-
+console.log(product)
 
 
     return(

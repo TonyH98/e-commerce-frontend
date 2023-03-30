@@ -25,7 +25,7 @@ function SearchProduct({user}){
         else{
             setHistories([])
         }
-      }, []);
+      }, [user]);
 
 const firstThree = histories.slice(0,3).sort((a , b) => {
     return new Date(b.created) - new Date(a.created)

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import { ShoppingCart} from "phosphor-react";
 
-import StripeCheckout from "react-stripe-checkout";
+
 
 import axios from "axios";
 
@@ -74,28 +74,7 @@ const every = cartCounter.every((x) => {
 })
 
 
-const makePayment = token => {
-  const body = {
-    token,
-    products
-    
-  }
-const headers = {
-  "Content-Type": "application/json"
-}
 
-return axios(`${API}/payment`, {
-  method: "POST",
-  headers,
-  body: JSON.stringify(body)
-}).then(res => {
-  console.log(res)
-})
-.catch(err => {
-  console.log(err)
-})
-
-}
 
 
 let totalQuantity = 0
@@ -140,8 +119,26 @@ const handleDelete = (id) => {
     .catch((c) => console.warn("catch", c));
 };
 
+const checkout = async () => {
+  const items = products.map((product) => {
+    return {
+      price: product.price_id,
+      quantity: product.quantity,
+    };
+  });
+  await fetch(`${API}/create-checkout-session`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ items }),
+  }).then((res) => {
+    return res.json();
+  });
+};
 
 
+console.log(products)
 
     return(
         <div>
@@ -215,16 +212,10 @@ const handleDelete = (id) => {
             
                 <br></br>
                 <br></br>
-           <StripeCheckout 
-           stripeKey="pk_test_51McALmHgd5U2y6vdyJDBrouUoY8PTbvjURc8eRi1yc4ar5lN8PdgSZrt7EpBErloqHKgcv3uz2PLhUcjlBaxKnRh00HMEGjp7J"
-            token={makePayment}
-            shippingAddress
-            billingAddress
-            name="Purchase Cart"
-            >
-              <button className="cart-btns" >Checkout</button>
+          
+              <button className="cart-btns" onClick={checkout}>Checkout</button>
               
-           </StripeCheckout>
+     
             </div>
      
              </section>
