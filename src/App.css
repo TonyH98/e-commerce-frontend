@@ -404,6 +404,7 @@ select {
 
 
 
+
 .landing-products{
   display: grid;
   grid-template-columns: repeat(2, 40%);
@@ -719,6 +720,16 @@ textarea{
   box-shadow: 1px 2px 2px 2px #000;
 }
 
+.signup-form{
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+}
+
+ul{
+  margin-right: 50px;
+  display: grid;
+  grid-row-gap: 10px;
+}
 
 @media all and (max-width: 375px){
   .Navigation{

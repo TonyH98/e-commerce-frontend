@@ -84,9 +84,12 @@ function Signup(){
       
 
 return(
-    <div className="New">
+    <div className="signup-section">
+
       <br></br>
+
       <form onSubmit={handleSubmit} className="signup-form">
+        <div>
       <h1>Sign Up Form</h1>
         <label htmlFor="username" className='label-signups'>Username:</label>
       
@@ -164,7 +167,26 @@ return(
       <Link to="/login">
       <button className='sign-btn'>Sign In</button>
       </Link>
+
+        </div>
+
+      <div className='password-requirment'>
+        <p style={{fontWeight:"bold", fontSize: "18px"}}>Password Reqirment:</p>
+
+        <ul>
+        <li><span>8 Characters Long</span></li>
+        <li><span>1 Uppercase Letter</span></li>
+        <li><span>1 Lowercase Letter</span></li>
+        <li><span>1 Number</span></li>
+         <li><span>1 Special Character</span></li>
+        </ul>
+
+      </div>
+
       </form>
+
+
+
     </div>
 )
 
