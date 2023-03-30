@@ -120,22 +120,32 @@ const handleDelete = (id) => {
 };
 
 const checkout = async () => {
-  const items = products.map((product) => {
+  const lineItems = products.map((product) => {
     return {
-      price: product.price_id,
+      product_name: product.product_name,
+      image: product.image,
+      price: product.price,
       quantity: product.quantity,
     };
   });
-  await fetch(`${API}/create-checkout-session`, {
-    method: "POST",
+
+  const response = await fetch(`${API}/create-checkout-session`, {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ items }),
-  }).then((res) => {
-    return res.json();
+    body: JSON.stringify({
+      items: lineItems,
+    }),
   });
+
+  const data = await response.json();
+
+  if (data.url) {
+    window.location.assign(data.url);
+  }
 };
+
 
 
 console.log(products)
