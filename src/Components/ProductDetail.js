@@ -156,7 +156,34 @@ function counterDecrease(){
 }
 
 
-console.log(product)
+const buyNow = async () => {
+  
+const lineItems = [{
+product_name: product.product_name,
+image: product.image,
+ price: product.price,
+ quantity: 1
+}]
+
+  const response = await fetch(`${API}/create-checkout-session`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      items: lineItems,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (data.url) {
+    window.location.assign(data.url);
+  }
+
+
+
+}
 
 
     return(
@@ -227,7 +254,9 @@ console.log(product)
           <button className="add-delete" onClick={() => addToUser(product.id)}>Add to Cart</button>
             )}
            
-
+              <br></br>
+              <br></br>
+          <button className="add-delete" onClick={buyNow}>Buy it Now</button>
           </div>
 <br></br>
 
