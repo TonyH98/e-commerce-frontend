@@ -134,6 +134,7 @@ a{
 
 .home-page-link{
   margin-top: 25px;
+  text-align: center;
 }
 
 textarea {
@@ -142,6 +143,13 @@ textarea {
   margin: auto;
 }
 
+.rating{
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  margin-right: 46.5%;
+  
+}
 
 .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
   background: none!important;
@@ -300,7 +308,7 @@ textarea {
 }
 
 
-input[type=text] , input[type=password], input[type=email]{
+input[type=text] , input[type=password], input[type=email], textarea{
   width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -323,13 +331,6 @@ input[type=submit] {
   cursor: pointer;
 }
 
-
-
-.new-form{
-  border-radius: 5px;
-  background-color: #d7ddef;
-  padding: 20px;
-}
 
 select {
   width: 20%;

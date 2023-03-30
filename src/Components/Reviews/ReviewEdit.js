@@ -36,7 +36,9 @@ function ReviewForm(props) {
     <div className="Edit">
       {props.children}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="reviewer">Name:</label>
+        <h3>Edit Form</h3>
+        <label htmlFor="reviewer" className='label-signup'>Name:</label>
+        <br></br>
         <input
           id="reviewer"
           value={review.reviewer}
@@ -45,7 +47,9 @@ function ReviewForm(props) {
           placeholder="Your name"
           required
         />
-        <label htmlFor="title">Title:</label>
+        <br></br>
+        <label htmlFor="title" className='label-signup'>Title:</label>
+        <br></br>
         <input
           id="title"
           type="text"
@@ -53,18 +57,9 @@ function ReviewForm(props) {
           value={review.title}
           onChange={handleTextChange}
         />
-        <label htmlFor="rating">Rating:</label>
-        <input
-          id="rating"
-          type="number"
-          name="rating"
-          min="0"
-          max="5"
-          step="1"
-          value={review.rating}
-          onChange={handleTextChange}
-        />
-        <label htmlFor="content">Review:</label>
+        <br></br>
+        <label htmlFor="content" className='label-signup'>Review:</label>
+        <br></br>
         <textarea
           id="content"
           type="text"
@@ -73,7 +68,20 @@ function ReviewForm(props) {
           placeholder="What do you think..."
           onChange={handleTextChange}
         />
-
+      <br></br>
+        <label htmlFor="rating" className='label-signup'>Rating:</label>
+        <br></br>
+        <input
+          id="rating"
+          type="number"
+          name="rating"
+          className="rating"
+          min="0"
+          max="5"
+          step="1"
+          value={review.rating}
+          onChange={handleTextChange}
+        />
         <br />
 
         <input type="submit" />

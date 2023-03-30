@@ -1,6 +1,7 @@
 import { useState , useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { fontWeight } from "@mui/system";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -69,7 +70,8 @@ console.log(product)
       <div className="new-form">
         <h1>Review: {product.product_name}</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="reviewer">Name:</label>
+        <label htmlFor="reviewer" className='label-signup'>Name: </label>
+        <br></br>
         <input
           id="reviewer"
           value={review.reviewer}
@@ -78,7 +80,8 @@ console.log(product)
           required
         />
         <br></br>
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="title" className='label-signup'>Title:</label>
+        <br></br>
         <input
           id="title"
           type="text"
@@ -86,21 +89,10 @@ console.log(product)
           value={review.title}
           onChange={handleTextChange}
         />
+     
         <br></br>
-        <label htmlFor="rating">Rating:</label>
-        <input
-          id="rating"
-          type="number"
-          name="rating"
-          min="0"
-          max="5"
-          step="1"
-          value={review.rating}
-          onChange={handleTextChange}
-        />
+        <label htmlFor="content" className='label-signup'>Review:</label>
         <br></br>
-        <br></br>
-        <label htmlFor="content">Review:</label>
         <textarea
           id="content"
           type="text"
@@ -108,6 +100,21 @@ console.log(product)
           value={review.content}
           placeholder="What do you think..."
           onChange={handleTextChange}
+        />
+  <br></br>
+<label className='label-signup' htmlFor="rating">Rating:</label>
+<br></br>
+        <input
+          id="rating"
+          type="number"
+          name="rating"
+          className="rating"
+          min="0"
+          max="5"
+          step="1"
+          value={review.rating}
+          onChange={handleTextChange}
+      
         />
         <br />
         <input type="submit" />
