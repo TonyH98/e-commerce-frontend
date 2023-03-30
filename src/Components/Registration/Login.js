@@ -32,10 +32,14 @@ function Login({ newLogin }) {
   };
 
   return (
-    <div className="New">
+    <div>
+      <br></br>
+      <br></br>
+      <form onSubmit={handleSubmit} className="login-form">
+        <br></br>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username" className='label-signup'>Username:</label>
+        <br></br>
         <input
           id="username"
           value={login.username}
@@ -44,7 +48,9 @@ function Login({ newLogin }) {
           required
         />
         <br></br>
-        <label htmlFor="password">Password:</label>
+        <br></br>
+        <label htmlFor="password" className='label-signup'>Password:</label>
+        <br></br>
         <input
           id="password"
           type="password"
@@ -55,11 +61,12 @@ function Login({ newLogin }) {
         />
         <br />
         <input type="submit" />
-      </form>
+        <br></br>
       {error && <p>{error}</p>}
       <Link to="/signup">
-        <button>Sign Up</button>
+        <button className='registory-btn'>Sign Up</button>
       </Link>
+      </form>
     </div>
   );
 }

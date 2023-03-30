@@ -16,7 +16,7 @@ const API = process.env.REACT_APP_API_URL;
 
 
 
-function ProductDetails({user , children}){
+function ProductDetails({user}){
 
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -158,29 +158,34 @@ function counterDecrease(){
 
 const buyNow = async () => {
   
-const lineItems = [{
-product_name: product.product_name,
-image: product.image,
- price: product.price,
- quantity: 1
-}]
+  if(user){
+    const lineItems = [{
+    product_name: product.product_name,
+    image: product.image,
+     price: product.price,
+     quantity: 1
+    }]
+    
+      const response = await fetch(`${API}/create-checkout-session`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: lineItems,
+        }),
+      });
+    
+      const data = await response.json();
+    
+      if (data.url) {
+        window.location.assign(data.url);
+      }
 
-  const response = await fetch(`${API}/create-checkout-session`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      items: lineItems,
-    }),
-  });
-
-  const data = await response.json();
-
-  if (data.url) {
-    window.location.assign(data.url);
   }
-
+else{
+  navigate("/login")
+}
 
 
 }

@@ -85,49 +85,59 @@ function Signup(){
 
 return(
     <div className="New">
+      <br></br>
+      <form onSubmit={handleSubmit} className="signup-form">
       <h1>Sign Up Form</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username" className='label-signups'>Username:</label>
+      
         <input
           id="username"
+          className='signup-input'
           value={user.username}
           type="text"
           onChange={handleTextChange}
           required
         />
         <br></br>
-        <label htmlFor="firstname">First Name:</label>
+        <label htmlFor="firstname" className='label-signups'>First Name:</label>
+ 
         <input
           id="firstname"
+          className='signup-input'
           type="text"
           required
           value={user.firstname}
           onChange={handleTextChange}
         />
         <br></br>
-         <label htmlFor="lastname">Last Name:</label>
+         <label htmlFor="lastname" className='label-signups'>Last Name:</label>
+
         <input
           id="lastname"
           type="text"
+          className='signup-input'
           required
           value={user.lastname}
           onChange={handleTextChange}
         />
         <br></br>
-         <label htmlFor="email">Email:</label>
+         <label htmlFor="email" className='label-signups'>Email:</label>
+  
         <input
           id="email"
           type="email"
+          className='signup-input'
           required
           value={user.email}
           onChange={handleTextChange}
         />
          {emailError && <p style={{color:"red"}}>{emailError}</p>}
       <br></br>
-      <label htmlFor='phonenumber'>Phone Number:</label>
+      <label htmlFor='phonenumber' className='label-signups'>Phone Number:</label>
       <input
           id="phonenumber"
           type="text"
+          className='signup-input'
           required
           value={user.phonenumber}
           placeholder="(xxx)xxx-xxxx"
@@ -136,9 +146,11 @@ return(
         
         {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
         <br></br>
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password" className='label-signups'>Password:</label>
+
         <input
           id="password"
+          className='signup-input'
           type="password"
           required
           value={user.password}
@@ -148,10 +160,11 @@ return(
         {passwordError && <p style={{color:"red"}}>{passwordError}</p>}
         <br />
         <input type="submit" />
-      </form>
+        <br></br>
       <Link to="/login">
-      <button>Sign In</button>
+      <button className='sign-btn'>Sign In</button>
       </Link>
+      </form>
     </div>
 )
 

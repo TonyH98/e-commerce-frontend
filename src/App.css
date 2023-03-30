@@ -9,6 +9,23 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.label-signup{
+  display: inline-block;
+    width: 50%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.label-signups{
+  display: inline-block;
+    width: 18%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.signup-input{
+  margin-right: 10px;
+}
 
 .session-btns{
   background-color: #000;
@@ -33,7 +50,7 @@ hr{
   margin-top: 5px;
   
   padding: 10px;
-  box-shadow: 5px 8px #000000;
+  box-shadow: 2px 1px 2px 2px #000000;
 }
 
 
@@ -52,9 +69,9 @@ hr{
   width: 70%;
   border: 2px solid white;
   background-color: white;
-  border-radius: 8%;
+  border-radius: 2%;
   margin-left: 50px;
-  box-shadow: 2px 2px #000000;
+  box-shadow: 1px 2px 2px 2px #000000;
 }
 
 .image{
@@ -126,7 +143,7 @@ textarea {
 }
 
 
-.readmore-btn, .create-review, .edit, .delete {
+.readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
   background: none!important;
   border: none;
   padding: 0!important;
@@ -136,7 +153,28 @@ textarea {
   cursor: pointer;
 }
 
+.logout{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: arial, sans-serif;
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
 
+
+.signup-form{
+  border: 1px solid white;
+  background-color: white;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5px;
+  margin-bottom: 10%; 
+  border-radius: 1%;
+  box-shadow: 1px 2px 2px 2px black;
+}
 
 
 .review-title{
@@ -276,7 +314,7 @@ input[type=text] , input[type=password], input[type=email]{
 
 input[type=submit] {
   width: 30%;
-  background-color: #4CAF50;
+  background-color: black;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -284,6 +322,7 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
+
 
 
 .new-form{
@@ -645,7 +684,7 @@ width: 75px;
   justify-content: center;
 } */
 
-form {
+/* form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -660,11 +699,23 @@ textarea{
   padding: 5px;
   border-radius: 5px;
 
-} 
+}  */
 
 .price-quantity{
   padding-left: 20px;
   padding-right: 20px;
+}
+
+
+
+.login-form{
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 8px;
+  height: 400px;
+  margin-left: 450px;
+  margin-right: 450px;
+  box-shadow: 1px 2px 2px 2px #000;
 }
 
 

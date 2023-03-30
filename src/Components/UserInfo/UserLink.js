@@ -54,7 +54,7 @@ function UserLink({children}) {
           <p>Search History</p>
         </Link>
         <br />
-        <button onClick={handleLogout}>Logout</button>
+        <button onClick={handleLogout} className="logout">Logout</button>
       </div>
       <div className="vertical"></div>
       <div className="children-section">
