@@ -23,7 +23,7 @@ function ProductDetails({user , children}){
   const [related, setRelated] = useState([]);
  
   
-  let [counter, setCounter] = useState(0);
+  let [counter, setCounter] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {

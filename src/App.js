@@ -19,6 +19,8 @@ import Login from "./Components/Registration/Login"
 import Signup from "./Components/Registration/Signup"
 import SearchHistories from "./Components/History/SearchHistories";
 import UserDetails from "./Components/UserInfo/UserDetails";
+import Success from "./Components/SessionPage/Success"
+import Cancel from "./Components/SessionPage/Cancel";
 
 import Footer from "./Components/Footer/Footer";
 
@@ -85,6 +87,8 @@ function App() {
           <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           <Route path={`/userDetails/${user?.id}`} element={<UserDetails user={user}/>}/>
          <Route path={`/searchHistory/${user?.id}`} element={<SearchHistories user={user}/>}/>
+         <Route path="/success" element={<Success user={user}/>}/>
+         <Route path="/cancel" element={<Cancel user={user}/>}/>
           </Routes>
         </main>
       </Router>

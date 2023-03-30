@@ -10,6 +10,15 @@
 }
 
 
+.session-btns{
+  background-color: #000;
+  color: white;
+  border: none;
+  text-align: center;
+  height: 50px;
+  width: 200px;
+}
+
 hr{
   border: none;
   height: 2px;
