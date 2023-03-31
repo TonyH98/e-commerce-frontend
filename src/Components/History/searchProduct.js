@@ -31,7 +31,7 @@ const firstThree = histories.slice(0,3).sort((a , b) => {
     return new Date(b.created) - new Date(a.created)
 })
 
-console.log(firstThree)
+
 
     return(
         <div className="relatedItem">

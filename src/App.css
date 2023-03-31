@@ -19,6 +19,13 @@
   border: none;
 }
 
+
+.fav-btns{
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
 .category-images{
   height: 300px;
   width: 280px;

@@ -21,7 +21,8 @@ function ProductDetails({user}){
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
- 
+  
+  console.log(product.favorites)
   
   let [counter, setCounter] = useState(1);
   const navigate = useNavigate();
@@ -48,30 +49,27 @@ function ProductDetails({user}){
       .catch((err) => console.error(err));
   }
 
+function handleFavorite(){
+  const updateProducts = {...product , favorites: !product.favorites}
 
-  function handleFavorite2() {
-    const updatedProduct = { ...product, favorites: false };
-    debugger;
-    setProduct(updatedProduct);
-    updateProduct(updatedProduct, id);
-  }
-  
-  function addToFavorite() {
-    const updatedProduct = { ...product, favorites: true };
-    setProduct(updatedProduct);
-  
-    axios
-      .post(`${API}/users/${user?.id}/favorites/${product.id}`)
-      .catch((err) => console.error(err));
-  }
+  updateProduct(updateProducts , id)
 
-  function deleteFromFavorite() {
-    axios
-    .delete(`${API}/users/${user?.id}/favorites/${product.id}`)
-    .then(() => handleFavorite2())
-    .catch((err) => console.error(err));
-  }
+  setProduct(updateProducts)
+}
   
+  
+function addToFavorites() {
+  const endpoint = `${API}/users/${user?.id}/favorites/${product.id}`;
+
+  if (product.favorites === false) {
+    axios.post(endpoint).then(handleFavorite());
+  } else if(product.favorites === true) {
+    axios.delete(endpoint).then(handleFavorite())
+  }
+}
+
+
+
   function addToUser() {
 
     if(user?.id){
@@ -215,20 +213,8 @@ else{
           <br></br>
           </div>
       <div className="favorites-section">
-          { 
-            product.favorites ? (
-              <>
-              <button onClick={() =>deleteFromFavorite(product.id)} className="favorites-btn"> <FaBookmark size={25}/>  </button>
-      
-              </>
-            ) : (
-              <>
-                <button onClick={() =>addToFavorite(product.id)}  className="favorites-btn">  <FaRegBookmark size={25}/> </button>
- 
-              </>    
-              )
-            }
-          </div>   
+         <button onClick={addToFavorites} className="fav-btns">{product.favorites ? <FaBookmark size={25}/> : <FaRegBookmark size={25}/>}</button>
+       </div>   
           <br></br>
           <div className="cart-counter-input">
             <button className="decrease-increase" onClick={counterDecrease}>-</button>

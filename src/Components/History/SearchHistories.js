@@ -146,12 +146,6 @@ function SearchHistories({user}){
             <option value="Latest to Earliest">Latest to Earliest</option>
             <option value="Earliest to Latest">Earliest to Latest</option>
           </select>
-
-
-          {/* const currentPageData = currentHistories
-        .slice(offSet, offSet + pageData)
-        .map((product) => <Searches product={product} user={user} handleEdit={handleEdit} />); */}
-
             <br></br>
                 <div className="search-cart">
                 
