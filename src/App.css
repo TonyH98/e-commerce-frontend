@@ -11,6 +11,14 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+
+.delete-btn{
+  margin-left: 90%;
+  margin-top: 5px;
+  background-color: white;
+  border: none;
+}
+
 .category-images{
   height: 300px;
   width: 280px;
@@ -340,7 +348,7 @@ textarea {
   display: grid;
   grid-template-columns: repeat(1);
   grid-row-gap: 40px;
-  margin-left: 20px;
+  margin-left: 200px;
   
 }
 
@@ -478,7 +486,7 @@ select {
 }
 
 .page-count{
-  margin-left: 12%;
+  margin-left: 20%;
 }
 
 .Nav-Category{

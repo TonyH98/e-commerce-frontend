@@ -33,7 +33,7 @@ function Login({ newLogin }) {
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          setError("Incorrect username or password");
+          setError("Incorrect username or password. Refresh the page to try again!");
         } else {
           setError("An error occurred while logging in");
         }
@@ -88,9 +88,9 @@ function Login({ newLogin }) {
         />{type === "password" ? "Show Password" : "Hide Password"}
         <br></br>
         <br />
-        <button type="submit" disabled={error}>Login</button>
+        <input type="submit" disabled={error}/>
         <br></br>
-        <br></br>
+  
       {error && <p style={{color: "red"}}>{error}</p>}
       <Link to="/signup">
         <button className='registory-btn'>Sign Up</button>

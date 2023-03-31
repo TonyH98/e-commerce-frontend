@@ -4,6 +4,7 @@ import axios from "axios"
 import UserLink from "../UserInfo/UserLink"
 import Searches from "./Searches";
 import ReactPaginate from "react-paginate";
+import { Trash } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -125,6 +126,7 @@ function SearchHistories({user}){
         <UserLink>
         <div>
             <div>
+            <button onClick={deleteMultiple} className="delete-btn"><Trash size={30}/></button>
             <h1>Search History</h1>
             <>
             <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
@@ -136,7 +138,6 @@ function SearchHistories({user}){
             onChange={handleTextChange}
             />
 
-          <button onClick={deleteMultiple}>Delete</button>
             </>
             </div>
 
