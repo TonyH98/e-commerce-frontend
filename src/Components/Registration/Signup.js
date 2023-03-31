@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import Password from './Password';
+import { Info } from 'phosphor-react';
 import axios from 'axios';
 
 const API = process.env.REACT_APP_API_URL;
@@ -8,6 +10,7 @@ function Signup(){
 
   const [type, setType]=useState('password');
 
+  const [modal , setModal] = useState(false)
     let navigate = useNavigate()
 
     const addUser = (newUser) => {
@@ -92,6 +95,11 @@ function Signup(){
         }
       }
 
+
+
+
+
+
 return(
     <div className="signup-section">
 
@@ -157,7 +165,7 @@ return(
         {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
         <br></br>
         <label htmlFor="password" className='label-signups'>Password:</label>
-
+        
         <input
           id="password"
           className='signup-input'
@@ -167,34 +175,27 @@ return(
           placeholder="******"
           onChange={handleTextChange}
           />
+          <Password open={modal} onClose={() => setModal(false)}/>
         {passwordError && <p style={{color:"red"}}>{passwordError}</p>}
         <br></br>
+
+
         <input
         type="checkbox"
         onClick={handleType}
-        />{type === "password" ? "Show Password" : "Hide Password"}
+        />{type === "password" ? "Show Password" : "Hide Password"} 
+        <p onClick={() => setModal(true)}><Info size={18}/></p>
+
         <br />
+
         <input type="submit" />
         <br></br>
+
       <Link to="/login">
       <button className='sign-btn'>Sign In</button>
       </Link>
 
-      {/* <div className='password-requirment'>
-        <p style={{fontWeight:"bold", fontSize: "18px"}}>Password Reqirment:</p>
-
-        <ul>
-        <li><span>8 Characters Long</span></li>
-        <li><span>1 Uppercase Letter</span></li>
-        <li><span>1 Lowercase Letter</span></li>
-        <li><span>1 Number</span></li>
-         <li><span>1 Special Character</span></li>
-        </ul>
-      </div> */}
       </form>
-
-
-
     </div>
 )
 

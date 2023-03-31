@@ -27,6 +27,11 @@
   margin-right: 10px;
 }
 
+input:required:invalid {
+  box-shadow: none;
+}
+
+
 .session-btns{
   background-color: #000;
   color: white;
@@ -48,7 +53,6 @@ hr{
   height: 500px;
   width: 300px;
   margin-top: 5px;
-  
   padding: 10px;
   box-shadow: 2px 1px 2px 2px #000000;
 }
@@ -732,10 +736,43 @@ ul{
 }
 
 
+
+.modal-container{
+  border: black 1px solid;
+  max-width: 600px;
+  width: 100%;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 1px black;
+  overflow: hidden;
+  position: absolute;
+}
+
+
+
+.content{
+  margin-left: 30%;
+}
+
+.closeBtn{
+  position: fixed;
+  top: 1px;
+  right: 8px;
+  cursor: pointer;
+}
+
 /* .signup-section{
   display: grid;
   grid-template-columns: 6fr 18%;
 } */
+
+
+
+
 
 @media all and (max-width: 375px){
   .Navigation{

@@ -157,7 +157,7 @@ function SearchHistories({user}){
                 {currentHistories.slice(offSet, offSet + pageData).map((product) => {
                   return(
 
-                          <div className="search-section">
+                          <div className="search-section" key={product.products_id}>
                             <Searches product={product} user={user} handleEdit={handleEdit} />
                           </div>
                   )

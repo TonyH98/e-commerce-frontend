@@ -78,10 +78,10 @@ function Login({ newLogin }) {
         type="checkbox"
         onClick={handleType}
         />{type === "password" ? "Show Password" : "Hide Password"}
+        <br></br>
         <br />
         <input type="submit" />
-        <br />
-        <input type="submit" />
+        <br></br>
         <br></br>
       {error && <p>{error}</p>}
       <Link to="/signup">
