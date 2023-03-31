@@ -46,10 +46,6 @@ function UserLink({children}) {
           <p>User Info</p>
         </Link>
         <br></br>
-        <Link to={`/favorites/${user?.id}`}>
-          <p>Favorite Item</p>
-        </Link>
-        <br />
         <Link to={`/searchHistory/${user?.id}`}>
           <p>Search History</p>
         </Link>

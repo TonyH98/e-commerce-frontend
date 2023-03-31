@@ -8,7 +8,6 @@ import ReviewNewForm from "./Components/Reviews/ReviewNewForm"
 import Apps from "./App.css"
 import ReviewDetails from "./Components/Reviews/ReviewDetails"
 import ProductCart from "./Components/Cart/ProductCart"
-import FavoriteProduct from "./Components/Favorites/FavoriteProduct"
 import NewProducts from "./Components/NewProducts";
 import ReviewChart from "./Components/Reviews/ReviewChart"
 import Books from "./Components/Books/Books"
@@ -76,7 +75,6 @@ function App() {
           <Route path="/products/:id/new" element={<ReviewNewForm user={user}/>}/>
           <Route path="/products/:id/reviews/:ids" element={<ReviewDetails/>}/>
           <Route path={`/cart/${user?.id}`} element={<ProductCart user={user}/>}/>
-          <Route path={`/favorites/${user?.id}`} element={<FavoriteProduct  user={user}/>}/>
           <Route path="/newProduct" element={<NewProducts/>}/>
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
           <Route path="/books" element={<Books/>}/>

@@ -3,10 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
-import { FaBookmark } from "react-icons/fa"
-import { FaRegBookmark } from "react-icons/fa"
-
-
 import Reviews from "./Reviews/Reviews";
 import ReadMore from "./ReadMore";
 import SearchProduct from "./History/searchProduct";
@@ -22,8 +18,8 @@ function ProductDetails({user}){
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
   
+
   console.log(product.favorites)
-  
   let [counter, setCounter] = useState(1);
   const navigate = useNavigate();
 
@@ -48,26 +44,6 @@ function ProductDetails({user}){
       .then(() => navigate(`/products/${id}`))
       .catch((err) => console.error(err));
   }
-
-function handleFavorite(){
-  const updateProducts = {...product , favorites: !product.favorites}
-
-  updateProduct(updateProducts , id)
-
-  setProduct(updateProducts)
-}
-  
-  
-function addToFavorites() {
-  const endpoint = `${API}/users/${user?.id}/favorites/${product.id}`;
-
-  if (product.favorites === false) {
-    axios.post(endpoint).then(handleFavorite());
-  } else if(product.favorites === true) {
-    axios.delete(endpoint).then(handleFavorite())
-  }
-}
-
 
 
   function addToUser() {
@@ -212,9 +188,6 @@ else{
           </section>
           <br></br>
           </div>
-      <div className="favorites-section">
-         <button onClick={addToFavorites} className="fav-btns">{product.favorites ? <FaBookmark size={25}/> : <FaRegBookmark size={25}/>}</button>
-       </div>   
           <br></br>
           <div className="cart-counter-input">
             <button className="decrease-increase" onClick={counterDecrease}>-</button>
