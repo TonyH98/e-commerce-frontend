@@ -10,6 +10,9 @@ function Signup(){
 
   const [type, setType]=useState('password');
 
+  
+
+
   const [modal , setModal] = useState(false)
     let navigate = useNavigate()
 
@@ -61,30 +64,75 @@ function Signup(){
 
       function validatePhoneNumber(){
         const phoneRegex = /^\(\d{3}\)\d{3}-\d{4}$/;
-        return phoneRegex.test(user.phoneNumber)
+        return phoneRegex.test(user.phonenumber)
+      }
+
+      let [userError , setUserError] = useState("")
+     
+      let [emailError2 , setEmailError2] = useState("")
+
+      function checkUserName() {
+        return axios.get(`${API}/users?username=${user.username}`)
+          .then((res) => {
+            return res.data.length === 0;
+          })
+          .catch((error) => {
+            console.error(error);
+            return false;
+          });
+      }
+
+      function checkEmail(){
+        return axios.get(`${API}/users?email=${user.email}`)
+        .then((res) => {
+          return res.data.length === 0;
+        })
+        .catch((error) => {
+          console.error(error);
+          return false;
+        });
       }
 
       const handleSubmit = (event) => {
         event.preventDefault();
-        if(validatePassword()){
-          addUser(user);
+      
+        let isValid = true;
+      
+        if (!validatePassword()) {
+          setPasswordError("Password must have at least 8 characters long, 1 uppercase letter, 1 lowercase letter, 1 number, and a special character ");
+          isValid = false;
         }
-        else{
-          setPasswordError("Password must have at least 8 characters long, 1 uppercase letter, 1 lowercase letter, 1 number, and a special character ")
+      
+        if (!validateEmail()) {
+          setEmailError("Please enter a valid email address");
+          isValid = false;
         }
-        if(validateEmail()){
-          addUser(user)
+      
+        if (!validatePhoneNumber()) {
+          setPhoneError("Please enter in the require format of (xxx)xxx-xxxx");
+          isValid = false;
         }
-        else{
-          setEmailError("Please enter a valid email address")
-        }
-        if(!validatePhoneNumber()){
-          setPhoneError("Please enter in the require format of (xxx)xxx-xxxx")
-        }
-        else{
-          addUser(user)
-        }
+      
+        Promise.all([checkUserName(), checkEmail()]).then(([isUsernameAvailable, isEmailAvailable]) => {
+          if (!isUsernameAvailable) {
+            setUserError("Username was already taken");
+            isValid = false;
+          }
+      
+          if (!isEmailAvailable) {
+            setEmailError2("Email was already taken");
+            isValid = false;
+          }
+      
+          if (isValid) {
+            addUser(user);
+          }
+        }).catch((error) => {
+          console.error(error);
+        });
       };
+      
+      
 
       const handleType =() => {
         if(type === 'password'){
@@ -116,6 +164,7 @@ return(
           onChange={handleTextChange}
           required
         />
+         {userError && <p style={{color:"red"}}>{userError}</p>}
         <br></br>
         <label htmlFor="firstname" className='label-signups'>First Name:</label>
  
@@ -150,6 +199,7 @@ return(
           onChange={handleTextChange}
         />
          {emailError && <p style={{color:"red"}}>{emailError}</p>}
+         {emailError2 && <p style={{color:"red"}}>{emailError2}</p>}
       <br></br>
       <label htmlFor='phonenumber' className='label-signups'>Phone Number:</label>
       <input
