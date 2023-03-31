@@ -1,4 +1,6 @@
- 
+ body{
+  overflow-x: hidden;
+ }
   
   .App {
   text-align: center;
@@ -7,6 +9,54 @@
 .filter-products{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.category-images{
+  height: 300px;
+  width: 280px;
+  border: black 1px solid
+}
+
+.category-description {
+  line-height: 1.3;
+  padding: 20px;
+  text-align: justify;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 23px;
+}
+
+
+.collection-name{
+  display: flex;
+  justify-content: left;
+  margin-left: 45px;
+  font-weight: bold;
+}
+
+
+.category-section{
+  display: flex;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 28%);
+}
+
+
+.category-buttons{
+  margin-right: 215px;
+  border: none;
+  color: white;
+  background-color: #000;
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.modal-btn{
+  margin-left: 90%;
+  border: none;
+  background-color: white;
 }
 
 .label-signup{
@@ -50,11 +100,11 @@ hr{
 }
 
 .images{
-  height: 500px;
-  width: 300px;
+  height: 220px;
+  width: 180px;
   margin-top: 5px;
   padding: 10px;
-  box-shadow: 2px 1px 2px 2px #000000;
+  /* box-shadow: 2px 1px 2px 2px #000000; */
 }
 
 
@@ -81,6 +131,10 @@ hr{
 .image{
   height: 300px;
   width: 200px;
+}
+
+.product-name , .product-price{
+  white-space: nowrap;
 }
 
 .product-image{
@@ -182,7 +236,6 @@ textarea {
   background-color: white;
   margin-left: 30%;
   margin-right: 30%;
-  margin-top: 5px;
   margin-bottom: 10%; 
   border-radius: 1%;
   box-shadow: 1px 2px 2px 2px black;
@@ -206,17 +259,17 @@ textarea {
   text-align: left;
 }
 
-.cart-btns{
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
+.cart-container{
   text-align: center;
-  cursor: pointer;
-  font-size: 18px;
-  margin-left: 10px;
-  width: 95%
+  margin-bottom: 5px;
+}
+
+.cart-btns{
+  background-color: black;
+  color: white;
+  border: none;
+  height: 45px;
+  width: 200px
 }
 
 .cart-btns:hover{
@@ -259,8 +312,8 @@ textarea {
   border:rgb(26, 26, 28);
   background-color: rgb(26, 26, 28);
   display: grid;
-  grid-template-columns: repeat(4, 25%);
-  height: 90px
+  grid-template-columns: 20% 50% 40%;
+  height: 135px
 }
 
 
@@ -365,18 +418,20 @@ select {
 
 .items{
   display: none;
-  position: absolute;
+ margin-left: 100px;
+  margin-right: 10px;
   background-color: #f1f1f1;
-  min-width: 90px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+
 
 
 }
 
 .items a {
   color: black;
-  padding: 12px 16px;
+  padding-right: 100px;
+  padding-top: 14px;
+  padding-bottom: 5px;
   text-decoration: none;
   display: block;
 }
@@ -413,7 +468,13 @@ select {
 
 .landing-products{
   display: grid;
-  grid-template-columns: repeat(2, 40%);
+  grid-template-columns: 45% 5%
+}
+
+
+.landing-page{
+  border: black solid 2px;
+  height: 400px
 }
 
 .page-count{
@@ -483,14 +544,15 @@ select {
 }
 
 .searchInputs{
-  margin-top: 20px;
+  text-align:  center;
   display: flex;
 }
 
 
 .search{
-  margin-left: 30px;
-  margin-top: 8px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin-left: 600px;
 }
 
 .search .searchbar{
@@ -683,6 +745,7 @@ width: 75px;
 
 .clear-cart{
   border: none;
+  background-color: white;
 }
 
 /* /* .New {
@@ -765,10 +828,6 @@ ul{
   cursor: pointer;
 }
 
-/* .signup-section{
-  display: grid;
-  grid-template-columns: 6fr 18%;
-} */
 
 
 

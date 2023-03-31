@@ -109,43 +109,17 @@ function addToSearchHistory(id, ids) {
 
 
 
-    return(
-        <nav className="Navigation">
-         
+    return( 
+      <nav>
 
+        <div className="Navigation">
+         
         <h1 className="home-page-link">
           <Link to="/">
           T-Commerce
           </Link>
         </h1>
         
-       <div className="search">
-          <div className="searchInputs">
-            <input 
-            type="text"
-            placeholder="Search..."
-            value={search}
-            onChange={handleFilter} 
-            className="searchbar"/>
-            <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} />: <X  onClick={clear} size={25} className="clear-bar"/>}</div>
-          </div>
-          {filterSearch.length !== 0 &&(
-
-          <div className="dataResult">
-            {filterSearch.slice(0 , 10).map((product) => {
-              return(
-                <div className="search-link">
-                  <br></br>
-                <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id , product.id)}>
-                <p className="dropdown-link">{product.product_name}</p>
-                </Link>
-                </div>
-                
-              )
-            })}
-          </div>
-          )}
-       </div>
 
       <div className="Nav-Category">
 
@@ -181,7 +155,7 @@ function addToSearchHistory(id, ids) {
           </div> : null }
       {user ? 
      <p style={{fontWeight:"bold"}}><Link to={`/userDetails/${user?.id}`}>Details</Link></p>
-      :<div className="link-new">
+     :<div className="link-new">
       <Link to="/login">
         <h3> Login </h3>
       </Link>
@@ -197,9 +171,37 @@ function addToSearchHistory(id, ids) {
 
         </div>
       </div>
+      <div className="search">
+         <div className="searchInputs">
+           <input 
+           type="text"
+           placeholder="Search..."
+           value={search}
+           onChange={handleFilter} 
+           className="searchbar"/>
+           <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} />: <X  onClick={clear} size={25} className="clear-bar"/>}</div>
+         </div>
+         {filterSearch.length !== 0 &&(
+      
+         <div className="dataResult">
+           {filterSearch.slice(0 , 10).map((product) => {
+             return(
+               <div className="search-link">
+                 <br></br>
+               <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id , product.id)}>
+               <p className="dropdown-link">{product.product_name}</p>
+               </Link>
+               </div>
+               
+             )
+           })}
+         </div>
+         )}
+      </div>
+      </div>
       </nav>
 
-    )
+)
 }
 
 export default Nav

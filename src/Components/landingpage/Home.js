@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link } from "react-router-dom";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
@@ -10,8 +10,13 @@ const API = process.env.REACT_APP_API_URL;
 
 const pageData = 1
 
-function Home({products , setProducts, user}){
 
+function Home({products , setProducts, user}){
+  
+  const {CategoryData} = require("../CategoryImg/CategoryData")
+
+
+  console.log(CategoryData)
 
   const [currentPage, setCurrentPage] = useState(0)
 
@@ -66,15 +71,9 @@ const currentPageData = filter
 
 
 
-
-
-
-
-
-  
-
 return (
-    <article className="landing-page">
+  <div>
+    <div className="landing-page">
       
       <p style={{fontWeight: "bold", fontSize: "30px" , textAlign:"center"}}>Featured Items</p>
         <div className="products">
@@ -94,7 +93,33 @@ return (
          />  
             } 
           </div>
-    </article>
+    </div>
+    <br></br>
+    <br></br>
+         
+        <div className="category-section">
+          {CategoryData.map((category) => {
+            return(
+              <div className="category-container">
+               <img
+               src={category.image}
+            alt={category.name}
+            className="category-images"
+          ></img>
+          <div className="collection-name">{category.name} Collection:</div>
+          
+          <div className="category-description">{category.description}</div>
+
+          <Link to={category.link}>
+          <button className="category-buttons">Shop Now</button>
+
+          </Link>
+              </div>
+            )
+          })}
+        </div>
+        
+  </div>
   );
 }
 

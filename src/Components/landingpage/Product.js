@@ -128,13 +128,8 @@ function Product(props){
           <Link to={`/products/${props.product.id}`}   onClick={() => addToSearchHistory(props.user?.id , props.product.id)}
           >{props.product.product_name}</Link>
         </h1>
-        <p><span style={{fontWeight: "bold"}}>Price:</span>  ${props.product.price} </p> 
+        <p className="product-price"><span style={{fontWeight: "bold"}}>Price:</span>  ${props.product.price} </p> 
 
-        <div style={{fontWeight:"bold", fontSize:"20px"}}>
-          <ReadMore>
-            {`${props.product.description}`}
-          </ReadMore>
-        </div>
 
         <br></br>
         {props.user && map.includes(props.product.product_name) ? (

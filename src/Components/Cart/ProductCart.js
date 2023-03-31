@@ -74,32 +74,11 @@ const every = cartCounter.every((x) => {
 })
 
 
-
-
-
 let totalQuantity = 0
 
 for(let i = 0; i < products.length; i++){
   totalQuantity += Number(products[i].quantity)
 }
-
-
-// onst clearCart = () => {
-
-//   const clear = products.filter((x) => {
-//     if(x.cart_counter !== 0){
-//       return x
-//     }
-//   })
-
-// for(let i = 0; i < clear.length; i++){
-//   handleEdit({...clear[i], cart_counter: clear[i].cart_counter = 0})
-// for(let i = 0; i < products.length; i++){
-//   totalQuantity += Number(products[i].quantity)
-// }
-
-// }
-
 
 
 const handleDelete = (id) => {
@@ -222,8 +201,9 @@ console.log(products)
             
                 <br></br>
                 <br></br>
-          
+              <div className="cart-container">
               <button className="cart-btns" onClick={checkout}>Checkout</button>
+              </div>
               
      
             </div>

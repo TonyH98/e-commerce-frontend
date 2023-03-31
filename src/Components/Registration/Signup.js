@@ -153,6 +153,7 @@ return(
 
         <br></br>
       <form onSubmit={handleSubmit} className="signup-form">
+        <button onClick={() => setModal(true)} className="modal-btn"><Info size={18}/></button>
       <h1>Sign Up Form</h1>
         <label htmlFor="username" className='label-signups'>Username:</label>
       
@@ -234,7 +235,6 @@ return(
         type="checkbox"
         onClick={handleType}
         />{type === "password" ? "Show Password" : "Hide Password"} 
-        <p onClick={() => setModal(true)}><Info size={18}/></p>
 
         <br />
 

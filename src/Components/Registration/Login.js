@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 const API = process.env.REACT_APP_API_URL;
@@ -9,6 +9,9 @@ function Login({ newLogin }) {
     username: '',
     password: '',
   });
+
+  let navigate = useNavigate()
+
   const [error, setError] = useState(null);
   const [type, setType]=useState('password');
 
@@ -25,7 +28,8 @@ function Login({ newLogin }) {
         window.localStorage.setItem(
           'user',
           JSON.stringify({ username: res.data.username, id: res.data.id })
-        );
+          );
+          navigate("/")
       })
       .catch((err) => {
         setError(err.response.data.message);

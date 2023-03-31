@@ -49,16 +49,6 @@ function ProductDetails({user}){
   }
 
 
-
-  
-  
-  // function handleFavorite() {
-  //   const updatedProduct = { ...product, favorites: true };
-  //   debugger;
-  //   setProduct(updatedProduct);
-  //   updateProduct(updatedProduct, id);
-  // }
-  
   function handleFavorite2() {
     const updatedProduct = { ...product, favorites: false };
     debugger;
