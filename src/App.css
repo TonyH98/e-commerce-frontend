@@ -551,8 +551,10 @@ select {
 
 .search{
   margin-bottom: 40px;
+  margin-top: 80px;
   text-align: center;
   margin-left: 600px;
+  position: absolute
 }
 
 .search .searchbar{

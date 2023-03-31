@@ -28,11 +28,15 @@ function Login({ newLogin }) {
         window.localStorage.setItem(
           'user',
           JSON.stringify({ username: res.data.username, id: res.data.id })
-          );
-          navigate("/")
+        );
+        navigate("/");
       })
       .catch((err) => {
-        setError(err.response.data.message);
+        if (err.response.status === 401) {
+          setError("Incorrect username or password");
+        } else {
+          setError("An error occurred while logging in");
+        }
       });
   };
 
@@ -84,10 +88,10 @@ function Login({ newLogin }) {
         />{type === "password" ? "Show Password" : "Hide Password"}
         <br></br>
         <br />
-        <input type="submit" />
+        <button type="submit" disabled={error}>Login</button>
         <br></br>
         <br></br>
-      {error && <p>{error}</p>}
+      {error && <p style={{color: "red"}}>{error}</p>}
       <Link to="/signup">
         <button className='registory-btn'>Sign Up</button>
       </Link>
