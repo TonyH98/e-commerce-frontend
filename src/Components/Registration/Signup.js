@@ -6,6 +6,8 @@ const API = process.env.REACT_APP_API_URL;
 
 function Signup(){
 
+  const [type, setType]=useState('password');
+
     let navigate = useNavigate()
 
     const addUser = (newUser) => {
@@ -81,15 +83,20 @@ function Signup(){
         }
       };
 
-      
+      const handleType =() => {
+        if(type === 'password'){
+          setType('text')
+        }
+        else if (type === "text"){
+          setType('password')
+        }
+      }
 
 return(
     <div className="signup-section">
 
-      <br></br>
-
+        <br></br>
       <form onSubmit={handleSubmit} className="signup-form">
-        <div>
       <h1>Sign Up Form</h1>
         <label htmlFor="username" className='label-signups'>Username:</label>
       
@@ -154,13 +161,18 @@ return(
         <input
           id="password"
           className='signup-input'
-          type="password"
+          type={type}
           required
           value={user.password}
           placeholder="******"
           onChange={handleTextChange}
-        />
+          />
         {passwordError && <p style={{color:"red"}}>{passwordError}</p>}
+        <br></br>
+        <input
+        type="checkbox"
+        onClick={handleType}
+        />{type === "password" ? "Show Password" : "Hide Password"}
         <br />
         <input type="submit" />
         <br></br>
@@ -168,9 +180,7 @@ return(
       <button className='sign-btn'>Sign In</button>
       </Link>
 
-        </div>
-
-      <div className='password-requirment'>
+      {/* <div className='password-requirment'>
         <p style={{fontWeight:"bold", fontSize: "18px"}}>Password Reqirment:</p>
 
         <ul>
@@ -180,9 +190,7 @@ return(
         <li><span>1 Number</span></li>
          <li><span>1 Special Character</span></li>
         </ul>
-
-      </div>
-
+      </div> */}
       </form>
 
 

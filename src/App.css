@@ -403,7 +403,9 @@ select {
 }
 
 
-
+.eye{
+  padding-right: 5px
+}
 
 .landing-products{
   display: grid;
@@ -714,22 +716,26 @@ textarea{
   border: 1px solid white;
   background-color: white;
   border-radius: 8px;
-  height: 400px;
+  height: 440px;
   margin-left: 450px;
   margin-right: 450px;
   box-shadow: 1px 2px 2px 2px #000;
 }
 
-.signup-form{
-  display: grid;
-  grid-template-columns: 4fr 3fr;
-}
+
 
 ul{
   margin-right: 50px;
   display: grid;
   grid-row-gap: 10px;
+  list-style: none;
 }
+
+
+/* .signup-section{
+  display: grid;
+  grid-template-columns: 6fr 18%;
+} */
 
 @media all and (max-width: 375px){
   .Navigation{

@@ -10,6 +10,7 @@ function Login({ newLogin }) {
     password: '',
   });
   const [error, setError] = useState(null);
+  const [type, setType]=useState('password');
 
   const handleTextChange = (event) => {
     setLogin({ ...login, [event.target.id]: event.target.value });
@@ -30,6 +31,18 @@ function Login({ newLogin }) {
         setError(err.response.data.message);
       });
   };
+
+
+  const handleType =() => {
+    if(type === 'password'){
+      setType('text')
+    }
+    else if (type === "text"){
+      setType('password')
+    }
+  }
+
+
 
   return (
     <div>
@@ -53,12 +66,20 @@ function Login({ newLogin }) {
         <br></br>
         <input
           id="password"
-          type="password"
+          type={type}
           required
           value={login.password}
           placeholder="******"
           onChange={handleTextChange}
         />
+
+<br></br>
+        <input
+        type="checkbox"
+        onClick={handleType}
+        />{type === "password" ? "Show Password" : "Hide Password"}
+        <br />
+        <input type="submit" />
         <br />
         <input type="submit" />
         <br></br>
