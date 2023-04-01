@@ -11,7 +11,6 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-<<<<<<< HEAD
 
 .delete-btn{
   margin-left: 90%;
@@ -27,8 +26,6 @@
   cursor: pointer;
 }
 
-=======
->>>>>>> parent of 142e652 (Delete Button in Search History was moved to the Top Right and now its a Trash Can)
 .category-images{
   height: 300px;
   width: 280px;

@@ -41,13 +41,16 @@ function ProductCart({user}){
             copyCartArray[indexUpdatedCart] = response.data;
             setProducts(copyCartArray);
           })
-          .then(() => {
-            navigate(`/cart/${user?.id}`)
-          })
           .catch((c) => console.warn("catch", c))
-          
+          .finally(() => {
+            navigate(`/cart/${user?.id}`)
+          });
       };
       
+ console.log(products)
+      
+
+
 const map = products.map((x) => {
   if(x.cart_counter !== 0 ){
     return Number((x.quantity * x.price).toFixed(2))
@@ -95,7 +98,10 @@ const handleDelete = (id) => {
       },
       (error) => console.error(error)
     )
-    .catch((c) => console.warn("catch", c));
+    .catch((c) => console.warn("catch", c))
+    .finally(() => {
+      setProducts(products => [...products]); // Trigger a re-render
+    });
 };
 
 const checkout = async () => {
@@ -176,7 +182,7 @@ console.log(products)
                 <div className="products_summary">
                   {products.map((product) => {
                     return(
-                      <div className="product-quantity-price">
+                      <div className="product-quantity-price" key={product.products_id}>
 
                         <div>{product.product_name} x{product.quantity}: </div>
 

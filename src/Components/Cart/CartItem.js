@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import { Trash } from "phosphor-react";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
-
-const API = process.env.REACT_APP_API_URL;
 
 function CartItem(props) {
   
@@ -27,7 +23,7 @@ function CartItem(props) {
     
     if (props.product.quantity === 0) {
       props.handleDelete(props.product.products_id);
-      return;
+      return props.product
     }
 
     props.handleEdit(updatedProduct);

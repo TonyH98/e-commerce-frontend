@@ -53,22 +53,7 @@ function SearchHistories({user}){
       };
 
 
-      const handleEdit = (updatedCart) => {
-        axios
-        .put(`${API}/products/${updatedCart.id}`, updatedCart)
-        .then((response) => {
-          const copyCartArray = [...histories];
-          const indexUpdatedCart = copyCartArray.findIndex((cart) => {
-            return cart.id === updatedCart.id;
-          });
-          copyCartArray[indexUpdatedCart] = response.data;
-          setHistories(copyCartArray);
-        })
-        .then(() => {
-          navigate(`/searchHistory/${user?.id}`)
-        })
-        .catch((c) => console.warn("catch", c));
-      };
+     
 
 
 
@@ -152,7 +137,7 @@ function SearchHistories({user}){
                   return(
 
                           <div className="search-section" key={product.products_id}>
-                            <Searches product={product} user={user} handleEdit={handleEdit} />
+                            <Searches product={product} user={user} />
                           </div>
                   )
                 })}

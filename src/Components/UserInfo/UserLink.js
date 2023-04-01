@@ -49,6 +49,10 @@ function UserLink({children}) {
         <Link to={`/searchHistory/${user?.id}`}>
           <p>Search History</p>
         </Link>
+        <br></br>
+        <Link to={`/favorites/${user?.id}`}>
+          <p>Favorites</p>
+        </Link>
         <br />
         <button onClick={handleLogout} className="logout">Logout</button>
       </div>

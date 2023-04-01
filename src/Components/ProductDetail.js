@@ -6,6 +6,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import Reviews from "./Reviews/Reviews";
 import ReadMore from "./ReadMore";
 import SearchProduct from "./History/searchProduct";
+import {AiFillHeart} from "react-icons/ai"
+import {AiOutlineHeart} from "react-icons/ai"
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -19,7 +21,8 @@ function ProductDetails({user}){
   const [related, setRelated] = useState([]);
   const [userCart , setUserCart] = useState({})
 
-  console.log(product.favorites)
+  const [userFavorte , setUserFavorite ] = useState({})
+
   let [counter, setCounter] = useState(1);
   const navigate = useNavigate();
 
@@ -38,12 +41,7 @@ function ProductDetails({user}){
   }, [product.category]);
 
 
-  function updateProduct(updatedProduct, id) {
-    axios
-      .put(`${API}/products/${id}`, updatedProduct)
-      .then(() => navigate(`/products/${id}`))
-      .catch((err) => console.error(err));
-  }
+console.log(userFavorte)
 
   
   
@@ -54,13 +52,55 @@ function ProductDetails({user}){
     })
     .catch((err) => console.log(err))
   }, [user?.id])
+
+  useEffect(() => {
+    axios.get(`${API}/users/${user?.id}/favorites/${id}`)
+    .then((res) => {
+      setUserFavorite(res.data || {})
+    })
+    .catch((err) => console.log(err))
+  }, [user?.id, id])
   
   
+  function addToFav() {
+    axios
+      .post(`${API}/users/${user?.id}/favorites/${product.id}`, product)
+      .then((res) => {
+        axios
+          .get(`${API}/users/${user?.id}/favorites/${id}`)
+          .then((res) => {
+            setUserFavorite(res.data);
+          })
+          .catch((err) =>
+            console.error('Failed to fetch cart information:', err)
+          );
+      })
+      .catch((err) => console.error('Failed to add product to user:', err));
+
+  }
+  
+
+  function removeFav(){
+  
+      axios.delete(`${API}/users/${user?.id}/favorites/${id}`)
+        .then(() => {
+        
+          axios.get(`${API}/users/${user?.id}/favorites${id}`)
+            .then((res) => {
+              setUserFavorite(res.data)
+            })
+            .catch((err) => console.error('Failed to fetch cart information:', err));
+        })
+        .catch((err) => console.error('Failed to delete product from user:', err));
+    }
+  
+
+
   function addToUser(quantity) {
     axios
       .post(`${API}/users/${user?.id}/products/${product.id}`, { quantity })
       .then((res) => {
-        // fetch the updated cart information
+ 
         axios
           .get(`${API}/users/${user?.id}/products/${id}`)
           .then((res) => {
@@ -156,6 +196,7 @@ else{
 
     return(
         <div>
+          
           <div className="product-details">
           <div className="image-container">
        <br></br>
@@ -208,6 +249,12 @@ else{
               <br></br>
               <br></br>
           <button className="add-delete" onClick={buyNow}>Buy it Now</button>
+              <br></br>
+          {userFavorte?.favorites ? (
+            <button className="fav-btns"onClick={removeFav} ><AiFillHeart size={30}/></button>
+          ): 
+            <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={30}/></button>
+          }
           </div>
 <br></br>
 

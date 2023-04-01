@@ -10,15 +10,10 @@ function Manga(props){
 
   let [newProduct] = useState({
     quantity: props.manga.quantity,
-    category: props.manga.category,
-    description: props.manga.description,
-    favorites: props.manga.favorites,
     image: props.manga.image,
-    manufacturer: props.manga.manufacturer,
-    price: props.manga.manufacturer,
+    price: props.manga.price,
     product_name: props.manga.product_name,
     products_id: props.manga.id,
-    release_date: props.manga.release_date,
     users_id: props.user?.id
   })
  
