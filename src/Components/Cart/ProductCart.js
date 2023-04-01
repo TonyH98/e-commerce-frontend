@@ -6,7 +6,7 @@ import { ShoppingCart} from "phosphor-react";
 
 
 
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -47,7 +47,7 @@ function ProductCart({user}){
           });
       };
       
- console.log(products)
+
       
 
 
@@ -129,11 +129,22 @@ const checkout = async () => {
   if (data.url) {
     window.location.assign(data.url);
   }
+  
+  if (response.ok) {
+    // Payment was successful, delete products from cart
+    for (let i = 0; i < products.length; i++) {
+      await axios.delete(`${API}/users/${user?.id}/products/${products[i].products_id}`);
+    }
+  } else {
+    // Payment failed, handle error
+    const errorData = await response.json();
+    console.error(errorData);
+    // display error message to user
+  }
 };
 
 
 
-console.log(products)
 
     return(
         <div>
