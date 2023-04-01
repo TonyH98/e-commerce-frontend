@@ -21,6 +21,7 @@ import UserDetails from "./Components/UserInfo/UserDetails";
 import Success from "./Components/SessionPage/Success"
 import Cancel from "./Components/SessionPage/Cancel";
 import Favorites from "./Components/Favorite/Favorites";
+import Purchases from "./Components/Purchases/Purchases";
 import Footer from "./Components/Footer/Footer";
 
 const API = process.env.REACT_APP_API_URL;
@@ -84,6 +85,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login newLogin={newLogin}/>}/>
           <Route path={`/favorites/${user?.id}`} element={<Favorites user={user}/>} />
+          <Route path={`/purchases/${user?.id}`} element={<Purchases user={user}/>} />
           <Route path={`/userDetails/${user?.id}`} element={<UserDetails user={user}/>}/>
          <Route path={`/searchHistory/${user?.id}`} element={<SearchHistories user={user}/>}/>
          <Route path="/success" element={<Success user={user}/>}/>

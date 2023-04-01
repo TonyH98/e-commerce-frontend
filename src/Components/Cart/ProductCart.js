@@ -141,6 +141,21 @@ const checkout = async () => {
     console.error(errorData);
     // display error message to user
   }
+
+if(response.ok){
+  for (let i = 0; i < products.length; i++) {
+    await axios.post(`${API}/users/${user?.id}/purchases/${products[i].products_id}`, products[i]);
+  }
+}
+
+else {
+  // Payment failed, handle error
+  const errorData = await response.json();
+  console.error(errorData);
+  // display error message to user
+}
+
+
 };
 
 

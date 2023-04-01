@@ -54,6 +54,12 @@ function UserLink({children}) {
           <p>Favorites</p>
         </Link>
         <br />
+
+        <Link to={`/purchases/${user?.id}`}>
+          <p>Purchase History</p>
+        </Link>
+
+        <br />
         <button onClick={handleLogout} className="logout">Logout</button>
       </div>
       <div className="vertical"></div>
