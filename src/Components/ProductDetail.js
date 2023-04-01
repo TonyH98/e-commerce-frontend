@@ -17,7 +17,7 @@ function ProductDetails({user}){
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
-  
+  const [userCart , setUserCart] = useState({})
 
   console.log(product.favorites)
   let [counter, setCounter] = useState(1);
@@ -45,51 +45,50 @@ function ProductDetails({user}){
       .catch((err) => console.error(err));
   }
 
-
-  function addToUser() {
-
-    if(user?.id){
-      axios
-        .post(`${API}/users/${user?.id}/products/${product.id}`)
-        .then(() => handleCart())
-        .catch((err) => console.error(err));
-    }
-    else{
-      navigate("/login")
-    }
-  }
   
   
-
-  function handleCart() {
-    const updatedProduct = {
-      ...product,
-      quantity: product.quantity + (counter || 1),
-    };
-    setProduct(updatedProduct);
-    updateProduct(updatedProduct, id);
-  }
-
-
-
-
-
-
-
-
-  function handleCart2() {
-    const updatedProduct = { ...product, quantity: 0 };
-    setProduct(updatedProduct);
-    updateProduct(updatedProduct, id);
-  }
-
-  function handleDelete() {
+  useEffect(() => {
+    axios.get(`${API}/users/${user?.id}/products/${id}`)
+    .then((res) => {
+      setUserCart(res.data || {})
+    })
+    .catch((err) => console.log(err))
+  }, [user?.id])
+  
+  
+  function addToUser(quantity) {
     axios
-      .delete(`${API}/users/${user?.id}/products/${product.id}`)
-      .then(() => handleCart2())
-      .catch((err) => console.error(err));
-  }
+      .post(`${API}/users/${user?.id}/products/${product.id}`, { quantity })
+      .then((res) => {
+        // fetch the updated cart information
+        axios
+          .get(`${API}/users/${user?.id}/products/${id}`)
+          .then((res) => {
+            setUserCart(res.data);
+          })
+          .catch((err) =>
+            console.error('Failed to fetch cart information:', err)
+          );
+      })
+      .catch((err) => console.error('Failed to add product to user:', err));
 
+  }
+  
+  
+  function deleteCart() {
+    if (userCart?.quantity > 0) {
+      axios.delete(`${API}/users/${user?.id}/products/${id}`)
+        .then(() => {
+          // fetch the updated cart information
+          axios.get(`${API}/users/${user?.id}/products`)
+            .then((res) => {
+              setUserCart(res.data);
+            })
+            .catch((err) => console.error('Failed to fetch cart information:', err));
+        })
+        .catch((err) => console.error('Failed to delete product from user:', err));
+    }
+  }
 
 
 
@@ -200,12 +199,10 @@ else{
          
       <br></br>
           <div className="cart">
-            {product.quantity > 0 ? (
-              <button className="add-delete" onClick={() => handleDelete(product.id)}>Delete From Cart</button>
-
+            {userCart?.quantity > 0 ? (
+              <button className="add-delete" onClick={deleteCart} >Delete From Cart</button>
             ) : (
-
-          <button className="add-delete" onClick={() => addToUser(product.id)}>Add to Cart</button>
+          <button className="add-delete" onClick={() => addToUser(counter)}>Add to Cart</button>
             )}
            
               <br></br>

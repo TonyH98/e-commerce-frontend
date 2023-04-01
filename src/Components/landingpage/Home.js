@@ -16,7 +16,7 @@ function Home({products , setProducts, user}){
   const {CategoryData} = require("../CategoryImg/CategoryData")
 
 
-  console.log(CategoryData)
+
 
   const [currentPage, setCurrentPage] = useState(0)
 

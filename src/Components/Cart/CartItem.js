@@ -7,19 +7,9 @@ import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
 
 function CartItem(props) {
-  const [userCart, setUserCart] = useState([]);
+  
 
-  useEffect(() => {
-    axios
-      .get(`${API}/users/${props.user?.id}/products`)
-      .then((res) => {
-        setUserCart(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        return err;
-      });
-  }, [props.product.products_id, props.user?.id]);
+  
 
   const cartIncrease = () => {
     const updatedProduct = { ...props.product, quantity: props.product.quantity += 1 };
