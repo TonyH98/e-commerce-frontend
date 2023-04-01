@@ -123,10 +123,6 @@ function addToSearchHistory(id, ids) {
 
       <div className="Nav-Category">
 
-        <Link to="/books">
-        <div className="product-category">Books</div>
-        </Link>
-
         <Link to="/videogames">
         <div className="product-category">Video Games</div>
         </Link>

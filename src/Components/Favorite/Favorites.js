@@ -1,5 +1,5 @@
 import Favorite from "./Favorite"
-
+import { Trash } from "phosphor-react";
 import axios from "axios"
 import UserLink from "../UserInfo/UserLink"
 import ReactPaginate from "react-paginate";
@@ -105,6 +105,7 @@ useEffect(() => {
     return(
         <UserLink>
               <div>
+              <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
             <div>
             <h1>Favorite Items</h1>
             <>
@@ -116,8 +117,6 @@ useEffect(() => {
             value={search}
             onChange={handleTextChange}
             />
-
-          <button onClick={deleteMultiple}>Delete</button>
             </>
             </div>
 

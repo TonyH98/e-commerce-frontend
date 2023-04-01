@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+
+.date-section{
+  white-space: nowrap;
+}
+
 .filter-products{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -350,12 +355,17 @@ textarea {
   
 }
 
+.delete-trash{
+  margin-left: 90%;
+  border: none;
+  background-color: white;
+}
 
 .search-cart{
   display: grid;
   grid-template-columns: repeat(1);
   grid-row-gap: 40px;
-  margin-left: 20px;
+  margin-left: 140px;
   
 }
 
@@ -498,7 +508,7 @@ select {
 
 .Nav-Category{
   display: grid;
-  grid-template-columns: repeat(4, 32%);
+  grid-template-columns: repeat(3, 45%);
   margin-top: 30px;
 }
 
@@ -800,7 +810,7 @@ textarea{
   border: 1px solid white;
   background-color: white;
   border-radius: 8px;
-  height: 440px;
+  height: 460px;
   margin-left: 450px;
   margin-right: 450px;
   box-shadow: 1px 2px 2px 2px #000;
