@@ -41,7 +41,7 @@ function Product(props){
     }
   }, [props.product.id, props.user]);
 
-  console.log(userCart);
+  
 
   const deleteCartItem = ( id, ids) => {
     axios

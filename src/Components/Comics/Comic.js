@@ -57,12 +57,17 @@ function Comic(props){
       userCart.splice(indexDeleteCart , 1)
       setUserCart([...userCart])
     })
-    
+    .then(() => {
+      axios.get(`${API}/users/${props.user?.id}/products`)
+      .then((res) => {
+        setNewCart(res.data)
+        setUserCart(res.data)
+      })
+    })
     .catch((err) => {
       console.log(err)
       return err
     })
-    props.handleEdit({ ...props.comic, quantity: props.comic.quantity = 0 })
   }
 
   function addToSearchHistory(id, comicId) {

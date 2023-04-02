@@ -23,22 +23,7 @@ function Videogames({user}){
     }, []);
 
 
-    const handleEdit = (updatedCart) => {
-      axios
-      .put(`${API}/products/${updatedCart.id}`, updatedCart)
-      .then((response) => {
-        const copyCartArray = [...products];
-        const indexUpdatedCart = copyCartArray.findIndex((cart) => {
-          return cart.id === updatedCart.id;
-        });
-        copyCartArray[indexUpdatedCart] = response.data;
-        setProducts(copyCartArray);
-      })
-      .then(() => {
-        navigate(`/videogames`)
-      })
-      .catch((c) => console.warn("catch", c));
-    };
+   
 
     const handlePrice = (price) => {
       if (price === "") {
@@ -119,7 +104,7 @@ function Videogames({user}){
         {products.map((game) => {
             return(
                 <div key={game.id} className="product">
-                    <Videogame game={game} handleEdit={handleEdit} user={user}/>
+                    <Videogame game={game} user={user}/>
                 </div>
             )
         })}

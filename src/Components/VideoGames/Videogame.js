@@ -60,7 +60,13 @@ function Videogame(props){
       userCart.splice(indexDeleteCart , 1)
       setUserCart([...userCart])
     })
-    
+    .then(() => {
+      axios.get(`${API}/users/${props.user?.id}/products`)
+      .then((res) => {
+        setNewCart(res.data)
+        setUserCart(res.data)
+      })
+    })
     .catch((err) => {
       console.log(err)
       return err

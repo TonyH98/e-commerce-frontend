@@ -22,25 +22,6 @@ function Mangas({user}){
     }, []);
 
     
-    const handleEdit = (updatedCart) => {
-        axios
-        .put(`${API}/users/${user?.id}/products/${updatedCart.id}`, updatedCart)
-        .then((response) => {
-          const copyCartArray = [...products];
-          const indexUpdatedCart = copyCartArray.findIndex((cart) => {
-            return cart.id === updatedCart.id;
-          });
-          copyCartArray[indexUpdatedCart] = response.data;
-          setProducts(copyCartArray);
-        })
-        .then(() => {
-          navigate(`/mangas`)
-        })
-        .catch((c) => console.warn("catch", c));
-      };
-
-
-
       const handlePrice = (price) => {
         if (price === "") {
           axios
@@ -90,31 +71,7 @@ function Mangas({user}){
 
 
 
-      const handleDelete = (id) => {
-        axios
-          .delete(`${API}/products/${id}`)
-          .then(
-            (response) => {
-              const copyProductArray = [...products];
-              const indexDeletedProduct = copyProductArray.filter((product) => {
-                return product.products_id === id;
-              });
-              copyProductArray.splice(indexDeletedProduct, 1);
-              setProducts(copyProductArray); // Update the reviews state array
-            },
-            (error) => console.error(error)
-          ).then(() => {
-            axios
-            .get(`${API}/users/${user?.id}/products`)
-          })
-          .catch((c) => console.warn("catch", c))
-          
-      };
-
-
-
-console.log(products)
-
+  
 
     return(
         <div>
@@ -148,7 +105,7 @@ console.log(products)
         {products.map((manga) => {
             return(
               <div key={`${manga.id} - ${manga.product_name}`} className="product">
-                    <Manga manga={manga} handleEdit={handleEdit} user={user} handleDelete={handleDelete}/>
+                    <Manga manga={manga}  user={user} />
                 </div>
             )
         })}

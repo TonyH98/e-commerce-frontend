@@ -23,22 +23,7 @@ function Comics({user}){
     }, []);
 
 
-    const handleEdit = (updatedCart) => {
-        axios
-        .put(`${API}/products/${updatedCart.id}`, updatedCart)
-        .then((response) => {
-          const copyCartArray = [...products];
-          const indexUpdatedCart = copyCartArray.findIndex((cart) => {
-            return cart.id === updatedCart.id;
-          });
-          copyCartArray[indexUpdatedCart] = response.data;
-          setProducts(copyCartArray);
-        })
-        .then(() => {
-          navigate(`/comics`)
-        })
-        .catch((c) => console.warn("catch", c));
-      };
+   
 
 
       const handlePrice = (price) => {
@@ -124,7 +109,7 @@ function Comics({user}){
     {products.map((comic) => {
         return(
           <div key={comic.id} className="product">
-                <Comic comic={comic} handleEdit={handleEdit} user={user}/>
+                <Comic comic={comic}  user={user}/>
             </div>
         )
     })}

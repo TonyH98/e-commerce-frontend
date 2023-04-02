@@ -26,11 +26,11 @@ function Manga(props){
   
     
   
-  let addToUser = (id , ids) => {
+  let addToUser = (id , ids, quantity = 1) => {
 
     if(id){
       axios
-      .post(`${API}/users/${id}/products/${ids}`, props.manga)
+      .post(`${API}/users/${id}/products/${ids}`, {quantity} )
       .then(() => {
         setNewCart([...userCart, {...newProduct}])
         setUserCart([...userCart, {...newProduct}])
@@ -57,6 +57,13 @@ function Manga(props){
       });
       userCart.splice(indexDeleteCart , 1)
       setUserCart([...userCart])
+    })
+    .then(() => {
+      axios.get(`${API}/users/${props.user?.id}/products`)
+      .then((res) => {
+        setNewCart(res.data)
+        setUserCart(res.data)
+      })
     })
     .catch((err) => {
       console.log(err)
@@ -113,10 +120,11 @@ function Manga(props){
     } else {
       setNewCart([]);
     }
-  }, [props.user?.id]);
+  }, [props.user?.id, props.user]);
   
   const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
 
+  console.log(newCart)
 
 
     return(
