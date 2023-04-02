@@ -19,14 +19,7 @@ function CartItem(props) {
 
 
   function deleteItem() {
-    const updatedProduct = { ...props.product, quantity: 0 };
-    
-    if (props.product.quantity === 0) {
       props.handleDelete(props.product.products_id);
-      return props.product
-    }
-
-    props.handleEdit(updatedProduct);
   }
 
 

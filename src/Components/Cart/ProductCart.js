@@ -6,7 +6,7 @@ import { ShoppingCart} from "phosphor-react";
 
 
 
-import axios, { Axios } from "axios";
+import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -90,18 +90,19 @@ const handleDelete = (id) => {
     .then(
       (response) => {
         const copyProductArray = [...products];
-        const indexDeletedProduct = copyProductArray.findIndex((product) => {
+        const indexDeletedProduct = copyProductArray.filter((product) => {
           return product.products_id === id;
         });
         copyProductArray.splice(indexDeletedProduct, 1);
         setProducts(copyProductArray); // Update the reviews state array
       },
       (error) => console.error(error)
-    )
+    ).then(() => {
+      axios
+      .get(`${API}/users/${user?.id}/products`)
+    })
     .catch((c) => console.warn("catch", c))
-    .finally(() => {
-      setProducts(products => [...products]); // Trigger a re-render
-    });
+    
 };
 
 const checkout = async () => {

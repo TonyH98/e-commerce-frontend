@@ -38,7 +38,7 @@ function ProductDetails({user}){
       .get(`${API}/products?category=${product.category}`)
       .then((res) => setRelated(res.data))
       .catch((err) => console.error(err));
-  }, [product.category, userFavorite?.favorites]);
+  }, [product.category, userCart , userFavorite]);
 
 
 
@@ -84,10 +84,8 @@ function ProductDetails({user}){
 
   }
   
-  console.log(userFavorite)
-
   function removeFav() {
-    if (userFavorite) {
+    if (userFavorite.favorites) {
       axios
         .delete(`${API}/users/${user?.id}/favorites/${id}`)
         .then(() => {
@@ -267,7 +265,7 @@ else{
               <br></br>
           <button className="add-delete" onClick={buyNow}>Buy it Now</button>
               <br></br>
-          {userFavorite?.favorites ? (
+          {userFavorite.favorites ? (
             <button className="fav-btns"onClick={removeFav} ><AiFillHeart size={30}/></button>
           ): 
             <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={30}/></button>

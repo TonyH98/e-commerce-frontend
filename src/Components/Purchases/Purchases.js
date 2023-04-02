@@ -22,7 +22,7 @@ function Purchases({user}){
     const [currentPage, setCurrentPage] = useState(0)
 
 
-    let navigate = useNavigate()
+
 
     useEffect(() => {
         axios
@@ -31,7 +31,7 @@ function Purchases({user}){
             setPurchases(res.data);
             setFilterPurchases(res.data)
           })
-          .catch((c) => console.warn("catch, c"));
+         
       }, []);
 
 
