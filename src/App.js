@@ -10,7 +10,7 @@ import ReviewDetails from "./Components/Reviews/ReviewDetails"
 import ProductCart from "./Components/Cart/ProductCart"
 import NewProducts from "./Components/NewProducts";
 import ReviewChart from "./Components/Reviews/ReviewChart"
-import Books from "./Components/Books/Books"
+
 import Comics from "./Components/Comics/Comics"
 import Mangas from "./Components/Manga/Mangas";
 import Videogames from "./Components/VideoGames/Videogames";
@@ -78,8 +78,7 @@ function App() {
           <Route path={`/cart/${user?.id}`} element={<ProductCart user={user}/>}/>
           <Route path="/newProduct" element={<NewProducts/>}/>
           <Route path="/products/:id/reviews/chart" element={<ReviewChart/>}/>
-          <Route path="/books" element={<Books/>}/>
-          <Route path="/comics" element={<Comics/>}/>
+          <Route path="/comics" element={<Comics user={user}/>}/>
           <Route path="/mangas" element={<Mangas   user={user}/>}/>
           <Route path="/videogames" element={<Videogames user={user} />}/>
           <Route path="/signup" element={<Signup/>}/>

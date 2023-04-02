@@ -10,7 +10,7 @@ function ReadMore({children}){
 
 
     return(
-        <div className="readmore" style={{fontWeight:"bold"}}>
+        <div className="readmore" >
            {hidden ? children : `${children.substring(0, 200)}`}
            <br></br>
            {children.length > 200 ? <button onClick={toggleView} className="readmore-btn">{!hidden ? `Read More...` : `Read Less...` }</button> : null}

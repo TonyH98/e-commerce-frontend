@@ -157,14 +157,6 @@ function addToSearchHistory(id, ids) {
       </Link>
       </div> }
          
-      <div className="link-new">
-      <Link to="/newProduct">
-        <h3> Create New Product </h3>
-      </Link>
-      </div>
-
-
-
         </div>
       </div>
       <div className="search">

@@ -63,19 +63,25 @@ console.log(userFavorte)
   
   
   function addToFav() {
-    axios
-      .post(`${API}/users/${user?.id}/favorites/${product.id}`, product)
-      .then((res) => {
-        axios
-          .get(`${API}/users/${user?.id}/favorites/${id}`)
-          .then((res) => {
-            setUserFavorite(res.data);
-          })
-          .catch((err) =>
-            console.error('Failed to fetch cart information:', err)
-          );
-      })
-      .catch((err) => console.error('Failed to add product to user:', err));
+    if(user){
+      axios
+        .post(`${API}/users/${user?.id}/favorites/${product.id}`, product)
+        .then((res) => {
+          axios
+            .get(`${API}/users/${user?.id}/favorites/${id}`)
+            .then((res) => {
+              setUserFavorite(res.data);
+            })
+            .catch((err) =>
+              console.error('Failed to fetch cart information:', err)
+            );
+        })
+        .catch((err) => console.error('Failed to add product to user:', err));
+
+    }
+    else{
+      navigate("/login")
+    }
 
   }
   
@@ -97,20 +103,25 @@ console.log(userFavorte)
 
 
   function addToUser(quantity) {
-    axios
-      .post(`${API}/users/${user?.id}/products/${product.id}`, { quantity })
-      .then((res) => {
- 
-        axios
-          .get(`${API}/users/${user?.id}/products/${id}`)
-          .then((res) => {
-            setUserCart(res.data);
-          })
-          .catch((err) =>
-            console.error('Failed to fetch cart information:', err)
-          );
-      })
-      .catch((err) => console.error('Failed to add product to user:', err));
+    if(user){
+      axios
+        .post(`${API}/users/${user?.id}/products/${product.id}`, { quantity })
+        .then((res) => {
+   
+          axios
+            .get(`${API}/users/${user?.id}/products/${id}`)
+            .then((res) => {
+              setUserCart(res.data);
+            })
+            .catch((err) =>
+              console.error('Failed to fetch cart information:', err)
+            );
+        })
+        .catch((err) => console.error('Failed to add product to user:', err));
+    }
+    else{
+      navigate("/login")
+    }
 
   }
   

@@ -28,9 +28,9 @@ function Purchase({product}){
 
 
     <div>
-      <h3 className="product-name">
+      <h5 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
-      </h3>
+      </h5>
       <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
      
       <br></br>

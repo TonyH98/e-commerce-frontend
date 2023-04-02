@@ -87,6 +87,9 @@ function Mangas({user}){
         
       }
   
+
+
+      console.log(products)
   
 
 
@@ -121,7 +124,7 @@ function Mangas({user}){
     <div className="product-card">
         {products.map((manga) => {
             return(
-              <div key={manga.id} className="product">
+              <div key={`${manga.id} - ${manga.product_name}`} className="product">
                     <Manga manga={manga} handleEdit={handleEdit} user={user}/>
                 </div>
             )
