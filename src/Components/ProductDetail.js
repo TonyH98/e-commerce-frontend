@@ -21,7 +21,7 @@ function ProductDetails({user}){
   const [related, setRelated] = useState([]);
   const [userCart , setUserCart] = useState({})
 
-  const [userFavorte , setUserFavorite ] = useState({})
+  const [userFavorite , setUserFavorite ] = useState({})
 
   let [counter, setCounter] = useState(1);
   const navigate = useNavigate();
@@ -38,12 +38,11 @@ function ProductDetails({user}){
       .get(`${API}/products?category=${product.category}`)
       .then((res) => setRelated(res.data))
       .catch((err) => console.error(err));
-  }, [product.category]);
+  }, [product.category, userFavorite?.favorites]);
 
 
-console.log(userFavorte)
 
-  
+
   
   useEffect(() => {
     axios.get(`${API}/users/${user?.id}/products/${id}`)
@@ -59,7 +58,7 @@ console.log(userFavorte)
       setUserFavorite(res.data || {})
     })
     .catch((err) => console.log(err))
-  }, [user?.id, id])
+  }, [user?.id, userCart])
   
   
   function addToFav() {
@@ -85,21 +84,28 @@ console.log(userFavorte)
 
   }
   
+  console.log(userFavorite)
 
-  function removeFav(){
-  
-      axios.delete(`${API}/users/${user?.id}/favorites/${id}`)
+  function removeFav() {
+    if (userFavorite) {
+      axios
+        .delete(`${API}/users/${user?.id}/favorites/${id}`)
         .then(() => {
-        
-          axios.get(`${API}/users/${user?.id}/favorites${id}`)
+          axios
+            .get(`${API}/users/${user?.id}/favorites`)
             .then((res) => {
-              setUserFavorite(res.data)
+              setUserFavorite(res.data);
+              console.log(userFavorite);
             })
-            .catch((err) => console.error('Failed to fetch cart information:', err));
+            .catch((err) => console.error('Failed to fetch user favorites:', err));
         })
         .catch((err) => console.error('Failed to delete product from user:', err));
+    } else {
+      console.warn('User favorites not found.');
     }
+  }
   
+
 
 
   function addToUser(quantity) {
@@ -239,7 +245,7 @@ else{
           </section>
           <br></br>
           </div>
-          <br></br>
+
           <div className="cart-counter-input">
             <button className="decrease-increase" onClick={counterDecrease}>-</button>
             <input
@@ -261,7 +267,7 @@ else{
               <br></br>
           <button className="add-delete" onClick={buyNow}>Buy it Now</button>
               <br></br>
-          {userFavorte?.favorites ? (
+          {userFavorite?.favorites ? (
             <button className="fav-btns"onClick={removeFav} ><AiFillHeart size={30}/></button>
           ): 
             <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={30}/></button>
