@@ -17,11 +17,11 @@ function Product(props){
 
     if(props.user?.id){
       axios
-        .post(`${API}/users/${props.user?.id}/products/${props.product.id}`)
+        .post(`${API}/users/${props.user?.id}/products/${props.product.id}`, props.product)
         .then(() => {
           navigate("/");
         })
-      props.handleEdit({ ...props.product, quantity: Number(props.product.quantity) + 1 });
+     
     }
 
     else{
@@ -57,7 +57,6 @@ function Product(props){
         console.log(err);
         return err;
       })
-    props.handleEdit({ ...props.product, quantity: props.product.quantity = 0 });
   }
 
   const map = newCart.map((x) => {

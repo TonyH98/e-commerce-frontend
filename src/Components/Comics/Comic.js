@@ -32,15 +32,12 @@ function Comic(props){
 
     if(id){
       axios
-      .post(`${API}/users/${id}/products/${ids}`, newProduct)
+      .post(`${API}/users/${id}/products/${ids}`, props.comic)
       .then(() => {
         setNewCart([...userCart, {...newProduct}])
         setUserCart([...userCart, {...newProduct}])
         navigate("/comics")
       })
-      
-      
-      props.handleEdit({ ...props.comic, quantity: Number(props.comic.quantity) + 1 })
     }
     else{
       navigate("/login")

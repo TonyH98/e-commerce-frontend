@@ -1,11 +1,10 @@
 import axios from "axios";
 
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 
 import Reviews from "./Reviews/Reviews";
 import ReadMore from "./ReadMore";
-import SearchProduct from "./History/searchProduct";
 import {AiFillHeart} from "react-icons/ai"
 import {AiOutlineHeart} from "react-icons/ai"
 
@@ -38,7 +37,7 @@ function ProductDetails({user}){
       .get(`${API}/products?category=${product.category}`)
       .then((res) => setRelated(res.data))
       .catch((err) => console.error(err));
-  }, [product.category, userCart , userFavorite]);
+  }, [product.category]);
 
 
 
@@ -47,7 +46,7 @@ function ProductDetails({user}){
   useEffect(() => {
     axios.get(`${API}/users/${user?.id}/products/${id}`)
     .then((res) => {
-      setUserCart(res.data || {})
+      setUserCart(res.data )
     })
     .catch((err) => console.log(err))
   }, [user?.id])
@@ -55,10 +54,10 @@ function ProductDetails({user}){
   useEffect(() => {
     axios.get(`${API}/users/${user?.id}/favorites/${id}`)
     .then((res) => {
-      setUserFavorite(res.data || {})
+      setUserFavorite(res.data)
     })
     .catch((err) => console.log(err))
-  }, [user?.id, userCart])
+  }, [user?.id])
   
   
   function addToFav() {
@@ -270,35 +269,14 @@ else{
           ): 
             <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={30}/></button>
           }
-          </div>
+
 <br></br>
 
-      <h1>Related Products</h1>
-     <div className="relatedItem">
-      {relatedItems.map((relate) => {
-        return(
-          <div key={relate.id}>
-            <Link to={`/products/${relate.id}`}> 
-          <img 
-                src={relate.image} 
-                className="related-image"
-                alt={`${relate.product_name}`} 
-              />
-           </Link> 
-           <br></br>
-           
-           <p style={{fontWeight:"bold"}}>{relate.product_name}</p>
-          </div>
-        )
-      })}
+         
+
      </div>
      <br></br>
         <Reviews user={user}/>
-
-        <div className="user-search-history">
-          <h2>Previous Searches</h2>
-          <SearchProduct user={user}/>
-        </div>
     </div>
     )
 }

@@ -33,14 +33,12 @@ function Videogame(props){
 
       if(id){
         axios
-        .post(`${API}/users/${id}/products/${ids}`, newProduct)
+        .post(`${API}/users/${id}/products/${ids}`, props.game)
         .then(() => {
           setNewCart([...userCart, {...newProduct}])
           setUserCart([...userCart, {...newProduct}])
           navigate("/videogames")
         })
-        props.handleEdit({ ...props.game, quantity: Number(props.game.quantity) + 1 })
-
       }
 
       else{
@@ -67,7 +65,6 @@ function Videogame(props){
       console.log(err)
       return err
     })
-    props.handleEdit({ ...props.game, quantity: props.game.quantity = 0 })
   }
   
 console.log(userCart)

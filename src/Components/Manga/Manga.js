@@ -30,15 +30,12 @@ function Manga(props){
 
     if(id){
       axios
-      .post(`${API}/users/${id}/products/${ids}`, newProduct)
+      .post(`${API}/users/${id}/products/${ids}`, props.manga)
       .then(() => {
         setNewCart([...userCart, {...newProduct}])
         setUserCart([...userCart, {...newProduct}])
         navigate("/mangas")
       })
-      
-      
-      props.handleEdit({ ...props.manga, quantity: Number(props.manga.quantity) + 1 })
     }
     else{
       navigate("/login")
@@ -61,12 +58,11 @@ function Manga(props){
       userCart.splice(indexDeleteCart , 1)
       setUserCart([...userCart])
     })
-    
     .catch((err) => {
       console.log(err)
       return err
     })
-    props.handleEdit({ ...props.manga, quantity: props.manga.quantity = 0 })
+   
   }
   
   

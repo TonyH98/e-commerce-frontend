@@ -24,7 +24,7 @@ function Mangas({user}){
     
     const handleEdit = (updatedCart) => {
         axios
-        .put(`${API}/products/${updatedCart.id}`, updatedCart)
+        .put(`${API}/users/${user?.id}/products/${updatedCart.id}`, updatedCart)
         .then((response) => {
           const copyCartArray = [...products];
           const indexUpdatedCart = copyCartArray.findIndex((cart) => {
@@ -89,8 +89,31 @@ function Mangas({user}){
   
 
 
-      console.log(products)
-  
+
+      const handleDelete = (id) => {
+        axios
+          .delete(`${API}/products/${id}`)
+          .then(
+            (response) => {
+              const copyProductArray = [...products];
+              const indexDeletedProduct = copyProductArray.filter((product) => {
+                return product.products_id === id;
+              });
+              copyProductArray.splice(indexDeletedProduct, 1);
+              setProducts(copyProductArray); // Update the reviews state array
+            },
+            (error) => console.error(error)
+          ).then(() => {
+            axios
+            .get(`${API}/users/${user?.id}/products`)
+          })
+          .catch((c) => console.warn("catch", c))
+          
+      };
+
+
+
+console.log(products)
 
 
     return(
@@ -125,7 +148,7 @@ function Mangas({user}){
         {products.map((manga) => {
             return(
               <div key={`${manga.id} - ${manga.product_name}`} className="product">
-                    <Manga manga={manga} handleEdit={handleEdit} user={user}/>
+                    <Manga manga={manga} handleEdit={handleEdit} user={user} handleDelete={handleDelete}/>
                 </div>
             )
         })}
