@@ -71,19 +71,19 @@ const navigate = useNavigate()
           ></img>
       </Link>
           <p className="date-section"> <span style={{fontWeight:"bold"}}>Purchased:</span> {date}</p>
+          <button className="buy-again" onClick={buyNow}>Buy Again</button>
       </div>
       
 
 
     <div>
-      <h5 className="product-name">
+      <h4 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
-      </h5>
+      </h4>
       <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
      
       <br></br>
-      <br></br>
-      <button className="cart-btns-category" onClick={buyNow}>Buy Again</button>
+      
       <br></br>
       <input
       type="checkbox"

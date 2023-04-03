@@ -132,32 +132,32 @@ const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
 
     return(
       <div>
+         
       <div>
-        <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
-          <img
-            src={props.game.image}
-            alt={props.game.product_name}
-            className="product-image"
-          ></img>
-        </Link>
+      <Link to={`/products/${props.game.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
+        <img
+          src={props.game.image}
+          alt={props.game.product_name}
+          className="product-image"
+        ></img>
+      </Link>
       </div>
 
       <div>
-        <h2>
-          <Link to={`/products/${props.game.id}`}>{props.game.product_name}</Link>
-        </h2>
-        <span style={{fontWeight: "bold"}}>Price:</span> ${props.game.price}
-        <br></br>
-        <br></br>
-        {props.user && inCart.includes(props.game.product_name) ? 
-          <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.game.id)}>Delete From Cart</button> :
-          <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.game.id)}>Add to Cart</button>
-        }
+      <h3>
+        <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
+          {props.game.product_name}
+          </Link>
+      </h3>
+      <span style={{fontWeight: "bold"}}>Price:</span> ${props.game.price}
+      <br></br>
+      <br></br>
+      {props.user && inCart.includes(props.game.product_name) ? 
+      <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.game.id)}>Delete From Cart</button> :
+      <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.game.id)}>Add to Cart</button>
+    }
       </div>  
     </div>
-
-
-
     )
 }
 

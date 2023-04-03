@@ -27,16 +27,16 @@ function Review({ review, handleDelete, handleEdit, user }) {
             </Link>
           </h4>
           <h4 className="rating">
-          Rating: {review.rating}
+          Rating:{review.rating}
           </h4>
           </div>
-
 
           <div className="review-content">
           <ReadMore>
           {review.content}
           </ReadMore>
           </div>
+
           </>
         )}
         <br></br>

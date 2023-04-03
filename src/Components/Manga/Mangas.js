@@ -76,7 +76,7 @@ function Mangas({user}){
     return(
         <div>
           <CategoryHeading>
-            Anime/Manga Section
+            Manga Section
           </CategoryHeading>
 
         <div className="filter-products">

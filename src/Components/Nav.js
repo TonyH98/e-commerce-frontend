@@ -128,7 +128,7 @@ function addToSearchHistory(id, ids) {
         </Link>
 
         <Link to="/mangas">
-        <div className="product-category">Anime/Manga</div>
+        <div className="product-category">Manga</div>
         </Link>
 
         <Link to="comics">
