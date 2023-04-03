@@ -3,7 +3,7 @@ import { Trash } from "phosphor-react";
 import axios from "axios"
 import UserLink from "../UserInfo/UserLink"
 import ReactPaginate from "react-paginate";
-import { useNavigate } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 
 
@@ -21,7 +21,7 @@ const [search , setSearch] = useState("")
 
 const [currentPage, setCurrentPage] = useState(0)
 
-let navigate = useNavigate()
+
 
 
 useEffect(() => {

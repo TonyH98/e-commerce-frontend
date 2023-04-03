@@ -1,13 +1,61 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+function Purchase({product, user}){
 
 
-function Purchase({product}){
+  const API = process.env.REACT_APP_API_URL;
+
+const navigate = useNavigate()
 
     const date = new Date(product.created)?.toLocaleDateString("en-us", {
         year: "numeric",
         month: "short",
         day: "2-digit",
       });
+
+      const buyNow = async () => {
+  
+        if(user){
+          const lineItems = [{
+          product_name: product.product_name,
+          image: product.image,
+           price: product.price,
+           quantity: 1
+          }]
+          
+            const response = await fetch(`${API}/create-checkout-session`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                items: lineItems,
+              }),
+            });
+          
+            const data = await response.json();
+          
+            if (data.url) {
+              window.location.assign(data.url);
+            }
+      
+        }
+      else{
+        navigate("/login")
+      }
+      
+      
+      }
+
+
+
+
+
+
+
+
+
 
 
     return(
@@ -34,6 +82,8 @@ function Purchase({product}){
       <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
      
       <br></br>
+      <br></br>
+      <button className="cart-btns-category" onClick={buyNow}>Buy Again</button>
       <br></br>
       <input
       type="checkbox"

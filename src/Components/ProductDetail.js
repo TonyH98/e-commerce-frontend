@@ -199,6 +199,14 @@ const buyNow = async () => {
         window.location.assign(data.url);
       }
 
+
+      if (response.ok) {
+            await axios.post(`${API}/users/${user?.id}/purchases/${product.id}`, product);
+    
+      }
+
+
+
   }
 else{
   navigate("/login")

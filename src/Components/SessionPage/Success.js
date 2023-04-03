@@ -23,7 +23,7 @@ return(
         <br></br>
 
         <Link to="/">
-        <button className="session-btns">Return to Home Page</button>
+        <button className="session-btns">Return to the Home Page</button>
         </Link>
 
     </div>
