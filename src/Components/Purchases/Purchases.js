@@ -6,7 +6,6 @@ import UserLink from "../UserInfo/UserLink"
 
 
 import ReactPaginate from "react-paginate";
-import { useNavigate } from "react-router-dom";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -38,20 +37,21 @@ function Purchases({user}){
 
       const sortByDate = (date) => {
         if (date === "") {
-          setPurchases(filterPurchases);
+          setPurchases([...filterPurchases]); // create a copy
         } else if (date === "Latest to Earliest") {
           const sort = [...filterPurchases].sort((a, b) => {
-            return new Date(b.created) - new Date(a.created);
+            return new Date(b?.created) - new Date(a?.created);
           });
           setPurchases(sort);
         } else if (date === "Earliest to Latest") {
           const sort = [...filterPurchases].sort((a, b) => {
-            return new Date(a.created) - new Date(b.created);
+            return new Date(a?.created) - new Date(b?.created);
           });
           setPurchases(sort);
         }
-        setCurrentPage(0);
+        setCurrentPage(0)
       };
+      
 
 
 
@@ -108,7 +108,7 @@ function Purchases({user}){
 
 
 
-
+      
 
 
     return(
@@ -131,7 +131,7 @@ function Purchases({user}){
             </>
             </div>
 
-          <select onChange={sortByDate}>
+          <select onChange={(e) => sortByDate(e.target.value)}>
             <option value="">Select</option>
             <option value="Latest to Earliest">Latest to Earliest</option>
             <option value="Earliest to Latest">Earliest to Latest</option>
