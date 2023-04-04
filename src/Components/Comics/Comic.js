@@ -140,7 +140,7 @@ function Comic(props){
       </div>
 
       <div>
-      <h3 className="product-name">
+      <h3 className="product-names">
         <Link to={`/products/${props.comic.id}`} onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
           {props.comic.product_name}
           </Link>

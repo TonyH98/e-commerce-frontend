@@ -940,7 +940,7 @@ ul{
 height: 25px;
 }
 
-.product-name{
+.product-names{
   font-size: 8px;
   font-weight: bold;
 }
@@ -1023,6 +1023,13 @@ select{
 
 .modal-btn{
   margin-left: 5px;
+}
+
+/* ---------------------------------------- */
+
+.login-form{
+  width: 70%;
+  margin-left: 100px 
 }
 
 
