@@ -101,6 +101,8 @@ useEffect(() => {
   const pageCount = Math.ceil(currentFav.length / pageData);
 
   
+console.log(fav)
+
 
     return(
         <UserLink>

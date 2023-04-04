@@ -15,7 +15,7 @@ if(!open) return null
                 <li>8 Characters Long</li>
                 <li>1 Uppercase Letter</li>
                 <li>1 Lowercase Letter</li>
-                <li>1 Special Character</li>
+                <li>1 Special Character(@$!%*?&)</li>
                 <li>1 Number</li>
             </ul>
            </div>

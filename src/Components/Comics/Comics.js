@@ -80,7 +80,7 @@ function Comics({user}){
     return (
       <div>
       <CategoryHeading>
-        Anime/Manga Section
+        Comic Books Section
       </CategoryHeading>
 
     <div className="filter-products">
