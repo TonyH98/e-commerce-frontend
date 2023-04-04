@@ -144,7 +144,7 @@ const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
       </div>
 
       <div>
-      <h3>
+      <h3 className="product-name">
         <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
           {props.game.product_name}
           </Link>

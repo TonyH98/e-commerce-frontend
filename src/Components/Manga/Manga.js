@@ -141,7 +141,7 @@ function Manga(props){
           </div>
 
           <div>
-          <h3>
+          <h3 className="product-name">
             <Link to={`/products/${props.manga.id}`} onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
               {props.manga.product_name}
               </Link>

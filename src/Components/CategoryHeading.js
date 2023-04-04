@@ -2,7 +2,7 @@
 function CategoryHeading(props){
     return(
         <div>
-            <h1>{props.children}</h1>
+            <h1 className="category-heading">{props.children}</h1>
         </div>
     )
 }
