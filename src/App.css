@@ -948,4 +948,36 @@ height: 25px;
 .product{
   width: 150px
 }
+
+/* ---------------------------------- */
+
+
+.info{
+  margin-right: 600px;
+}
+
+.details-name{
+  white-space: nowrap;
+}
+
+.readmore{
+  font-size: 10px;
+
+}
+
+/* ---------------------------------------- */
+
+.cart-details{
+  display: grid;
+  grid-template-columns: repeat(1 , 100%);
+  grid-row-gap: 40px;
+}
+
+/* ---------------------------------------- */
+
+
+.user-details{
+  margin-right: 20px;
+}
+
 }

@@ -230,7 +230,8 @@ else{
 
           </div>
           <section className="info">
-              <div>
+
+              <div className="details-name">
                  <p style={{fontSize:"30px"}}> {product.product_name},  <span style={{fontSize: "15px" , color: "gray"}}>{date}</span></p> 
               </div>
               <div>
