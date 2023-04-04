@@ -247,6 +247,7 @@ textarea {
   font-size: 15px;
   font-weight: bold;
   margin-left: 23px;
+
 }
 
 
@@ -951,19 +952,16 @@ height: 25px;
 
 /* ---------------------------------- */
 
-
-.info{
-  margin-right: 600px;
+.product-details{
+  display: grid;
+  grid-template-columns: 30% 55%;
+  grid-column-gap: 90px;
 }
 
-.details-name{
-  white-space: nowrap;
+.image-container{
+  margin-right: 10px;
 }
 
-.readmore{
-  font-size: 10px;
-
-}
 
 /* ---------------------------------------- */
 
@@ -976,9 +974,8 @@ height: 25px;
 /* ---------------------------------------- */
 
 
-.user-details{
-  margin-right: 20px;
-}
+
+
 
 
 /* ---------------------------------------- */
@@ -991,6 +988,7 @@ height: 25px;
 select{
   display: none;
 }
+
 
 
 .search-cart{
@@ -1014,12 +1012,14 @@ select{
 
 
 .signup-section{
-  width: 100%;
+  width: 110%;
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  margin-right: 30px;
+
 }
+
+
 
 .modal-btn{
   margin-left: 5px;
@@ -1031,6 +1031,13 @@ select{
   width: 70%;
   margin-left: 100px 
 }
+
+/* ---------------------------------------- */
+
+
+
+
+
 
 
 }

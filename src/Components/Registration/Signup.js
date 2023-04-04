@@ -155,8 +155,8 @@ return(
       <form onSubmit={handleSubmit} className="signup-form">
         <button onClick={() => setModal(true)} className="modal-btn"><Info size={18}/></button>
       <h1>Sign Up Form</h1>
-        <label htmlFor="username" className='label-signups'>Username:</label>
-      
+        <label htmlFor="username" className='label-signup'>Username:</label>
+        <br></br>
         <input
           id="username"
           className='signup-input'
@@ -167,8 +167,8 @@ return(
         />
          {userError && <p style={{color:"red"}}>{userError}</p>}
         <br></br>
-        <label htmlFor="firstname" className='label-signups'>First Name:</label>
- 
+        <label htmlFor="firstname" className='label-signup'>First Name:</label>
+        <br></br>
         <input
           id="firstname"
           className='signup-input'
@@ -178,8 +178,8 @@ return(
           onChange={handleTextChange}
         />
         <br></br>
-         <label htmlFor="lastname" className='label-signups'>Last Name:</label>
-
+         <label htmlFor="lastname" className='label-signup'>Last Name:</label>
+         <br></br>
         <input
           id="lastname"
           type="text"
@@ -189,8 +189,8 @@ return(
           onChange={handleTextChange}
         />
         <br></br>
-         <label htmlFor="email" className='label-signups'>Email:</label>
-  
+         <label htmlFor="email" className='label-signup'>Email:</label>
+         <br></br>
         <input
           id="email"
           type="email"
@@ -202,7 +202,8 @@ return(
          {emailError && <p style={{color:"red"}}>{emailError}</p>}
          {emailError2 && <p style={{color:"red"}}>{emailError2}</p>}
       <br></br>
-      <label htmlFor='phonenumber' className='label-signups'>Phone Number:</label>
+      <label htmlFor='phonenumber' className='label-signup'>Phone Number:</label>
+      <br></br>
       <input
           id="phonenumber"
           type="text"
@@ -215,8 +216,8 @@ return(
         
         {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
         <br></br>
-        <label htmlFor="password" className='label-signups'>Password:</label>
-        
+        <label htmlFor="password" className='label-signup'>Password:</label>
+        <br></br>
         <input
           id="password"
           className='signup-input'

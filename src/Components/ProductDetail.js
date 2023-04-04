@@ -235,18 +235,18 @@ else{
                  <p style={{fontSize:"30px"}}> {product.product_name},  <span style={{fontSize: "15px" , color: "gray"}}>{date}</span></p> 
               </div>
               <div>
-                <p>
-                  <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
+                <p className="price-detail">
+                  <span   style={{fontWeight: "bold"}}>Price:</span> ${product.price}
                 </p>
               </div>
-              <div className="product-description">
+              <p className="product-description">
                  <ReadMore>
                  {`${product.description}`}
                 </ReadMore> 
 
-              </div>
+              </p>
               <div>
-                <p> By: {product.manufacturer}</p>
+                <p className="manu-details"> By: {product.manufacturer}</p>
               </div>
           </section>
           <br></br>
