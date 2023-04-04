@@ -980,4 +980,50 @@ height: 25px;
   margin-right: 20px;
 }
 
+
+/* ---------------------------------------- */
+
+
+.children-section{
+  margin-right: 30px;
+}
+
+select{
+  display: none;
+}
+
+
+.search-cart{
+  margin-left: 10px;
+}
+
+.search-section{
+  width: 300px
+}
+
+.product-name{
+  font-size: 15px;
+}
+
+.box-container{
+  margin-left: 25px;
+}
+
+
+/* ---------------------------------------- */
+
+
+.signup-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-right: 30px;
+}
+
+.modal-btn{
+  margin-left: 5px;
+}
+
+
 }

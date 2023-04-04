@@ -113,10 +113,9 @@ function Purchases({user}){
 
     return(
         <UserLink>
+            <div className="user-index">
+              <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
             <div>
-            <div>
-              <br></br>
-            <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
             <h1>Purchase History</h1>
             <>
             <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
@@ -127,7 +126,6 @@ function Purchases({user}){
             value={search}
             onChange={handleTextChange}
             />
-
             </>
             </div>
 
@@ -153,7 +151,7 @@ function Purchases({user}){
 
                   <br></br>
           { 
-         purchases.length > 2 ? (
+          purchases.length > 2 ? (
             <div className="page-count">
           <ReactPaginate
          previousLabel={"<"}

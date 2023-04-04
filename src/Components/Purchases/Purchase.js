@@ -76,7 +76,7 @@ const navigate = useNavigate()
       
 
 
-    <div>
+    <div className="box-container">
       <h4 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
       </h4>
