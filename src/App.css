@@ -1067,11 +1067,15 @@ select{
 
 
 
-
-
-
-
 }
+
+
+
+/* -------------------------------- */
+
+
+
+
 
 @media all and (min-width: 768px){
   .Navigation{
@@ -1136,6 +1140,37 @@ height: 25px;
   width: 200px
 }
 
+/* ----------------------------------- */
+
+.product-details{
+  display: grid;
+  grid-template-columns: 30% 55%;
+  grid-column-gap: 90px;
+}
+
+.image-container{
+  margin-right: 10px;
+}
+
+
+.add-delete{
+  width: 120px;
+}
+
+/* 
+---------------------------- */
+
+
+
+.cart-details{
+  display: grid;
+  grid-template-columns: repeat(1 , 100%);
+  grid-row-gap: 40px;
+}
+
+.order-details{
+  width: 90%;
+}
 
 }
   
