@@ -90,17 +90,14 @@ const handleDelete = (id) => {
     .then(
       (response) => {
         const copyProductArray = [...products];
-        const indexDeletedProduct = copyProductArray.filter((product) => {
+        const indexDeletedProduct = copyProductArray.findIndex((product) => {
           return product.products_id === id;
         });
         copyProductArray.splice(indexDeletedProduct, 1);
-        setProducts(copyProductArray); // Update the reviews state array
+        setProducts(copyProductArray);
       },
       (error) => console.error(error)
-    ).then(() => {
-      axios
-      .get(`${API}/users/${user?.id}/products`)
-    })
+    )
     .catch((c) => console.warn("catch", c))
     
 };
@@ -180,7 +177,7 @@ const checkout = async () => {
                   {products.map((product) => {
                 
                     return(
-                      <div key={`${user?.id}-${product.products_id}`} className="product-card-section">
+                      <div key={`${product.products_id}`} className="product-card-section">
                         <CartItem product={product} handleEdit={handleEdit} user={user} handleDelete={handleDelete}/>
                 
                   </div>
