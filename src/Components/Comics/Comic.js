@@ -71,39 +71,10 @@ function Comic(props){
   }
 
   function addToSearchHistory(id, comicId) {
-
     if (!id) {
       return;
     }
-
-    axios.get(`${API}/users/${id}/search?products_id=${comicId}`)
-    .then(res => {
-      const searchHistory = res.data;
-      const latestSearch = searchHistory.length > 0 ? searchHistory[searchHistory.length - 1] : null;
-      if (latestSearch && latestSearch.products_id === comicId) {
-        return;
-      }
       axios.post(`${API}/users/${id}/search/${comicId}`)
-      .then(() => {
-        const uniqueSearchHistory = [...searchHistory, { products_id: comicId }].filter((search, index, array) => {
-          return search.products_id === comicId && index === array.findIndex(s => s.products_id === comicId);
-        });
-        if (uniqueSearchHistory.length > 1) {
-          const deletePromises = uniqueSearchHistory.slice(0, -1).map(search => {
-            return axios.delete(`${API}/users/${id}/search/${search.id}`);
-          });
-          Promise.all(deletePromises).catch(err => {
-            console.log(err);
-          });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    })
-    .catch(err => {
-      console.log(err);
-    });
   }
 
 
