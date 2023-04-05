@@ -2,6 +2,8 @@
 
 function Footer(){
     return (
+        <footer>
+
         <div className="footers">
             <div className="footer-section-one">
                 <p className="footer-link">Career</p>
@@ -19,6 +21,13 @@ function Footer(){
                 <p className="footer-link">Term of Service</p>
             </div>
         </div>
+        <hr></hr>
+        <p style={{color: "white"}}>
+
+        <span style={{color:"white"}}  dangerouslySetInnerHTML={{ "__html": "&copy;" }} />2023 Tony Hoang. All Rights Reserved
+        </p>
+
+        </footer>
     )
 }
 

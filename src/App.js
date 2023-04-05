@@ -91,6 +91,9 @@ function App() {
          <Route path="/cancel" element={<Cancel user={user}/>}/>
           </Routes>
         </main>
+        <br></br>
+        <br></br>
+        <Footer/>
       </Router>
 
     
