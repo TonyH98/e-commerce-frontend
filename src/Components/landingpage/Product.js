@@ -69,44 +69,8 @@ function Product(props){
     if (!id) {
       return;
     }
-
-    axios.get(`${API}/users/${id}/search?products_id=${ids}`)
-    .then(res => {
-      const searchHistory = res.data;
-      const latestSearch = searchHistory.length > 0 ? searchHistory[searchHistory.length - 1] : null;
-      if (latestSearch && latestSearch.products_id === ids) {
-        return;
-      }
       axios.post(`${API}/users/${id}/search/${ids}`)
-      .then(() => {
-        const uniqueSearchHistory = [...searchHistory, { products_id: ids }].filter((search, index, array) => {
-          return search.products_id === ids && index === array.findIndex(s => s.products_id === ids);
-        });
-        if (uniqueSearchHistory.length > 1) {
-          const deletePromises = uniqueSearchHistory.slice(0, -1).map(search => {
-            return axios.delete(`${API}/users/${id}/search/${search.id}`);
-          });
-          Promise.all(deletePromises).catch(err => {
-            console.log(err);
-          });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    })
-    .catch(err => {
-      console.log(err);
-    });
   }
-  
-
-
-
-
-
-
-
 
 
   return(
