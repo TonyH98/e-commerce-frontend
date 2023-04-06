@@ -845,6 +845,7 @@ footer{
 
 
 .Navigation{
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 40% 20% 5%;
   grid-column-gap: 150px;
