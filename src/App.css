@@ -403,7 +403,7 @@ textarea {
   grid-template-columns: repeat(1);
   grid-row-gap: 30px;
   margin-left: 20px;
-  margin-bottom: 215%;
+
   
 }
 
@@ -751,7 +751,7 @@ a{
   box-shadow: 2px 2px 4px #000000;
   text-align: left;
   border-radius: 20px;
-  margin-bottom: 210%;
+
 }
 
 
@@ -978,6 +978,15 @@ nav{
   width: 120px;
 }
 
+/* -------------------------------------------------- */
+
+
+
+.cart-details{
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  grid-row-gap: 40px;
+}
 
 
 }
