@@ -10,7 +10,7 @@ import ReactPaginate from "react-paginate";
 
 const API = process.env.REACT_APP_API_URL;
 
-const pageData = 2
+const pageData = 3
 
 function Purchases({user}){
 
@@ -151,7 +151,7 @@ function Purchases({user}){
 
                   <br></br>
           { 
-          purchases.length > 2 ? (
+          purchases.length > 3 ? (
             <div className="page-count">
           <ReactPaginate
          previousLabel={"<"}

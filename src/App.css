@@ -19,6 +19,7 @@
   margin-left: 100px;
   padding: 20px;
   grid-column-gap: 15px;
+  box-shadow: 2px 2px 2px 3px silver;
 }
 
 .featured-border{
@@ -55,7 +56,7 @@ background-color: #F5F5F5
   margin-top: 60px;
   display: grid;
   grid-template-columns: repeat(3, 20%);
-  grid-column-gap: 10px;
+  grid-column-gap: 15px;
 }
 
 .selected-image{
@@ -96,7 +97,7 @@ background-color: #F5F5F5
   line-height: 1.5;
   padding: 20px;
   text-align: justify;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   margin-left: 100px;
 }
@@ -134,6 +135,10 @@ background-color: #F5F5F5
   width: 80px;
   cursor: pointer;
   margin-bottom: 5px;
+}
+
+.button-container{
+  padding-bottom: 10px;
 }
 
 .modal-btn{
@@ -248,7 +253,7 @@ a{
 
 
 .Reviews {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   padding: 1em;
   box-shadow: 2px 2px 4px silver;
 }
@@ -256,12 +261,10 @@ a{
 .Reviews > div {
   padding: 1em;
   box-shadow: 0px 0px 2px silver;
-  background-color: ghostwhite;
+  /* background-color: ghostwhite; */
 }
 
-.Reviews div:nth-child(odd) {
-  background-color: aliceblue;
-}
+
 
 
 
@@ -377,13 +380,6 @@ textarea {
 }
 
 
-
-.image:hover{
-  -ms-transform: scale(1.3); 
-  -webkit-transform: scale(1.3); 
-  transform: scale(1.2); 
-}
-
 .cart{
   text-align: left;
   margin-left: 70px;
@@ -407,6 +403,7 @@ textarea {
   grid-template-columns: repeat(1);
   grid-row-gap: 30px;
   margin-left: 20px;
+  margin-bottom: 215%;
   
 }
 
@@ -495,18 +492,11 @@ select {
   color:  #002D62;
   cursor: pointer;
   list-style: none;
+  margin-left: 12%;
 }
 
 
-.paginations{
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 15px);
-  color:  #002D62;
-  cursor: pointer;
-  list-style: none;
-  margin-left: 8px;
-}
+
 
 
 
@@ -515,7 +505,9 @@ select {
 }
 
 
-
+.card-info{
+  margin-left: 50px;
+}
 
 
 
@@ -692,7 +684,7 @@ a{
   display: inline-block;
   border-left: 5px solid #ccc;
   margin: 0 10px;
-  height: 100vh;
+  height: 180%;
 }
 
 .userLink{
@@ -759,7 +751,7 @@ a{
   box-shadow: 2px 2px 4px #000000;
   text-align: left;
   border-radius: 20px;
-  
+  margin-bottom: 210%;
 }
 
 

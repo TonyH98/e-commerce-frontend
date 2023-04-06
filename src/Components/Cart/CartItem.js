@@ -38,10 +38,10 @@ function CartItem(props) {
 
         </div>
 
-        <div>
-          <h3 className="product-name">
+        <div className="card-info">
+          <h5 className="product-name">
             <Link to={`/products/${props.product.products_id}`}>{props.product.product_name}</Link>
-          </h3>
+          </h5>
           <span style={{ fontWeight: "bold" }}>Price:</span> ${props.product.price}
           <br></br>
           <br></br>

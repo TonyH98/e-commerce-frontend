@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 const API = process.env.REACT_APP_API_URL;
 
-const pageData = 2
+const pageData = 3
 
 function Favorites({user}){
 
@@ -144,7 +144,7 @@ console.log(fav)
 
                   <br></br>
           { 
-          fav.length > 2 ? (
+          fav.length > 3 ? (
             <div className="page-count">
           <ReactPaginate
          previousLabel={"<"}

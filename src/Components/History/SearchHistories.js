@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-const pageData = 2
+const pageData = 3
 
 function SearchHistories({user}){
 
@@ -148,7 +148,7 @@ function SearchHistories({user}){
 
                   <br></br>
           { 
-          histories.length > 2 ? (
+          histories.length > 3 ? (
             <div className="page-count">
           <ReactPaginate
          previousLabel={"<"}

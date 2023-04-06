@@ -16,9 +16,6 @@ const selectedProducts = copy.filter((ele) => {
 })
 
 
-console.log(selectedProducts)
-
-
 const copy2 = [...products]
 
 const featured = copy2.filter((ele) => {
@@ -53,7 +50,10 @@ return (
         for a 
         superior entertainment experience.
         </p>
+        <div className="button-container">
+
         <button className="category-buttons">Shop Now</button>
+        </div>
       </div>
 
       <div className="border-products">
@@ -71,7 +71,7 @@ return (
     </div>
        <br></br>
        <div className="featured-section">
-        <h1 className="featured-header">Featured Items:</h1>
+        <h2 className="featured-header">Featured Items:</h2>
 
         <div className="featured-items">
           
@@ -103,7 +103,7 @@ return (
 
 
        <div className="featured-section">
-        <h1 className="featured-header">Recommend Items:</h1>
+        <h2 className="featured-header">Recommend Items:</h2>
 
         <div className="featured-items">
           

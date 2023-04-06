@@ -16,42 +16,45 @@ const API = process.env.REACT_APP_API_URL;
 
 
 function Nav({isLogged}){
-
-
+  
+  
   let [filterSearch , setFilterSearch] = useState([])
   let [productSearch , setProductSearch] = useState([])
   const [user, setUser] = useState();
 
- let [search , setSearch] = useState("")
-
-
-useEffect(() => {
-  axios
-  .get(`${API}/products`)
-  .then((res) => {
-    setProductSearch(res.data);
- 
-  })
+  let [search , setSearch] = useState("")
   
   
-},[])
+  useEffect(() => {
+    axios
+    .get(`${API}/products`)
+    .then((res) => {
+      setProductSearch(res.data);
+      
+    })
+    
+    
+  },[])
+  
+  
  
 
+  
   useEffect(() => {
     const loggedUser = JSON.parse(window.localStorage.getItem('user'));
     setUser(loggedUser);
   }, [isLogged]);
-
-
-
-
-function handleFilter(event){
-  let searchResult = event.target.value
-  setSearch(searchResult)
-  const filter = productSearch.filter((product) => {
-    return product.product_name.toLowerCase().includes(searchResult.toLowerCase())
-  })
-
+  
+  
+  
+  
+  function handleFilter(event){
+    let searchResult = event.target.value
+    setSearch(searchResult)
+    const filter = productSearch.filter((product) => {
+      return product.product_name.toLowerCase().includes(searchResult.toLowerCase())
+    })
+    
   if(searchResult === ""){
     setFilterSearch([])
   }
@@ -76,7 +79,8 @@ function addToSearchHistory(id, ids) {
     axios.post(`${API}/users/${id}/search/${ids}`)
 }
 
-console.log(user)
+
+
 
     return( 
       <nav>
