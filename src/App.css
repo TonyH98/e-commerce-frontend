@@ -894,6 +894,13 @@ nav{
   font-weight: bold;
 }
 
+.category-link:hover{
+  color: 	#909090
+}
+
+
+
+
 @media all and (max-width: 600px){
   .Navigation{
     display: grid;

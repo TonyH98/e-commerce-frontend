@@ -93,20 +93,20 @@ console.log(user)
          <div className="nav-category">
 
           <Link to="/videogames">
-          <div>
+          <div className="category-link">
             Video Games
           </div>
           </Link>
 
           <Link to="/mangas">
-          <div>
+          <div className="category-link">
            Manga
           </div>
           </Link>
 
 
           <Link to="/comics">
-          <div>
+          <div className="category-link">
            Comics
           </div>
           </Link>
