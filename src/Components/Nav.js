@@ -91,7 +91,7 @@ function addToSearchHistory(id, ids) {
 
          <Link to="/">
          
-         <h1 className="site-name" >Collection Valut</h1>
+         <h1 className="site-name" >Collection Vault</h1>
          </Link>
 
          <div className="nav-category">
