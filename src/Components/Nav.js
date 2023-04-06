@@ -76,58 +76,49 @@ function addToSearchHistory(id, ids) {
     axios.post(`${API}/users/${id}/search/${ids}`)
 }
 
-
+console.log(user)
 
     return( 
       <nav>
 
         <div className="Navigation">
          
-        <h1 className="home-page-link">
-          <Link to="/">
-          T-Commerce
-          </Link>
-        </h1>
-        
+         <div className="nav-1">
 
-      <div className="Nav-Category">
-
-        <Link to="/videogames">
-        <div className="product-category">Video Games</div>
-        </Link>
-
-        <Link to="/mangas">
-        <div className="product-category">Manga</div>
-        </Link>
-
-        <Link to="comics">
-        <div className="product-category">Comics</div>
-        </Link>
-
-      </div>
-
-
-      <div className="dropdown">
-        <button className="dropbtn"> {user ? user?.username :  <Link to="/login">
-        Login
-      </Link>}</button>
-        <div className="items">
-
-         {user ?  <div>
-        <Link to={`/cart/${user?.id}`}>
-        <ShoppingCart color="black" size={30}/>
-        </Link>
-          </div> : null }
-      {user ? 
-     <p style={{fontWeight:"bold"}}><Link to={`/userDetails/${user?.id}`}>Details</Link></p>
-     :<div className="link-new">
-      <Link to="/login">
-        <h3> Login </h3>
-      </Link>
-      </div> }
+         <Link to="/">
          
-        </div>
-      </div>
+         <h1 className="site-name" >Collection Valut</h1>
+         </Link>
+
+         <div className="nav-category">
+
+          <Link to="/videogames">
+          <div>
+            Video Games
+          </div>
+          </Link>
+
+          <Link to="/mangas">
+          <div>
+           Manga
+          </div>
+          </Link>
+
+
+          <Link to="/comics">
+          <div>
+           Comics
+          </div>
+          </Link>
+
+
+         </div>
+
+
+         </div>
+        
+        <div className="nav-2">
+
       <div className="search">
          <div className="searchInputs">
            <input 
@@ -155,7 +146,54 @@ function addToSearchHistory(id, ids) {
          </div>
          )}
       </div>
+
+
+
+        </div>
+
+           <div className="nav-3">
+        {user ? (
+          <Link to={`/cart/${user?.id}`}>
+            <div>
+
+            <ShoppingCart size={30} color="black"/>
+            </div>
+          </Link>
+        ) : (
+          <Link to={`/login`}>
+            <div>
+
+                <ShoppingCart size={30} color="black"/>
+            </div>
+          </Link>
+        )}
+
+          <div className="user-login">
+
+            {user ? (
+              <Link to={`/userDetails/${user?.id}`}>
+
+              <div className="user">
+                {user?.username}
+              </div>
+              </Link>
+            ): (
+
+              <Link to="/login">
+              <div className="user">
+                Login
+              </div>
+              
+              </Link>
+            )}
+          </div>
+
+           </div>
+     
+
       </div>
+
+
       </nav>
 
 )
