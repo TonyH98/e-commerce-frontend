@@ -93,7 +93,7 @@ function App() {
         </main>
         <br></br>
         <br></br>
-        <Footer/>
+        {/* <Footer/> */}
       </Router>
 
     
