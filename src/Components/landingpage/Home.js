@@ -28,7 +28,7 @@ const featured = copy2.filter((ele) => {
 const copy3 = [...products]
 
 const recommended = copy3.filter((ele) => {
-  if(ele.product_name === "Neo: The World Ends with You" || ele.product_name === "Berserk Vol 1" || ele.product_name === "Bone: The Complete Cartoon Epic in One Volume"){
+  if(ele.product_name === "Neo: The World Ends with You" || ele.product_name === "Berserk Vol 1" || ele.product_name === "Bone: The Complete Volume"){
     return ele
   }
 })
