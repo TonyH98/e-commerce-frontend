@@ -1,51 +1,10 @@
 import React from "react";
-import { useNavigate , Link } from "react-router-dom";
-import { useState } from "react";
-import ReactPaginate from "react-paginate";
-import axios from "axios";
-import Product from "./Product"
+import { Link } from "react-router-dom";
 
 
-const API = process.env.REACT_APP_API_URL;
 
-const pageData = 1
-
-
-function Home({products , setProducts}){
+function Home({products }){
   
-
-
-
-
-
-
-
-
-
-// let navigate = useNavigate()
-
-
-
-
-
-
-
-// const handleEdit = (updatedCart) => {
-//   axios
-//   .put(`${API}/products/${updatedCart.id}`, updatedCart)
-//   .then((response) => {
-//     const copyCartArray = [...products];
-//     const indexUpdatedCart = copyCartArray.findIndex((cart) => {
-//       return cart.id === updatedCart.id;
-//     });
-//     copyCartArray[indexUpdatedCart] = response.data;
-//     setProducts(copyCartArray);
-//   })
-//   .then(() => {
-//     navigate(`/`)
-//   })
-//   .catch((c) => console.warn("catch", c));
-// };
 
 const copy = [...products]
 
@@ -58,6 +17,24 @@ const selectedProducts = copy.filter((ele) => {
 
 
 console.log(selectedProducts)
+
+
+const copy2 = [...products]
+
+const featured = copy2.filter((ele) => {
+  if(ele.product_name === "Smash Ultimate" 
+  || ele.product_name === "Chainsaw Man, Vol. 1" || ele.product_name === "Deadly Class Vol. 1: Reagan Youth"){
+    return ele
+  }
+})
+
+const copy3 = [...products]
+
+const recommended = copy3.filter((ele) => {
+  if(ele.product_name === "Neo: The World Ends with You" || ele.product_name === "Berserk Vol 1" || ele.product_name === "Bone: The Complete Cartoon Epic in One Volume"){
+    return ele
+  }
+})
 
 
 return (
@@ -92,6 +69,69 @@ return (
       </div>
 
     </div>
+       <br></br>
+       <div className="featured-section">
+        <h1 className="featured-header">Featured Items:</h1>
+
+        <div className="featured-items">
+          
+        {featured.map((product) => {
+          return(
+            <div className="featured-border">
+              
+              <Link to={`/products/${product.id}`}>
+              <img
+             src={product.image}
+             alt={product.product_name}
+             className="featured-image"
+             />
+              </Link>
+
+            <div className="featured-name">
+             <h4>{product.product_name}</h4>
+
+            </div>
+
+            </div>
+          )
+        })}
+
+        </div>        
+
+       </div>
+       <br></br>
+
+
+       <div className="featured-section">
+        <h1 className="featured-header">Recommend Items:</h1>
+
+        <div className="featured-items">
+          
+        {recommended.map((product) => {
+          return(
+            <div className="featured-border">
+
+                <Link to={`/products/${product.id}`}>
+              <img
+             src={product.image}
+             alt={product.product_name}
+             className="featured-image"
+             />
+                </Link>
+
+            <div className="featured-name">
+             <h4>{product.product_name}</h4>
+
+            </div>
+
+            </div>
+          )
+        })}
+
+        </div>        
+
+       </div>
+
 
 
   </div>
@@ -99,48 +139,3 @@ return (
 }
 
 export default Home
-{/* <div className="landing-page">
-  
-  <p style={{fontWeight: "bold", fontSize: "30px" , textAlign:"center"}}>Featured Items</p>
-    <div className="products">
-    {currentPageData}
-    </div>
-    <div className="page-count">
-      { 
-      <ReactPaginate
-     previousLabel={"<"}
-     nextLabel={">"}
-     pageCount={pageCount}
-     onPageChange={handlePageChange}
-     containerClassName={"paginations"}
-     previousLinkClassName={"pagination-link"}
-     nextLinkClassName={"pagination-link"}
-     pageClassName={"pageCount"}
-     />  
-        } 
-      </div>
-</div>
-<br></br>
-<br></br>
-     
-    <div className="category-section">
-      {CategoryData.map((category) => {
-        return(
-          <div className="category-container">
-           <img
-           src={category.image}
-        alt={category.name}
-        className="category-images"
-      ></img>
-      <div className="collection-name">{category.name} Collection:</div>
-      
-      <div className="category-description">{category.description}</div>
-
-      <Link to={category.link}>
-      <button className="category-buttons">Shop Now</button>
-
-      </Link>
-          </div>
-        )
-      })}
-    </div> */}
