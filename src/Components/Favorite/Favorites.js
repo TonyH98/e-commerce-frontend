@@ -122,7 +122,7 @@ console.log(fav)
             </>
             </div>
 
-          <select onChange={(e) => sortByDate(e.target.value)}>
+          <select onChange={(e) => sortByDate(e.target.value)} >
             <option value="">Select</option>
             <option value="Latest to Earliest">Latest to Earliest</option>
             <option value="Earliest to Latest">Earliest to Latest</option>

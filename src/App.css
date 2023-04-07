@@ -989,6 +989,35 @@ nav{
 }
 
 
+/* ---------------------------------------------- */
+
+.search-cart{
+  margin-left: 1px;
+  width: 480px
+}
+
+
+/* -------------------------------------------- */
+
+
+
+.login-form{
+  width: 70%;
+  margin-left: 100px;
+}
+/* 
+--------------------------------------------- */
+
+
+
+.signup-form{
+  width: 70%;
+  margin-left: 100px;
+}
+
+
+
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

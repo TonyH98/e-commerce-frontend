@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { Link , useNavigate} from 'react-router-dom';
-import { GoogleLoginButton } from 'react-social-login-buttons';
-import {LoginSociallGoogle} from "react-social-login"
 import axios from 'axios';
 
 const API = process.env.REACT_APP_API_URL;
