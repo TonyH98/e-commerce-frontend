@@ -22,7 +22,6 @@ import Success from "./Components/SessionPage/Success"
 import Cancel from "./Components/SessionPage/Cancel";
 import Favorites from "./Components/Favorite/Favorites";
 import Purchases from "./Components/Purchases/Purchases";
-import Footer from "./Components/Footer/Footer";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -93,10 +92,7 @@ function App() {
         </main>
         <br></br>
         <br></br>
-        {/* <Footer/> */}
       </Router>
-
-    
     </div>
   );
 }

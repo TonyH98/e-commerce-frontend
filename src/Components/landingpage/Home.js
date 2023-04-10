@@ -42,7 +42,7 @@ return (
       <div className="landing-column">
         <h1 className="landing-header">Explore our collection</h1>
         <p className="category-description">
-        Experience premium entertainment with our collection of Manga, Comic Books, 
+        Experience premium entertainment with our collection of Mangas, Comic Books, 
         and Video Games.
          <br/>
         Choose from both physical and digital formats 
@@ -52,18 +52,20 @@ return (
         </p>
         <div className="button-container">
 
-        <button className="category-buttons">Shop Now</button>
+
         </div>
       </div>
 
       <div className="border-products">
        {selectedProducts.map((product) => {
          return(
-           <img
-           src={product.image}
-           alt={product.product_name}
-           className="selected-image"
-           />
+          <Link to={`/products/${product.id}`}>
+          <img
+          src={product.image}
+          alt={product.product_name}
+          className="selected-image"
+          />
+          </Link>
          )
        })}
       </div>
