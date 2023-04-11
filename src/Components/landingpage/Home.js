@@ -9,7 +9,7 @@ function Home({products }){
 const copy = [...products]
 
 const selectedProducts = copy.filter((ele) => {
-  if(ele.product_name === "Metroid Dread" ||
+  if(ele.product_name === "Metroid Prime" ||
    ele.product_name === "One Piece Vol 1" || ele.product_name === "Invincible Compendium Volume 1"){
      return ele
    }
@@ -19,7 +19,7 @@ const selectedProducts = copy.filter((ele) => {
 const copy2 = [...products]
 
 const featured = copy2.filter((ele) => {
-  if(ele.product_name === "Smash Ultimate" 
+  if(ele.product_name === "Super Mario Galaxy" 
   || ele.product_name === "Chainsaw Man, Vol. 1" || ele.product_name === "Deadly Class Vol. 1: Reagan Youth"){
     return ele
   }
@@ -28,7 +28,7 @@ const featured = copy2.filter((ele) => {
 const copy3 = [...products]
 
 const recommended = copy3.filter((ele) => {
-  if(ele.product_name === "Neo: The World Ends with You" || ele.product_name === "Berserk Vol 1" || ele.product_name === "Bone: The Complete Volume"){
+  if(ele.product_name === "The Legend of Zelda: Twilight Princess" || ele.product_name === "Berserk Vol 1" || ele.product_name === "Bone: The Complete Volume"){
     return ele
   }
 })

@@ -9,18 +9,25 @@ const API = process.env.REACT_APP_API_URL;
 
 function Videogames({user}){
 
-    const [products , setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
- 
+  useEffect(() => {
 
-    useEffect(() => {
+    const cachedProducts = localStorage.getItem("cachedProducts");
+    if (cachedProducts) {
+      setProducts(JSON.parse(cachedProducts));
+    } else {
       axios
         .get(`${API}/products?category=video+games`)
         .then((res) => {
           setProducts(res.data);
+          localStorage.setItem("cachedProducts", JSON.stringify(res.data));
         })
-        .catch((c) => console.warn("catch, c"));
-    }, []);
+        .catch((error) => {
+          console.warn("Error fetching products", error);
+        });
+    }
+  }, []);
 
 
    

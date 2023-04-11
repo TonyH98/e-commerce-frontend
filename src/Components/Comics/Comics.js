@@ -10,8 +10,7 @@ function Comics({user}){
     const [products , setProducts] = useState([])
 
 
-    let navigate = useNavigate()
-
+    
 
     useEffect(() => {
       axios
