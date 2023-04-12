@@ -1,3 +1,4 @@
+import Apps from "./App.css"
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -5,12 +6,10 @@ import Home from "./Components/landingpage/Home"
 import Nav from "./Components/Nav"
 import ProductDetails from "./Components/ProductDetail"
 import ReviewNewForm from "./Components/Reviews/ReviewNewForm"
-import Apps from "./App.css"
 import ReviewDetails from "./Components/Reviews/ReviewDetails"
 import ProductCart from "./Components/Cart/ProductCart"
 import NewProducts from "./Components/NewProducts";
 import ReviewChart from "./Components/Reviews/ReviewChart"
-
 import Comics from "./Components/Comics/Comics"
 import Mangas from "./Components/Manga/Mangas";
 import Videogames from "./Components/VideoGames/Videogames";
@@ -19,7 +18,6 @@ import Signup from "./Components/Registration/Signup"
 import SearchHistories from "./Components/History/SearchHistories";
 import UserDetails from "./Components/UserInfo/UserDetails";
 import Success from "./Components/SessionPage/Success"
-import Cancel from "./Components/SessionPage/Cancel";
 import Favorites from "./Components/Favorite/Favorites";
 import Purchases from "./Components/Purchases/Purchases";
 
@@ -95,7 +93,6 @@ function App() {
           <Route path={`/userDetails/${user?.id}`} element={<UserDetails user={user}/>}/>
          <Route path={`/searchHistory/${user?.id}`} element={<SearchHistories user={user}/>}/>
          <Route path="/success" element={<Success user={user}/>}/>
-         <Route path="/cancel" element={<Cancel user={user}/>}/>
           </Routes>
         </main>
         <br></br>

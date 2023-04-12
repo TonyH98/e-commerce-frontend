@@ -48,7 +48,7 @@ function Signup(){
       };
 
       function validatePassword(){
-       const validate = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[0-9a-zA-Z@$!%*?&]{8,}$/
+       const validate = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$#!%*?&])[0-9a-zA-Z@$!%*?&]{8,}$/
 
        return validate.test(user.password)
       }

@@ -1,6 +1,5 @@
 import Comic from "./Comic"
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import CategoryHeading from "../CategoryHeading";
 import axios from "axios";
 

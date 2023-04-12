@@ -17,7 +17,6 @@ function ProductDetails({user}){
 
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [related, setRelated] = useState([]);
   const [userCart , setUserCart] = useState({})
 
   const [userFavorite , setUserFavorite ] = useState({})
@@ -26,20 +25,12 @@ function ProductDetails({user}){
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     axios
       .get(`${API}/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error(err));
   }, [id]);
-
-  useEffect(() => {
-    axios
-      .get(`${API}/products?category=${product.category}`)
-      .then((res) => setRelated(res.data))
-      .catch((err) => console.error(err));
-  }, [product.category]);
-
-
 
 
   
@@ -145,22 +136,13 @@ function ProductDetails({user}){
   }
 
 
-
-
-
-
-
   const date = new Date(product.release_date)?.toLocaleDateString("en-us", {
     year: "numeric",
     month: "short",
     day: "2-digit",
   });
 
-  const relatedItems = related
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 3);
-
-
+  
 function counterIncrease(){
   setCounter(counter += 1)
 }
@@ -204,8 +186,6 @@ const buyNow = async () => {
             await axios.post(`${API}/users/${user?.id}/purchases/${product.id}`, product);
     
       }
-
-
 
   }
 else{
