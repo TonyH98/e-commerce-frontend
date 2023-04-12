@@ -1,9 +1,11 @@
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 
 
+const API = process.env.REACT_APP_API_URL;
 
-function Home({products}){
+function Home({products, user}){
   
 
 const copy = [...products]
@@ -34,6 +36,14 @@ const recommended = copy3.filter((ele) => {
 })
 
 
+function addToSearchHistory(id, productId){
+  if(!id){
+    return
+  }
+  axios.post(`${API}/users/${id}/search/${productId}`)
+}
+
+
 return (
   <div>
 
@@ -59,7 +69,7 @@ return (
       <div className="border-products">
        {selectedProducts.map((product) => {
          return(
-          <Link to={`/products/${product.id}`}>
+          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
           <img
           src={product.image}
           alt={product.product_name}
@@ -81,7 +91,7 @@ return (
           return(
             <div className="featured-border">
               
-              <Link to={`/products/${product.id}`}>
+              <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
               <img
              src={product.image}
              alt={product.product_name}
@@ -113,7 +123,7 @@ return (
           return(
             <div className="featured-border">
 
-                <Link to={`/products/${product.id}`}>
+                <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
               <img
              src={product.image}
              alt={product.product_name}
