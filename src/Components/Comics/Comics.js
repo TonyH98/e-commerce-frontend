@@ -13,12 +13,21 @@ function Comics({user}){
     
 
     useEffect(() => {
-      axios
-        .get(`${API}/products?category=Comics`)
-        .then((res) => {
-          setProducts(res.data);
-        })
-        .catch((c) => console.warn("catch, c"));
+
+      const cachedProducts = localStorage.getItem("cachedProducts2")
+      if(cachedProducts){
+        setProducts(JSON.parse(cachedProducts))
+      }
+      else{
+        axios
+          .get(`${API}/products?category=Comics`)
+          .then((res) => {
+            setProducts(res.data);
+            localStorage.setItem("cachedProducts2",JSON.stringify(res.data) )
+          })
+          .catch((c) => console.warn("catch, c"));
+
+      }
     }, []);
 
 

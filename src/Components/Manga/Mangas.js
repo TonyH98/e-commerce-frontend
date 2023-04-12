@@ -10,15 +10,23 @@ function Mangas({user}){
 
     const [products , setProducts] = useState([])
 
-    let navigate = useNavigate()
+    
 
     useEffect(() => {
-      axios
-        .get(`${API}/products?category=Anime/Manga`)
-        .then((res) => {
-          setProducts(res.data);
-        })
-        .catch((c) => console.warn("catch, c"));
+      const cachedProducts = localStorage.getItem("cachedProducts3")
+      if(cachedProducts){
+        setProducts(JSON.parse(cachedProducts))
+      }
+      else{
+        axios
+          .get(`${API}/products?category=Anime/Manga`)
+          .then((res) => {
+            setProducts(res.data);
+            localStorage.setItem("cachedProducts3",JSON.stringify(res.data) )
+          })
+          .catch((c) => console.warn("catch, c"));
+
+      }
     }, []);
 
     

@@ -39,12 +39,20 @@ function App() {
 
 
   useEffect(() => {
-    axios
-      .get(`${API}/products`)
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((c) => console.warn("catch, c"));
+    const cachedProducts = localStorage.getItem("cachedProducts4")
+    if(cachedProducts){
+      setProducts(JSON.parse(cachedProducts))
+    }
+    else{
+      axios
+        .get(`${API}/products`)
+        .then((res) => {
+          setProducts(res.data);
+          localStorage.setItem("cachedProducts4",JSON.stringify(res.data) )
+        })
+        .catch((c) => console.warn("catch, c"));
+
+    }
   }, []);
 
   
