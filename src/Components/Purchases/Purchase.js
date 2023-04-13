@@ -70,7 +70,7 @@ const navigate = useNavigate()
           className="search-images"
           ></img>
       </Link>
-          <p className="date-section"> <span style={{fontWeight:"bold"}}>Purchased:</span> {date}</p>
+          <p className="date-section purchase-date"> <span style={{fontWeight:"bold"}}>Purchased:</span> {date}</p>
           <button className="buy-again" onClick={buyNow}>Buy Again</button>
       </div>
       

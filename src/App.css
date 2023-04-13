@@ -12,6 +12,10 @@
   white-space: nowrap;
 }
 
+.purchase-date{
+  padding-left: 10px;
+}
+
 .featured-items{
   text-align: left;
   display: grid;
@@ -223,6 +227,7 @@ hr{
   height: 170px;
   width: 115px;
 }
+
 
 
 a{
