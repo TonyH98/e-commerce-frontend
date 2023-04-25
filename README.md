@@ -4,7 +4,7 @@ Netlify Deployment: https://digital-commerce-site.netlify.app/
 
 Backend-Github: https://github.com/TonyH98/e-commerce-backend
 
-Render Deployment: https://digital-commerce-site.netlify.app/
+Render Deployment: https://e-commerce-backend-46cl.onrender.com/
 
 
 Project Basic:
