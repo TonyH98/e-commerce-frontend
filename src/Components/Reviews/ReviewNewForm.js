@@ -55,10 +55,7 @@ function ReviewNewForm({user}){
         setReview({ ...review, [event.target.id]: event.target.value });
       };
 
-      
-
-      
-console.log(product)
+    
 
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -66,6 +63,7 @@ console.log(product)
         
       };
 
+      
     return(
       <div className="new-form">
         <h1>Review: {product.product_name}</h1>
