@@ -906,6 +906,14 @@
 
 
 
+
+
+
+
+
+
+
+
  @media (max-width: 576px) {
   /* CSS styles specific to small screens */
 
@@ -919,19 +927,19 @@ nav{
   margin-top: 10px;
       display: grid;
       grid-template-columns: 47% 30% 10%;
-      height: 100px
+      height: 130px
 }
 
 .nav-1{
   display: grid;
-  grid-template-columns: 45% 50%;
-  grid-column-gap: 10px;
+  grid-template-columns: 45% 58%;
+  grid-column-gap: 40px;
 }
 
 .nav-category{
   margin-top: 22px;
   display: grid;
-  grid-template-columns: repeat(3, 50%);
+  grid-template-columns: repeat(3, 55%);
 }
 
 
@@ -1356,8 +1364,90 @@ a{
   margin-left: 20px;
 }
 
+
+.dataResult{
+  margin-top: 5px;
+
+  width: 300px;
+  height: 200px;
+  border: #000 1px solid;
+  background-color: white;
+  overflow: hidden;
+  overflow-y: auto;
+  position: absolute;
+}
+
+.searchInputs{
+    text-align:  center;
+    display: flex;
+  }
+  
+  
+  
+  
+  .search .searchbar{
+    border: 0px;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 18px;
+    padding: 15px;
+    height: 30px;
+    width: 180px;
+    border: #000 1px solid;
+    margin-top: 78px;
+  position: relative;
+  right: 80px;
+  }
+  
+ 
+
+  .searchIcon{
+    background-color: white;
+    height: 30px;
+    margin-top: 78px;
+    display: grid;
+    place-items: center;
+    border-left: #000 1px solid;
+    border: #000 solid 1px;
+    position: relative;
+  right: 80px;
+  }
+
+  
+.nav-3{
+  position: relative;
+  right: 20px;
+  display: grid;
+  top: 20px;
+  grid-template-columns: 50px 50px;
+}
+
  }
 
 @media (min-width: 577px) and (max-width: 768px) {
   /* CSS styles specific to medium screens */
+
+  nav{
+    border-bottom: black solid 2px;
+    height: 100px;
+  }
+  
+  a{
+    color: black
+  }
+
+  .Navigation{
+
+    display: grid;
+
+    grid-template-columns: 30% 20% 30%;
+
+  }
+
+  .nav-1{
+    display: grid;
+    grid-template-columns: 100% 30%;
+  }
+
 }
