@@ -984,8 +984,6 @@ nav{
   text-align: left;
   display: grid;
   grid-template-columns: repeat(3 , 1fr);
-  margin-left: 120px;
-  margin-right: 20px;
   padding: 20px;
   grid-column-gap: 15px;
   box-shadow: 2px 2px 2px 3px silver;
