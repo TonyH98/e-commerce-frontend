@@ -154,14 +154,14 @@ const checkout = async () => {
     return(
         <div>
             <div>
-            <h1>Shopping Cart</h1>
+            <h1 className="cart-header">Shopping Cart</h1>
             </div>
 
              <br></br>
              <br></br>
 
             {every ? (
-                <div>
+                <div className="shopping-cart">
              <ShoppingCart color="black" size={100}/>
                 No Item in Cart
                 </div>
@@ -211,7 +211,7 @@ const checkout = async () => {
                 <hr></hr>
                   <div className="product-quantity-price">
 
-                  <div>Grand Total:</div>
+                  <div style={{"fontWeight": "bold"}}>Grand Total:</div>
                   <div style={{color:"green"}}>${sum.toFixed(2)}</div>
 
                   </div>
