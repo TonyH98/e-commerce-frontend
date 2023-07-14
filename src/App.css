@@ -1741,4 +1741,67 @@ a{
     margin-left: 25%;
   }
 
+
+
+  .image{
+    height: 300px;
+    width: 200px;
+    margin-left: 20px;
+  }
+
+  .info{
+    margin: 20px;
+  }
+
+  .readmore{
+    line-height: 1.5;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .cart-counter-input{
+    margin-left: 20px;
+  }
+
+ 
+.cart-input{
+  width: 50px;
+  text-align: center;
+}
+
+  .decrease-increase{
+    background-color: white;
+  }
+  
+  
+  .decrease-increase{
+    border: none;
+    
+  }
+
+  .add-delete{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 20px;
+    width: 25%
+  }
+  
+  .add-delete:hover{
+    background-color: rgb(25, 17, 68);
+  }
+
+
+   .fav-btns{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
 }
