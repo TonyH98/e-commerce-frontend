@@ -49,15 +49,6 @@ const navigate = useNavigate()
       }
 
 
-
-
-
-
-
-
-
-
-
     return(
 
         <section className="history-box">
@@ -76,7 +67,7 @@ const navigate = useNavigate()
       
 
 
-    <div className="box-container">
+    <div className="info-section">
       <h4 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
       </h4>

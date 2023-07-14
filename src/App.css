@@ -1300,6 +1300,61 @@ hr{
   width: 180px
 }
 
+a{
+  color: black
+}
+
+
+.favorites-btn:hover{
+  cursor: pointer
+}
+
+
+.delete-trash{
+  margin-left: 90%;
+  border: none;
+  background-color: white;
+}
+
+.user-section-header{
+  text-align: center;
+}
+
+
+.search-cart{
+  display: grid;
+  grid-template-columns: repeat(1);
+  grid-row-gap: 40px;
+  margin-left: 140px;
+  
+}
+
+
+.search-images{
+  height:110px;
+  width: 90px;
+  margin-top: 5px;
+}
+
+.search-section{
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 70%;
+  height: 110%;
+  box-shadow: 2px 2px 4px #000000;
+  border-radius: 5px;
+}
+
+.history-box{
+  display: grid;
+  grid-template-columns: 30% 40%;
+  padding-left: 10px;
+}
+
+
+.info-section{
+  margin-left: 20px;
+}
 
  }
 

@@ -112,7 +112,7 @@ function SearchHistories({user}){
         <div>
         <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
             <div>
-            <h1>Search History</h1>
+            <h1 className="user-section-header">Search History</h1>
             <>
             <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
             <br></br>

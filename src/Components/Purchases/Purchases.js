@@ -116,7 +116,7 @@ function Purchases({user}){
             <div className="user-index">
               <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
             <div>
-            <h1>Purchase History</h1>
+            <h1 className="user-section-header">Purchase History</h1>
             <>
             <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
             <br></br>

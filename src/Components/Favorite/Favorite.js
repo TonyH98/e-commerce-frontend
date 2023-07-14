@@ -28,7 +28,7 @@ return(
       
 
 
-    <div>
+    <div className="info-section">
       <h3 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
       </h3>

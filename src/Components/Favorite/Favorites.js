@@ -108,8 +108,8 @@ console.log(fav)
         <UserLink>
               <div>
               <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
-            <div>
-            <h1>Favorite Items</h1>
+            <div >
+            <h1 className="user-section-header">Favorite Items</h1>
             <>
             <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
             <br></br>
