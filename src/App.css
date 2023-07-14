@@ -1646,7 +1646,7 @@ a{
     border: 1px solid white;
     background-color: white;
     border-radius: 8px;
-    height: 400px;
+    height: 420px;
     box-shadow: 1px 2px 2px 2px #000;
     text-align: center;
     width: 78%;
@@ -1678,5 +1678,67 @@ a{
     cursor: pointer;
   }
 
+
+  .label-signup{
+    display: inline-block;
+      width: 50%;
+      text-align: left;
+      font-weight: bold;
+  }
+
+  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+
+  .signup-form{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 1%;
+    box-shadow: 1px 2px 2px 2px black;
+    width: 80%;
+    margin-left: 65px;
+    text-align: center;
+    height: 675px
+  }
+
+  .modal-btn{
+    margin-left: 90%;
+    border: none;
+    background-color: white;
+  }
+
+  .modal-container{
+    border: black 1px solid;
+    max-width: 600px;
+    width: 90%;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 1px 2px 1px black;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .closeBtn{
+    position: fixed;
+    top: 1px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+
+  .content{
+    margin-left: 25%;
+  }
 
 }
