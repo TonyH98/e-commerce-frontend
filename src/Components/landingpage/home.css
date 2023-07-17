@@ -117,3 +117,61 @@
   }
   
 }
+
+
+@media (min-width: 577px) and (max-width: 768px){
+
+  .landing-page {
+    background-color: #F5F5F5;
+
+  }
+
+  .landing-header{
+  white-space: nowrap;
+
+  }
+
+  .selected-image {
+    height: 100px;
+    width: 90px;
+  }
+
+  .border-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .category-description {
+    line-height: 1.5;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    /* word-break: break-word; */
+    hyphens: auto;
+    padding: 0 20px; /* Add padding for better readability */
+  }
+  
+
+  .featured-items{
+    text-align: center;
+    box-shadow: 2px 2px 2px 3px silver;
+  
+  }
+
+
+  .featured-image{
+    height: 180px;
+    width: 130px;
+  }
+
+
+}
+
+
+
+
+@media (min-width: 769px) and (max-width: 992px){
+
+
+}

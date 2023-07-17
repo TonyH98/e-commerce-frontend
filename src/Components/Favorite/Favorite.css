@@ -82,3 +82,48 @@
 
 
 }
+
+
+
+
+@media (min-width: 577px) and (max-width: 768px){
+
+
+  .search-images{
+    height:110px;
+    width: 90px
+}
+
+.delete-trash{
+    margin-left: 90%;
+    border: none;
+    background-color: white;
+}
+
+.search-cart{
+text-align: center;
+margin-top: 10px;
+display: grid;
+grid-row-gap: 40px;
+}
+
+.buy-again{
+border: none;
+color: white;
+background-color: black;
+height: 40px;
+
+}
+
+   .pagination{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15px);
+    color:  #002D62;
+    cursor: pointer;
+    list-style: none;
+    margin-left: 12%;
+  }
+
+
+}
