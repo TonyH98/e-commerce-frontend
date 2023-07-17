@@ -1,0 +1,22 @@
+
+
+@media (min-width: 993px){
+    .userDetails{
+        display: grid;
+        grid-template-columns: 15% 25% 60%
+      }
+
+      .userLink{
+        margin-top: 30px;
+      }
+
+      .vertical {
+        top: 0;
+        bottom: 0;
+        display: inline-block;
+        border-left: 5px solid #ccc;
+        margin: 0 10px;
+        height: 180%;
+      }
+
+}

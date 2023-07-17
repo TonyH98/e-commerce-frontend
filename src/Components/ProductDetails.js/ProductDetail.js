@@ -3,10 +3,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate} from "react-router-dom";
 
-import Reviews from "./Reviews/Reviews";
-import ReadMore from "./ReadMore";
+import Reviews from "../Reviews/Reviews";
+import ReadMore from "../Other/ReadMore"
 import {AiFillHeart} from "react-icons/ai"
 import {AiOutlineHeart} from "react-icons/ai"
+
+import "./Product.css"
 
 const API = process.env.REACT_APP_API_URL;
 

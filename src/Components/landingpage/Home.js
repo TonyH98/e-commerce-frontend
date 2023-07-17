@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./home.css"
 
 const API = process.env.REACT_APP_API_URL;
 

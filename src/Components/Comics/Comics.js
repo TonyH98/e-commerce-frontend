@@ -1,7 +1,8 @@
 import Comic from "./Comic"
 import { useState, useEffect } from "react";
-import CategoryHeading from "../CategoryHeading";
+import CategoryHeading from "../Other/CategoryHeading";
 import axios from "axios";
+import "./Comic.css"
 
 const API = process.env.REACT_APP_API_URL;
 function Comics({user}){

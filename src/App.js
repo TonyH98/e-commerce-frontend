@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "./Components/landingpage/Home"
-import Nav from "./Components/Nav"
-import ProductDetails from "./Components/ProductDetail"
+import ProductDetails from "./Components/ProductDetails.js/ProductDetail";
 import ReviewNewForm from "./Components/Reviews/ReviewNewForm"
 import ReviewDetails from "./Components/Reviews/ReviewDetails"
 import ProductCart from "./Components/Cart/ProductCart"
@@ -20,6 +19,7 @@ import UserDetails from "./Components/UserInfo/UserDetails";
 import Success from "./Components/SessionPage/Success"
 import Favorites from "./Components/Favorite/Favorites";
 import Purchases from "./Components/Purchases/Purchases";
+import Nav from "./Components/Nav/Nav";
 
 const API = process.env.REACT_APP_API_URL;
 

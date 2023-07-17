@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import { ShoppingCart} from "phosphor-react";
 
-
+import "./Cart.css"
 
 import axios from "axios";
 

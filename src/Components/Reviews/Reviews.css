@@ -1,0 +1,26 @@
+
+@media (min-width: 993px){
+    .Reviews {
+        /* background-color: whitesmoke; */
+        padding: 1em;
+        box-shadow: 2px 2px 4px silver;
+      }
+
+
+      .Reviews > div {
+        padding: 1em;
+        box-shadow: 0px 0px 2px silver;
+        /* background-color: ghostwhite; */
+      }
+
+      .review-data{
+        text-align: left;
+      }
+
+
+      .reviewer , .review-content{
+        text-align: left;
+        margin-left: 10px;
+      }
+
+}

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Review from "./Review";
+import "./Reviews.css"
 
 const API = process.env.REACT_APP_API_URL;
 

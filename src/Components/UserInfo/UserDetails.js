@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import UserEdit from "./UserEdit";
 import axios from "axios";
 import UserLink from "./UserLink";
+import "./UsersDetails.css"
+
 const API = process.env.REACT_APP_API_URL;
 
 function UserDetails({user}){

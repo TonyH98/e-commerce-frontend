@@ -1,0 +1,42 @@
+
+@media (min-width: 993px){
+
+    .delete-trash{
+        margin-left: 90%;
+        border: none;
+        background-color: white;
+      }
+
+      .search-cart{
+        display: grid;
+        grid-template-columns: repeat(1);
+        grid-row-gap: 40px;
+        margin-left: 140px;
+        
+      }
+
+      .pagination{
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 15px);
+        color:  #002D62;
+        cursor: pointer;
+        list-style: none;
+        margin-left: 12%;
+      }
+
+      .history-box{
+        display: grid;
+        grid-template-columns: 30% 40%;
+      }
+
+      .search-image{
+        margin-top: 10px;
+      }
+
+      .search-images{
+        height:110px;
+        width: 90px
+      }
+
+}

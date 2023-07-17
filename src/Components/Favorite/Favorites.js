@@ -3,6 +3,8 @@ import { Trash } from "phosphor-react";
 import axios from "axios"
 import UserLink from "../UserInfo/UserLink"
 import ReactPaginate from "react-paginate";
+import "./Favorite.css"
+
 
 import { useState, useEffect } from "react";
 

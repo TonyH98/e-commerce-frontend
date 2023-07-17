@@ -2,7 +2,7 @@ import Manga from "./Manga"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import CategoryHeading from "../CategoryHeading";
+import CategoryHeading from "../Other/CategoryHeading";
 const API = process.env.REACT_APP_API_URL;
 
 
