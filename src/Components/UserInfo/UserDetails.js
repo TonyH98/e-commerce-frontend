@@ -45,7 +45,7 @@ function UserDetails({user}){
 
         <div className="user-details">
 
-        <h1>{`${detail.firstname} ${detail.lastname} Information`}</h1>
+        <h1 className="usersname">{`${detail.firstname} ${detail.lastname} Information`}</h1>
         <br />
         {hidden ? (
           <UserEdit
@@ -55,27 +55,27 @@ function UserDetails({user}){
           />
         ) : (
           <>
-            <p>
+            <p className="info-label">
               <span style={{ fontWeight: "bold" }}>User Name:</span>
               {detail.username}
             </p>
             <br />
-            <p>
+            <p className="info-label">
               <span style={{ fontWeight: "bold" }}>First Name:</span>
               {detail.firstname}
             </p>
             <br />
-            <p>
+            <p className="info-label">
               <span style={{ fontWeight: "bold" }}>Last Name:</span>
               {detail.lastname}
             </p>
             <br />
-            <p>
+            <p className="info-label">
               <span style={{ fontWeight: "bold" }}>Email:</span>
               {detail.email}
             </p>
             <br />
-            <p>
+            <p className="info-label">
               <span style={{ fontWeight: "bold" }}>Phone Number:</span>
               {detail.phonenumber}
             </p>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Trash } from "phosphor-react";
-
+import "./Cart.css"
 
 function CartItem(props) {
   

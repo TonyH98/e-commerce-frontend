@@ -105,185 +105,25 @@
 
 
 @media (min-width: 320px) and (max-width: 576px) {
-  nav {
+
+  a{
+    text-decoration: none;
+
+  }
+
+  nav{
     border-bottom: black solid 2px;
   }
 
-  .Navigation {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: 47% 30% 23%;
-    height: 130px;
-  }
+  .nav-1{
 
- .nav-category{
-   position: relative;
+    display: grid;
+    grid-template-columns: 50% 70%;
     
-   bottom: 20px;
- }
 
- 
-
-  .nav-3 {
-    position: relative;
-    right: 20px;
-    display: grid;
-    top: 20px;
-    grid-template-columns: 50px 50px;
   }
 
-  .searchIcon {
-    background-color: white;
-    height: 30px;
-    margin-top: 78px;
-    display: grid;
-    place-items: center;
-    border-left: #000 1px solid;
-    border: #000 solid 1px;
-    position: relative;
-    right: 80px;
-  }
 
-  .search .searchbar {
-    border: 0px;
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    font-size: 18px;
-    padding: 15px;
-    height: 30px;
-    width: 180px;
-    border: #000 1px solid;
-    margin-top: 78px;
-    position: relative;
-    right: 80px;
-  }
-
-  .nav-category {
-    margin-top: 22px;
-    display: grid;
-    grid-template-columns: repeat(3, 100%);
-  }
-
-  .searchInputs {
-    text-align: center;
-    display: flex;
-  }
-
-  .dataResult {
-    margin-top: 5px;
-    width: 300px;
-    height: 200px;
-    border: #000 1px solid;
-    background-color: white;
-    overflow: hidden;
-    overflow-y: auto;
-    position: absolute;
-    right: 100px;
-  }
-
-  .search-section {
-    box-sizing: border-box;
-    border: 1px solid black;
-    width: 70%;
-    height: 110%;
-    box-shadow: 2px 2px 4px #000000;
-    border-radius: 5px;
-  }
-
-  .category-link:hover {
-    color: #909090;
-  }
+  
 }
 
-
-
-@media (min-width: 577px) and (max-width: 768px) {
-  nav {
-    border-bottom: black solid 2px;
-    height: 130px;
-  }
-  
-  a {
-    color: black;
-  }
-
-  .Navigation {
-    display: grid;
-    grid-template-columns: 40% 40% 20%;
-  }
-
-  .nav-1 {
-    display: grid;
-    grid-template-columns: 100% 30%;
-  }
-
-  .dataResult {
-    margin-top: 5px;
-    width: 300px;
-    height: 200px;
-    border: #000 1px solid;
-    background-color: white;
-    overflow: hidden;
-    overflow-y: auto;
-    position: absolute;
-    right: 175px;
-  }
-  
-  .searchInputs {
-    text-align: center;
-    display: flex;
-  }
-
-  .search .searchbar {
-    border: 0px;
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    font-size: 18px;
-    padding: 15px;
-    height: 1px;
-    width: 180px;
-    border: #000 1px solid;
-    margin-top: 78px;
-    position: relative;
-    right: 80px;
-  }
-
-  .searchIcon {
-    background-color: white;
-    height: 30px;
-    margin-top: 78px;
-    display: grid;
-    place-items: center;
-    border-left: #000 1px solid;
-    border: #000 solid 1px;
-    position: relative;
-    right: 80px;
-  }
-
-  .nav-category {
-    margin-top: 22px;
-    display: grid;
-    grid-template-columns: repeat(3, 100%);
-  }
-
-  .search-section {
-    box-sizing: border-box;
-    border: 1px solid black;
-    width: 70%;
-    height: 110%;
-    box-shadow: 2px 2px 4px #000000;
-    border-radius: 5px;
-  }
-
-  .category-link:hover {
-    color: #909090;
-  }
-
-  .category-link {
-    pointer-events: auto;
-  }
-
-
-}

@@ -74,16 +74,7 @@ const {detail} = props
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username" className='label-signup'>Username:</label>
-        <br></br>
-        <input
-          id="username"
-          value={user.username}
-          type="text"
-          onChange={handleTextChange}
-          required
-        />
-        <br></br>
+       
         <label htmlFor="firstname" className='label-signup'>First Name:</label>
         <br></br>
         <input
@@ -102,18 +93,7 @@ const {detail} = props
           required
           value={user.lastname}
           onChange={handleTextChange}
-        />
-        <br></br>
-        <label htmlFor="email" className='label-signup'>Email:</label>
-        <br></br>
-        <input
-          id="email"
-          type="email"
-          required
-          value={user.email}
-          onChange={handleTextChange}
-        />
-         {emailError && <p style={{color:"red"}}>{emailError}</p>}
+        /> 
       <br></br>
       <label htmlFor='phonenumber' className='label-signup'>Phone Number:</label>
       <br></br>
