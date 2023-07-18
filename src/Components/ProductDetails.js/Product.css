@@ -219,4 +219,148 @@
 
 }
 
+
+@media (min-width: 769px) and (max-width: 992px){
+
+  .image{
+    height: 300px;
+    width: 200px;
+    padding-left: 10px;
+  }
+
+  .info{
+    padding-left: 10px;
+  }
+
+  .readmore{
+    line-height: 1.3;
+    /* text-align: justify; */
+    font-size: 15px;
+    font-weight: bold;
+  
+  }
+
+
+  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  
+
+  .cart-input{
+    width: 40px;
+    text-align: center;
+    
+  }
+
+  .cart-counter-input{
+    padding-left: 10px;
+  }
+
+  .cart{
+    padding-left: 10px;
+  }
+
+
+  .add-delete{
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    width: 35%;
+    height: 40px;
+  }
+
+
+  .fav-btns{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
+  }
+
+}
+
+
+
+
+@media (min-width: 577px) and (max-width: 768px){
+
+  .image{
+    height: 300px;
+    width: 200px;
+    padding-left: 10px;
+  }
+
+  .info{
+    padding-left: 10px;
+  }
+
+  .readmore{
+    line-height: 1.3;
+    /* text-align: justify; */
+    font-size: 15px;
+    font-weight: bold;
+  
+  }
+
+
+  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  
+
+  .cart-input{
+    width: 40px;
+    text-align: center;
+    
+  }
+
+  .cart-counter-input{
+    padding-left: 10px;
+  }
+
+  .cart{
+    padding-left: 10px;
+  }
+
+
+  .add-delete{
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    width: 35%;
+    height: 40px;
+  }
+
+
+  .fav-btns{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
+  }
+
+}
+
   
