@@ -7,17 +7,12 @@ function CartItem(props) {
 
   
 
-  const cartIncrease = () => {
-    const updatedProduct = { ...props.product, quantity: props.product.quantity += 1 };
+  const cartIncrease = (event) => {
+    const updatedProduct = { ...props.product, quantity: parseInt(event.target.value) };
     props.handleEdit(updatedProduct);
   };
 
-  const cartDecrease = () => {
-    const updatedProduct = { ...props.product, quantity: props.product.quantity -= 1 };
-    props.handleEdit(updatedProduct);
-  };
-
-
+  
   function deleteItem() {
       props.handleDelete(props.product.products_id);
   }
@@ -46,14 +41,15 @@ function CartItem(props) {
           <br></br>
           <br></br>
 
-        <button onClick={cartDecrease}>-</button>
+       
           <input
-          
+        type="number"
         min="1"
         value={props.product.quantity}
-        className="count-number"
+        className="cart-input"
+        onChange={cartIncrease}
       />
-      <button onClick={cartIncrease}>+</button>
+     
         </div>
     <div>
       <br></br>
