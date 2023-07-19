@@ -2,6 +2,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
+import "./UserLink.css"
 
 function UserLink({children}) {
 
@@ -41,27 +42,33 @@ function UserLink({children}) {
   
   return (
     <div className="userDetails">
-      <div className="userLink">
-        <Link to={`/userDetails/${user?.id}`}>
-          <p>User Info</p>
-        </Link>
-        <br></br>
-        <Link to={`/searchHistory/${user?.id}`}>
-          <p>Search History</p>
-        </Link>
-        <br></br>
-        <Link to={`/favorites/${user?.id}`}>
-          <p>Favorites</p>
-        </Link>
-        <br />
+     <div className="userLink">
+  <div className="link-item">
+    <Link to={`/userDetails/${user?.id}`}>
+      <p>User Info</p>
+    </Link>
+  </div>
+  <div className="link-item">
+    <Link to={`/searchHistory/${user?.id}`}>
+      <p>Search History</p>
+    </Link>
+  </div>
+  <div className="link-item">
+    <Link to={`/favorites/${user?.id}`}>
+      <p>Favorites</p>
+    </Link>
+  </div>
+  <div className="link-item">
+    <Link to={`/purchases/${user?.id}`}>
+      <p>Purchase History</p>
+    </Link>
+  </div>
+  <div className="link-item">
 
-        <Link to={`/purchases/${user?.id}`}>
-          <p>Purchase History</p>
-        </Link>
 
-        <br />
-        <button onClick={handleLogout} className="logout">Logout</button>
-      </div>
+  <button onClick={handleLogout} className="logout">Logout</button>
+  </div>
+</div>
       <div className="vertical"></div>
       <div className="children-section">
         {children}

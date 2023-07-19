@@ -7,22 +7,23 @@
       }
 
 
-      .product-card-section{
-        box-sizing: border-box;
-        border: 1px solid black;
-        width: 80%;
-        height: 110%;
-        box-shadow: 2px 2px 4px #000000;
-        border-radius: 5px;
-      }
+      .product-card-section {
+      box-sizing: border-box;
+      border: 1px solid black;
+      width: 80%;
+      height: 100%; /* Adjust this value to set the desired fixed height */
+      box-shadow: 2px 2px 4px #000000;
+      border-radius: 5px;
+    
+    }
 
-      .order-details {
-        border: black solid 1px;
-        box-shadow: 2px 2px 4px #000000;
-        text-align: left;
-        border-radius: 20px;
-      
-      }
+
+.order-details {
+  border: black solid 1px;
+  box-shadow: 2px 2px 4px #000000;
+  text-align: left;
+  border-radius: 20px;
+}
 
       .price-quantity{
         padding-left: 20px;

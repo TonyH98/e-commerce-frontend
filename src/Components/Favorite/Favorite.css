@@ -2,7 +2,9 @@
 @media (min-width: 993px){
 
     .delete-trash{
-        margin-left: 90%;
+       position: relative;
+       left: 200px;
+       top: 60px;
         border: none;
         background-color: white;
       }
@@ -48,10 +50,13 @@
         width: 90px
    }
 
-    .delete-trash{
-        margin-left: 90%;
-        border: none;
-        background-color: white;
+   .delete-trash{
+    position: relative;
+    left: 280px;
+    top: 60px;
+     border: none;
+     background-color: white;
+
    }
 
    .search-cart{
@@ -95,10 +100,13 @@
 }
 
 .delete-trash{
-    margin-left: 90%;
-    border: none;
-    background-color: white;
-}
+  position: relative;
+  left: 280px;
+  top: 60px;
+   border: none;
+   background-color: white;
+
+ }
 
 .search-cart{
 text-align: center;
@@ -138,10 +146,13 @@ height: 40px;
 }
 
 .delete-trash{
-    margin-left: 90%;
-    border: none;
-    background-color: white;
-}
+  position: relative;
+  left: 280px;
+  top: 60px;
+   border: none;
+   background-color: white;
+
+ }
 
 .search-cart{
 text-align: center;

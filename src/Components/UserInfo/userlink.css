@@ -1,0 +1,132 @@
+@media (min-width: 993px){
+
+  .userLink {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Align text to the left */
+    margin-left: 50px;
+}
+
+.link-item {
+    margin-bottom: 50px; /* Adjust the spacing between each link item as desired */
+}
+
+.link-item p {
+    display: block;
+    margin: 0; /* Optional: Remove any default margin on <p> elements */
+}
+
+
+}
+
+
+
+@media (min-width: 320px) and (max-width: 576px) {
+    .userLink {
+      display: flex;
+      flex-direction: row;
+      align-items: center; /* Optional: Align items in the center horizontally */
+    }
+  
+    .userLink{
+        position: relative;
+        right: 25px;
+
+    }
+  
+    .logout {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: arial, sans-serif;
+      color: #069;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px; /* Adjust the spacing between the links and the logout button */
+    }
+
+    .link-item {
+        margin-left: 40px; 
+
+      }
+
+
+  }
+  
+
+
+@media (min-width: 577px) and (max-width: 768px){
+
+  .userLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Optional: Align items in the center horizontally */
+  }
+
+  .userLink{
+      position: relative;
+      right: 25px;
+
+  }
+
+  .logout {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px; /* Adjust the spacing between the links and the logout button */
+  }
+
+  .link-item {
+      margin-left: 40px; 
+
+    }
+  
+
+
+
+}
+
+
+
+
+@media (min-width: 769px) and (max-width: 992px){
+
+
+  .userLink {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .userLink{
+      position: relative;
+      right: 25px;
+
+  }
+
+  .logout {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px; /* Adjust the spacing between the links and the logout button */
+  }
+
+  .link-item {
+      margin-left: 40px; 
+
+    }
+
+
+
+}

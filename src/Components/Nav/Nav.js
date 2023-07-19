@@ -17,76 +17,74 @@ const API = process.env.REACT_APP_API_URL;
 
 function Nav({isLogged}){
   
-  
-  let [filterSearch , setFilterSearch] = useState([])
-  let [productSearch , setProductSearch] = useState([])
+  const [productCart, setProductCart] = useState([]);
+  const [filterSearch, setFilterSearch] = useState([]);
+  const [productSearch, setProductSearch] = useState([]);
   const [user, setUser] = useState();
+  const [search, setSearch] = useState("");
+  const [totalQuantity, setTotalQuantity] = useState(0);
 
-  let [search , setSearch] = useState("")
-  
-  
-  useEffect(() => {
-    axios
-    .get(`${API}/products`)
-    .then((res) => {
-      setProductSearch(res.data);
-      
-    })
-    
-    
-  },[])
-  
-  
- 
-
-  
   useEffect(() => {
     const loggedUser = JSON.parse(window.localStorage.getItem('user'));
     setUser(loggedUser);
+
+    axios
+      .get(`${API}/users/${loggedUser?.id}/products`)
+      .then((res) => {
+        setProductCart(res.data);
+      })
+      .catch((error) => {
+        console.warn("Error fetching productCart data:", error);
+      });
+
+    axios
+      .get(`${API}/products`)
+      .then((res) => {
+        setProductSearch(res.data);
+      })
+      .catch((error) => {
+        console.warn("Error fetching productSearch data:", error);
+      });
   }, [isLogged]);
-  
-  
-  
-  
-  function handleFilter(event){
-    let searchResult = event.target.value
-    setSearch(searchResult)
+
+  useEffect(() => {
+    // Calculate total quantity whenever productCart changes
+    let newTotalQuantity = 0;
+    for (let i = 0; i < productCart.length; i++) {
+      newTotalQuantity += Number(productCart[i]?.quantity);
+    }
+    setTotalQuantity(newTotalQuantity);
+  }, [productCart]);
+
+  function handleFilter(event) {
+    let searchResult = event.target.value;
+    setSearch(searchResult);
     const filter = productSearch.filter((product) => {
-      return product.product_name.toLowerCase().includes(searchResult.toLowerCase())
-    })
-    
-  if(searchResult === ""){
-    setFilterSearch([])
+      return product.product_name.toLowerCase().includes(searchResult.toLowerCase());
+    });
+
+    if (searchResult === "") {
+      setFilterSearch([]);
+    } else {
+      setFilterSearch(filter);
+    }
   }
-  else{
-    setFilterSearch(filter)
 
+  function clear() {
+    setFilterSearch([]);
+    setSearch("");
   }
-}
 
-function clear(){
-  setFilterSearch([])
-  setSearch("")
-}
-
-
-
-function addToSearchHistory(id, ids) {
-
-  if (!id) {
-    return;
+  function addToSearchHistory(id, ids) {
+    if (!id) {
+      return;
+    }
+    axios.post(`${API}/users/${id}/search/${ids}`);
   }
-    axios.post(`${API}/users/${id}/search/${ids}`)
-}
-
-
-
-
     return( 
       <nav>
-
         <div className="Navigation">
-         
+      
          <div className="nav-1">
 
          <Link to="/">
