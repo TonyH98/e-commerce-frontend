@@ -58,11 +58,10 @@ text-align: left;
 
 
 .des-btns{
-
 border: none;
 background-color: white;
 font-size: 20px;
-
+cursor: pointer;
 }
 
 
@@ -74,9 +73,67 @@ font-weight: bold;
 }
 
 
+
 }
 
 @media (min-width: 320px) and (max-width: 576px){
+
+.image-container{
+
+margin-top: 30px;
+
+}
+
+.image{
+height: 270px;
+width: 220px;
+}
+
+
+.product-details{
+    margin-left: 5px;
+}
+
+.cart{
+display: grid;
+grid-row-gap: 20px;
+margin-top: 10px;
+
+}
+
+
+.add-delete{
+
+width: 35%;
+height:35px;
+font-size: 15px;
+color: white;
+border: none;
+border-radius: 5px;
+background-color: black;
+
+}
+
+
+.fav-btns{
+border: none;
+background-color: white;
+text-align: left;
+}
+
+.des-btns{
+border: none;
+background-color: white;
+font-size: 20px;
+cursor: pointer;
+}
+
+.product-description{
+
+line-height: 25px;  
+font-weight: bold;
+
+}
 
 }
 
@@ -85,22 +142,129 @@ font-weight: bold;
 
 @media (min-width: 577px) and (max-width: 768px){
 
-  
+  .image-container{
+
+margin-top: 30px;
+
+}
+
+.image{
+height: 270px;
+width: 220px;
+}
+
+
+.product-details{
+    margin-left: 5px;
+}
+
+.cart{
+display: grid;
+grid-row-gap: 20px;
+margin-top: 10px;
+
+}
+
+
+.add-delete{
+
+width: 35%;
+height:35px;
+font-size: 15px;
+color: white;
+border: none;
+border-radius: 5px;
+background-color: black;
+
+}
+
+
+.fav-btns{
+border: none;
+background-color: white;
+text-align: left;
+}
+
+.des-btns{
+border: none;
+background-color: white;
+font-size: 20px;
+cursor: pointer;
+}
+
+.product-description{
+
+line-height: 25px;  
+font-weight: bold;
+
+}
+
+
+
+
 }
 
 
 @media (min-width: 769px) and (max-width: 992px){
 
-  
+  .image-container{
+
+margin-top: 30px;
+
+}
+
+.image{
+height: 270px;
+width: 220px;
+}
+
+
+.product-details{
+    margin-left: 5px;
+}
+
+.cart{
+display: grid;
+grid-row-gap: 20px;
+margin-top: 10px;
 
 }
 
 
+.add-delete{
 
+width: 35%;
+height:35px;
+font-size: 15px;
+color: white;
+border: none;
+border-radius: 5px;
+background-color: black;
 
-@media (min-width: 577px) and (max-width: 768px){
-
-  
 }
+
+
+.fav-btns{
+border: none;
+background-color: white;
+text-align: left;
+}
+
+.des-btns{
+border: none;
+background-color: white;
+font-size: 20px;
+cursor: pointer;
+}
+
+.product-description{
+
+line-height: 25px;  
+font-weight: bold;
+
+}
+
+}
+
 
   

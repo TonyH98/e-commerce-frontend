@@ -9,14 +9,14 @@ function ReadMore({children}){
   }
 
 
-    // return(
-    //     <p className="readmore" >
-    //        {hidden ? children : `${children.substring(0, 200)}`}
-    //        <br></br>
-    //        {children.length > 200 ? <button onClick={toggleView} className="readmore-btn">{!hidden ? `Read More...` : `Read Less...` }</button> : null}
+    return(
+        <p className="readmore" >
+           {hidden ? children : `${children.substring(0, 200)}`}
+           <br></br>
+           {children.length > 200 ? <button onClick={toggleView} className="readmore-btn">{!hidden ? `Read More...` : `Read Less...` }</button> : null}
            
-    //     </p>
-    // )
+        </p>
+    )
 }
 
 export default ReadMore

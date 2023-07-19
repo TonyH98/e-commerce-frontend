@@ -231,18 +231,19 @@ console.log(show)
                 <p className="manu-details"> By: {product.manufacturer}</p>
 
                 <p className="price-detail">
-            ${product.price}
+            Price: ${product.price}
 
                 </p>
 
               </div>
 
-              <hr></hr>
+              <hr className="hr-product"></hr>
               
               <div className="input-container">
 
               <div className="cart-counter-input">
-                
+                Quantity:
+                <br/>
                 <input
                 className="cart-input"
                 type="number"
@@ -273,7 +274,7 @@ console.log(show)
 
               </div>
 
-              <hr></hr>
+              <hr className="hr-product"></hr>
 
 
               <div className="description-container">
@@ -290,7 +291,7 @@ console.log(show)
 
               </div>
 
-            <hr></hr>
+              <hr className="hr-product"></hr>
 
           </section>
 
