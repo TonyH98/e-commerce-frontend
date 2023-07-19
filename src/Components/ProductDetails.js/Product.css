@@ -2,148 +2,82 @@
 
 @media (min-width: 993px){
 
-    .product-details{
-        display: grid;
-        grid-template-columns: repeat(2, 450px);
-    }
+.image-container{
 
-    .image-container{
-  
-        text-align: left;
-        margin-left: 80px;
-      }
+margin-top: 30px;
 
+}
 
-      .image{
-        height: 300px;
-        width: 200px;
-      }
+.product-details{
+
+display: grid;
+
+grid-template-columns: 40% 50%
 
 
-      .cart-counter-input{
-        text-align: left;
-        margin-left: 80px;
-      }
+}
+
+.cart-input{
+height: 20px;
+border-radius: 5px;
 
 
-      .decrease-increase{
-        background-color: white;
-      }
-      
-      
-      .decrease-increase{
-        border: none;
-        
-      }
+}
 
 
-      .cart-input{
-        border: none;
-      }
+.details-name, .input-container, .description-container{
+    text-align: left;
+} 
 
-      .cart-input{
-        width: 40px;
-        text-align: center;
-        
-      }
+.cart{
+display: grid;
+grid-row-gap: 20px;
+margin-top: 10px;
 
-
-     .cart{
-        text-align: left;
-        margin-left: 70px;
-      } 
-
-      .add-delete{
-        border: none;
-        outline: 0;
-        padding: 12px;
-        color: white;
-        background-color: #000;
-        text-align: center;
-        cursor: pointer;
-        font-size: 18px;
-        margin-left: 10px;
-        width: 15%
-      }
+}
 
 
-      .fav-btns{
-        background-color: white;
-        border: none;
-        cursor: pointer;
-      }
-      
+.add-delete{
+
+width: 30%;
+height:35px;
+font-size: 15px;
+color: white;
+border: none;
+border-radius: 5px;
+background-color: black;
+
+}
+
+
+.fav-btns{
+border: none;
+background-color: white;
+text-align: left;
+}
+
+
+.des-btns{
+
+border: none;
+background-color: white;
+font-size: 20px;
+
+}
+
+
+.product-description{
+
+line-height: 28px;  
+font-weight: bold;
+
+}
+
 
 }
 
 @media (min-width: 320px) and (max-width: 576px){
 
-  .image{
-    height: 300px;
-    width: 200px;
-    padding-left: 10px;
-  }
-
-  .info{
-    padding-left: 10px;
-  }
-
-  .readmore{
-    line-height: 1.3;
-    /* text-align: justify; */
-    font-size: 15px;
-    font-weight: bold;
-  
-  }
-
-
-  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  
-
-  .cart-input{
-    width: 40px;
-    text-align: center;
-    
-  }
-
-  .cart-counter-input{
-    padding-left: 10px;
-  }
-
-  .cart{
-    padding-left: 10px;
-  }
-
-
-  .add-delete{
-    border: none;
-    outline: 0;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    font-size: 18px;
-    width: 35%;
-    height: 40px;
-  }
-
-
-  .fav-btns{
-    background-color: white;
-    border: none;
-    cursor: pointer;
-
-  }
-
 }
 
 
@@ -151,142 +85,13 @@
 
 @media (min-width: 577px) and (max-width: 768px){
 
-  .image{
-    height: 300px;
-    width: 200px;
-    padding-left: 10px;
-  }
-
-  .info{
-    padding-left: 10px;
-  }
-
-  .readmore{
-    line-height: 1.3;
-    /* text-align: justify; */
-    font-size: 15px;
-    font-weight: bold;
   
-  }
-
-
-  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  
-
-  .cart-input{
-    width: 40px;
-    text-align: center;
-    
-  }
-
-  .cart-counter-input{
-    padding-left: 10px;
-  }
-
-  .cart{
-    padding-left: 10px;
-  }
-
-
-  .add-delete{
-    border: none;
-    outline: 0;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    font-size: 18px;
-    width: 35%;
-    height: 40px;
-  }
-
-
-  .fav-btns{
-    background-color: white;
-    border: none;
-    cursor: pointer;
-
-  }
-
 }
 
 
 @media (min-width: 769px) and (max-width: 992px){
 
-  .image{
-    height: 300px;
-    width: 200px;
-    padding-left: 10px;
-  }
-
-  .info{
-    padding-left: 10px;
-  }
-
-  .readmore{
-    line-height: 1.3;
-    /* text-align: justify; */
-    font-size: 15px;
-    font-weight: bold;
   
-  }
-
-
-  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  
-
-  .cart-input{
-    width: 40px;
-    text-align: center;
-    
-  }
-
-  .cart-counter-input{
-    padding-left: 10px;
-  }
-
-  .cart{
-    padding-left: 10px;
-  }
-
-
-  .add-delete{
-    border: none;
-    outline: 0;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    font-size: 18px;
-    width: 35%;
-    height: 40px;
-  }
-
-
-  .fav-btns{
-    background-color: white;
-    border: none;
-    cursor: pointer;
-
-  }
 
 }
 
@@ -295,72 +100,7 @@
 
 @media (min-width: 577px) and (max-width: 768px){
 
-  .image{
-    height: 300px;
-    width: 200px;
-    padding-left: 10px;
-  }
-
-  .info{
-    padding-left: 10px;
-  }
-
-  .readmore{
-    line-height: 1.3;
-    /* text-align: justify; */
-    font-size: 15px;
-    font-weight: bold;
   
-  }
-
-
-  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  
-
-  .cart-input{
-    width: 40px;
-    text-align: center;
-    
-  }
-
-  .cart-counter-input{
-    padding-left: 10px;
-  }
-
-  .cart{
-    padding-left: 10px;
-  }
-
-
-  .add-delete{
-    border: none;
-    outline: 0;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    font-size: 18px;
-    width: 35%;
-    height: 40px;
-  }
-
-
-  .fav-btns{
-    background-color: white;
-    border: none;
-    cursor: pointer;
-
-  }
-
 }
 
   

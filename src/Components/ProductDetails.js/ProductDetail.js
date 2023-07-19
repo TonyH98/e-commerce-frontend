@@ -23,6 +23,8 @@ function ProductDetails({user}){
 
   const [userFavorite , setUserFavorite ] = useState({})
 
+  let [show , setShow] = useState(false)
+
   let [counter, setCounter] = useState(1);
   const navigate = useNavigate();
 
@@ -145,16 +147,14 @@ function ProductDetails({user}){
   });
 
   
-function counterIncrease(){
-  setCounter(counter += 1)
+function counterInput(event){
+  const inputValue = parseInt(event.target.value);
+
+    setCounter(inputValue);
+
 }
 
-function counterDecrease(){
-  setCounter(counter -= 1)
-  if(counter <0 ){
-    setCounter(0)
-  }
-}
+
 
 
 const buyNow = async () => {
@@ -198,12 +198,21 @@ else{
 }
 
 
+function handleShow(){
+
+  setShow(!show)
+
+}
+
+console.log(show)
+
     return(
         <div>
           
           <div className="product-details">
+
           <div className="image-container">
-       <br></br>
+     
             <img 
                 src={product.image} 
                 className="image"
@@ -211,61 +220,84 @@ else{
               />
 
           </div>
+
+       
+
           <section className="info">
 
               <div className="details-name">
-                 <p style={{fontSize:"30px"}}> {product.product_name},  <span style={{fontSize: "15px" , color: "gray"}}>{date}</span></p> 
-              </div>
-              <div>
-                <p className="price-detail">
-                  <span   style={{fontWeight: "bold"}}>Price:</span> ${product.price}
-                </p>
-              </div>
-              <p className="product-description">
-                 <ReadMore>
-                 {`${product.description}`}
-                </ReadMore> 
+                 <p style={{fontSize:"30px"}}> {product.product_name}</p> 
 
-              </p>
-              <div>
                 <p className="manu-details"> By: {product.manufacturer}</p>
+
+                <p className="price-detail">
+            ${product.price}
+
+                </p>
+
               </div>
-          </section>
-          <br></br>
-          </div>
 
-          <div className="cart-counter-input">
-            <button className="decrease-increase" onClick={counterDecrease}>-</button>
-            <input
-            className="cart-input"
-            value={counter}
-            />
-            <button className="decrease-increase"  onClick={counterIncrease}>+</button>
-          </div>
-         
-      <br></br>
-          <div className="cart">
-            {userCart?.quantity > 0 ? (
-              <button className="add-delete" onClick={deleteCart} >Delete From Cart</button>
-            ) : (
-          <button className="add-delete" onClick={() => addToUser(counter)}>Add to Cart</button>
-            )}
+              <hr></hr>
+              
+              <div className="input-container">
+
+              <div className="cart-counter-input">
+                
+                <input
+                className="cart-input"
+                type="number"
+                min="1"
+                value={counter}
+                onChange={counterInput}
+                />
+      
+              </div>
+             
+    
+              <div className="cart">
+                {userCart?.quantity > 0 ? (
+                  <button className="add-delete" onClick={deleteCart} >Delete From Cart</button>
+                ) : (
+              <button className="add-delete" onClick={() => addToUser(counter)}>Add to Cart</button>
+                )}
+              <button className="add-delete" onClick={buyNow}>Buy it Now</button>
+              {userFavorite.favorites ? (
+                <button className="fav-btns"onClick={removeFav} ><AiFillHeart size={40}/></button>
+              ): 
+                <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={40}/></button>
+              }
+
+    
+         </div>
            
-              <br></br>
-              <br></br>
-          <button className="add-delete" onClick={buyNow}>Buy it Now</button>
-              <br></br>
-          {userFavorite.favorites ? (
-            <button className="fav-btns"onClick={removeFav} ><AiFillHeart size={30}/></button>
-          ): 
-            <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={30}/></button>
-          }
 
-<br></br>
+              </div>
 
-         
+              <hr></hr>
 
-     </div>
+
+              <div className="description-container">
+
+              <button className="des-btns" onClick={handleShow}>{show ? "Show Less" : "Show More"}</button>
+
+              {show ? (
+              <p className="product-description">
+                 {product.description}
+              </p>
+
+
+              ) : null}
+
+              </div>
+
+            <hr></hr>
+
+          </section>
+
+          </div>
+
+
+
      <br></br>
         <Reviews user={user}/>
     </div>

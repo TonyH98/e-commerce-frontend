@@ -160,11 +160,10 @@
   
   .readmore{
     line-height: 1.3;
-    padding: 20px;
     text-align: justify;
     font-size: 15px;
     font-weight: bold;
-    margin-left: 23px;
+
   
   }
   
@@ -382,10 +381,10 @@
     margin-right: 40px;
   }
   
-  .cart-counter-input{
+  /* .cart-counter-input{
     border: #000 1px solid;
     margin-right: 87.9%
-  }
+  } */
   
 
   .showMore{
