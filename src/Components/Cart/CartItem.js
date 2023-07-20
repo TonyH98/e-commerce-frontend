@@ -17,6 +17,8 @@ function CartItem(props) {
       props.handleDelete(props.product.products_id);
   }
 
+console.log(props.product.images[0]?.image)
+
 
   return (
     <section className="product-box">
@@ -25,7 +27,7 @@ function CartItem(props) {
         <div className="image-link">
         <Link to={`/products/${props.product.products_id}`}>
           <img
-            src={props.product.image}
+            src={props.product.images[0]?.image}
             alt={props.product.product_name}
             className="cart-images"
           />
@@ -41,9 +43,7 @@ function CartItem(props) {
           <span style={{ fontWeight: "bold", color: "white" }}>Price:</span> ${props.product.price}
           </p>
           <br></br>
-          <br></br>
-
-       
+  
           <input
         type="number"
         min="1"

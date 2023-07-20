@@ -18,7 +18,7 @@ return(
       <div className="search-image">
       <Link to={`/products/${product.products_id}`}>
         <img
-          src={product.image}
+          src={product.images[0]?.image}
           alt={product.product_name}
           className="search-images"
           ></img>

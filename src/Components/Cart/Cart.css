@@ -58,6 +58,7 @@
     text-align: left;
     padding-left: 20px;
     padding-top:15px ;
+    margin-bottom: 15px;
   }
 
   .card-info{
@@ -130,8 +131,8 @@
 
   .cart-btns {
     border: none;
-    background-color: white;
-    color: black;
+    background-color:blue;
+    color: white;
     height: 50px;
     width: 200px;
   }

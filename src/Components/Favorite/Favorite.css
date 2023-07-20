@@ -1,6 +1,11 @@
 
 @media (min-width: 993px){
 
+    .search-section{
+      border-bottom: 1px solid white;
+      margin-right: 50px;
+    }
+
     .delete-trash{
        position: relative;
        left: 200px;
