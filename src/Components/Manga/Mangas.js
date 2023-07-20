@@ -2,7 +2,7 @@ import Manga from "./Manga"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import CategoryHeading from "../Other/CategoryHeading";
+
 const API = process.env.REACT_APP_API_URL;
 
 
@@ -13,11 +13,6 @@ function Mangas({user}){
     
 
     useEffect(() => {
-      const cachedProducts = localStorage.getItem("cachedProducts3")
-      if(cachedProducts){
-        setProducts(JSON.parse(cachedProducts))
-      }
-      else{
         axios
           .get(`${API}/products?category=Anime/Manga`)
           .then((res) => {
@@ -25,8 +20,6 @@ function Mangas({user}){
             localStorage.setItem("cachedProducts3",JSON.stringify(res.data) )
           })
           .catch((c) => console.warn("catch, c"));
-
-      }
     }, []);
 
     
@@ -55,7 +48,7 @@ function Mangas({user}){
       const sortAlphabetically = (alpha) => {
         if (alpha === "") {
           axios
-            .get(`${API}/products?category=video+games`)
+          .get(`${API}/products?category=Anime/Manga`)
             .then((res) => {
               setProducts(res.data);
             })
@@ -77,15 +70,17 @@ function Mangas({user}){
       }
   
 
-
+      console.log(products)
 
   
 
     return(
         <div>
-          <CategoryHeading>
+     
+           <h1>
             Manga Section
-          </CategoryHeading>
+            </h1> 
+
 
         <div className="filter-products">
           

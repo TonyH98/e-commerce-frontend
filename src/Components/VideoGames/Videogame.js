@@ -115,15 +115,18 @@ const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
         ></img>
       </Link>
       </div>
-
+      <hr></hr>
       <div>
       <h3 className="product-names">
         <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
           {props.game.product_name}
           </Link>
       </h3>
+      <p className="price">
+
+
       <span style={{fontWeight: "bold"}}>Price:</span> ${props.game.price}
-      <br></br>
+      </p>
       <br></br>
       {props.user && inCart.includes(props.game.product_name) ? 
       <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.game.id)}>Delete From Cart</button> :

@@ -129,7 +129,7 @@ function Nav({isLogged}){
            value={search}
            onChange={handleFilter} 
            className="searchbar"/>
-           <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} />: <X  onClick={clear} size={25} className="clear-bar"/>}</div>
+           <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} color="white"/>: <X  onClick={clear} size={25} color="white"className="clear-bar"/>}</div>
          </div>
          {filterSearch.length !== 0 &&(
       
@@ -158,14 +158,14 @@ function Nav({isLogged}){
           <Link to={`/cart/${user?.id}`}>
             <div>
 
-            <ShoppingCart size={30} color="black"/>
+            <ShoppingCart size={30} color="white"/>
             </div>
           </Link>
         ) : (
           <Link to={`/login`}>
             <div>
 
-                <ShoppingCart size={30} color="black"/>
+                <ShoppingCart size={30} color="white"/>
             </div>
           </Link>
         )}

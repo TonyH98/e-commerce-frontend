@@ -111,15 +111,16 @@ function Manga(props){
             ></img>
           </Link>
           </div>
-
+      <hr></hr>
           <div>
           <h3 className="product-names">
             <Link to={`/products/${props.manga.id}`} onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
               {props.manga.product_name}
               </Link>
           </h3>
+          <p className="price">
           <span style={{fontWeight: "bold"}}>Price:</span> ${props.manga.price}
-          <br></br>
+          </p>
           <br></br>
           {props.user && inCart.includes(props.manga.product_name) ? 
           <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.manga.id)}>Delete From Cart</button> :

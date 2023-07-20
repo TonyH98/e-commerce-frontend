@@ -3,12 +3,13 @@
 @media (min-width: 993px){
 
     .landing-page{
-        background-color: #F5F5F5;
+
         margin-left: 50px;
         margin-right: 50px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 100px;
+        border: silver 2px solid;
       
       }
 
@@ -16,6 +17,7 @@
         text-align: justify;
         margin-left: 100px;
         padding: 20px;
+        color: white;
       
       }
       .category-description {
@@ -25,6 +27,7 @@
         font-size: 14px;
         font-weight: bold;
         margin-left: 100px;
+        color: white;
       }
 
 
@@ -48,7 +51,7 @@
         margin-right: 20px;
         padding: 20px;
         grid-column-gap: 15px;
-        box-shadow: 2px 2px 2px 3px silver;
+        border: silver 1px solid;
       
       }
 
@@ -56,7 +59,6 @@
   
         padding-left: 140px;
        padding-top: 22px;
-       background-color: #F5F5F5
        }
 
 
@@ -65,7 +67,9 @@
         width: 130px;
       }
       
-
+      h4{
+        color: white;
+      }
 
 }
 

@@ -3,10 +3,11 @@
 
     a{
         text-decoration: none;
+        color: white;
       }
 
     nav{
-        border-bottom: black solid 2px;
+        border-bottom: silver solid 2px;
       }
 
       .Navigation{
@@ -55,17 +56,19 @@
     padding: 15px;
     height: 30px;
     width: 400px;
-    border: #000 1px solid;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
   }
   
   .searchIcon{
-    background-color: white;
+    background-color: black;
     height: 30px;
     margin-top: 8px;
     display: grid;
     place-items: center;
-    border-left: #000 1px solid;
-    border: #000 solid 1px;
+    border-left: white 1px solid;
+    border: white solid 1px;
   }
 
 
@@ -73,8 +76,8 @@
     margin-top: 5px;
     width: 300px;
     height: 200px;
-    border: #000 1px solid;
-    background-color: white;
+    border: white 1px solid;
+    background-color: black;
     overflow: hidden;
     overflow-y: auto;
     position: absolute;

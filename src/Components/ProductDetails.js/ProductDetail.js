@@ -263,9 +263,9 @@ console.log(show)
                 )}
               <button className="add-delete" onClick={buyNow}>Buy it Now</button>
               {userFavorite.favorites ? (
-                <button className="fav-btns"onClick={removeFav} ><AiFillHeart size={40}/></button>
+                <button className="fav-btns"onClick={removeFav} ><AiFillHeart size={40} color="red"/></button>
               ): 
-                <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={40}/></button>
+                <button  className="fav-btns" onClick={addToFav}><AiOutlineHeart size={40} color="red"/></button>
               }
 
     

@@ -109,15 +109,16 @@ function Comic(props){
         ></img>
       </Link>
       </div>
-
+<hr></hr>
       <div>
       <h3 className="product-names">
         <Link to={`/products/${props.comic.id}`} onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
           {props.comic.product_name}
           </Link>
       </h3>
+      <p className="price">
       <span style={{fontWeight: "bold"}}>Price:</span> ${props.comic.price}
-      <br></br>
+      </p>
       <br></br>
       {props.user && inCart.includes(props.comic.product_name) ? 
       <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.comic.id)}>Delete From Cart</button> :

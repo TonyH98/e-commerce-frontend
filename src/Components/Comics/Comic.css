@@ -29,11 +29,9 @@
   .product{
     height: 100%;
     width: 70%;
-    border: 2px solid white;
-    background-color: white;
+    border: 1px solid silver;
     border-radius: 2%;
     margin-left: 50px;
-    box-shadow: 1px 2px 2px 2px #000000;
   }
 
 
@@ -45,10 +43,12 @@
 
 
   .cart-btns-category{
-    background-color: black;
+    background-color: rgb(11, 11, 191);
     color: white;
     border: none;
-    height: 45px
+    height: 45px;
+    border-radius: 5px;
+    width: 120px;
   }
   
   .cart-btns-category:hover{
@@ -59,6 +59,16 @@
     background-color: blue;
   }
 
+  h1{
+    color: white;
+  }
+  label{
+    color: white;
+  }
+
+  .price{
+    color: white;
+  }
 
 }
 
@@ -119,6 +129,10 @@
   
   .cart-btns-category:active{
     background-color: blue;
+  }
+
+  h1{
+    color: white;
   }
 
 }

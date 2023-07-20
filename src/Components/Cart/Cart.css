@@ -9,7 +9,7 @@
 
       .product-card-section {
       box-sizing: border-box;
-      border: 1px solid black;
+      border: 1px solid silver; 
       width: 80%;
       height: 100%; /* Adjust this value to set the desired fixed height */
       box-shadow: 2px 2px 4px #000000;
@@ -19,7 +19,7 @@
 
 
 .order-details {
-  border: black solid 1px;
+  border: silver solid 1px;
   box-shadow: 2px 2px 4px #000000;
   text-align: left;
   border-radius: 20px;
@@ -71,7 +71,7 @@
 
   .clear-cart{
     border: none;
-    background-color: white;
+    background-color: black
   }
 
 }
@@ -113,7 +113,7 @@
 
   .clear-cart {
     border: none;
-    background-color: white;
+    background-color: black
   }
 
   .product-quantity-price {
@@ -130,8 +130,8 @@
 
   .cart-btns {
     border: none;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     height: 50px;
     width: 200px;
   }

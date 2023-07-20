@@ -1,6 +1,6 @@
 import Comic from "./Comic"
 import { useState, useEffect } from "react";
-import CategoryHeading from "../Other/CategoryHeading";
+
 import axios from "axios";
 import "./Comic.css"
 
@@ -9,16 +9,11 @@ function Comics({user}){
     
     const [products , setProducts] = useState([])
 
+  
 
-    
+
 
     useEffect(() => {
-
-      const cachedProducts = localStorage.getItem("cachedProducts2")
-      if(cachedProducts){
-        setProducts(JSON.parse(cachedProducts))
-      }
-      else{
         axios
           .get(`${API}/products?category=Comics`)
           .then((res) => {
@@ -27,7 +22,6 @@ function Comics({user}){
           })
           .catch((c) => console.warn("catch, c"));
 
-      }
     }, []);
 
 
@@ -79,40 +73,42 @@ function Comics({user}){
         
       }
   
-  
-
-
-
-
     
+      
     return (
       <div>
-      <CategoryHeading>
+
+        <h1>
+
         Comic Books Section
-      </CategoryHeading>
+
+        </h1>
+
 
     <div className="filter-products">
       
-      <div>
-        <label>Sort by Price:</label>
-        <select onChange={(e) => handlePrice(e.target.value)}>
-        <option value="">Select</option>
-        <option value="High to Low">High to Low</option>
-        <option value="Low to High">Low to High</option>
-        </select>
-      </div>
-      <div>
-        <label>Sort Alphabetically:</label>
-        <select onChange={(e) => sortAlphabetically(e.target.value)}>
-        <option value="">Select</option>
-        <option value="A-Z">A-Z</option>
-        <option value="Z-A">Z-A</option>
-        </select>
-      </div>
+    <div>
+  <label>Sort by Price:</label>
+  <select className="custom-select" onChange={(e) => handlePrice(e.target.value)}>
+    <option value="">Select</option>
+    <option value="High to Low">High to Low</option>
+    <option value="Low to High">Low to High</option>
+  </select>
+</div>
+<div>
+  <label>Sort Alphabetically:</label>
+  <select className="custom-select" onChange={(e) => sortAlphabetically(e.target.value)}>
+    <option value="">Select</option>
+    <option value="A-Z">A-Z</option>
+    <option value="Z-A">Z-A</option>
+  </select>
+</div>
+
       
     </div>
-    
-    <br></br>
+
+
+
 <div className="product-card">
     {products.map((comic) => {
         return(

@@ -187,8 +187,8 @@ const checkout = async () => {
                 <h2>Order Summary</h2>
                 <div className="product-quantity-price">
 
-                <div>Total Items:</div>
-              <div>{totalQuantity}</div>
+                <div style={{color: "white"}}>Total Items:</div>
+              <div style={{color: "white"}}>{totalQuantity}</div>
 
                   </div>
                 <br></br>
@@ -197,9 +197,9 @@ const checkout = async () => {
                     return(
                       <div className="product-quantity-price" key={product.products_id}>
 
-                        <div>{product.product_name} x{product.quantity}: </div>
+                        <div style={{color: "white"}}>{product.product_name} x{product.quantity}: </div>
 
-                          <div>${(Number(product.quantity) * Number(product.price)).toFixed(2)}</div>
+                          <div style={{color: "white"}}>${(Number(product.quantity) * Number(product.price)).toFixed(2)}</div>
 
                       </div>
                       
@@ -211,7 +211,7 @@ const checkout = async () => {
                 <hr></hr>
                   <div className="product-quantity-price">
 
-                  <div style={{"fontWeight": "bold"}}>Grand Total:</div>
+                  <div style={{"fontWeight": "bold", color: "white"}}>Grand Total:</div>
                   <div style={{color:"green"}}>${sum.toFixed(2)}</div>
 
                   </div>

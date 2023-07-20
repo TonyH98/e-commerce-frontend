@@ -37,7 +37,9 @@ function CartItem(props) {
           <h5 className="product-name">
             <Link to={`/products/${props.product.products_id}`}>{props.product.product_name}</Link>
           </h5>
-          <span style={{ fontWeight: "bold" }}>Price:</span> ${props.product.price}
+          <p>
+          <span style={{ fontWeight: "bold", color: "white" }}>Price:</span> ${props.product.price}
+          </p>
           <br></br>
           <br></br>
 
@@ -54,7 +56,7 @@ function CartItem(props) {
     <div>
       <br></br>
       <button className="clear-cart" onClick={deleteItem}>
-        <Trash size={30}/>
+        <Trash size={30} color="white"/>
       </button>
     </div>
 

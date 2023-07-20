@@ -222,11 +222,12 @@
   }
   
   .cart-btns{
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     height: 45px;
-    width: 200px
+    width: 200px;
+    border-radius: 5px;
   }
   
   .cart-btns:hover{
@@ -240,11 +241,6 @@
     background-color: rgb(25, 17, 68);
   }
   
-
-
-
-
-  
   .products-cart{
     display: grid;
     grid-template-columns: repeat(1);
@@ -253,14 +249,6 @@
     
     
   }
-  
-
-  
- 
-  
-  
-
-  
   
   .favorites-section{
     text-align: left;
