@@ -43,6 +43,7 @@ function addToSearchHistory(id, productId){
   axios.post(`${API}/users/${id}/search/${productId}`)
 }
 
+console.log(recommended)
 
 return (
   <div>
@@ -66,19 +67,21 @@ return (
         </div>
       </div>
 
-      <div className="border-products">
-       {selectedProducts.map((product) => {
-         return(
-          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
+     <div className="border-products">
+      {selectedProducts.map((product) => (
+        <Link
+          to={`/products/${product.id}`}
+          key={product.id}
+          onClick={() => addToSearchHistory(user?.id, product.id)}
+        >
           <img
-          src={product.image}
-          alt={product.product_name}
-          className="selected-image"
+            src={product.image[0]?.image} // Assuming there's only one image per product
+            alt={product.product_name}
+            className="landing-image"
           />
-          </Link>
-         )
-       })}
-      </div>
+        </Link>
+      ))}
+    </div>
 
     </div>
        <br></br>
@@ -93,7 +96,7 @@ return (
               
               <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
               <img
-             src={product.image}
+             src={product.image[0]?.image}
              alt={product.product_name}
              className="featured-image"
              />
@@ -125,7 +128,7 @@ return (
 
                 <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
               <img
-             src={product.image}
+             src={product.image[0]?.image}
              alt={product.product_name}
              className="featured-image"
              />

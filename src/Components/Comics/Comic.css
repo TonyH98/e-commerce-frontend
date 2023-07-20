@@ -3,7 +3,7 @@
     .product-page-container{
 
       display: grid;
-      grid-template-columns: 20% 70%;
+      grid-template-columns: 15% 70%;
 
     }
 
@@ -39,9 +39,9 @@
  
   .filter-toggle{
     text-align: left;
-    margin-left: 100px;
+    margin-left: 60px;
     display: grid;
-    grid-row-gap: 10px;
+    grid-row-gap: 15px;
   }
 
   .product-card{

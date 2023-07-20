@@ -103,7 +103,7 @@ function Comic(props){
       <div>
       <Link to={`/products/${props.comic.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
         <img
-          src={props.comic.image}
+          src={props.comic.image[0]?.image}
           alt={props.comic.product_name}
           className="product-image"
         ></img>

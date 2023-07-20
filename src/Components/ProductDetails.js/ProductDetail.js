@@ -20,6 +20,10 @@ function ProductDetails({user}){
   const [product, setProduct] = useState({});
   const [userCart , setUserCart] = useState({})
 
+ let [mainImageIndex, setMainImageIndex] = useState(0)
+
+  
+
   const [userFavorite , setUserFavorite ] = useState({})
 
   let [show , setShow] = useState(false)
@@ -29,10 +33,13 @@ function ProductDetails({user}){
 
   useEffect(() => {
     
-    axios
-      .get(`${API}/products/${id}`)
-      .then((res) => setProduct(res.data))
-      .catch((err) => console.error(err));
+    if(id){
+
+      axios
+        .get(`${API}/products/${id}`)
+        .then((res) => setProduct(res.data))
+        .catch((err) => console.error(err));
+    }
   }, [id]);
 
 
@@ -136,17 +143,12 @@ function ProductDetails({user}){
 
 
  
-
-  
 function counterInput(event){
   const inputValue = parseInt(event.target.value);
 
     setCounter(inputValue);
 
 }
-
-
-
 
 const buyNow = async () => {
   
@@ -195,23 +197,46 @@ function handleShow(){
 
 }
 
-console.log(userCart)
+
+const handleImageIndex = (index) => {
+
+  setMainImageIndex(index)
+}
+
+
+console.log(userFavorite.favorites)
+
 
     return(
         <div>
           
           <div className="product-details">
 
+          { product.images?.length > 0 ? (
           <div className="image-container">
-     
-            <img 
-                src={product.image} 
-                className="image"
-                alt={`${product.product_name}`} 
-              />
+      <div className="main-image">
+        <img
+          src={product.images[mainImageIndex].image}
+          className="image"
+          alt={product.product_name}
+        />
+      </div>
 
-          </div>
+      <div className="image-option">
+        {product.images.map((pic, index) => (
+          <img
+            key={index}
+            src={pic.image}
+            className="selected-image"
+            alt={product.product_name}
+            onClick={() => handleImageIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
 
+
+          ): null}
        
 
           <section className="info">
