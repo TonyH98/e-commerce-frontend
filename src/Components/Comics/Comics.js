@@ -7,25 +7,37 @@ import "./Comic.css"
 const API = process.env.REACT_APP_API_URL;
 function Comics({user}){
     
-    const [products , setProducts] = useState([])
+  const [products , setProducts] = useState([])
 
-  
+  const [filterProducts , setFilterProducts] = useState([])
 
-
+  const [brandList , setBrandList] = useState([])
 
     useEffect(() => {
         axios
           .get(`${API}/products?category=Comics`)
           .then((res) => {
             setProducts(res.data);
-            localStorage.setItem("cachedProducts2",JSON.stringify(res.data) )
+            setFilterProducts(res.data)
           })
           .catch((c) => console.warn("catch, c"));
 
     }, []);
 
 
-   
+    const filterByBrand = () => {
+
+      if(brandList.length === 0){
+        return filterProducts
+      }
+      
+      else{
+      return filterProducts.filter((product) =>  brandList.includes(product.manufacturer))
+      
+      }
+      
+      }
+
 
 
       const handlePrice = (price) => {
@@ -37,89 +49,133 @@ function Comics({user}){
             })
             .catch((c) => console.warn("catch", c));
         } else if (price === "High to Low") {
-          const sortedProducts = [...products].sort((a, b) =>
+          const sortedProducts = [...filterProducts].sort((a, b) =>
             parseFloat(b.price) - parseFloat(a.price)
           );
-          setProducts(sortedProducts);
+          setFilterProducts(sortedProducts);
         } else if (price === "Low to High") {
-          const sortedProducts = [...products].sort((a, b) =>
+          const sortedProducts = [...filterProducts].sort((a, b) =>
             parseFloat(a.price) - parseFloat(b.price)
           );
-          setProducts(sortedProducts);
+          setFilterProducts(sortedProducts);
         }
       };
-
+      
+  
       const sortAlphabetically = (alpha) => {
         if (alpha === "") {
           axios
-            .get(`${API}/products?category=Comics`)
+          .get(`${API}/products?category=Comics`)
             .then((res) => {
               setProducts(res.data);
             })
             .catch((c) => console.warn("catch", c));
         } 
         else if (alpha === "A-Z"){
-          const sort = [...products].sort((a , b) => {
+          const sort = [...filterProducts].sort((a , b) => {
             return a.product_name.localeCompare(b.product_name)
           })
-          setProducts(sort)
+          setFilterProducts(sort)
         }
         else if (alpha === "Z-A"){
-          const sort = [...products].sort((a , b) => {
+          const sort = [...filterProducts].sort((a , b) => {
             return b.product_name.localeCompare(a.product_name)
           })
-          setProducts(sort)
+          setFilterProducts(sort)
         }
         
       }
   
+      const brands = ['Image Comics', 'Cartoon Books', 'DC', 'Vertigo', 'Marvel', 'Wildstorm', 'Dark Horse Comic']
+
+
+      function addBrand(e) {
+        const brandName = e.target.value;
+        if (e.target.checked) {
+          // If the checkbox is checked, add the brand to the brandList
+          setBrandList(prevBrandList => [...prevBrandList, brandName]);
+        } else {
+          // If the checkbox is unchecked, remove the brand from the brandList
+          setBrandList(prevBrandList => prevBrandList.filter(brand => brand !== brandName));
+        }
+      }
     
       
-    return (
-      <div>
+      return(
+        <div>
+         
+            <h1>Comics Section</h1>
+    
+         
 
-        <h1>
+       <div className="product-page-container">
 
-        Comic Books Section
+     
+          <div className="filter-products">
+        
+       <div className="select-container">
 
-        </h1>
+          <div>
+            <label>Sort by Price:</label>
+            
+            <select onChange={(e) => handlePrice(e.target.value)}>
+            <option value="">Select</option>
+            <option value="High to Low">High to Low</option>
+            <option value="Low to High">Low to High</option>
+            </select>
+          </div>
+          <div>
+            <label>Sort Alphabetically:</label>
+            
+            <select onChange={(e) => sortAlphabetically(e.target.value)}>
+            <option value="">Select</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+            </select>
+          </div>
+
+       </div>
+  
+          <div className="filter-toggle">
+       
+
+            {brands.map((brand) => {
+              return (
+                <div>
+                  <input
+                  type="checkbox"
+                  value={brand}
+                  className="check-filter"
+                  onChange={addBrand}
+                  checked = {brandList.includes(brand)}
+                  /> <span className="brand-name">{brand}</span>
+
+                </div>
+
+            )
+
+            })}
 
 
-    <div className="filter-products">
-      
-    <div>
-  <label>Sort by Price:</label>
-  <select className="custom-select" onChange={(e) => handlePrice(e.target.value)}>
-    <option value="">Select</option>
-    <option value="High to Low">High to Low</option>
-    <option value="Low to High">Low to High</option>
-  </select>
-</div>
-<div>
-  <label>Sort Alphabetically:</label>
-  <select className="custom-select" onChange={(e) => sortAlphabetically(e.target.value)}>
-    <option value="">Select</option>
-    <option value="A-Z">A-Z</option>
-    <option value="Z-A">Z-A</option>
-  </select>
-</div>
+            </div>
+    
+        </div>
 
-      
+    <div className="product-card">
+        {filterByBrand().map((comic) => {
+            return(
+              <div key={comic.id} className="product">
+                       <Comic comic={comic}  user={user}/>
+                  </div>
+            )
+        })}
+    </div>
     </div>
 
-
-
-<div className="product-card">
-    {products.map((comic) => {
-        return(
-          <div key={comic.id} className="product">
-                <Comic comic={comic}  user={user}/>
-            </div>
-        )
-    })}
-</div>
-</div>
+       </div>
     )
 }
 
 export default Comics
+
+

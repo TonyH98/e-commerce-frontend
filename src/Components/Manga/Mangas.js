@@ -10,19 +10,38 @@ function Mangas({user}){
 
     const [products , setProducts] = useState([])
 
-    
+    const [filterProducts , setFilterProducts] = useState([])
+
+    const [brandList , setBrandList] = useState([])
 
     useEffect(() => {
         axios
           .get(`${API}/products?category=Anime/Manga`)
           .then((res) => {
             setProducts(res.data);
-            localStorage.setItem("cachedProducts3",JSON.stringify(res.data) )
+            setFilterProducts(res.data)
+            
           })
           .catch((c) => console.warn("catch, c"));
     }, []);
 
     
+    const filterByBrand = () => {
+
+      if(brandList.length === 0){
+        return filterProducts
+      }
+      
+      else{
+      return filterProducts.filter((product) =>  brandList.includes(product.manufacturer))
+      
+      }
+      
+      }
+
+
+
+
       const handlePrice = (price) => {
         if (price === "") {
           axios
@@ -32,15 +51,15 @@ function Mangas({user}){
             })
             .catch((c) => console.warn("catch", c));
         } else if (price === "High to Low") {
-          const sortedProducts = [...products].sort((a, b) =>
+          const sortedProducts = [...filterProducts].sort((a, b) =>
             parseFloat(b.price) - parseFloat(a.price)
           );
-          setProducts(sortedProducts);
+          setFilterProducts(sortedProducts);
         } else if (price === "Low to High") {
-          const sortedProducts = [...products].sort((a, b) =>
+          const sortedProducts = [...filterProducts].sort((a, b) =>
             parseFloat(a.price) - parseFloat(b.price)
           );
-          setProducts(sortedProducts);
+          setFilterProducts(sortedProducts);
         }
       };
       
@@ -55,37 +74,55 @@ function Mangas({user}){
             .catch((c) => console.warn("catch", c));
         } 
         else if (alpha === "A-Z"){
-          const sort = [...products].sort((a , b) => {
+          const sort = [...filterProducts].sort((a , b) => {
             return a.product_name.localeCompare(b.product_name)
           })
-          setProducts(sort)
+          setFilterProducts(sort)
         }
         else if (alpha === "Z-A"){
-          const sort = [...products].sort((a , b) => {
+          const sort = [...filterProducts].sort((a , b) => {
             return b.product_name.localeCompare(a.product_name)
           })
-          setProducts(sort)
+          setFilterProducts(sort)
         }
         
       }
   
 
-      console.log(products)
+      const brands = ['Shueisha', 'Dark Horse Manga', 'VIZ Media LLC', 'Kodansha Comics', 'Yen Press']
 
-  
+      
+      function addBrand(e) {
+        const brandName = e.target.value;
+        if (e.target.checked) {
+          // If the checkbox is checked, add the brand to the brandList
+          setBrandList(prevBrandList => [...prevBrandList, brandName]);
+        } else {
+          // If the checkbox is unchecked, remove the brand from the brandList
+          setBrandList(prevBrandList => prevBrandList.filter(brand => brand !== brandName));
+        }
+      }
 
-    return(
+
+
+
+      return(
         <div>
+         
+            <h1>Video Games Section</h1>
+    
+         
+
+       <div className="product-page-container">
+
      
-           <h1>
-            Manga Section
-            </h1> 
+          <div className="filter-products">
+        
+       <div className="select-container">
 
-
-        <div className="filter-products">
-          
           <div>
             <label>Sort by Price:</label>
+            
             <select onChange={(e) => handlePrice(e.target.value)}>
             <option value="">Select</option>
             <option value="High to Low">High to Low</option>
@@ -94,26 +131,53 @@ function Mangas({user}){
           </div>
           <div>
             <label>Sort Alphabetically:</label>
+            
             <select onChange={(e) => sortAlphabetically(e.target.value)}>
             <option value="">Select</option>
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
             </select>
           </div>
-          
+
+       </div>
+  
+          <div className="filter-toggle">
+       
+
+            {brands.map((brand) => {
+              return (
+                <div>
+                  <input
+                  type="checkbox"
+                  value={brand}
+                  className="check-filter"
+                  onChange={addBrand}
+                  checked = {brandList.includes(brand)}
+                  /> <span className="brand-name">{brand}</span>
+
+                </div>
+
+            )
+
+            })}
+
+
+            </div>
+    
         </div>
-        
-        <br></br>
+
     <div className="product-card">
-        {products.map((manga) => {
+        {filterByBrand().map((manga) => {
             return(
-              <div key={`${manga.id} - ${manga.product_name}`} className="product">
+                <div key={manga.id} className="product">
                     <Manga manga={manga}  user={user} />
                 </div>
             )
         })}
     </div>
     </div>
+
+       </div>
     )
 }
 

@@ -108,27 +108,25 @@ function Videogames({user}){
     }
 
 
-    console.log(brandList)
+
   
-
-function handleToggle (){
-  setShow(!show)
-}
-
-
-
-
-
     return(
         <div>
          
             <h1>Video Games Section</h1>
     
-          
+         
+
+       <div className="product-page-container">
+
+     
           <div className="filter-products">
-          
+        
+       <div className="select-container">
+
           <div>
             <label>Sort by Price:</label>
+            
             <select onChange={(e) => handlePrice(e.target.value)}>
             <option value="">Select</option>
             <option value="High to Low">High to Low</option>
@@ -137,47 +135,41 @@ function handleToggle (){
           </div>
           <div>
             <label>Sort Alphabetically:</label>
+            
             <select onChange={(e) => sortAlphabetically(e.target.value)}>
             <option value="">Select</option>
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
             </select>
           </div>
-          
+
+       </div>
+  
+          <div className="filter-toggle">
+       
+
+            {brands.map((brand) => {
+              return (
+                <div>
+                  <input
+                  type="checkbox"
+                  value={brand}
+                  className="check-filter"
+                  onChange={addBrand}
+                  checked = {brandList.includes(brand)}
+                  /> <span className="brand-name">{brand}</span>
+
+                </div>
+
+            )
+
+            })}
+
+
+            </div>
+    
         </div>
-         
-        <div className="filter-toggle">
-          <button onClick={handleToggle}>Filter</button>
-        {show ? (
 
-<div>
-
-
-
-{brands.map((brand) => {
-  return (
-    <div>
-      <input
-      type="checkbox"
-      value={brand}
-      className="check-filter"
-      onChange={addBrand}
-      checked = {brandList.includes(brand)}
-      />{brand}
-
-    </div>
-
-)
-
-})}
-
-</div>
-
-): null}
-</div>
-
-
-        <br></br>
     <div className="product-card">
         {filterByBrand().map((game) => {
             return(
@@ -188,6 +180,8 @@ function handleToggle (){
         })}
     </div>
     </div>
+
+       </div>
     )
 }
 
