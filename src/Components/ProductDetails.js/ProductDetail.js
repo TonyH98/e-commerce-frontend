@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate} from "react-router-dom";
 
 import Reviews from "../Reviews/Reviews";
-import ReadMore from "../Other/ReadMore"
 import {AiFillHeart} from "react-icons/ai"
 import {AiOutlineHeart} from "react-icons/ai"
 
@@ -101,27 +100,23 @@ function ProductDetails({user}){
 
 
   function addToUser(quantity) {
-    if(user){
+    if (user) {
       axios
         .post(`${API}/users/${user?.id}/products/${product.id}`, { quantity })
         .then((res) => {
-   
           axios
             .get(`${API}/users/${user?.id}/products/${id}`)
             .then((res) => {
               setUserCart(res.data);
             })
-            .catch((err) =>
-              console.error('Failed to fetch cart information:', err)
-            );
+            .catch((err) => console.error('Failed to fetch cart information:', err));
         })
         .catch((err) => console.error('Failed to add product to user:', err));
+    } else {
+      navigate("/login");
     }
-    else{
-      navigate("/login")
-    }
-
   }
+  
   
   
   function deleteCart() {
@@ -140,11 +135,7 @@ function ProductDetails({user}){
   }
 
 
-  const date = new Date(product.release_date)?.toLocaleDateString("en-us", {
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-  });
+ 
 
   
 function counterInput(event){
@@ -204,7 +195,7 @@ function handleShow(){
 
 }
 
-console.log(show)
+console.log(userCart)
 
     return(
         <div>

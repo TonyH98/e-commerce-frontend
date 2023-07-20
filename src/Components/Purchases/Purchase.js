@@ -71,7 +71,7 @@ const navigate = useNavigate()
       <h4 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
       </h4>
-      <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
+      <span style={{fontWeight: "bold", color: "white"}}>Price:</span> <span style={{color: "white"}}>${product.price}</span>
      
       <br></br>
       

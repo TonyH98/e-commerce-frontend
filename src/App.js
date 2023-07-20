@@ -32,10 +32,6 @@ function App() {
 
   const [user, setUser] = useState();
 
- 
-
-
-
   useEffect(() => {
     const cachedProducts = localStorage.getItem("cachedProducts4")
     if(cachedProducts){
@@ -68,7 +64,7 @@ function App() {
   }, [isLogged]);
   
  
-
+console.log(user)
 
   return (
     <div className="App">

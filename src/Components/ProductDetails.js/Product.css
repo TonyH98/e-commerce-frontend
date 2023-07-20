@@ -107,35 +107,40 @@ margin-top: 10px;
 
 .add-delete{
 
-width: 35%;
-height:40px;
-font-size: 15px;
-color: white;
-border: none;
-border-radius: 5px;
-background-color: black;
+  width: 30%;
+  height:40px;
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(11, 11, 191)
+  
+  }
 
-}
 
+  .fav-btns{
+    border: none;
+    background-color: black;
+    text-align: left;
+    }
 
-.fav-btns{
-border: none;
-background-color: white;
-text-align: left;
-}
-
-.des-btns{
-border: none;
-background-color: white;
-font-size: 20px;
-cursor: pointer;
-}
+    .des-btns{
+      border: none;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      }
 
 .product-description{
 
 line-height: 25px;  
 font-weight: bold;
 
+}
+
+p{
+  color: white;
 }
 
 }

@@ -109,7 +109,7 @@ console.log(fav)
     return(
         <UserLink>
               <div>
-              <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
+              <button onClick={deleteMultiple} className="delete-trash"><Trash size={30} color="white"/></button>
             <div >
             <h1 className="user-section-header">Favorite Items</h1>
             <>

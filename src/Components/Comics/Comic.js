@@ -92,7 +92,7 @@ function Comic(props){
     }
   }, [props.user?.id]);
   
-  const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
+  const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) : [];
 
 
 

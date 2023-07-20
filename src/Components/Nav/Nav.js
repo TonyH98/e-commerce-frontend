@@ -27,16 +27,6 @@ function Nav({isLogged}){
   useEffect(() => {
     const loggedUser = JSON.parse(window.localStorage.getItem('user'));
     setUser(loggedUser);
-
-    axios
-      .get(`${API}/users/${loggedUser?.id}/products`)
-      .then((res) => {
-        setProductCart(res.data);
-      })
-      .catch((error) => {
-        console.warn("Error fetching productCart data:", error);
-      });
-
     axios
       .get(`${API}/products`)
       .then((res) => {
@@ -47,14 +37,6 @@ function Nav({isLogged}){
       });
   }, [isLogged]);
 
-  useEffect(() => {
-    // Calculate total quantity whenever productCart changes
-    let newTotalQuantity = 0;
-    for (let i = 0; i < productCart.length; i++) {
-      newTotalQuantity += Number(productCart[i]?.quantity);
-    }
-    setTotalQuantity(newTotalQuantity);
-  }, [productCart]);
 
   function handleFilter(event) {
     let searchResult = event.target.value;
@@ -62,7 +44,6 @@ function Nav({isLogged}){
     const filter = productSearch.filter((product) => {
       return product.product_name.toLowerCase().includes(searchResult.toLowerCase());
     });
-
     if (searchResult === "") {
       setFilterSearch([]);
     } else {

@@ -94,7 +94,7 @@ function Manga(props){
     }
   }, [props.user?.id, props.user]);
   
-  const inCart = newCart ? newCart.map(cart => cart.product_name) : [];
+  const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) : [];
 
   console.log(newCart)
 

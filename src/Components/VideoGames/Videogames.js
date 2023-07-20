@@ -107,7 +107,7 @@ function Videogames({user}){
       }
     }
 
-
+    console.log(user)
 
   
     return(

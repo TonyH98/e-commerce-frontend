@@ -13,6 +13,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function ProductCart({user}){
 
+  console.log(user)
   
     const [products , setProducts] = useState([])
 
@@ -26,7 +27,7 @@ function ProductCart({user}){
             setProducts(res.data);
           })
           .catch((c) => console.warn("catch, c"));
-      }, []);
+      }, [user]);
 
 
       const handleEdit = (updatedCart) => {
@@ -48,10 +49,7 @@ function ProductCart({user}){
       };
       
 
-      
-
-
-const map = products.map((x) => {
+const map = products?.map((x) => {
   if(x.cart_counter !== 0 ){
     return Number((x.quantity * x.price).toFixed(2))
   }
@@ -162,8 +160,8 @@ const checkout = async () => {
 
             {every ? (
                 <div className="shopping-cart">
-             <ShoppingCart color="black" size={100}/>
-                No Item in Cart
+             <ShoppingCart color="white" size={100}/>
+                <span style={{color: "white"}}>Cart Empty</span>
                 </div>
             ) : (
              <section className="cart-details">

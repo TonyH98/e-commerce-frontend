@@ -24,8 +24,9 @@
   .buy-again{
     border: none;
     color: white;
-    background-color: black;
-    height: 28px;
+    background-color: blue;
+    border-radius: 5px;
+    height: 33px;
     cursor: pointer;
   }
   
@@ -192,7 +193,7 @@
   
   .signup-form{
     border: 1px solid white;
-    background-color: white;
+    background-color: black;
     margin-left: 30%;
     margin-right: 30%;
     margin-bottom: 10%; 
@@ -278,7 +279,7 @@
   
   input[type=submit] {
     width: 30%;
-    background-color: black;
+    background-color: blue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -395,7 +396,7 @@
 
   .login-form{
     border: 1px solid white;
-    background-color: white;
+    background-color: black;
     border-radius: 8px;
     height: 460px;
     margin-left: 450px;
@@ -471,7 +472,7 @@
 
   input[type=submit] {
     width: 100%;
-    background-color: black;
+    background-color: blue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;

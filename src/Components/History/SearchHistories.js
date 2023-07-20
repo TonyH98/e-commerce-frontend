@@ -110,7 +110,7 @@ function SearchHistories({user}){
     return(
         <UserLink>
         <div>
-        <button onClick={deleteMultiple} className="delete-trash"><Trash size={30}/></button>
+        <button onClick={deleteMultiple} className="delete-trash"><Trash size={30} color="white"/></button>
             <div>
             <h1 className="user-section-header">Search History</h1>
             <>

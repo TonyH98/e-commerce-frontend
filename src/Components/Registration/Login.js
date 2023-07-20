@@ -87,7 +87,8 @@ function Login({ newLogin }) {
         <input
         type="checkbox"
         onClick={handleType}
-        />{type === "password" ? "Show Password" : "Hide Password"}
+        />
+        <span style={{color: "white"}}>{type === "password" ? "Show Password" : "Hide Password"}</span>
         <br></br>
         <br />
        <input disabled={error} type='submit'/>

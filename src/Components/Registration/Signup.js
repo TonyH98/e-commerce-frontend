@@ -235,8 +235,8 @@ return(
         <input
         type="checkbox"
         onClick={handleType}
-        />{type === "password" ? "Show Password" : "Hide Password"} 
-
+        />
+        <span style={{color: "white"}}>{type === "password" ? "Show Password" : "Hide Password"} </span>
         <br />
 
         <input type="submit" />

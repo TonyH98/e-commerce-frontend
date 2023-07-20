@@ -33,7 +33,7 @@ function Searches({product}){
       <h3 className="product-name">
         <Link to={`/products/${product.products_id}`}>{product.product_name}</Link>
       </h3>
-      <span style={{fontWeight: "bold"}}>Price:</span> ${product.price}
+      <span style={{fontWeight: "bold", color: "white"}}>Price:</span> <span style={{color: "white"}}>${product.price}</span>
      
       <br></br>
       <br></br>
