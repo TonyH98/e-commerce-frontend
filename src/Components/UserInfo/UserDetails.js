@@ -22,13 +22,10 @@ function UserDetails({user}){
         .then((res) => {
           setDetail(res.data);
         })
-        .then(() => {
-          navigate(`/userDetails/${user?.id}`);
-        })
         .catch((error) => {
           console.error(error);
         });
-    }, []);
+    }, [hidden]);
   
     const toggleView = () => {
       setHidden(!hidden);

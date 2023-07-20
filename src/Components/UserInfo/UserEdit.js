@@ -42,7 +42,6 @@ const {detail} = props
       .put(`${API}/users/${detail.id}`, user)
       .then((res) => {
         setUser(res.data);
-        // navigate(`/login`);
       })
       .catch((error) => {
         console.log(error);
