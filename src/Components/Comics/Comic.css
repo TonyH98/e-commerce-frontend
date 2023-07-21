@@ -223,11 +223,33 @@
 
 
   select {
-    width: 90%;
-    box-sizing: border-box;
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
     border: 1px solid #ccc;
-    height: 30px;
+    border-radius: 5px;
+    
   }
+
+  .select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .select-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .select-container label {
+    font-weight: bold;
+  }
+
   
   .filter-products{
     display: grid;
@@ -248,9 +270,10 @@
 
   .product{
     height: 110%;
-    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
     border: 2px solid white;
-    background-color: white;
+    background-color: black;
     border-radius: 2%;
     box-shadow: 1px 2px 2px 2px #000000;
 
@@ -262,12 +285,13 @@
   }
 
 
-  .cart-btns-category{
-    background-color: black;
+ .cart-btns-category{
+    background-color: rgb(11, 11, 191);
     color: white;
     border: none;
     height: 45px;
-    width: 100px
+    border-radius: 5px;
+    width: 120px;
   }
   
   .cart-btns-category:hover{
@@ -277,6 +301,34 @@
   .cart-btns-category:active{
     background-color: blue;
   }
+
+  
+  h1{
+    color: white;
+    text-align: center;
+  }
+  label{
+    color: white;
+  }
+
+  .section-name{
+    text-align: center;
+  }
+
+  .price{
+    color: white;
+  }
+
+  .brand-name{
+    color: white;
+  }
+
+  .filter-toggle {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust the minmax value as needed */
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
 
   
@@ -284,12 +336,34 @@
 
 @media (min-width: 769px) and (max-width: 992px){
 
-select {
-    width: 90%;
-    box-sizing: border-box;
+  select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
     border: 1px solid #ccc;
-    height: 30px;
+    border-radius: 5px;
+    
   }
+
+  .select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .select-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .select-container label {
+    font-weight: bold;
+  }
+
   
   .filter-products{
     display: grid;
@@ -310,11 +384,10 @@ select {
 
   .product{
     height: 110%;
-
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
     border: 2px solid white;
-    background-color: white;
+    background-color: black;
     border-radius: 2%;
     box-shadow: 1px 2px 2px 2px #000000;
 
@@ -326,12 +399,13 @@ select {
   }
 
 
-  .cart-btns-category{
-    background-color: black;
+ .cart-btns-category{
+    background-color: rgb(11, 11, 191);
     color: white;
     border: none;
     height: 45px;
-    width: 100px
+    border-radius: 5px;
+    width: 120px;
   }
   
   .cart-btns-category:hover{
@@ -341,6 +415,34 @@ select {
   .cart-btns-category:active{
     background-color: blue;
   }
+
+  
+  h1{
+    color: white;
+    text-align: center;
+  }
+  label{
+    color: white;
+  }
+
+  .section-name{
+    text-align: center;
+  }
+
+  .price{
+    color: white;
+  }
+
+  .brand-name{
+    color: white;
+  }
+
+  .filter-toggle {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust the minmax value as needed */
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
 
 

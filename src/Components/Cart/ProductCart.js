@@ -215,8 +215,8 @@ const checkout = async () => {
                   </div>
 
               </div>
-            
-      
+                  <br/>
+                <br/>
               <div className="cart-container">
               <button className="cart-btns" onClick={checkout}>Checkout</button>
               </div>

@@ -114,9 +114,15 @@ function Purchases({user}){
     return(
         <UserLink>
             <div className="user-index">
-              <button onClick={deleteMultiple} className="delete-trash"><Trash size={30} color="white"/></button>
+            <div className="title-trash">
+
+<h1 className="user-section-header">Purchase History</h1>
+  <button onClick={deleteMultiple} className="delete-trash"><Trash size={30} color="white"/></button>
+
+  
+    </div>
             <div>
-            <h1 className="user-section-header">Purchase History</h1>
+    
             <>
             <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
             <br></br>

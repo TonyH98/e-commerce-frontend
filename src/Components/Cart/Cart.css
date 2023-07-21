@@ -100,7 +100,7 @@
 
   .product-card-section {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid white;
     box-shadow: 2px 2px 4px #000000;
     border-radius: 5px;
     margin: 0 20px;
@@ -172,7 +172,7 @@
 
   .product-card-section {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid white;
     box-shadow: 2px 2px 4px #000000;
     border-radius: 5px;
     margin: 0 20px;
@@ -186,7 +186,7 @@
 
   .clear-cart {
     border: none;
-    background-color: white;
+    background-color: black
   }
 
   .product-quantity-price {
@@ -203,7 +203,7 @@
 
   .cart-btns {
     border: none;
-    background-color: black;
+    background-color:blue;
     color: white;
     height: 50px;
     width: 200px;
@@ -218,11 +218,13 @@
   }
 
 
+
 }
 
 
 @media (min-width: 769px) and (max-width: 992px){
 
+ 
   .cart-header {
     text-align: center;
   }
@@ -244,7 +246,7 @@
 
   .product-card-section {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid white;
     box-shadow: 2px 2px 4px #000000;
     border-radius: 5px;
     margin: 0 20px;
@@ -258,7 +260,7 @@
 
   .clear-cart {
     border: none;
-    background-color: white;
+    background-color: black
   }
 
   .product-quantity-price {
@@ -275,7 +277,7 @@
 
   .cart-btns {
     border: none;
-    background-color: black;
+    background-color:blue;
     color: white;
     height: 50px;
     width: 200px;
@@ -288,5 +290,4 @@
   .order-details {
     margin: 0 20px;
   }
-
 }

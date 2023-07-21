@@ -17,12 +17,11 @@ function CartItem(props) {
       props.handleDelete(props.product.products_id);
   }
 
-console.log(props.product.images[0]?.image)
-
 
   return (
     <section className="product-box">
       
+        {props.product.images?.length > 0 ? (
 
         <div className="image-link">
         <Link to={`/products/${props.product.products_id}`}>
@@ -35,6 +34,9 @@ console.log(props.product.images[0]?.image)
 
         </div>
 
+
+        ) : null}
+
         <div className="card-info">
           <h5 className="product-name">
             <Link to={`/products/${props.product.products_id}`}>{props.product.product_name}</Link>
@@ -42,8 +44,7 @@ console.log(props.product.images[0]?.image)
           <p>
           <span style={{ fontWeight: "bold", color: "white" }}>Price:</span> ${props.product.price}
           </p>
-          <br></br>
-  
+
           <input
         type="number"
         min="1"

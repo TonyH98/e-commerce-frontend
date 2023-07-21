@@ -87,15 +87,15 @@
 
   }
 
-  .selected-image {
-    height: 100px;
-    width: 90px;
+  .landing-image{
+    height: 150px;
+    width: 120px;
   }
 
   .border-products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+ 
   }
 
   .category-description {
@@ -132,7 +132,8 @@
 @media (min-width: 577px) and (max-width: 768px){
 
   .landing-page {
-    background-color: #F5F5F5;
+    background-color: black;
+    border: silver 2px solid;
 
   }
 
@@ -141,15 +142,15 @@
 
   }
 
-  .selected-image {
-    height: 100px;
-    width: 90px;
+  .landing-image{
+    height: 150px;
+    width: 120px;
   }
 
   .border-products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+ 
   }
 
   .category-description {
@@ -160,12 +161,13 @@
     /* word-break: break-word; */
     hyphens: auto;
     padding: 0 20px; /* Add padding for better readability */
+    color: white;
   }
   
 
   .featured-items{
     text-align: center;
-    box-shadow: 2px 2px 2px 3px silver;
+    border: white 1px solid;
   
   }
 
@@ -173,6 +175,10 @@
   .featured-image{
     height: 180px;
     width: 130px;
+  }
+
+  h4{
+    color: white;
   }
 
 
@@ -183,9 +189,9 @@
 
 @media (min-width: 769px) and (max-width: 992px){
 
-
   .landing-page {
-    background-color: #F5F5F5;
+    background-color: black;
+    border: silver 2px solid;
 
   }
 
@@ -194,16 +200,15 @@
 
   }
 
-  .selected-image {
-    height: 100px;
-    width: 90px;
+  .landing-image{
+    height: 150px;
+    width: 120px;
   }
 
   .border-products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    text-align: center;
+ 
   }
 
   .category-description {
@@ -214,14 +219,13 @@
     /* word-break: break-word; */
     hyphens: auto;
     padding: 0 20px; /* Add padding for better readability */
+    color: white;
   }
   
 
   .featured-items{
     text-align: center;
-    box-shadow: 2px 2px 2px 3px silver;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    border: white 1px solid;
   
   }
 
@@ -231,9 +235,9 @@
     width: 130px;
   }
 
-  .featured-border{
-    margin-top: 15px;
+  h4{
+    color: white;
   }
-  
+
 
 }

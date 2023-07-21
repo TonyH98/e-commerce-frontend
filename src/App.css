@@ -454,7 +454,7 @@
 
   .login-form {
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: black;
     border-radius: 8px;
     height: 460px;
     box-shadow: 1px 2px 2px 2px #000;
@@ -470,6 +470,26 @@
     font-weight: bold;
   }
 
+  .buy-again{
+    border: none;
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    height: 33px;
+    cursor: pointer;
+  }
+
+  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
   input[type=submit] {
     width: 100%;
     background-color: blue;
@@ -483,7 +503,7 @@
 
   .signup-form {
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: black;
     text-align: center;
     border-radius: 8px;
     box-shadow: 1px 2px 2px 2px #000;
@@ -538,7 +558,7 @@
 
   .login-form {
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: black;
     border-radius: 8px;
     height: 460px;
     box-shadow: 1px 2px 2px 2px #000;
@@ -554,9 +574,21 @@
     font-weight: bold;
   }
 
+
+  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
   input[type=submit] {
     width: 100%;
-    background-color: black;
+    background-color: blue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -567,7 +599,7 @@
 
   .signup-form {
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: black;
     text-align: center;
     border-radius: 8px;
     box-shadow: 1px 2px 2px 2px #000;
@@ -599,12 +631,10 @@
     margin: auto;
     padding: 20px;
   }
-
 }
 
 
 @media (min-width: 769px) and (max-width: 992px){
-
   input[type=text],
   input[type=password],
   input[type=email],
@@ -620,7 +650,7 @@
 
   .login-form {
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: black;
     border-radius: 8px;
     height: 460px;
     box-shadow: 1px 2px 2px 2px #000;
@@ -636,9 +666,21 @@
     font-weight: bold;
   }
 
+
+  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
   input[type=submit] {
-    width: 28%;
-    background-color: black;
+    width: 100%;
+    background-color: blue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -649,7 +691,7 @@
 
   .signup-form {
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: black;
     text-align: center;
     border-radius: 8px;
     box-shadow: 1px 2px 2px 2px #000;
