@@ -80,7 +80,7 @@ function Reviews({ user }) {
 
         <Link to={`/products/${id}/reviews/chart`}>Review Statistics</Link>
         <br></br>
-        <select onChange={(e) => handleCategory(e.target.value)}>
+        <select className="review-select-bar" onChange={(e) => handleCategory(e.target.value)}>
           <option value="">All Reviews</option>
           {[...Array(5)].map((_, i) => (
             <option value={i + 1} key={i + 1}>

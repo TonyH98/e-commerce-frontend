@@ -136,28 +136,26 @@ function Comics({user}){
 
        </div>
   
-          <div className="filter-toggle">
-       
+  <div className="container">
 
-            {brands.map((brand) => {
-              return (
-                <div>
-                  <input
-                  type="checkbox"
-                  value={brand}
-                  className="check-filter"
-                  onChange={addBrand}
-                  checked = {brandList.includes(brand)}
-                  /> <span className="brand-name">{brand}</span>
+       <div class="filter-toggle">
+  {brands.map((brand) => {
+    return (
+      <div class="checkbox-wrapper">
+        <input
+          type="checkbox"
+          value={brand}
+          class="check-filter"
+          onChange={addBrand}
+          checked={brandList.includes(brand)}
+        />
+        <span class="brand-name">{brand}</span>
+      </div>
+    );
+  })}
+</div>
 
-                </div>
-
-            )
-
-            })}
-
-
-            </div>
+  </div>
     
         </div>
 

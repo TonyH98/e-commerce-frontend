@@ -136,11 +136,7 @@
   
  
   
-  .title-score{
-    display: grid;
-    grid-template-columns: repeat(2, 100px);
-    margin-left: 10px;
-  }
+  
   
  
     
@@ -151,13 +147,7 @@
     margin: auto;
   }
   
-  .rating{
-    display: inline-block;
-    width: 40px;
-    text-align: center;
-    margin-right: 46.5%;
-    
-  }
+ 
   
   .readmore{
     line-height: 1.3;
@@ -202,14 +192,8 @@
   }
   
   
-  .review-title{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .rating{
-    text-align: right;
-  }
+ 
+  
   
   .create-review{
     font-size: 15px;
@@ -322,14 +306,7 @@
     width: 250px
   }
   
-  .review-container{
-    display: grid;
-    grid-template-columns: repeat(2 , 40%);
-  }
   
-  .review-content{
-    margin-top: 10px;
-  }
   
   
   .relatedItem{

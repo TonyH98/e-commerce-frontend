@@ -18,23 +18,30 @@ function Review({ review, handleDelete, handleEdit, user }) {
       <div className="Review">
         {hidden ? (<ReviewForm reviewDetails={review} toggleView={toggleView} handleEdit={handleEdit}/>) : (
           <>
-
+          <div className="review-info-container">
           <h2 className="reviewer">{review.reviewer}</h2>
+
           <div className="title-score">
+            
           <h4 className="review-title">
-            <Link to={`/products/${id}/reviews/${review.id}`}>
             {review.title}
-            </Link>
           </h4>
-          <h4 className="rating">
-          Rating:{review.rating}
-          </h4>
+
           </div>
+          <h4 className="rating">
+          Rating: {review.rating}
+          </h4>
 
           <div className="review-content">
-          <ReadMore>
+
+          <p>
           {review.content}
-          </ReadMore>
+          </p>
+     
+          </div>
+
+
+
           </div>
 
           </>
