@@ -93,8 +93,10 @@
   }
 
   .border-products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 10px;
  
   }
 
@@ -113,6 +115,10 @@
   .featured-items{
     text-align: center;
     border: white 1px solid;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
   
   }
 
@@ -148,8 +154,10 @@
   }
 
   .border-products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 10px;
  
   }
 
@@ -168,6 +176,10 @@
   .featured-items{
     text-align: center;
     border: white 1px solid;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
   
   }
 
@@ -185,10 +197,7 @@
 }
 
 
-
-
 @media (min-width: 769px) and (max-width: 992px){
-
   .landing-page {
     background-color: black;
     border: silver 2px solid;
@@ -206,8 +215,10 @@
   }
 
   .border-products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 10px;
  
   }
 
@@ -226,6 +237,10 @@
   .featured-items{
     text-align: center;
     border: white 1px solid;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
   
   }
 
@@ -238,6 +253,5 @@
   h4{
     color: white;
   }
-
 
 }

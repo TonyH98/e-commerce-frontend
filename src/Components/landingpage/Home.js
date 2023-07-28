@@ -84,6 +84,9 @@ return (
     </div>
 
     </div>
+
+
+    
        <br></br>
        <div className="featured-section">
         <h2 className="featured-header" style={{color: "white"}}>Featured Items:</h2>

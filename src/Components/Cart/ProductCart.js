@@ -189,23 +189,7 @@ const checkout = async () => {
               <div style={{color: "white"}}>{totalQuantity}</div>
 
                   </div>
-                <br></br>
-                <div className="products_summary">
-                  {products.map((product) => {
-                    return(
-                      <div className="product-quantity-price" key={product.products_id}>
-
-                        <div style={{color: "white"}}>{product.product_name} x{product.quantity}: </div>
-
-                          <div style={{color: "white"}}>${(Number(product.quantity) * Number(product.price)).toFixed(2)}</div>
-
-                      </div>
-                      
-                    )
-                  })}
-                </div>
-                <br></br>
-
+               
                 <hr></hr>
                   <div className="product-quantity-price">
 
