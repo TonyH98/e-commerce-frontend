@@ -180,15 +180,23 @@
     font-weight: bold;
   }
   
-  
+  .signup-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+
   .signup-form{
     border: 1px solid white;
     background-color: black;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-bottom: 10%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 1%;
     box-shadow: 1px 2px 2px 2px black;
+    width: 600px;
   }
   
   
@@ -248,8 +256,18 @@
     cursor: pointer
   }
   
+
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
   
-  input[type=text] , input[type=password], input[type=email], textarea{
+  input[type=text] , 
+  input[type=password], 
+  input[type=email], 
+  textarea{
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -393,7 +411,7 @@
   
   
   .modal-container{
-    border: black 1px solid;
+    border: white 1px solid;
     max-width: 600px;
     width: 100%;
     position: fixed;
@@ -401,7 +419,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    background-color: #ffffff;
+    background-color: black;
     box-shadow: 1px 2px 1px black;
     overflow: hidden;
     position: absolute;
@@ -411,16 +429,25 @@
     margin-left: 30%;
   }
   
- 
+ li{
+  color: white;
+ }
  }
  
  
  @media (min-width: 320px) and (max-width: 576px) {
+
+.login-form-container{
+  margin-top: 30px;
+}
+
+  
+
   input[type=text],
   input[type=password],
   input[type=email],
   textarea {
-    width: 100%;
+    width: 300px;
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
@@ -429,20 +456,32 @@
     box-sizing: border-box;
   }
 
+
+  
+  .login-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .login-form {
     border: 1px solid #ccc;
     background-color: black;
     border-radius: 8px;
-    height: 460px;
+    height: 380px;
     box-shadow: 1px 2px 2px 2px #000;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     margin: 0 20px;
     padding: 20px;
+    width: 330px;
+    align-items: center;
+   
   }
 
   .label-signup {
     display: inline-block;
-    width: 100%;
+   
     text-align: left;
     font-weight: bold;
   }
@@ -468,7 +507,7 @@
 
 
   input[type=submit] {
-    width: 100%;
+    width: 300px;
     background-color: blue;
     color: white;
     padding: 14px 20px;
@@ -478,11 +517,21 @@
     cursor: pointer;
   }
 
+  .signup-section{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+  }
+
+
   .signup-form {
     border: 1px solid #ccc;
     background-color: black;
-    text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
     border-radius: 8px;
+    width: 350px;
     box-shadow: 1px 2px 2px 2px #000;
     margin: 0 20px;
     padding: 20px;
@@ -502,7 +551,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    background-color: #ffffff;
+    background-color: black;
     box-shadow: 1px 2px 2px 2px #000;
     overflow: hidden;
     z-index: 9999;
@@ -513,6 +562,9 @@
     padding: 20px;
   }
 
+  li{
+    color: white;
+  }
  
 }
 
@@ -520,185 +572,266 @@
 
 @media (min-width: 577px) and (max-width: 768px){
 
-  input[type=text],
-  input[type=password],
-  input[type=email],
-  textarea {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  .login-form-container{
+    margin-top: 30px;
   }
-
-  .login-form {
-    border: 1px solid #ccc;
-    background-color: black;
-    border-radius: 8px;
-    height: 460px;
-    box-shadow: 1px 2px 2px 2px #000;
-    text-align: center;
-    margin: 0 20px;
-    padding: 20px;
-  }
-
-  .label-signup {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
-    font-weight: bold;
-  }
-
-
-  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-
-  input[type=submit] {
-    width: 100%;
-    background-color: blue;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .signup-form {
-    border: 1px solid #ccc;
-    background-color: black;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 1px 2px 2px 2px #000;
-    margin: 0 20px;
-    padding: 20px;
-  }
-
-  .modal-btn {
-    margin-left: auto;
-    border: none;
-    background-color: white;
-  }
-
-  .modal-container {
-    border: 1px solid #ccc;
-    width: 100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    background-color: #ffffff;
-    box-shadow: 1px 2px 2px 2px #000;
-    overflow: hidden;
-    z-index: 9999;
-  }
-
-  .content {
-    margin: auto;
-    padding: 20px;
-  }
+  
+    
+  
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    textarea {
+      width: 300px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  
+  
+    
+    .login-form-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .login-form {
+      border: 1px solid #ccc;
+      background-color: black;
+      border-radius: 8px;
+      height: 380px;
+      box-shadow: 1px 2px 2px 2px #000;
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px;
+      padding: 20px;
+      width: 330px;
+      align-items: center;
+     
+    }
+  
+    .label-signup {
+      display: inline-block;
+     
+      text-align: left;
+      font-weight: bold;
+    }
+  
+    .buy-again{
+      border: none;
+      color: white;
+      background-color: blue;
+      border-radius: 5px;
+      height: 33px;
+      cursor: pointer;
+    }
+  
+    .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+      background: none!important;
+      border: none;
+      padding: 0!important;
+      font-family: arial, sans-serif;
+      color: #069;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  
+  
+    input[type=submit] {
+      width: 300px;
+      background-color: blue;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    .signup-section{
+      display: flex;
+      flex-direction: column;
+     align-items: center;
+    }
+  
+  
+    .signup-form {
+      border: 1px solid #ccc;
+      background-color: black;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+      border-radius: 8px;
+      width: 350px;
+      box-shadow: 1px 2px 2px 2px #000;
+      margin: 0 20px;
+      padding: 20px;
+    }
+  
+    .modal-btn {
+      margin-left: auto;
+      border: none;
+      background-color: white;
+    }
+  
+    .modal-container {
+      border: 1px solid #ccc;
+      width: 600px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      background-color: black;
+      box-shadow: 1px 2px 2px 2px #000;
+      overflow: hidden;
+      z-index: 9999;
+    }
+  
+    .content {
+      margin: auto;
+      padding: 20px;
+    }
+  
+    li{
+      color: white;
+    }
+  
 }
 
 
 @media (min-width: 769px) and (max-width: 992px){
-  input[type=text],
-  input[type=password],
-  input[type=email],
-  textarea {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  .login-form-container{
+    margin-top: 30px;
   }
-
-  .login-form {
-    border: 1px solid #ccc;
-    background-color: black;
-    border-radius: 8px;
-    height: 460px;
-    box-shadow: 1px 2px 2px 2px #000;
-    text-align: center;
-    margin: 0 20px;
-    padding: 20px;
-  }
-
-  .label-signup {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
-    font-weight: bold;
-  }
-
-
-  .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-
-  input[type=submit] {
-    width: 100%;
-    background-color: blue;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .signup-form {
-    border: 1px solid #ccc;
-    background-color: black;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 1px 2px 2px 2px #000;
-    margin: 0 20px;
-    padding: 20px;
-  }
-
-  .modal-btn {
-    margin-left: auto;
-    border: none;
-    background-color: white;
-  }
-
-  .modal-container {
-    border: 1px solid #ccc;
-    width: 100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    background-color: #ffffff;
-    box-shadow: 1px 2px 2px 2px #000;
-    overflow: hidden;
-    z-index: 9999;
-  }
-
-  .content {
-    margin: auto;
-    padding: 20px;
-  }
-
+  
+    
+  
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    textarea {
+      width: 300px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  
+  
+    
+    .login-form-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .login-form {
+      border: 1px solid #ccc;
+      background-color: black;
+      border-radius: 8px;
+      height: 380px;
+      box-shadow: 1px 2px 2px 2px #000;
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px;
+      padding: 20px;
+      width: 330px;
+      align-items: center;
+     
+    }
+  
+    .label-signup {
+      display: inline-block;
+     
+      text-align: left;
+      font-weight: bold;
+    }
+  
+    .buy-again{
+      border: none;
+      color: white;
+      background-color: blue;
+      border-radius: 5px;
+      height: 33px;
+      cursor: pointer;
+    }
+  
+    .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
+      background: none!important;
+      border: none;
+      padding: 0!important;
+      font-family: arial, sans-serif;
+      color: #069;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  
+  
+    input[type=submit] {
+      width: 300px;
+      background-color: blue;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    .signup-section{
+      display: flex;
+      flex-direction: column;
+     align-items: center;
+    }
+  
+  
+    .signup-form {
+      border: 1px solid #ccc;
+      background-color: black;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+      border-radius: 8px;
+      width: 350px;
+      box-shadow: 1px 2px 2px 2px #000;
+      margin: 0 20px;
+      padding: 20px;
+    }
+  
+    .modal-btn {
+      margin-left: auto;
+      border: none;
+      background-color: white;
+    }
+  
+    .modal-container {
+      border: 1px solid #ccc;
+      width: 600px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      background-color: black;
+      box-shadow: 1px 2px 2px 2px #000;
+      overflow: hidden;
+      z-index: 9999;
+    }
+  
+    .content {
+      margin: auto;
+      padding: 20px;
+    }
+    
+    li{
+      color: white
+    }
+  
 }

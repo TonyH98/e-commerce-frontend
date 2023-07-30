@@ -55,14 +55,13 @@ function Login({ newLogin }) {
 
 
   return (
-    <div>
-      <br></br>
-      <br></br>
+    <div className='login-form-container'>
+      
       <form onSubmit={handleSubmit} className="login-form">
-        <br></br>
+   
       <h1>Login</h1>
         <label htmlFor="username" className='label-signup'>Username:</label>
-        <br></br>
+    
         <input
           id="username"
           value={login.username}
@@ -70,10 +69,9 @@ function Login({ newLogin }) {
           onChange={handleTextChange}
           required
         />
-        <br></br>
-        <br></br>
+      
         <label htmlFor="password" className='label-signup'>Password:</label>
-        <br></br>
+   
         <input
           id="password"
           type={type}
@@ -83,17 +81,15 @@ function Login({ newLogin }) {
           onChange={handleTextChange}
         />
 
-<br></br>
+
         <input
         type="checkbox"
         onClick={handleType}
         />
         <span style={{color: "white"}}>{type === "password" ? "Show Password" : "Hide Password"}</span>
-        <br></br>
-        <br />
+      
        <input disabled={error} type='submit'/>
-        <br></br>
-        <br></br>
+     
       {error && <p style={{color: "red"}}>{error}</p>}
       <Link to="/signup">
         <button className='registory-btn'>Sign Up</button>
