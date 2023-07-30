@@ -120,6 +120,12 @@
     color: white;
   }
     
+  .searchInputs {
+    display: flex; /* Use flexbox */
+   align-items: center;
+   justify-content: center;
+  }
+
 
 /* CSS for the search bar */
 .search .searchbar {
@@ -134,9 +140,13 @@
   background-color: black;
   color: white;
   border: white 1px solid;
-  margin: 0 auto; /* Add this line to center the search bar horizontally */
+  
 }
 
+.searchIcon{
+  border: 1px white solid;
+  height: 30px;
+}
 /* CSS for the search container */
 .search {
   display: flex;
@@ -174,7 +184,7 @@
     }
   
   .searchIcon{
-    display: none;
+    display: inline
   }
 
   .nav-3{
@@ -204,6 +214,12 @@
     color: white;
   }
     
+  .searchInputs {
+    display: flex; /* Use flexbox */
+   align-items: center;
+   justify-content: center;
+  }
+
 
 /* CSS for the search bar */
 .search .searchbar {
@@ -218,9 +234,13 @@
   background-color: black;
   color: white;
   border: white 1px solid;
-  margin: 0 auto; /* Add this line to center the search bar horizontally */
+  
 }
 
+.searchIcon{
+  border: 1px white solid;
+  height: 30px;
+}
 /* CSS for the search container */
 .search {
   display: flex;
@@ -258,7 +278,7 @@
     }
   
   .searchIcon{
-    display: none;
+    display: inline
   }
 
   .nav-3{
@@ -268,6 +288,8 @@
    gap: 20px;
 
   }
+
+ 
 }
 
 
@@ -283,6 +305,12 @@
     color: white;
   }
     
+  .searchInputs {
+    display: flex; /* Use flexbox */
+   align-items: center;
+   justify-content: center;
+  }
+
 
 /* CSS for the search bar */
 .search .searchbar {
@@ -297,9 +325,13 @@
   background-color: black;
   color: white;
   border: white 1px solid;
-  margin: 0 auto; /* Add this line to center the search bar horizontally */
+  
 }
 
+.searchIcon{
+  border: 1px white solid;
+  height: 30px;
+}
 /* CSS for the search container */
 .search {
   display: flex;
@@ -337,7 +369,7 @@
     }
   
   .searchIcon{
-    display: none;
+    display: inline
   }
 
   .nav-3{
@@ -347,5 +379,7 @@
    gap: 20px;
 
   }
+
+ 
 
 }

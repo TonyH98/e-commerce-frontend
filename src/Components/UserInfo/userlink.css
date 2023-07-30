@@ -23,10 +23,9 @@
 
 @media (min-width: 320px) and (max-width: 576px) {
     .userLink {
-      position: relative;
-      right: 20px;    
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 100px);
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
 
     }
   
@@ -57,33 +56,28 @@
 
   .userLink {
     display: flex;
-    flex-direction: row;
-    align-items: center; /* Optional: Align items in the center horizontally */
-  }
+    flex-wrap: wrap;
+    justify-content: center;
 
-  .userLink{
-      position: relative;
-      right: 25px;
+   }
+ 
 
-  }
+   .logout {
+     background: none;
+     border: none;
+     padding: 0;
+     font-family: arial, sans-serif;
+     color: #069;
+     text-decoration: underline;
+     cursor: pointer;
+     font-weight: bold;
+     margin-top: 10px; /* Adjust the spacing between the links and the logout button */
+   }
 
-  .logout {
-    background: none;
-    border: none;
-    padding: 0;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px; /* Adjust the spacing between the links and the logout button */
-  }
+   .link-item {
+       margin-left: 40px; 
 
-  .link-item {
-      margin-left: 40px; 
-
-    }
-  
+     }
 
 
 
@@ -97,33 +91,28 @@
 
   .userLink {
     display: flex;
-    flex-direction: row;
-    text-align: left;
-  }
+    flex-wrap: wrap;
+    justify-content: center;
 
-  .userLink{
-      position: relative;
-      right: 25px;
+   }
+ 
 
-  }
+   .logout {
+     background: none;
+     border: none;
+     padding: 0;
+     font-family: arial, sans-serif;
+     color: #069;
+     text-decoration: underline;
+     cursor: pointer;
+     font-weight: bold;
+     margin-top: 10px; /* Adjust the spacing between the links and the logout button */
+   }
 
-  .logout {
-    background: none;
-    border: none;
-    padding: 0;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px; /* Adjust the spacing between the links and the logout button */
-  }
+   .link-item {
+       margin-left: 40px; 
 
-  .link-item {
-      margin-left: 40px; 
-
-    }
-
+     }
 
 
 }

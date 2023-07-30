@@ -136,7 +136,7 @@ function Comics({user}){
 
        </div>
   
-  <div className="container">
+  
 
        <div class="filter-toggle">
   {brands.map((brand) => {
@@ -155,7 +155,7 @@ function Comics({user}){
   })}
 </div>
 
-  </div>
+ 
     
         </div>
 

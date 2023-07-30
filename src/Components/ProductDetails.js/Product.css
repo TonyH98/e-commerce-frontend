@@ -151,7 +151,7 @@ margin-top: 10px;
 
 .add-delete{
 
-  width: 30%;
+  width: 150px;
   height:40px;
   font-size: 15px;
   color: white;
@@ -244,7 +244,7 @@ p{
     
     .add-delete{
     
-      width: 30%;
+      width: 150px;
       height:40px;
       font-size: 15px;
       color: white;
@@ -338,7 +338,7 @@ p{
     
     .add-delete{
     
-      width: 30%;
+      width: 150px;
       height:40px;
       font-size: 15px;
       color: white;
@@ -382,7 +382,6 @@ p{
     
     
     }
-    
 
 
 }
