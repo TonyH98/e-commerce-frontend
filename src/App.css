@@ -1,3 +1,13 @@
+.buy-again{
+  border: none;
+  color: white;
+  background-color: blue;
+  border-radius: 5px;
+  height: 33px;
+  cursor: pointer;
+}
+ 
+ 
  
  @media (min-width: 993px){
 
@@ -21,14 +31,7 @@
   
   
 
-  .buy-again{
-    border: none;
-    color: white;
-    background-color: blue;
-    border-radius: 5px;
-    height: 33px;
-    cursor: pointer;
-  }
+
   
   .delete-btn{
     margin-left: 90%;
@@ -486,15 +489,7 @@
     font-weight: bold;
   }
 
-  .buy-again{
-    border: none;
-    color: white;
-    background-color: blue;
-    border-radius: 5px;
-    height: 33px;
-    cursor: pointer;
-  }
-
+  
   .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
     background: none!important;
     border: none;
@@ -527,9 +522,9 @@
   .signup-form {
     border: 1px solid #ccc;
     background-color: black;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 8px;
     width: 350px;
     box-shadow: 1px 2px 2px 2px #000;
@@ -621,14 +616,7 @@
       font-weight: bold;
     }
   
-    .buy-again{
-      border: none;
-      color: white;
-      background-color: blue;
-      border-radius: 5px;
-      height: 33px;
-      cursor: pointer;
-    }
+   
   
     .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
       background: none!important;
@@ -754,14 +742,7 @@
       font-weight: bold;
     }
   
-    .buy-again{
-      border: none;
-      color: white;
-      background-color: blue;
-      border-radius: 5px;
-      height: 33px;
-      cursor: pointer;
-    }
+  
   
     .readmore-btn, .create-review, .edit, .delete , .registory-btn, .sign-btn{
       background: none!important;

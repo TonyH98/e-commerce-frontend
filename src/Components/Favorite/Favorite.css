@@ -56,6 +56,8 @@
         width: 90px
    }
 
+  
+
 
    .delete-trash{
     
@@ -77,13 +79,7 @@
     grid-row-gap: 40px;
    }
 
-   .buy-again{
-    border: none;
-    color: white;
-    background-color: black;
-    height: 40px;
-
-   }
+   
 
        .pagination{
         text-align: center;
@@ -110,6 +106,10 @@
 }
 
 
+
+
+
+
 .delete-trash{
 
  border: none;
@@ -130,13 +130,7 @@ display: grid;
 grid-row-gap: 40px;
 }
 
-.buy-again{
-border: none;
-color: white;
-background-color: black;
-height: 40px;
 
-}
 
    .pagination{
     text-align: center;
@@ -157,20 +151,26 @@ height: 40px;
 
 @media (min-width: 769px) and (max-width: 992px){
 
-
   .search-images{
     height:110px;
     width: 90px
 }
 
-.delete-trash{
-  position: relative;
-  left: 280px;
-  top: 60px;
-   border: none;
-   background-color: white;
 
- }
+
+
+.delete-trash{
+
+ border: none;
+background-color: black;
+}
+
+.title-trash{
+display: grid;
+grid-template-columns: repeat(2, 1fr)
+
+}
+
 
 .search-cart{
 text-align: center;
@@ -179,13 +179,7 @@ display: grid;
 grid-row-gap: 40px;
 }
 
-.buy-again{
-border: none;
-color: white;
-background-color: black;
-height: 40px;
 
-}
 
    .pagination{
     text-align: center;
@@ -196,7 +190,5 @@ height: 40px;
     list-style: none;
     margin-left: 12%;
   }
-
-
 
 }

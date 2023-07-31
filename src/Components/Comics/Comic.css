@@ -223,6 +223,7 @@
     display: flex; /* Use flex container */
     overflow-x: auto;
     white-space: nowrap;
+    align-items: center;
   }
   
   /* Optionally, you can add spacing between each checkbox and brand name */
@@ -345,6 +346,7 @@
     display: flex; /* Use flex container */
     overflow-x: auto;
     white-space: nowrap;
+    align-items: center;
   }
   
   /* Optionally, you can add spacing between each checkbox and brand name */
@@ -465,6 +467,7 @@
     display: flex; /* Use flex container */
     overflow-x: auto;
     white-space: nowrap;
+    align-items: center;
   }
   
   /* Optionally, you can add spacing between each checkbox and brand name */
