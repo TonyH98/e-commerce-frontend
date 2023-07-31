@@ -158,7 +158,7 @@ function Comics({user}){
  
     
         </div>
-
+    {filterByBrand().length ? (
     <div className="product-card">
         {filterByBrand().map((comic) => {
             return(
@@ -168,6 +168,18 @@ function Comics({user}){
             )
         })}
     </div>
+
+
+    ) : 
+    <div>
+
+        <div>
+          <h1>No item found!</h1>
+        </div>
+
+    </div>
+    
+    }
     </div>
 
        </div>

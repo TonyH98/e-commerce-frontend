@@ -167,7 +167,7 @@ return (
 </div>
     
         </div>
-
+    {filterByBrand().length ? (
     <div className="product-card">
         {filterByBrand().map((game) => {
             return(
@@ -177,6 +177,18 @@ return (
             )
         })}
     </div>
+
+
+    ): 
+    <div>
+
+    <div>
+      <h1>No item found!</h1>
+    </div>
+
+</div>
+    
+    }
     </div>
 
        </div>

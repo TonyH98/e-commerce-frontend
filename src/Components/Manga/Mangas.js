@@ -165,8 +165,9 @@ function Mangas({user}){
             </div>
     
         </div>
-
+    {filterByBrand().length ? (
     <div className="product-card">
+      
         {filterByBrand().map((manga) => {
             return(
                 <div key={manga.id} className="product">
@@ -175,6 +176,18 @@ function Mangas({user}){
             )
         })}
     </div>
+
+
+    ): 
+    <div>
+
+    <div>
+      <h1>No item found!</h1>
+    </div>
+
+</div>
+    
+    }
     </div>
 
        </div>
