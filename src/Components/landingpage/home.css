@@ -235,12 +235,12 @@
   
 
   .featured-items{
-    text-align: center;
-    border: white 1px solid;
-    flex-direction: column;
     display: flex;
-    gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    border: 1px white solid;
+    width: 900px;
   
   }
 
@@ -252,6 +252,9 @@
 
   h4{
     color: white;
+  }
+  .featured-border{
+    margin-top: 30px;
   }
 
 }
