@@ -116,24 +116,36 @@ console.log(fav)
 
               
                 </div>
-            <div >
-            <>
+
+              <section className="userLink-filter-container">
+
+            <div>
+           
             <label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
-            <br></br>
+         
             <input
             className="search-history"
             type="text"
             value={search}
             onChange={handleTextChange}
             />
-            </>
+  
             </div>
+
+          <div>
 
           <select onChange={(e) => sortByDate(e.target.value)} >
             <option value="">Select</option>
             <option value="Latest to Earliest">Latest to Earliest</option>
             <option value="Earliest to Latest">Earliest to Latest</option>
           </select>
+
+          </div>
+
+
+              </section>
+
+
             <br></br>
                 <div className="search-cart">
                 

@@ -104,7 +104,7 @@ const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) :
 
 
     return(
-      <div>
+      <div className="product-info-container">
          
       <div>
       <Link to={`/products/${props.game.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
@@ -116,7 +116,7 @@ const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) :
       </Link>
       </div>
       <hr></hr>
-      <div>
+      <div className="product-info-container">
       <h3 className="product-names">
         <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
           {props.game.product_name}

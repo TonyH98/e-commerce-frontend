@@ -56,7 +56,13 @@
         width: 90px
    }
 
-  
+  .userLink-filter-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
 
 
    .delete-trash{
@@ -65,11 +71,12 @@
    background-color: black;
    }
 
-   .title-trash{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr)
-
-   }
+  .title-trash{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+  }
 
 
    .search-cart{
@@ -105,9 +112,13 @@
     width: 90px
 }
 
+.userLink-filter-container{
 
+display: flex;
+flex-direction: column;
+align-items: center;
 
-
+}
 
 
 .delete-trash{
@@ -117,9 +128,10 @@ background-color: black;
 }
 
 .title-trash{
-display: grid;
-grid-template-columns: repeat(2, 1fr)
-
+display: flex;
+flex-direction: row;
+gap: 20px;
+justify-content: center;
 }
 
 
@@ -141,7 +153,6 @@ grid-row-gap: 40px;
     list-style: none;
     margin-left: 12%;
   }
-
 
 
 
@@ -156,7 +167,13 @@ grid-row-gap: 40px;
     width: 90px
 }
 
+.userLink-filter-container{
 
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
 
 
 .delete-trash{
@@ -166,9 +183,10 @@ background-color: black;
 }
 
 .title-trash{
-display: grid;
-grid-template-columns: repeat(2, 1fr)
-
+display: flex;
+flex-direction: row;
+gap: 20px;
+justify-content: center;
 }
 
 
@@ -190,5 +208,7 @@ grid-row-gap: 40px;
     list-style: none;
     margin-left: 12%;
   }
+
+
 
 }

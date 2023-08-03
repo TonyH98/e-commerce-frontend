@@ -100,7 +100,7 @@ function Manga(props){
 
 
     return(
-        <div>
+        <div className="product-info-container">
          
           <div>
           <Link to={`/products/${props.manga.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
@@ -112,7 +112,7 @@ function Manga(props){
           </Link>
           </div>
       <hr></hr>
-          <div>
+          <div className="product-info-container">
           <h3 className="product-names">
             <Link to={`/products/${props.manga.id}`} onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
               {props.manga.product_name}
