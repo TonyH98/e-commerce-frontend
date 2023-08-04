@@ -123,9 +123,9 @@ function Purchases({user}){
     </div>
     <section className="userLink-filter-container">
 
-<div>
-
-<label htmlFor="search-history" style={{fontWeight:"bold"}}>Search:</label>
+          
+           
+<label className="search-label" htmlFor="search-history" style={{fontWeight:"bold"}}>Search:
 
 <input
 className="search-history"
@@ -134,17 +134,17 @@ value={search}
 onChange={handleTextChange}
 />
 
-</div>
+</label>
 
-<div>
 
-<select onChange={(e) => sortByDate(e.target.value)} >
+
+<select onChange={(e) => sortByDate(e.target.value)} className="userlink-select-bar">
 <option value="">Select</option>
 <option value="Latest to Earliest">Latest to Earliest</option>
 <option value="Earliest to Latest">Earliest to Latest</option>
 </select>
 
-</div>
+
 
 
   </section>

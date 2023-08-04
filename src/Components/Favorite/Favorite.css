@@ -6,11 +6,13 @@
       margin-right: 50px;
     }
 
+
+    .userlink-select-bar{
+      width: 300px;
+    }
+
     .delete-trash{
-        position: relative;
-        left: 150px;
-        bottom: 50px;
-      
+  
         border: none;
       background-color: black;
       }
@@ -27,7 +29,7 @@
         text-align: center;
         display: grid;
         grid-template-columns: repeat(auto-fill, 15px);
-        color:  #002D62;
+        color:  blue;
         cursor: pointer;
         list-style: none;
         margin-left: 12%;
@@ -46,6 +48,34 @@
         height:110px;
         width: 90px
       }
+
+      .userLink-filter-container{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+      }
+
+      .search-label{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .search-history{
+        width: 300px;
+      }
+
+
+      .title-trash{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+      }
+    
+
 
 }
 

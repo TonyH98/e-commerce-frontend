@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "./UserEditForm.css"
 import axios from 'axios';
 
 const API = process.env.REACT_APP_API_URL;
@@ -71,11 +72,10 @@ const {detail} = props
   };
 
   return (
-    <div className="New">
-      <form onSubmit={handleSubmit}>
+    <div className="user-edit-form-container">
+      <form onSubmit={handleSubmit} className='user-edit-form'>
        
-        <label htmlFor="firstname" className='label-signup'>First Name:</label>
-        <br></br>
+        <label htmlFor="firstname" className='label-signup'>First Name:
         <input
           id="firstname"
           type="text"
@@ -83,9 +83,12 @@ const {detail} = props
           value={user.firstname}
           onChange={handleTextChange}
         />
-        <br></br>
-        <label htmlFor="lastname" className='label-signup'>Last Name:</label>
-        <br></br>
+        
+        </label>
+       
+   
+        <label htmlFor="lastname" className='label-signup'>Last Name:
+        
         <input
           id="lastname"
           type="text"
@@ -93,9 +96,10 @@ const {detail} = props
           value={user.lastname}
           onChange={handleTextChange}
         /> 
-      <br></br>
-      <label htmlFor='phonenumber' className='label-signup'>Phone Number:</label>
-      <br></br>
+        </label>
+  
+  
+      <label htmlFor='phonenumber' className='label-signup'>Phone Number:
       <input
           id="phonenumber"
           type="text"
@@ -105,8 +109,9 @@ const {detail} = props
           onChange={handleTextChange}
         />
         {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
-        <br></br>
-        <br />
+      
+      </label>
+  
         <input type="submit" />
       </form>
     </div>

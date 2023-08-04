@@ -78,9 +78,13 @@ function UserDetails({user}){
             </p>
           </>
         )}
-        <button className="edit" onClick={toggleView}>
+        {!hidden ? (
+        <button className="edit user-edit-button" onClick={toggleView}>
           Edit User
         </button>
+
+
+        ): null}
         </div>
       </UserLink>
     )
