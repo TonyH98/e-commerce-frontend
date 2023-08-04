@@ -129,7 +129,7 @@ h2{
   }
 
   .review-select-bar{
-    width: 350px;
+    width: 300px;
   }
 
   .edit{
@@ -166,12 +166,20 @@ h2{
 
   }
 
-  
+  .Reviews{
+    margin-left: 10px;
+  }
 
 }
 
 
 @media (min-width: 577px) and (max-width: 768px){
+
+
+  .Reviews{
+    margin-left: 10px;
+  }
+
   .review-select-bar{
     width: 350px;
   }
@@ -288,5 +296,7 @@ h2{
   }
 
 
-
+  .Reviews{
+    margin-left: 10px;
+  }
 }
