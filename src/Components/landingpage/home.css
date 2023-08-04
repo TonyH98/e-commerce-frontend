@@ -235,12 +235,12 @@
   
 
   .featured-items{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    border: 1px white solid;
-    width: 900px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    padding-left: 30px;
+    grid-column-gap: 15px;
+    border: silver 1px solid;
   
   }
 
