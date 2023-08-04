@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import {FaStar} from 'react-icons/fa'
+
 
 function ReviewForm(props) {
   let { id } = useParams();
@@ -14,7 +16,13 @@ function ReviewForm(props) {
   });
 
   const handleTextChange = (event) => {
-    setReview({ ...review, [event.target.id]: event.target.value });
+    if (event.target.name !== "rating") {
+      setReview({ ...review, [event.target.id]: event.target.value });
+    } else if(event.target.name === "rating"){
+      // Update the selected rating when a star is clicked
+      const selectedRating = Number(event.target.value);
+      setReview({ ...review, rating: selectedRating });
+    }
   };
 
   useEffect(() => {
@@ -70,18 +78,33 @@ function ReviewForm(props) {
         />
       <br></br>
         <label htmlFor="rating" className='label-signup'>Rating:</label>
-        <br></br>
-        <input
-          id="rating"
-          type="number"
-          name="rating"
-          className="rating"
-          min="0"
-          max="5"
-          step="1"
-          value={review.rating}
-          onChange={handleTextChange}
-        />
+        <div className="star_rating">
+{[...Array(5)].map((star , index) => {
+ const currentValue = index + 1;
+  return (
+    <div key={index}>
+      <input
+        type="radio"
+        name="rating"
+        id={`rating-${currentValue}`}
+        value={currentValue}
+        onChange={handleTextChange} 
+        checked={currentValue === review.rating}
+      />
+     
+     <label htmlFor={`rating-${currentValue}`}>
+              <FaStar
+                className="star"
+                size={50}
+                color={currentValue <= review.rating ? '#ffc107' : 'white'}
+              />
+            </label>
+
+    </div>
+  )
+})}
+
+</div>
         <br />
 
         <input type="submit" />

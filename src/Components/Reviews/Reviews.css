@@ -9,6 +9,13 @@
     margin-left: 10px;
   }
   
+  .star_rating{
+
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+  }
 
   .reviewer{
     color: white;

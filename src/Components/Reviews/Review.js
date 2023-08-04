@@ -1,61 +1,66 @@
-import ReviewForm from "./ReviewEdit"
+import ReviewForm from "./ReviewEdit";
 import { useState } from "react";
-import { Link , useParams} from "react-router-dom";
+import { FaStar } from 'react-icons/fa';
+import { Link, useParams } from "react-router-dom";
 import ReadMore from "../Other/ReadMore";
+
 function Review({ review, handleDelete, handleEdit, user }) {
-  const [hidden , setHidden] = useState(false)
+  const [hidden, setHidden] = useState(false);
 
   const toggleView = () => {
-    setHidden(!hidden)
-  }
+    setHidden(!hidden);
+  };
 
-  const {id} = useParams()
+  const { id } = useParams();
 
-  
- 
-
-    return (
-      <div className="Review">
-        {hidden ? (<ReviewForm reviewDetails={review} toggleView={toggleView} handleEdit={handleEdit}/>) : (
-          <>
-          <div className="review-info-container">
-          <h2 className="reviewer">{review.reviewer}</h2>
-
-          <div className="title-score">
-            
-          <h4 className="review-title">
-            {review.title}
-          </h4>
-
-          </div>
-          <h4 className="rating">
-          Rating: {review.rating}
-          </h4>
-
-          <div className="review-content">
-
-          <p>
-          {review.content}
-          </p>
-     
-          </div>
-
-
-
-          </div>
-
-          </>
-        )}
-        <br></br>
-        <div className="review-btns">
-          {user?.id === review.user_id ? (
-            <>
-            <button  className="delete" onClick={() => handleDelete(review.id)}>delete</button> <button className="edit" onClick = {toggleView}>edit this review</button>
-            </>
-          ) : null}
+  const starRating = (rating) => {
+      return (
+        <div className="starRating-show">
+          {[...Array(rating)].map((star, index) => (
+            <FaStar
+              key={index}
+              className="star"
+              size={20}
+              color='yellow' 
+            />
+          ))}
         </div>
+      );
+  };
+
+  console.log(review.rating);
+
+  return (
+    <div className="Review">
+      {hidden ? (<ReviewForm reviewDetails={review} toggleView={toggleView} handleEdit={handleEdit} />) : (
+        <>
+          <div className="review-info-container">
+            <h2 className="reviewer">{review.reviewer}</h2>
+
+            <div className="title-score">
+              <h4 className="review-title">
+                {review.title} | {starRating(Number(review.rating))} 
+              </h4>
+            </div>
+
+            <div className="review-content">
+              <p>
+                {review.content}
+              </p>
+            </div>
+          </div>
+        </>
+      )}
+      <br />
+      <div className="review-btns">
+        {user?.id === review.user_id ? (
+          <>
+            <button className="delete" onClick={() => handleDelete(review.id)}>delete</button> <button className="edit" onClick={toggleView}>edit this review</button>
+          </>
+        ) : null}
       </div>
-    );
-  }
-  
-  export default Review;
+    </div>
+  );
+}
+
+export default Review;

@@ -322,7 +322,7 @@ p{
     
     }
     
-    
+  
     .selected-image{
       width: 90px;
       height: 80px;
@@ -344,16 +344,12 @@ p{
     
     
     .product-details{
-        margin-left: 5px;
-        display: flex;
-        flex-direction: row;
-        gap: 60px;
+       display: grid;
+       grid-template-columns: 40% 50%;
     }
     
 
-    .hr-product{
-      width: 100%;
-    }
+   
 
     .cart{
     display: grid;
@@ -418,6 +414,8 @@ p{
       color: white;
       border: white 1px solid;
       }
+
+      
 
 }
 

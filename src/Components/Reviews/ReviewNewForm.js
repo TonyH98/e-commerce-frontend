@@ -2,7 +2,7 @@ import { useState , useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { fontWeight } from "@mui/system";
-
+import {FaStar} from 'react-icons/fa'
 const API = process.env.REACT_APP_API_URL;
 
 function ReviewNewForm({user}){
@@ -12,16 +12,16 @@ function ReviewNewForm({user}){
 
  let navigate = useNavigate();
 
- const [review, setReview] = useState({
+
+let [review, setReview] = useState({
     reviewer: user?.username,
     title: "",
     content: "",
-    rating: "",
+    rating: null,
     user_id: user?.id,
     product_id: id,
   });
 
-  
 
   useEffect(() => {
     axios
@@ -52,7 +52,13 @@ function ReviewNewForm({user}){
 
 
       const handleTextChange = (event) => {
-        setReview({ ...review, [event.target.id]: event.target.value });
+        if (event.target.name !== "rating") {
+          setReview({ ...review, [event.target.id]: event.target.value });
+        } else if(event.target.name === "rating"){
+          // Update the selected rating when a star is clicked
+          const selectedRating = Number(event.target.value);
+          setReview({ ...review, rating: selectedRating });
+        }
       };
 
     
@@ -63,7 +69,7 @@ function ReviewNewForm({user}){
         
       };
 
-      
+      console.log(review.rating)
     return(
       <div className="new-form">
         <h1>Review: {product.product_name}</h1>
@@ -100,20 +106,35 @@ function ReviewNewForm({user}){
           onChange={handleTextChange}
         />
   <br></br>
-<label className='label-signup' htmlFor="rating">Rating:</label>
-<br></br>
-        <input
-          id="rating"
-          type="number"
-          name="rating"
-          className="rating"
-          min="0"
-          max="5"
-          step="1"
-          value={review.rating}
-          onChange={handleTextChange}
-      
-        />
+  <label htmlFor="rating" className="label-signup">Rating:</label>
+
+<div className="star_rating">
+{[...Array(5)].map((star , index) => {
+ const currentValue = index + 1;
+  return (
+    <div key={index}>
+      <input
+        type="radio"
+        name="rating"
+        id={`rating-${currentValue}`}
+        value={currentValue}
+        onChange={handleTextChange} 
+        checked={currentValue === review.rating}
+      />
+     
+     <label htmlFor={`rating-${currentValue}`}>
+              <FaStar
+                className="star"
+                size={50}
+                color={currentValue <= review.rating ? '#ffc107' : 'white'}
+              />
+            </label>
+
+    </div>
+  )
+})}
+
+</div>
         <br />
         <input type="submit" />
       </form>
