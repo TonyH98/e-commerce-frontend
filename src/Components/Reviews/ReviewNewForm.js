@@ -69,13 +69,14 @@ let [review, setReview] = useState({
         
       };
 
-      console.log(review.rating)
+     
     return(
-      <div className="new-form">
+      <div >
+        
+
         <h1>Review: {product.product_name}</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="reviewer" className='label-signup'>Name: </label>
-        <br></br>
+      <form onSubmit={handleSubmit} className="review-form">
+        <label htmlFor="reviewer" className='label-signup'>Name:
         <input
           id="reviewer"
           value={review.reviewer}
@@ -83,20 +84,25 @@ let [review, setReview] = useState({
           placeholder="Your name"
           required
         />
-        <br></br>
-        <label htmlFor="title" className='label-signup'>Title:</label>
-        <br></br>
+        
+         </label>
+       
+    
+        <label htmlFor="title" className='label-signup'>Title:
         <input
           id="title"
           type="text"
           required
           value={review.title}
-          onChange={handleTextChange}
+         
         />
+        
+        </label>
+    
      
-        <br></br>
-        <label htmlFor="content" className='label-signup'>Review:</label>
-        <br></br>
+   
+        <label htmlFor="content" className='label-signup'>Review:
+        
         <textarea
           id="content"
           type="text"
@@ -105,9 +111,11 @@ let [review, setReview] = useState({
           placeholder="What do you think..."
           onChange={handleTextChange}
         />
-  <br></br>
-  <label htmlFor="rating" className="label-signup">Rating:</label>
+        </label>
+    
 
+  <label htmlFor="rating" className="label-signup">Rating:
+  
 <div className="star_rating">
 {[...Array(5)].map((star , index) => {
  const currentValue = index + 1;
@@ -135,12 +143,17 @@ let [review, setReview] = useState({
 })}
 
 </div>
-        <br />
+  
+  </label>
+
+   
         <input type="submit" />
-      </form>
       <Link to={`/products/${id}`}>
         Back
       </Link>
+      </form>
+
+
     </div>
     )
 }

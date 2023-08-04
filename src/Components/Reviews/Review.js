@@ -37,11 +37,17 @@ function Review({ review, handleDelete, handleEdit, user }) {
           <div className="review-info-container">
             <h2 className="reviewer">{review.reviewer}</h2>
 
-            <div className="title-score">
-              <h4 className="review-title">
-                {review.title} | {starRating(Number(review.rating))} 
-              </h4>
-            </div>
+
+           <div className="title-score">
+  <p className="review-title" style={{ "display": "inline-block", "marginRight": "5px" }}>
+    {review.title} |
+  </p>
+  <div className="review-card-stars" style={{ "display": "inline-block"}}>
+    {starRating(Number(review.rating))}
+  </div>
+</div>
+
+
 
             <div className="review-content">
               <p>

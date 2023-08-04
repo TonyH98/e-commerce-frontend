@@ -32,7 +32,36 @@
     
   }
 
-  
+  .create-review {
+    background-color: blue;
+    color: #fff; /* Change to your desired text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .delete{
+    background-color: red;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    height: 25px;
+
+  }
+
+  .edit{
+    background-color: blue;
+    border-radius: 3px;
+    border: none;
+    color: none;
+    height: 25px;
+    color: white;
+  }
+
+
   .review-select-bar{
     width: 33%;
   }
@@ -40,8 +69,224 @@
   .Review{
     border: white solid 1px;
   }
+
+  .review-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .label-signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .review-image{
+    width: 200px;
+    height: 300px
+  }
+
+  .review-form-container{
+
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+
+  }
+
+  .review-card-stars{
+    margin-top: 5px;
+  }
   
 }
 h2{
   color: white;
+}
+
+@media (min-width: 320px) and (max-width: 576px){
+
+  .create-review {
+    background-color: blue;
+    color: #fff; /* Change to your desired text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .delete{
+    background-color: red;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    height: 25px;
+
+  }
+
+  .review-select-bar{
+    width: 350px;
+  }
+
+  .edit{
+    background-color: blue;
+    border-radius: 3px;
+    border: none;
+    color: none;
+    height: 25px;
+    color: white;
+  }
+
+
+
+
+  .review-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .label-signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .star_rating{
+
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+
+  }
+
+  
+
+}
+
+
+@media (min-width: 577px) and (max-width: 768px){
+  .review-select-bar{
+    width: 350px;
+  }
+  .review-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .label-signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .star_rating{
+
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+
+  }
+
+  .create-review {
+    background-color: blue;
+    color: #fff; /* Change to your desired text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .delete{
+    background-color: red;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    height: 25px;
+
+  }
+
+  .edit{
+    background-color: blue;
+    border-radius: 3px;
+    border: none;
+    color: none;
+    height: 25px;
+    color: white;
+  }
+
+
+
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+  .review-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .label-signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .star_rating{
+
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+
+  }
+
+  .review-select-bar{
+    width: 350px;
+  }
+
+
+  .create-review {
+    background-color: blue;
+    color: #fff; /* Change to your desired text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .delete{
+    background-color: red;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    height: 25px;
+
+  }
+
+  .edit{
+    background-color: blue;
+    border-radius: 3px;
+    border: none;
+    color: none;
+    height: 25px;
+    color: white;
+  }
+
+
+
 }

@@ -76,10 +76,6 @@ function Reviews({ user }) {
         <h2>Customer Reviews</h2>
         <p>Global Review Number: {filterReviews.length}</p>
         <p>Average Score: {isNaN(average) ? `No Reviews` : average.toFixed(2)}</p>
-
-
-        <Link to={`/products/${id}/reviews/chart`}>Review Statistics</Link>
-        <br></br>
         <select className="review-select-bar" onChange={(e) => handleCategory(e.target.value)}>
           <option value="">All Reviews</option>
           {[...Array(5)].map((_, i) => (
