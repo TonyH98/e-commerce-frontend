@@ -86,6 +86,16 @@
         width: 90px
    }
 
+
+   .history-box{
+    display: grid;
+    grid-template-columns: 60% 20%;
+    text-align: center;
+  }
+
+
+
+
   .userLink-filter-container{
 
     display: flex;
@@ -141,6 +151,16 @@
     height:110px;
     width: 90px
 }
+
+
+
+.history-box{
+  display: grid;
+  grid-template-columns: 60% 20%;
+  text-align: center;
+}
+
+
 
 .userLink-filter-container{
 
@@ -240,5 +260,11 @@ grid-row-gap: 40px;
   }
 
 
+  .history-box{
+    display: grid;
+    grid-template-columns: 60% 20%;
+    text-align: center;
+  }
 
+  
 }
