@@ -12,14 +12,15 @@ import { useState, useEffect } from "react";
 const API = process.env.REACT_APP_API_URL;
 
 
-function Nav({isLogged, newLogin , setIsLogged}){
+function Nav({isLogged}){
   
   const navigate = useNavigate();
   const [filterSearch, setFilterSearch] = useState([]);
   const [productSearch, setProductSearch] = useState([]);
   const [user, setUser] = useState();
   const [search, setSearch] = useState("");
-  
+  const [totalQuantity, setTotalQuantity] = useState([]);
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     
@@ -31,7 +32,7 @@ function Nav({isLogged, newLogin , setIsLogged}){
   
 
 
-console.log(isLogged)
+
   
   useEffect(() => {
   
@@ -74,7 +75,38 @@ console.log(isLogged)
   }
 
 
-console.log(user)
+
+  useEffect(() => {
+    if(user){
+      axios
+        .get(`${API}/users/${user?.id}/products`)
+        .then((res) => {
+          setTotalQuantity(res.data);
+        })
+        .catch((error) => {
+          console.warn("Error fetching data:", error);
+        });
+
+    }
+  }, [user , totalQuantity]);
+
+  useEffect(() => {
+    let sumQuantity = 0;
+  
+      totalQuantity.forEach((item) => {
+        sumQuantity += item.quantity;
+      });
+    
+    setQuantity(sumQuantity);
+  }, [totalQuantity, quantity , user]);
+  
+
+ console.log(totalQuantity)
+
+console.log(quantity)
+
+
+
 
     return( 
       <nav>
@@ -154,6 +186,7 @@ console.log(user)
             <div>
 
             <ShoppingCart size={30} color="white"/>
+            {quantity}
             </div>
           </Link>
         ) : (
