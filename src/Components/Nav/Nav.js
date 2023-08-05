@@ -22,6 +22,8 @@ function Nav({isLogged}){
   const [totalQuantity, setTotalQuantity] = useState([]);
   const [quantity, setQuantity] = useState(0);
 
+
+
   useEffect(() => {
     
         const loggedUser = JSON.parse(window.localStorage.getItem('user'));
@@ -77,36 +79,29 @@ function Nav({isLogged}){
 
 
   useEffect(() => {
-    if(user){
+    if (user) {
       axios
         .get(`${API}/users/${user?.id}/products`)
         .then((res) => {
-          setTotalQuantity(res.data);
+          setTotalQuantity(res.data)
+          if (res.data.length) {
+            let sumQuantity = 0;
+            res.data.forEach((item) => {
+              sumQuantity += item.quantity;
+            });
+            setQuantity(sumQuantity);
+          }
+          if(res.data.length === 0){
+            setQuantity(0)
+          }
         })
         .catch((error) => {
           console.warn("Error fetching data:", error);
         });
-
     }
-  }, [user , totalQuantity]);
-
-  useEffect(() => {
-    let sumQuantity = 0;
+  }, [user , quantity, totalQuantity]);
   
-      totalQuantity.forEach((item) => {
-        sumQuantity += item.quantity;
-      });
-    
-    setQuantity(sumQuantity);
-  }, [totalQuantity, quantity , user]);
-  
-
- console.log(totalQuantity)
-
-console.log(quantity)
-
-
-
+  console.log(totalQuantity)
 
     return( 
       <nav>
