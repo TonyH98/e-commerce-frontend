@@ -12,15 +12,15 @@ function UserLink({children}) {
 
   
 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loggedUser = JSON.parse(window.localStorage.getItem('user'));
     setUser(loggedUser);
-  }, []);
+  }, [navigate]);
 
 
 
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.clear();

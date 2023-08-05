@@ -69,7 +69,7 @@ console.log(user)
   return (
     <div className="App">
       <Router>
-        <Nav productSearch={productSearch} setProductSearch={setProductSearch} isLogged={isLogged} user={user}/>
+        <Nav productSearch={productSearch} setProductSearch={setProductSearch} setIsLogged={setIsLogged} isLogged={isLogged} user={user} newLogin={newLogin}/>
         <main>
           <Routes>
           <Route path="/" element={<Home setProducts={setProducts} products={products} user={user} />} />

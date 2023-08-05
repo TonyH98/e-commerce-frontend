@@ -1,5 +1,5 @@
 import "./Nav.css"
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ShoppingCart} from "phosphor-react";
 
 import {  MagnifyingGlass  } from "phosphor-react"
@@ -8,34 +8,44 @@ import { X } from "phosphor-react"
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import {RxHamburgerMenu} from "react-icons/rx"
-
-
 
 const API = process.env.REACT_APP_API_URL;
 
 
-function Nav({isLogged}){
+function Nav({isLogged, newLogin , setIsLogged}){
   
-  const [productCart, setProductCart] = useState([]);
+  const navigate = useNavigate();
   const [filterSearch, setFilterSearch] = useState([]);
   const [productSearch, setProductSearch] = useState([]);
   const [user, setUser] = useState();
   const [search, setSearch] = useState("");
-  const [totalQuantity, setTotalQuantity] = useState(0);
+  
 
   useEffect(() => {
-    const loggedUser = JSON.parse(window.localStorage.getItem('user'));
-    setUser(loggedUser);
-    axios
-      .get(`${API}/products`)
-      .then((res) => {
-        setProductSearch(res.data);
-      })
-      .catch((error) => {
-        console.warn("Error fetching productSearch data:", error);
-      });
-  }, [isLogged]);
+    
+        const loggedUser = JSON.parse(window.localStorage.getItem('user'));
+        setUser(loggedUser);
+      
+  }, [isLogged, navigate]);
+  
+  
+
+
+console.log(isLogged)
+  
+  useEffect(() => {
+  
+      axios
+        .get(`${API}/products`)
+        .then((res) => {
+          setProductSearch(res.data);
+        })
+        .catch((error) => {
+          console.warn('Error fetching productSearch data:', error);
+        });
+
+    
+  }, []); 
 
 
   function handleFilter(event) {
@@ -62,6 +72,10 @@ function Nav({isLogged}){
     }
     axios.post(`${API}/users/${id}/search/${ids}`);
   }
+
+
+console.log(user)
+
     return( 
       <nav>
         <div className="Navigation">
