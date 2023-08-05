@@ -8,7 +8,6 @@ function ReviewForm(props) {
   const { reviewDetails } = props;
 
   const [review, setReview] = useState({
-    reviewer: "",
     title: "",
     content: "",
     rating: "",
@@ -45,19 +44,8 @@ function ReviewForm(props) {
         
 
     
-  <form onSubmit={handleSubmit} className="review-form">
-    <label htmlFor="reviewer" className='label-signup'>Name:
-    <input
-      id="reviewer"
-      value={review.reviewer}
-      type="text"
-      placeholder="Your name"
-      required
-    />
-    
-     </label>
-   
-
+  <form onSubmit={handleSubmit} className="review-form review-edit-form">
+  
     <label htmlFor="title" className='label-signup'>Title:
     <input
       id="title"
