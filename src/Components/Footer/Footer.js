@@ -7,9 +7,13 @@ import {TwitterLogo} from "phosphor-react"
 
 import { Link } from "react-router-dom"
 
+import "./Footer.css"
+
 function Footer(){
     return (
         <footer>
+        
+        <h4 className="footer-name">Collection Vault</h4>
 
         <div className="footers">
             <div className="footer-section-one">
@@ -30,17 +34,6 @@ function Footer(){
                 <p className="footer-link">Term of Service</p>
             </div>
         </div>
-        <hr></hr>
-        <p style={{color: "black"}}>
-
-        <span style={{color:"black"}}  dangerouslySetInnerHTML={{ "__html": "&copy;" }} />2023 Tony Hoang. All Rights Reserved
-        <div className="social-media-logos">
-            <DiscordLogo color="black" size={30}/>
-            <FacebookLogo color="black" size={30}/>
-            <TwitterLogo color="black" size={30}/>
-        </div>
-        </p>
-
         </footer>
     )
 }

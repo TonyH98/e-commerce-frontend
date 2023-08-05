@@ -8,7 +8,7 @@ import { X } from "phosphor-react"
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
+import {RxHamburgerMenu} from "react-icons/rx"
 
 
 
@@ -67,7 +67,7 @@ function Nav({isLogged}){
         <div className="Navigation">
       
          <div className="nav-1">
-
+          
          <Link to="/">
          
          <h1 className="site-name" >Collection Vault</h1>

@@ -386,10 +386,7 @@ input[type=radio]{
   }
   
   
-  .footers{
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-  }
+  
     
 
   .login-form{

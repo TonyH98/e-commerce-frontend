@@ -1,0 +1,23 @@
+
+
+.footer-link{
+    color: white;
+}
+
+footer{
+    margin-top: 200px;
+    border-top: 1px solid white;
+}
+
+.footer-name{
+    text-align: left;
+    margin-left: 20px;
+}
+
+
+.footers{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+}
