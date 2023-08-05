@@ -22,6 +22,17 @@ let [review, setReview] = useState({
     product_id: id,
   });
 
+  useEffect(() => {
+    if (user?.id) {
+      setReview((prevReview) => ({
+        ...prevReview,
+        user_id: user?.id,
+        reviewer: user?.username
+      }));
+    }
+  }, [user?.id]);
+
+
 
   useEffect(() => {
     axios
@@ -69,6 +80,8 @@ let [review, setReview] = useState({
         
       };
 
+
+      console.log(review)
      
     return(
       <div >
