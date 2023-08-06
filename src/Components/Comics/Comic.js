@@ -9,17 +9,6 @@ const API = process.env.REACT_APP_API_URL;
 
 function Comic(props){
 
-
-  let [newProduct] = useState({
-    quantity: props.comic.quantity,
-    image: props.comic.image,
-    price: props.comic.price,
-    product_name: props.comic.product_name,
-    products_id: props.comic.id,
-    users_id: props.user?.id
-  })
-
-
   const [userCart , setUserCart] = useState([])
 
   const [newCart , setNewCart] = useState([])
@@ -32,11 +21,13 @@ function Comic(props){
 
     if(id){
       axios
-      .post(`${API}/users/${id}/products/${ids}`, props.comic)
+      .post(`${API}/users/${id}/products/${ids}`)
       .then(() => {
-        setNewCart([...userCart, {...newProduct}])
-        setUserCart([...userCart, {...newProduct}])
-        navigate("/comics")
+        axios.get(`${API}/users/${props.user?.id}/products`)
+        .then((res) => {
+          setNewCart(res.data)
+          setUserCart(res.data)
+        })
       })
     }
     else{

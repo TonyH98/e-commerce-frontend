@@ -103,13 +103,13 @@ function Mangas({user}){
         }
       }
 
-
+console.log(filterByBrand())
 
 
       return(
         <div>
          
-            <h1>Video Games Section</h1>
+            <h1>Manga Section</h1>
     
          
 

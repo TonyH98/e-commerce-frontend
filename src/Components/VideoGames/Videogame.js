@@ -7,19 +7,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function Videogame(props){
   
-  let [newProduct] = useState({
-    quantity: props.game.quantity,
-    category: props.game.category,
-    description: props.game.description,
-    favorites: props.game.favorites,
-    image: props.game.image,
-    manufacturer: props.game.manufacturer,
-    price: props.game.manufacturer,
-    product_name: props.game.product_name,
-    products_id: props.game.id,
-    release_date: props.game.release_date,
-    users_id: props.user?.id
-  })
+
  
   const [userCart , setUserCart] = useState([])
 
@@ -33,11 +21,13 @@ function Videogame(props){
 
       if(id){
         axios
-        .post(`${API}/users/${id}/products/${ids}`, props.game)
+        .post(`${API}/users/${id}/products/${ids}`)
         .then(() => {
-          setNewCart([...userCart, {...newProduct}])
-          setUserCart([...userCart, {...newProduct}])
-          navigate("/videogames")
+          axios.get(`${API}/users/${props.user?.id}/products`)
+          .then((res) => {
+            setNewCart(res.data)
+            setUserCart(res.data)
+          })
         })
       }
 

@@ -8,14 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 
 function Manga(props){
 
-  let [newProduct] = useState({
-    quantity: props.manga.quantity,
-    image: props.manga.image,
-    price: props.manga.price,
-    product_name: props.manga.product_name,
-    products_id: props.manga.id,
-    users_id: props.user?.id
-  })
+
  
   const [userCart , setUserCart] = useState([])
 
@@ -30,11 +23,13 @@ function Manga(props){
 
     if(id){
       axios
-      .post(`${API}/users/${id}/products/${ids}`, {quantity} )
+      .post(`${API}/users/${id}/products/${ids}`)
       .then(() => {
-        setNewCart([...userCart, {...newProduct}])
-        setUserCart([...userCart, {...newProduct}])
-        navigate("/mangas")
+        axios.get(`${API}/users/${props.user?.id}/products`)
+        .then((res) => {
+          setNewCart(res.data)
+          setUserCart(res.data)
+        })
       })
     }
     else{

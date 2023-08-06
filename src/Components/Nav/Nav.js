@@ -6,7 +6,7 @@ import {  MagnifyingGlass  } from "phosphor-react"
 import { X } from "phosphor-react"
 
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -20,8 +20,8 @@ function Nav({isLogged}){
   const [user, setUser] = useState();
   const [search, setSearch] = useState("");
   const [totalQuantity, setTotalQuantity] = useState([]);
-  const [quantity, setQuantity] = useState(0);
-
+let [quantity, setQuantity] = useState(null);
+const totalQuantityRef = useRef(0); // Create a mutable reference
 
 
   useEffect(() => {
@@ -78,30 +78,34 @@ function Nav({isLogged}){
 
 
 
-  useEffect(() => {
-    if (user) {
-      axios
-        .get(`${API}/users/${user?.id}/products`)
-        .then((res) => {
-          setTotalQuantity(res.data)
-          if (res.data.length) {
-            let sumQuantity = 0;
-            res.data.forEach((item) => {
-              sumQuantity += item.quantity;
-            });
-            setQuantity(sumQuantity);
-          }
-          if(res.data.length === 0){
-            setQuantity(0)
-          }
-        })
-        .catch((error) => {
-          console.warn("Error fetching data:", error);
-        });
-    }
-  }, [user , quantity, totalQuantity]);
-  
-  console.log(totalQuantity)
+useEffect(() => {
+  if (user) {
+    axios
+      .get(`${API}/users/${user?.id}/products`)
+      .then((res) => {
+        setTotalQuantity(res.data);
+        if (res.data.length) {
+          let quantity = 0;
+          res.data.forEach((item) => {
+            quantity += item.quantity;
+          });
+          setQuantity(quantity);
+          console.log(quantity);
+        } else {
+          setQuantity(0);
+          console.log(quantity);
+        }
+      })
+      .catch((error) => {
+        console.warn("Error fetching data:", error);
+      });
+  }
+}, [user, totalQuantity]);
+
+
+
+
+ console.log(totalQuantity)
 
     return( 
       <nav>
