@@ -1,4 +1,18 @@
 /* CSS for the section */
+
+
+.formatting-button-container{
+
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  }
+  
+  .formatting-buttons{
+    background-color: black;
+    border: none;
+  }
+
 @media (min-width: 993px){
   
   .review-info-container {
@@ -16,6 +30,8 @@
     justify-content: center;
 
   }
+
+
 
 
 .review-edit-form{
@@ -104,6 +120,13 @@
 
   .review-card-stars{
     margin-top: 5px;
+  }
+
+  .reviews-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10px;
   }
   
 }

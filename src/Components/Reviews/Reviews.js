@@ -93,6 +93,7 @@ function Reviews({ user }) {
 
       ) : null}
 
+      <div className="reviews-container">
 
       {filterReviews.map((review) => (
         <Review
@@ -103,6 +104,8 @@ function Reviews({ user }) {
           user={user}
         />
       ))}
+
+      </div>
     </section>
   );
 }

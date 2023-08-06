@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {FaStar} from 'react-icons/fa'
-
+import { GrItalic } from "react-icons/gr";
+import {GrBold} from "react-icons/gr"
 
 function ReviewForm(props) {
   let { id } = useParams();
@@ -23,6 +24,39 @@ function ReviewForm(props) {
       setReview({ ...review, rating: selectedRating });
     }
   };
+
+  const handleFormateButtonClick = (format) => {
+        const contentElement = document.getElementById("content");
+        const start = contentElement.selectionStart;
+        const end = contentElement.selectionEnd;
+        const selectedText = review.content.substring(start, end);
+        let formatText = review.content;
+    
+        switch (format) {
+          case "Bold":
+            formatText =
+              formatText.substring(0, start) +
+              `**${selectedText}**` +
+              formatText.substring(end);
+            break;
+          case "Italic":
+            formatText =
+              formatText.substring(0, start) +
+              `*${selectedText}*` +
+              formatText.substring(end);
+            break;
+          default:
+            break;
+        }
+
+        
+        setReview({ ...review, content: formatText });
+      };
+
+
+
+
+
 
   useEffect(() => {
     if (reviewDetails) {
@@ -59,17 +93,22 @@ function ReviewForm(props) {
 
  
 
-    <label htmlFor="content" className='label-signup'>Review:
-    
-    <textarea
-      id="content"
-      type="text"
-      name="content"
-      value={review.content}
-      placeholder="What do you think..."
-      onChange={handleTextChange}
-    />
-    </label>
+     <label htmlFor="content" className='label-signup'>Review:
+        
+        <textarea
+          id="content"
+          type="text"
+          name="content"
+          value={review.content}
+          placeholder="What do you think..."
+          onChange={handleTextChange}
+        />
+        <div className="formatting-button-container">
+        <button className="formatting-buttons" onClick={(e) => {e.preventDefault(); handleFormateButtonClick("Bold");}}><GrBold color="white" size={20}/></button>
+
+        <button className="formatting-buttons" onClick={(e) => {e.preventDefault();handleFormateButtonClick("Italic"); }}><GrItalic color="white" size={20}/></button>
+        </div>
+        </label>
 
 
 <label htmlFor="rating" className="label-signup">Rating:

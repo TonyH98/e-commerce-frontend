@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaStar } from 'react-icons/fa';
 import { Link, useParams } from "react-router-dom";
 import ReadMore from "../Other/ReadMore";
+import ReactMarkdown from "react-markdown";
 
 function Review({ review, handleDelete, handleEdit, user }) {
   const [hidden, setHidden] = useState(false);
@@ -49,11 +50,9 @@ function Review({ review, handleDelete, handleEdit, user }) {
 
 
 
-            <div className="review-content">
-              <p>
-                {review.content}
-              </p>
-            </div>
+<div className="review-content">
+        <ReactMarkdown>{review.content}</ReactMarkdown>
+      </div>
           </div>
         </>
       )}

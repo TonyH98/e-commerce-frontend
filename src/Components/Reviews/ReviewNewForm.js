@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { fontWeight } from "@mui/system";
 import {FaStar} from 'react-icons/fa'
+import {GrBold} from "react-icons/gr"
+import { GrItalic } from "react-icons/gr";
 const API = process.env.REACT_APP_API_URL;
 
 function ReviewNewForm({user}){
@@ -72,8 +74,37 @@ let [review, setReview] = useState({
         }
       };
 
+      const handleFormateButtonClick = (format) => {
+        const contentElement = document.getElementById("content");
+        const start = contentElement.selectionStart;
+        const end = contentElement.selectionEnd;
+        const selectedText = review.content.substring(start, end);
+        let formatText = review.content;
     
+        switch (format) {
+          case "Bold":
+            formatText =
+              formatText.substring(0, start) +
+              `**${selectedText}**` +
+              formatText.substring(end);
+            break;
+          case "Italic":
+            formatText =
+              formatText.substring(0, start) +
+              `*${selectedText}*` +
+              formatText.substring(end);
+            break;
+          default:
+            break;
+        }
 
+        
+        setReview({ ...review, content: formatText });
+      };
+
+
+
+      
       const handleSubmit = (event) => {
         event.preventDefault();
          handleAdd(review)   
@@ -89,27 +120,16 @@ let [review, setReview] = useState({
 
         <h1>Review: {product.product_name}</h1>
       <form onSubmit={handleSubmit} className="review-form">
-        <label htmlFor="reviewer" className='label-signup'>Name:
-        <input
-          id="reviewer"
-          value={review.reviewer}
-          type="text"
-          placeholder="Your name"
-          required
-        />
-        
-         </label>
        
-    
+       
         <label htmlFor="title" className='label-signup'>Title:
         <input
           id="title"
           type="text"
           required
           value={review.title}
-         
+          onChange={handleTextChange}
         />
-        
         </label>
     
      
@@ -124,8 +144,12 @@ let [review, setReview] = useState({
           placeholder="What do you think..."
           onChange={handleTextChange}
         />
+        <div className="formatting-button-container">
+        <button className="formatting-buttons" onClick={(e) => {e.preventDefault(); handleFormateButtonClick("Bold");}}><GrBold color="white" size={20}/></button>
+
+        <button className="formatting-buttons" onClick={(e) => {e.preventDefault();handleFormateButtonClick("Italic"); }}><GrItalic color="white" size={20}/></button>
+        </div>
         </label>
-    
 
   <label htmlFor="rating" className="label-signup">Rating:
   

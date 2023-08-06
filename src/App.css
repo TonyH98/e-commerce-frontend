@@ -15,6 +15,10 @@ input[type=radio]{
   cursor: pointer;
 }
 
+.underlined {
+  text-decoration: underline;
+}
+
  @media (min-width: 993px){
 
    body{

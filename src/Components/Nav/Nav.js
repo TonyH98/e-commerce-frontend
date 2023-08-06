@@ -90,10 +90,10 @@ useEffect(() => {
             quantity += item.quantity;
           });
           setQuantity(quantity);
-          console.log(quantity);
+         
         } else {
           setQuantity(0);
-          console.log(quantity);
+     
         }
       })
       .catch((error) => {
@@ -102,10 +102,6 @@ useEffect(() => {
   }
 }, [user, totalQuantity]);
 
-
-
-
- console.log(totalQuantity)
 
     return( 
       <nav>
