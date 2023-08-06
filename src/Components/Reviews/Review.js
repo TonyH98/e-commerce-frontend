@@ -29,7 +29,7 @@ function Review({ review, handleDelete, handleEdit, user }) {
       );
   };
 
-  console.log(review.rating);
+  console.log(review);
 
   return (
     <div className="Review">

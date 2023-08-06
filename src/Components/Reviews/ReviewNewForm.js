@@ -19,6 +19,7 @@ let [review, setReview] = useState({
     reviewer: user?.username,
     title: "",
     content: "",
+    image: null,
     rating: null,
     user_id: user?.id,
     product_id: id,
@@ -50,65 +51,86 @@ let [review, setReview] = useState({
 
 
 
-      const handleAdd = (newReview) => {
-        axios
-          .post(`${API}/products/${id}/reviews`, newReview)
-          .then(
-            (response) => {
-             navigate(`/products/${id}`)
-            },
-            (error) => console.error(error)
-          )
-          .catch((c) => console.warn("catch", c));
-      };
-
-
-
-      const handleTextChange = (event) => {
-        if (event.target.name !== "rating") {
-          setReview({ ...review, [event.target.id]: event.target.value });
-        } else if(event.target.name === "rating"){
-          // Update the selected rating when a star is clicked
-          const selectedRating = Number(event.target.value);
-          setReview({ ...review, rating: selectedRating });
-        }
-      };
-
-      const handleFormateButtonClick = (format) => {
-        const contentElement = document.getElementById("content");
-        const start = contentElement.selectionStart;
-        const end = contentElement.selectionEnd;
-        const selectedText = review.content.substring(start, end);
-        let formatText = review.content;
+  
+  
+  
+  const handleTextChange = (event) => {
+    if (event.target.name !== "rating" || event.target.name !== "image") {
+      setReview({ ...review, [event.target.id]: event.target.value });
+    } 
+    if(event.target.name === "image"){
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      
+      reader.onload = () => {
+        setReview({...review, image: reader.result})
+      }
+      reader.readAsDataURL(file)
+    }
     
-        switch (format) {
-          case "Bold":
-            formatText =
-              formatText.substring(0, start) +
-              `**${selectedText}**` +
-              formatText.substring(end);
-            break;
-          case "Italic":
-            formatText =
-              formatText.substring(0, start) +
-              `*${selectedText}*` +
-              formatText.substring(end);
-            break;
+    else if(event.target.name === "rating"){
+      // Update the selected rating when a star is clicked
+      const selectedRating = Number(event.target.value);
+      setReview({ ...review, rating: selectedRating });
+    }
+  };
+  
+  
+  
+  
+  
+  
+  const handleFormateButtonClick = (format) => {
+    const contentElement = document.getElementById("content");
+    const start = contentElement.selectionStart;
+    const end = contentElement.selectionEnd;
+    const selectedText = review.content.substring(start, end);
+    let formatText = review.content;
+    
+    switch (format) {
+      case "Bold":
+        formatText =
+        formatText.substring(0, start) +
+        `**${selectedText}**` +
+        formatText.substring(end);
+        break;
+        case "Italic":
+          formatText =
+          formatText.substring(0, start) +
+          `*${selectedText}*` +
+          formatText.substring(end);
+          break;
           default:
             break;
-        }
+          }
+          
+          
+          setReview({ ...review, content: formatText });
+        };
+
 
         
-        setReview({ ...review, content: formatText });
-      };
-
-
-
+        
+        
+        
+        
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          const formData = new FormData();
+          formData.append("title", review.title);
+          formData.append("content", review.content);
+          formData.append("rating", review.rating);
+          formData.append("image", review.image); 
       
-      const handleSubmit = (event) => {
-        event.preventDefault();
-         handleAdd(review)   
-        
+          axios
+            .post(`${API}/products/${id}/reviews`, formData)
+            .then(
+              (response) => {
+                navigate(`/products/${id}`);
+              },
+              (error) => console.error(error)
+            )
+            .catch((c) => console.warn("catch", c)); 
       };
 
 
@@ -150,6 +172,19 @@ let [review, setReview] = useState({
         <button className="formatting-buttons" onClick={(e) => {e.preventDefault();handleFormateButtonClick("Italic"); }}><GrItalic color="white" size={20}/></button>
         </div>
         </label>
+
+        <label htmlFor="image"  className='label-signup'>
+              Review Image
+              <input
+                id="image"
+                name="image"
+                type="file"
+                accept=".png, .jpg, .jpeg"
+                onChange={handleTextChange}
+              />
+            </label>
+
+
 
   <label htmlFor="rating" className="label-signup">Rating:
   
