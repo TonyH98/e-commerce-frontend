@@ -118,18 +118,8 @@ input[type=radio]{
   }
   
   
-  .session-btns{
-    background-color: #000;
-    color: white;
-    border: none;
-    text-align: center;
-    height: 50px;
-    width: 200px;
-    cursor: pointer;
-  }
-  
+ 
 
-  
 
   a{
     color: black

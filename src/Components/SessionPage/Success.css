@@ -1,0 +1,25 @@
+
+
+.success-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.session-buttons-container{
+
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.session-btns{
+    border: none;
+    color: white;
+    background-color: blue;
+    border-radius: 3px;
+    height: 40px;
+    justify-content: center;
+}
+
