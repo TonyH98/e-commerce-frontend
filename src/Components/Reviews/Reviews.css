@@ -18,6 +18,16 @@
     height: 200px;
   }
 
+
+  .remove-image-button{
+    border: none;
+    color: white;
+    height: 30px;
+    border-radius: 3px;
+    background-color: blue;
+  }
+
+
 @media (min-width: 993px){
   
   .review-info-container {

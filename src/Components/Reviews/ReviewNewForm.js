@@ -195,7 +195,9 @@ let [review, setReview] = useState({
             onChange={handleTextChange}
           />
         </label>
-        <button onClick={(e) => { e.preventDefault(); handleClearImage(); }} className="remove-image-button">Clear Image</button>
+        {review.image ? (
+          <button onClick={(e) => { e.preventDefault(); handleClearImage(); }} className="remove-image-button">Clear Image</button>
+        ): null}
 
 
   <label htmlFor="rating" className="label-signup">Rating:
@@ -212,6 +214,7 @@ let [review, setReview] = useState({
         value={currentValue}
         onChange={handleTextChange} 
         checked={currentValue === review.rating}
+        required
       />
      
      <label htmlFor={`rating-${currentValue}`}>

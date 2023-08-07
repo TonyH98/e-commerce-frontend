@@ -154,7 +154,11 @@ function ReviewForm(props) {
             onChange={handleTextChange}
           />
         </label>
-        <button onClick={(e) => { e.preventDefault(); handleClearImage(); }} className="remove-image-button">Clear Image</button>
+
+        {review.image ? (
+          <button onClick={(e) => { e.preventDefault(); handleClearImage(); }} className="remove-image-button">Clear Image</button>
+
+        ):null}
 
 
 
