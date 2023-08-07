@@ -5,12 +5,8 @@ import { Link, useParams } from "react-router-dom";
 import ReadMore from "../Other/ReadMore";
 import ReactMarkdown from "react-markdown";
 
-function Review({ review, handleDelete, handleEdit, user }) {
-  const [hidden, setHidden] = useState(false);
-
-  const toggleView = () => {
-    setHidden(!hidden);
-  };
+function Review({ review, handleDelete, hidden, user, toggleView }) {
+ 
 
   const { id } = useParams();
 
@@ -33,7 +29,7 @@ function Review({ review, handleDelete, handleEdit, user }) {
 
   return (
     <div className="Review">
-      {hidden ? (<ReviewForm reviewDetails={review} toggleView={toggleView} handleEdit={handleEdit} />) : (
+      {hidden ? (<ReviewForm hidden={hidden} reviewDetails={review} toggleView={toggleView}  />) : (
         <>
           <div className="review-info-container">
             <h2 className="reviewer">{review.reviewer}</h2>

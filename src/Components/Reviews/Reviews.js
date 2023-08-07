@@ -12,12 +12,21 @@ function Reviews({ user }) {
 
   const { id } = useParams();
 
+  const [hidden, setHidden] = useState(false);
+
+  const toggleView = () => {
+    setHidden(!hidden);
+  };
+
+
+
   useEffect(() => {
-    axios.get(`${API}/products/${id}/reviews`).then((res) => {
+    axios.get(`${API}/products/${id}/reviews`)
+    .then((res) => {
       setReviews(res.data);
       setFilterReviews(res.data);
     });
-  }, [id]);
+  }, [id , hidden]);
 
   const handleDelete = (id) => {
     axios
@@ -102,6 +111,8 @@ function Reviews({ user }) {
           handleDelete={handleDelete}
           handleEdit={handleEdit}
           user={user}
+          toggleView={toggleView}
+          hidden={hidden}
         />
       ))}
 

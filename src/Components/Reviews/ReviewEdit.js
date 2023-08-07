@@ -3,22 +3,38 @@ import { useParams } from "react-router-dom";
 import {FaStar} from 'react-icons/fa'
 import { GrItalic } from "react-icons/gr";
 import {GrBold} from "react-icons/gr"
+import axios from "axios";
 
+
+const API = process.env.REACT_APP_API_URL;
 function ReviewForm(props) {
   let { id } = useParams();
   const { reviewDetails } = props;
 
   const [review, setReview] = useState({
+    reviewer: "",
     title: "",
     content: "",
     rating: "",
+    user_id: "",
     product_id: id,
   });
 
   const handleTextChange = (event) => {
-    if (event.target.name !== "rating") {
+    if (event.target.name !== "rating" || event.target.name !== "image") {
       setReview({ ...review, [event.target.id]: event.target.value });
-    } else if(event.target.name === "rating"){
+    } 
+    if(event.target.name === "image"){
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      
+      reader.onload = () => {
+        setReview({...review, image: reader.result})
+      }
+      reader.readAsDataURL(file)
+    }
+    
+    else if(event.target.name === "rating"){
       // Update the selected rating when a star is clicked
       const selectedRating = Number(event.target.value);
       setReview({ ...review, rating: selectedRating });
@@ -54,30 +70,42 @@ function ReviewForm(props) {
       };
 
 
-
-
-
-
   useEffect(() => {
     if (reviewDetails) {
       setReview(reviewDetails);
     }
   }, [id, reviewDetails, props]);
-
   
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleEdit(review, id);
+    const formData = new FormData();
+    formData.append("title", review.title);
+    formData.append("content", review.content);
+    formData.append("rating", review.rating);
+    formData.append("image", review.image);
+    formData.append("product_id", id);
+    formData.append("reviewer", review?.reviewer);
+    formData.append("user_id", review.user_id)
+
+    axios.put(`${API}/products/${id}/reviews/${review.id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    })
+
     if (reviewDetails) {
       props.toggleView();
     }
   };
 
   return (
-    <div >
-        
 
-    
+
+
+    <div >
   <form onSubmit={handleSubmit} className="review-form review-edit-form">
   
     <label htmlFor="title" className='label-signup'>Title:
@@ -86,9 +114,8 @@ function ReviewForm(props) {
       type="text"
       required
       value={review.title}
-     
+      onChange={handleTextChange}
     />
-    
     </label>
 
  
