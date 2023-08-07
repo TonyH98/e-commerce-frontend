@@ -111,6 +111,10 @@ let [review, setReview] = useState({
 
         
         
+        const handleClearImage = () => {
+          const newKey = Date.now(); // Generate a new key to trigger a re-render
+          setReview({ ...review, image: null, imageKey: newKey });
+        };
         
         
         
@@ -179,17 +183,19 @@ let [review, setReview] = useState({
         </div>
         </label>
 
-        <label htmlFor="image"  className='label-signup'>
-              Review Image
-              <input
-                id="image"
-                name="image"
-                type="file"
-                accept=".png, .jpg, .jpeg"
-                onChange={handleTextChange}
-              />
-            </label>
-
+        <label htmlFor="image" className='label-signup'>
+          Review Image
+          <input
+            key={review.imageKey}
+            id="image"
+            name="image"
+            type="file"
+            className="file-input"
+            accept=".png, .jpg, .jpeg"
+            onChange={handleTextChange}
+          />
+        </label>
+        <button onClick={(e) => { e.preventDefault(); handleClearImage(); }} className="remove-image-button">Clear Image</button>
 
 
   <label htmlFor="rating" className="label-signup">Rating:

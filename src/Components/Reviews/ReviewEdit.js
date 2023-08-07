@@ -15,6 +15,7 @@ function ReviewForm(props) {
     reviewer: "",
     title: "",
     content: "",
+    image: "",
     rating: "",
     user_id: "",
     product_id: id,
@@ -76,7 +77,11 @@ function ReviewForm(props) {
     }
   }, [id, reviewDetails, props]);
   
-
+  const handleClearImage = () => {
+    const newKey = Date.now(); // Generate a new key to trigger a re-render
+    setReview({ ...review, image: null, imageKey: newKey });
+  };
+  
 
 
   const handleSubmit = (event) => {
@@ -136,6 +141,22 @@ function ReviewForm(props) {
         <button className="formatting-buttons" onClick={(e) => {e.preventDefault();handleFormateButtonClick("Italic"); }}><GrItalic color="white" size={20}/></button>
         </div>
         </label>
+
+        <label htmlFor="image" className='label-signup'>
+          Review Image
+          <input
+            key={review.imageKey}
+            id="image"
+            name="image"
+            type="file"
+            className="file-input"
+            accept=".png, .jpg, .jpeg"
+            onChange={handleTextChange}
+          />
+        </label>
+        <button onClick={(e) => { e.preventDefault(); handleClearImage(); }} className="remove-image-button">Clear Image</button>
+
+
 
 
 <label htmlFor="rating" className="label-signup">Rating:
