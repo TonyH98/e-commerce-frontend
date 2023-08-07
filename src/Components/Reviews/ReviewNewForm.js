@@ -117,13 +117,19 @@ let [review, setReview] = useState({
         const handleSubmit = (event) => {
           event.preventDefault();
           const formData = new FormData();
+          formData.append("reviewer", user?.username);
           formData.append("title", review.title);
           formData.append("content", review.content);
           formData.append("rating", review.rating);
-          formData.append("image", review.image); 
-      
+          formData.append("image", review.image === "" ? null : review.image);
+          formData.append("user_id", user?.id);
+          formData.append("product_id", id)
           axios
-            .post(`${API}/products/${id}/reviews`, formData)
+            .post(`${API}/products/${id}/reviews`, formData, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            })
             .then(
               (response) => {
                 navigate(`/products/${id}`);

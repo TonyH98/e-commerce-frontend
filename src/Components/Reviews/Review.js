@@ -53,6 +53,18 @@ function Review({ review, handleDelete, handleEdit, user }) {
 <div className="review-content">
         <ReactMarkdown>{review.content}</ReactMarkdown>
       </div>
+
+<div className="review-image-container">
+  {review.image === "null"? (
+   null
+  ):
+  <img
+  src={review.image}
+  alt={review.image}
+  className="review-image"
+  />
+  }
+</div>
           </div>
         </>
       )}
