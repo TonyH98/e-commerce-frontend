@@ -21,7 +21,7 @@ import Favorites from "./Components/Favorite/Favorites";
 import Purchases from "./Components/Purchases/Purchases";
 import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer"
-const API = process.env.REACT_APP_API_URL;
+const API = process.env.REACT_APP_API_URL
 
 function App() {
   const [products , setProducts] = useState([])

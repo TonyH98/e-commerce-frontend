@@ -53,27 +53,27 @@ function UserDetails({user}){
         ) : (
           <>
             <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>User Name:</span>
+              <span style={{ fontWeight: "bold" }}>User Name: </span>
               {detail.username}
             </p>
             <br />
             <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>First Name:</span>
+              <span style={{ fontWeight: "bold" }}>First Name: </span>
               {detail.firstname}
             </p>
             <br />
             <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>Last Name:</span>
+              <span style={{ fontWeight: "bold" }}>Last Name: </span>
               {detail.lastname}
             </p>
             <br />
             <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>Email:</span>
+              <span style={{ fontWeight: "bold" }}>Email: </span>
               {detail.email}
             </p>
             <br />
             <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>Phone Number:</span>
+              <span style={{ fontWeight: "bold" }}>Phone Number: </span>
               {detail.phonenumber}
             </p>
           </>
