@@ -1,18 +1,24 @@
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
+import { useState } from "react";
 import "./home.css"
 
 const API = process.env.REACT_APP_API_URL;
 
+
+const pageData = 1
+
 function Home({products, user}){
-  
+
+  const [currentPage, setCurrentPage] = useState(0)
 
 const copy = [...products]
 
 const selectedProducts = copy.filter((ele) => {
   if(ele.product_name === "Metroid Prime" ||
-   ele.product_name === "One Piece Vol 1" || ele.product_name === "Invincible Compendium Volume 1"){
+   ele.product_name === "Chainsaw Man, Vol. 1" || ele.product_name === "Invincible Compendium Volume 1"){
      return ele
    }
 })
@@ -22,7 +28,7 @@ const copy2 = [...products]
 
 const featured = copy2.filter((ele) => {
   if(ele.product_name === "Super Mario Galaxy" 
-  || ele.product_name === "Chainsaw Man, Vol. 1" || ele.product_name === "Deadly Class Vol. 1: Reagan Youth"){
+  || ele.product_name === "One Piece Vol 1" || ele.product_name === "Deadly Class Vol. 1: Reagan Youth"){
     return ele
   }
 })
@@ -43,110 +49,162 @@ function addToSearchHistory(id, productId){
   axios.post(`${API}/users/${id}/search/${productId}`)
 }
 
-console.log(recommended)
+
+function handlePageChange ({selected: selectedPage}){
+  setCurrentPage(selectedPage);
+}
+
+
+const offSet = currentPage * pageData;
+  
+ 
+  
+  const pageCount = Math.ceil(selectedProducts.length / pageData);
+
+
 
 return (
-  <div>
-
+  <div className="Home">
+    
     <div className="landing-page">
 
-      <div className="landing-column">
-        <h1 className="landing-header">Explore our collection</h1>
-        <p className="category-description">
-        Experience premium entertainment with our collection of Mangas, Comic Books, 
-        and Video Games.
-         <br/>
-        Choose from both physical and digital formats 
-        <br></br>
-        for a 
-        superior entertainment experience.
-        </p>
-       
-      </div>
+     <h3 className="feature-header">Featured Products</h3> 
 
-     <div className="border-products">
-      {selectedProducts.map((product) => (
-        <Link
-          to={`/products/${product.id}`}
-          key={product.id}
-          onClick={() => addToSearchHistory(user?.id, product.id)}
-        >
-          <img
-            src={product.image[0]?.image} // Assuming there's only one image per product
-            alt={product.product_name}
-            className="landing-image"
-          />
-        </Link>
-      ))}
+
+    <div className="border-product-container">
+    {selectedProducts.slice(offSet, offSet + pageData).map((product) => {
+
+      return(
+        <div className="border-product">
+
+        <div className="border_images_container">
+          <img src={product.image[0]?.image} className="border_images"/>
+        </div>
+
+        <div className="border_product_description">
+
+          <h1 className="border_product_name">{product.product_name}</h1>
+
+          <p className="border_product_desc">{product.description}</p>
+
+
+          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
+          <button className="border_button">Product Page</button>
+          </Link>
+        </div>
+
+
+        </div>
+      )
+    })}
+
     </div>
+    
+    <div className="page-count">
+  <ReactPaginate
+    previousLabel={"<"}
+    nextLabel={">"}
+    pageCount={pageCount}
+    onPageChange={handlePageChange}
+    containerClassName={"home-pagination"}
+    previousLinkClassName={"pagination-link"}
+    nextLinkClassName={"pagination-link"}
+    pageClassName={"page-item"}
+    pageLinkClassName={"page-link"}
+    activeClassName={"active"}
+  />
+</div>
+
 
     </div>
 
 
     
-       <br></br>
-       <div className="featured-section">
-        <h2 className="featured-header" style={{color: "white"}}>Featured Items:</h2>
+  <div className="popular_products_section">
 
-        <div className="featured-items">
-          
-        {featured.map((product) => {
-          return(
-            <div className="featured-border">
-              
-              <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
-              <img
-             src={product.image[0]?.image}
-             alt={product.product_name}
-             className="featured-image"
-             />
-              </Link>
+      <h3>Popular Products</h3>
 
-            <div className="featured-name">
-             <h4>{product.product_name}</h4>
+      <div className="popular_products_container">
 
-            </div>
+      {featured.map((product) => {
+        return(
+          <div className="popular_products_border">
 
-            </div>
-          )
-        })}
+          <div className="popular_product_image_container">
+            <img
+            src={product.image[product.image.length - 1]?.image}
+            className="popular_product_image"
+            />
+          </div>
 
-        </div>        
+          <div className="popular_product_price_button_container">
 
-       </div>
-       <br></br>
+<div className="popular_product_price_container">
+  <p>${product.price}</p>
+</div>
+
+<div className="popular_button_container">
+
+<Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
+  <button className="popular_button">Product Page</button>
+</Link>
+</div>
+
+</div>
 
 
-       <div className="featured-section">
-        <h2 className="featured-header">Recommend Items:</h2>
+          </div>
+        )
 
-        <div className="featured-items">
-          
-        {recommended.map((product) => {
-          return(
-            <div className="featured-border">
 
-                <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
-              <img
-             src={product.image[0]?.image}
-             alt={product.product_name}
-             className="featured-image"
-             />
-                </Link>
+      })}
+      </div>
 
-            <div className="featured-name">
-             <h4>{product.product_name}</h4>
+  </div>
+       
 
-            </div>
+  <div className="popular_products_section">
 
-            </div>
-          )
-        })}
+      <h3>Recommend Products</h3>
 
-        </div>        
+      <div className="popular_products_container">
 
-       </div>
+      {recommended.map((product) => {
+        return(
+          <div className="popular_products_border">
 
+          <div className="popular_product_image_container">
+            <img
+            src={product.image[product.image.length - 1]?.image}
+            className="popular_product_image"
+            />
+          </div>
+
+          <div className="popular_product_price_button_container">
+
+<div className="popular_product_price_container">
+  <p>${product.price}</p>
+</div>
+
+<div className="popular_button_container">
+
+<Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
+  <button className="popular_button">Product Page</button>
+</Link>
+</div>
+
+</div>
+
+
+          </div>
+        )
+
+
+      })}
+      </div>
+
+  </div>
+       
 
 
   </div>
