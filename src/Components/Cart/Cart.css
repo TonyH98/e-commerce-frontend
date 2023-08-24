@@ -14,6 +14,7 @@
       height: 200px; /* Adjust this value to set the desired fixed height */
       box-shadow: 2px 2px 4px #000000;
       border-radius: 5px;
+      background-color: #012f52;
     
     }
 
@@ -23,7 +24,7 @@
       box-shadow: 2px 2px 4px #000000;
       text-align: left;
       border-radius: 20px;
-      /* height: 300px; Remove this line */
+      background-color: #012f52;
       height: 220px;
     }
     

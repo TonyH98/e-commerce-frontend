@@ -15,6 +15,7 @@
     width: 850px;
     border: silver 2px solid;
     margin-top: 10px;
+    background-color: #012f52;
    }
 
 .border_button_spacing {
@@ -132,8 +133,8 @@
 }
 
 .popular_product_image{
-  width: 229px;
-  height: 107px;
+  width: 259px;
+  height: 187px;
 }
 
 .popular_products_container{
@@ -146,7 +147,7 @@
 
 .popular_products_border{
   border: white 1px solid;
-  height: 150px;
+  height: 250px;
   background: linear-gradient(to right, #053698, #052c49);
 }
 
