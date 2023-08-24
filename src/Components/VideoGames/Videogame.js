@@ -99,13 +99,13 @@ const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) :
       <div>
       <Link to={`/products/${props.game.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
         <img
-          src={props.game.image[0]?.image}
+          src={props.game.image[props.game.image.length - 1]?.image}
           alt={props.game.product_name}
           className="product-image"
         ></img>
       </Link>
       </div>
-      <hr></hr>
+
       <div className="product-info-container">
       <h3 className="product-names">
         <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>

@@ -88,37 +88,39 @@ function Comic(props){
 
 
 
-    return(
-      <div className="product-info-container">
-         
+  return (
+    <div className="product-info-container">
       <div>
-      <Link to={`/products/${props.comic.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
-        <img
-          src={props.comic.image[0]?.image}
-          alt={props.comic.product_name}
-          className="product-image"
-        ></img>
-      </Link>
-      </div>
-<hr></hr>
-      <div className="product-info-container">
-      <h3 className="product-names">
         <Link to={`/products/${props.comic.id}`} onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
-          {props.comic.product_name}
+          <img
+            src={props.comic.image[props.comic.image.length - 1]?.image}
+            alt={props.comic.product_name}
+            className="product-image"
+          ></img>
+        </Link>
+      </div>
+
+      <div className="product-info">
+        <h3 className="product-names">
+          <Link to={`/products/${props.comic.id}`} onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
+            {props.comic.product_name}
           </Link>
-      </h3>
-      <p className="price">
-      <span style={{fontWeight: "bold"}}>Price:</span> ${props.comic.price}
-      </p>
-      <br></br>
-      {props.user && inCart.includes(props.comic.product_name) ? 
-      <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.comic.id)}>Delete From Cart</button> :
-      <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.comic.id)}>Add to Cart</button>
-    }
+        </h3>
+        <p className="price">
+          <span style={{fontWeight: "bold"}}>Price:</span> ${props.comic.price}
+        </p>
+        <br></br>
+        <div className="button-container">
+          {props.user && inCart.includes(props.comic.product_name) ? 
+            <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.comic.id)}>Delete From Cart</button> :
+            <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.comic.id)}>Add to Cart</button>
+          }
+        </div>
       </div>  
     </div>
-
-    )
+  );
+  
+  
 }
 
 export default Comic

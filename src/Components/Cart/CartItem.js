@@ -52,14 +52,14 @@ function CartItem(props) {
         className="cart-input"
         onChange={cartIncrease}
       />
-     
-        </div>
     <div>
       <br></br>
       <button className="clear-cart" onClick={deleteItem}>
         <Trash size={30} color="white"/>
       </button>
     </div>
+     
+        </div>
 
     </section>
   );

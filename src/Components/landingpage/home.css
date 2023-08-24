@@ -147,6 +147,7 @@
 .popular_products_border{
   border: white 1px solid;
   height: 150px;
+  background: linear-gradient(to right, #053698, #052c49);
 }
 
 
@@ -158,13 +159,14 @@
 
 .popular_button_container {
   margin-left: auto;
+  margin-right: 5px;
 }
 
 
 .popular_button{
   height: 30px;
   border: none;
-  background-color: rgb(19, 186, 186);
+  background-color: rgb(65, 167, 210);
   color: white;
   border-radius: 3px;
 }

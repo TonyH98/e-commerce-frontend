@@ -100,13 +100,13 @@ function Manga(props){
           <div>
           <Link to={`/products/${props.manga.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
             <img
-              src={props.manga.image[0]?.image}
+              src={props.manga.image[props.manga.image.length - 1]?.image}
               alt={props.manga.product_name}
               className="product-image"
             ></img>
           </Link>
           </div>
-      <hr></hr>
+
           <div className="product-info-container">
           <h3 className="product-names">
             <Link to={`/products/${props.manga.id}`} onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>

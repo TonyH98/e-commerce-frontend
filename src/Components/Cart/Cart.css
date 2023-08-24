@@ -79,7 +79,8 @@
 
   .clear-cart{
     border: none;
-    background-color: black
+    background-color: transparent;
+    margin-left: auto;
   }
 
 }
