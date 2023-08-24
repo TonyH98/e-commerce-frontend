@@ -61,13 +61,15 @@
   }
 
 
-  .product{
+  .product {
     height: 400px;
     width: 250px;
     border: 1px solid silver;
     border-radius: 2%;
     margin-left: 50px;
-  }
+    background-color: rgb(53, 53, 58);
+    box-shadow: 0px 1px 2px rgb(228, 224, 224)/* Subtle box shadow */
+}
 
 
   .product-image{

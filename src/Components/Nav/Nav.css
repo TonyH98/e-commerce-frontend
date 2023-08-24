@@ -1,4 +1,13 @@
 
+.cart-number{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+
+
+
 @media(min-width:993px){
 
     a{
@@ -26,8 +35,9 @@
 
       .nav-category{
         margin-top: 22px;
-        display: grid;
-        grid-template-columns: repeat(3, 40%);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
       }
 
       .nav-3{

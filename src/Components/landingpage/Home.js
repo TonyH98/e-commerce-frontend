@@ -61,10 +61,7 @@ return (
         for a 
         superior entertainment experience.
         </p>
-        <div className="button-container">
-
-
-        </div>
+       
       </div>
 
      <div className="border-products">

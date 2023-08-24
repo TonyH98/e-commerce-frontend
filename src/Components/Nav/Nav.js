@@ -178,10 +178,17 @@ useEffect(() => {
            <div className="nav-3">
         {user ? (
           <Link to={`/cart/${user?.id}`}>
-            <div>
+            <div className="cart-number">
 
-            <ShoppingCart size={30} color="white"/>
-            {quantity}
+            <div>
+            <ShoppingCart size={30} color="white"/> 
+            </div>
+
+            <div className="quantity">
+              {quantity}
+
+            </div>
+         
             </div>
           </Link>
         ) : (

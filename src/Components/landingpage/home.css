@@ -10,6 +10,7 @@
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 100px;
         border: silver 2px solid;
+        margin-top: 10px;
       
       }
 
@@ -23,7 +24,7 @@
       .category-description {
         line-height: 1.5;
         padding: 20px;
-        text-align: justify;
+        text-align: left;
         font-size: 14px;
         font-weight: bold;
         margin-left: 100px;
