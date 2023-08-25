@@ -122,7 +122,7 @@ return (
     
   <div className="popular_products_section">
 
-      <h3>Popular Products</h3>
+      <h3 className="feature-header">Popular Products</h3>
 
       <div className="popular_products_container">
 
@@ -165,7 +165,7 @@ return (
 
   <div className="popular_products_section">
 
-      <h3>Recommend Products</h3>
+      <h3 className="feature-header">Recommend Products</h3>
 
       <div className="popular_products_container">
 

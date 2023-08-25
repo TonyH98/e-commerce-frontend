@@ -38,6 +38,11 @@
     margin-left: 10px;
   }
   
+  .review-input{
+    width: 200px;
+    height: 30px;
+  }
+
   .star_rating{
 
     display: flex;
@@ -69,7 +74,7 @@
   }
 
   .create-review {
-    background-color: blue;
+    background-color: rgb(65, 167, 210);
     color: #fff; /* Change to your desired text color */
     padding: 10px 20px;
     font-size: 16px;

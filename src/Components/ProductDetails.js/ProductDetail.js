@@ -258,8 +258,9 @@ console.log(userFavorite.favorites)
               <div className="input-container">
 
               <div className="cart-counter-input">
-                Quantity:
-                <br/>
+             
+                <label htmlFor="cart-input" className="input-label">
+                  Quantity:
                 <input
                 className="cart-input"
                 type="number"
@@ -267,6 +268,7 @@ console.log(userFavorite.favorites)
                 value={counter}
                 onChange={counterInput}
                 />
+                </label>
       
               </div>
              

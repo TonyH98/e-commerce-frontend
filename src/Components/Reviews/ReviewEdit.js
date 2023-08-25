@@ -117,6 +117,7 @@ function ReviewForm(props) {
     <input
       id="title"
       type="text"
+      className="review-input"
       required
       value={review.title}
       onChange={handleTextChange}

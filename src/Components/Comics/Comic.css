@@ -1,3 +1,11 @@
+.cart-btns-category{
+  background-color: rgb(48, 166, 216);
+  color: white;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+  width: 120px;
+}
 @media (min-width: 993px){
 
     .product-page-container{
@@ -25,12 +33,7 @@
     gap: 10px;
   }
   
-  /* .select-container div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  } */
+
   
   .select-container label {
     font-weight: bold;
@@ -62,7 +65,7 @@
 
   
   .product {
-    height: 340px;
+    height: 348px;
     width: 350px;
     border: 1px solid silver;
     border-radius: 2%;
@@ -79,14 +82,6 @@
 }
 
 
-  .cart-btns-category{
-    background-color: rgb(48, 166, 216);
-    color: white;
-    border: none;
-    height: 45px;
-    border-radius: 5px;
-    width: 120px;
-  }
   
   .cart-btns-category:hover{
     cursor: pointer;
@@ -162,26 +157,25 @@
   .product-card{
     display: flex;
     flex-direction: column;
-   
+    justify-content: center;
     align-items: center;
     gap: 20px;
   }
 
   .product {
-    height: 110%;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 2px solid white;
-    background-color: black;
+    height: 360px;
+    width: 350px;
+    border: 1px solid silver;
     border-radius: 2%;
-    width: 300px;
-  }
+    background: linear-gradient(to right, #053698, #052c49);
+    box-shadow: 0px 1px 2px rgb(228, 224, 224)
+} 
 
-  .product-image{
-    height: 170px;
-    width: 115px;
-  }
-
+.product-image {
+  height: 180px;
+  width: 349px;
+  border-radius: 2% 2% 0 0; /* top-left, top-right, bottom-right, bottom-left */
+}
 
   .product-info-container{
     display: flex;
@@ -192,14 +186,7 @@
 hr{
   width: 100%;
 }
- .cart-btns-category{
-    background-color: rgb(11, 11, 191);
-    color: white;
-    border: none;
-    height: 45px;
-    border-radius: 5px;
-    width: 120px;
-  }
+
   
   .cart-btns-category:hover{
     cursor: pointer;
@@ -248,7 +235,6 @@ hr{
 
 @media (min-width: 577px) and (max-width: 768px){
 
-
   select {
     width: 80%;
     padding: 12px 20px;
@@ -293,26 +279,25 @@ hr{
   .product-card{
     display: flex;
     flex-direction: column;
-   
+    justify-content: center;
     align-items: center;
     gap: 20px;
   }
 
   .product {
-    height: 110%;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 2px solid white;
-    background-color: black;
+    height: 360px;
+    width: 350px;
+    border: 1px solid silver;
     border-radius: 2%;
-    width: 300px;
-  }
+    background: linear-gradient(to right, #053698, #052c49);
+    box-shadow: 0px 1px 2px rgb(228, 224, 224)
+} 
 
-  .product-image{
-    height: 170px;
-    width: 115px;
-  }
-
+.product-image {
+  height: 180px;
+  width: 349px;
+  border-radius: 2% 2% 0 0; /* top-left, top-right, bottom-right, bottom-left */
+}
 
   .product-info-container{
     display: flex;
@@ -323,14 +308,7 @@ hr{
 hr{
   width: 100%;
 }
- .cart-btns-category{
-    background-color: rgb(11, 11, 191);
-    color: white;
-    border: none;
-    height: 45px;
-    border-radius: 5px;
-    width: 120px;
-  }
+
   
   .cart-btns-category:hover{
     cursor: pointer;
@@ -372,6 +350,7 @@ hr{
   .filter-toggle > div {
     margin-right: 10px; /* Adjust as needed */
   }
+
 
   
 }
@@ -428,14 +407,13 @@ hr{
   }
 
   .product {
-    height: 110%;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 2px solid white;
-    background-color: black;
+    height: 360px;
+    width: 350px;
+    border: 1px solid silver;
     border-radius: 2%;
-    width: 300px;
-  }
+    background: linear-gradient(to right, #053698, #052c49);
+    box-shadow: 0px 1px 2px rgb(228, 224, 224)
+} 
 
   .product-image{
     height: 170px;
@@ -452,14 +430,7 @@ hr{
 hr{
   width: 100%;
 }
- .cart-btns-category{
-    background-color: rgb(11, 11, 191);
-    color: white;
-    border: none;
-    height: 45px;
-    border-radius: 5px;
-    width: 120px;
-  }
+ 
   
   .cart-btns-category:hover{
     cursor: pointer;
@@ -502,6 +473,10 @@ hr{
     margin-right: 10px; /* Adjust as needed */
   }
 
-
+  .product-image {
+    height: 180px;
+    width: 349px;
+    border-radius: 2% 2% 0 0; /* top-left, top-right, bottom-right, bottom-left */
+  }
 
 }

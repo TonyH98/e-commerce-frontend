@@ -159,6 +159,7 @@ let [review, setReview] = useState({
           id="title"
           type="text"
           required
+          className="review-input"
           value={review.title}
           onChange={handleTextChange}
         />
@@ -184,7 +185,7 @@ let [review, setReview] = useState({
         </label>
 
         <label htmlFor="image" className='label-signup'>
-          Review Image
+          Review Image:
           <input
             key={review.imageKey}
             id="image"

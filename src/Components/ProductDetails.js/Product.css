@@ -1,4 +1,12 @@
 
+.input-label{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+}
+
 
 @media (min-width: 993px){
 
@@ -46,8 +54,8 @@ grid-template-columns: 40% 50%
 height: 20px;
 border-radius: 5px;
 width: 150px;
-background-color: rgb(0, 0, 0);
-color: white;
+background-color: white;
+color: black;
 border: white 1px solid;
 }
 

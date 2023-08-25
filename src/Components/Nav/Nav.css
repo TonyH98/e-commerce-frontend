@@ -6,7 +6,10 @@
 }
 
 
-
+nav{
+  border-bottom: silver solid 2px;
+  background: linear-gradient(to right, #053698, #052c49);
+}
 
 @media(min-width:993px){
 
@@ -15,10 +18,7 @@
         color: white;
       }
 
-    nav{
-        border-bottom: silver solid 2px;
-        background: linear-gradient(to right, #053698, #052c49);
-      }
+  
 
       .Navigation{
 
@@ -67,23 +67,25 @@
     padding: 15px;
     height: 8px;
     width: 400px;
-    background-color:  #051b46;
-    color: white;
-    border: white 1px solid;
+    background-color:  white;
+    color: black;
+    border: black 1px solid;
     margin-top: 5px;
+    border-radius: 4px;
   }
   
 
 
 
   .searchIcon{
-    background-color:  #051b46;
+    background-color: white;
     height: 38px;
    margin-top: 5px;
     display: grid;
     place-items: center;
-    border-left: white 1px solid;
-    border: white solid 1px;
+    border-left: black 1px solid;
+    border: black solid 1px;
+    border-radius: 4px;
   }
 
 
