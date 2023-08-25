@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import Password from './Password';
 import { Info } from 'phosphor-react';
 import axios from 'axios';
-
+import "./signup.css"
 const API = process.env.REACT_APP_API_URL;
 
 function Signup(){
@@ -153,10 +153,10 @@ return(
 
         
       <form onSubmit={handleSubmit} className="signup-form">
-        <button onClick={() => setModal(true)} className="modal-btn"><Info size={18}/></button>
+        <button onClick={() => setModal(true)} className="modal-btn"><Info size={22} color='white'/></button>
       <h1>Sign Up Form</h1>
-        <label htmlFor="username" className='label-signup'>Username:</label>
-        
+
+        <label htmlFor="username" className='label-signup'>Username:
         <input
           id="username"
           className='signup-input'
@@ -166,9 +166,12 @@ return(
           required
         />
          {userError && <p style={{color:"red"}}>{userError}</p>}
+        
+        </label>
+        
        
-        <label htmlFor="firstname" className='label-signup'>First Name:</label>
-  
+        <label htmlFor="firstname" className='label-signup'>First Name:
+        
         <input
           id="firstname"
           className='signup-input'
@@ -177,9 +180,11 @@ return(
           value={user.firstname}
           onChange={handleTextChange}
         />
+        </label>
   
-         <label htmlFor="lastname" className='label-signup'>Last Name:</label>
- 
+  
+         <label htmlFor="lastname" className='label-signup'>Last Name:
+         
         <input
           id="lastname"
           type="text"
@@ -188,9 +193,10 @@ return(
           value={user.lastname}
           onChange={handleTextChange}
         />
+         </label>
+ 
      
-         <label htmlFor="email" className='label-signup'>Email:</label>
-   
+         <label htmlFor="email" className='label-signup'>Email:
         <input
           id="email"
           type="email"
@@ -201,9 +207,12 @@ return(
         />
          {emailError && <p style={{color:"red"}}>{emailError}</p>}
          {emailError2 && <p style={{color:"red"}}>{emailError2}</p>}
+         
+         </label>
+   
 
-      <label htmlFor='phonenumber' className='label-signup'>Phone Number:</label>
-
+      <label htmlFor='phonenumber' className='label-signup'>Phone Number:
+      
       <input
           id="phonenumber"
           type="text"
@@ -215,9 +224,10 @@ return(
         />
         
         {phoneError && <p style={{ color: "red" }}>{phoneError}</p>}
+      </label>
+
   
-        <label htmlFor="password" className='label-signup'>Password:</label>
- 
+        <label htmlFor="password" className='label-signup'>Password:
         <input
           id="password"
           className='signup-input'
@@ -229,12 +239,17 @@ return(
           />
           <Password open={modal} onClose={() => setModal(false)}/>
         {passwordError && <p style={{color:"red"}}>{passwordError}</p>}
-
+        
+        </label>
+ 
+      <div>
         <input
         type="checkbox"
         onClick={handleType}
         />
         <span style={{color: "white"}}>{type === "password" ? "Show Password" : "Hide Password"} </span>
+
+      </div>
         <input type="submit" />
   
       <Link to="/login">

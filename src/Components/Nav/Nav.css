@@ -65,17 +65,21 @@
     border-bottom-right-radius: 0px;
     font-size: 18px;
     padding: 15px;
-    height: 30px;
+    height: 8px;
     width: 400px;
     background-color:  #051b46;
     color: white;
     border: white 1px solid;
+    margin-top: 5px;
   }
   
+
+
+
   .searchIcon{
     background-color:  #051b46;
-    height: 30px;
-    margin-top: 8px;
+    height: 38px;
+   margin-top: 5px;
     display: grid;
     place-items: center;
     border-left: white 1px solid;

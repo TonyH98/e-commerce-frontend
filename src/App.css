@@ -94,22 +94,12 @@ input[type=radio]{
   .modal-btn{
     margin-left: 90%;
     border: none;
-    background-color: white;
+    background-color:transparent
   }
   
-  .label-signup{
-    display: inline-block;
-      width: 50%;
-      text-align: left;
-      font-weight: bold;
-  }
+ 
   
-  .label-signups{
-    display: inline-block;
-      width: 18%;
-      text-align: left;
-      font-weight: bold;
-  }
+
   
   .signup-input{
     margin-right: 10px;
@@ -140,11 +130,7 @@ input[type=radio]{
  
     
   
-  textarea {
-    display: block;
-    width: 90%;
-    margin: auto;
-  }
+ 
   
  
   
@@ -187,16 +173,7 @@ input[type=radio]{
   }
 
 
-  .signup-form{
-    border: 1px solid white;
-    background-color: #012f52;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 1%;
-    box-shadow: 1px 2px 2px 2px black;
-    width: 600px;
-  }
+ 
   
   
  
@@ -256,25 +233,8 @@ input[type=radio]{
   }
   
 
-  .login-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-  }
   
-  input[type=text] , 
-  input[type=password], 
-  input[type=email], 
-  textarea{
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+ 
   
   
   
@@ -385,15 +345,7 @@ input[type=radio]{
   
     
 
-  .login-form{
-    border: 1px solid white;
-    background-color: #012f52;
-    border-radius: 8px;
-    height: 460px;
-    margin-left: 450px;
-    margin-right: 450px;
-    box-shadow: 1px 2px 2px 2px #000;
-  }
+
   
   
   
@@ -415,7 +367,7 @@ input[type=radio]{
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    background-color: black;
+    background-color: #012f52;
     box-shadow: 1px 2px 1px black;
     overflow: hidden;
     position: absolute;
@@ -431,6 +383,14 @@ input[type=radio]{
  }
  
  
+
+
+
+
+
+
+
+
  @media (min-width: 320px) and (max-width: 576px) {
 
 .login-form-container{

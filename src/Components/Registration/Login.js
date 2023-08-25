@@ -58,36 +58,44 @@ function Login({ newLogin }) {
     <div className='login-form-container'>
       
       <form onSubmit={handleSubmit} className="login-form">
-   
       <h1>Login</h1>
-        <label htmlFor="username" className='label-signup'>Username:</label>
-    
+   
+        <label htmlFor="username" className='label-signup'>Username:
+        
         <input
           id="username"
           value={login.username}
           type="text"
           onChange={handleTextChange}
+          className='login_input'
           required
         />
+        </label>
+    
       
-        <label htmlFor="password" className='label-signup'>Password:</label>
-   
+        <label htmlFor="password" className='label-signup'>Password:
+        
         <input
           id="password"
           type={type}
+          className='login_input'
           required
           value={login.password}
           placeholder="******"
           onChange={handleTextChange}
         />
+        </label>
+   
 
+      <div>
 
         <input
         type="checkbox"
         onClick={handleType}
         />
         <span style={{color: "white"}}>{type === "password" ? "Show Password" : "Hide Password"}</span>
-      
+      </div>
+
        <input disabled={error} type='submit'/>
      
       {error && <p style={{color: "red"}}>{error}</p>}
