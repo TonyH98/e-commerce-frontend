@@ -62,10 +62,14 @@ function Reviews({ user }) {
       .catch((c) => console.warn("catch", c));
   };
   
+console.log(filterReviews)
 
-  const average =
-    filterReviews.reduce((sum, review) => sum + review.rating, 0) /
-    filterReviews.length;
+  let average = 0
+
+  for(let i = 0; i < filterReviews.length; i++){
+    average += (Number(filterReviews[i].rating) / filterReviews.length)
+    
+  }
 
   const handleCategory = (rating) => {
     if (rating === "") {

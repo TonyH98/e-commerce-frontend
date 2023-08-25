@@ -9,7 +9,7 @@
   }
   
   .formatting-buttons{
-    background-color: black;
+    background-color:transparent;
     border: none;
   }
 
@@ -104,6 +104,7 @@
   
   .Review{
     border: white solid 1px;
+    background-color: #012f52;
   }
 
   .review-form{
@@ -147,6 +148,12 @@
 }
 h2{
   color: white;
+}
+
+
+#content{
+  height: 200px;
+  width: 700px;
 }
 
 @media (min-width: 320px) and (max-width: 576px){

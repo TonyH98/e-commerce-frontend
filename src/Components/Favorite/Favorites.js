@@ -167,18 +167,20 @@ console.log(fav)
           { 
           fav.length > 3 ? (
             <div className="page-count">
-          <ReactPaginate
-         previousLabel={"<"}
-         nextLabel={">"}
-         pageCount={pageCount}
-         onPageChange={handlePageChange}
-         containerClassName={"pagination"}
-         previousLinkClassName={"pagination-link"}
-         nextLinkClassName={"pagination-link"}
-         pageClassName={"pageCount"}
-         />  
-            
+            <ReactPaginate
+              previousLabel={"<"}
+              nextLabel={">"}
+              pageCount={pageCount}
+              onPageChange={handlePageChange}
+              containerClassName={"home-pagination"}
+              previousLinkClassName={"pagination-link"}
+              nextLinkClassName={"pagination-link"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              activeClassName={"active"}
+            />
           </div>
+          
             
             ) : null}
         </div>

@@ -25,15 +25,7 @@
         
       }
 
-      .pagination{
-        text-align: center;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 15px);
-        color:  blue;
-        cursor: pointer;
-        list-style: none;
-        margin-left: 12%;
-      }
+     
 
       .history-box{
         display: grid;
@@ -75,6 +67,63 @@
         justify-content: center;
       }
     
+   .page-count {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically in the center */
+    margin-top: 20px;
+  }
+  
+  .home-pagination {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .pagination-link,
+  .page-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .page-link {
+    display: block;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: inherit;
+  
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .page-link:hover {
+    background-color: #f0f0f0;
+  }
+  
 
 
 }
