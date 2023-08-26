@@ -6,13 +6,13 @@
 }
 
 
-nav{
-  border-bottom: silver solid 2px;
-  background: linear-gradient(to right, #053698, #052c49);
-}
 
 @media(min-width:993px){
-
+  
+  nav{
+    border-bottom: silver solid 2px;
+    background: linear-gradient(to right, #053698, #052c49);
+  }
     a{
         text-decoration: none;
         color: white;
@@ -154,8 +154,8 @@ nav{
   padding: 15px;
   height: 30px;
   width: 300px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   border: white 1px solid;
   
 }
@@ -163,6 +163,8 @@ nav{
 .searchIcon{
   border: 1px white solid;
   height: 30px;
+  background-color: white;
+  border-left: black 1px solid;
 }
 /* CSS for the search container */
 .search {
@@ -402,7 +404,7 @@ nav{
    display: flex;
    flex-direction: row;
    gap: 40px;
-   margin-top: 10px;
+   
    margin-bottom: 10px;
  }
 
@@ -416,5 +418,10 @@ nav{
  .user{
    font-size: 15px;
  }
+
+ nav{
+    border-bottom: silver solid 2px;
+    background: linear-gradient(to right, #053698, #052c49);
+  }
 
 }

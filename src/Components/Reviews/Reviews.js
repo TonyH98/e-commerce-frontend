@@ -9,15 +9,14 @@ const API = process.env.REACT_APP_API_URL;
 function Reviews({ user }) {
   const [reviews, setReviews] = useState([]);
   const [filterReviews, setFilterReviews] = useState([]);
-
+  const [show , setShow] = useState(false)
   const { id } = useParams();
 
-  const [hidden, setHidden] = useState(false);
+const handleShow = () => {
 
-  const toggleView = () => {
-    setHidden(!hidden);
-  };
+setShow(!show)
 
+}
 
 
   useEffect(() => {
@@ -26,7 +25,7 @@ function Reviews({ user }) {
       setReviews(res.data);
       setFilterReviews(res.data);
     });
-  }, [id , hidden]);
+  }, [id , show]);
 
   const handleDelete = (id) => {
     axios
@@ -115,8 +114,8 @@ console.log(filterReviews)
           handleDelete={handleDelete}
           handleEdit={handleEdit}
           user={user}
-          toggleView={toggleView}
-          hidden={hidden}
+         handleShow={handleShow}
+         show={show}
         />
       ))}
 

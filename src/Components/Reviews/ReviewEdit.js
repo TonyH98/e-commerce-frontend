@@ -100,9 +100,9 @@ function ReviewForm(props) {
         "Content-Type": "multipart/form-data"
       }
     })
-
     if (reviewDetails) {
       props.toggleView();
+      props.handleShow()
     }
   };
 

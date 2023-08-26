@@ -125,7 +125,7 @@
 
   .clear-cart {
     border: none;
-    background-color: black
+    background-color: transparent
   }
 
   .product-quantity-price {
@@ -211,7 +211,7 @@
 
   .clear-cart {
     border: none;
-    background-color: black
+    background-color: transparent
   }
 
   .product-quantity-price {
@@ -303,7 +303,7 @@
 
   .clear-cart {
     border: none;
-    background-color: black
+    background-color: transparent
   }
 
   .product-quantity-price {

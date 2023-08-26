@@ -119,7 +119,10 @@ const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) :
       </p>
       <br></br>
       {props.user && inCart.includes(props.game.product_name) ? 
-      <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.game.id)}>Delete From Cart</button> :
+      <Link to={`/cart/${props.user?.id}`}>
+      <button className="cart-btns-category">View Cart</button> 
+      </Link> 
+      :
       <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.game.id)}>Add to Cart</button>
     }
       </div>  

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { useEffect, useState } from "react";
-import { useParams, useNavigate} from "react-router-dom";
+import { useParams, useNavigate, Link} from "react-router-dom";
 
 import Reviews from "../Reviews/Reviews";
 import {AiFillHeart} from "react-icons/ai"
@@ -275,7 +275,10 @@ console.log(userFavorite.favorites)
     
               <div className="cart">
                 {userCart?.quantity > 0 ? (
-                  <button className="add-delete" onClick={deleteCart} >Delete From Cart</button>
+                   <Link to={`/cart/${user?.id}`}>
+                   <button className="add-delete">View Cart</button> 
+                   
+                               </Link>
                 ) : (
               <button className="add-delete" onClick={() => addToUser(counter)}>Add to Cart</button>
                 )}

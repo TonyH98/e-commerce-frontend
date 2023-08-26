@@ -118,7 +118,11 @@ function Manga(props){
           </p>
           <br></br>
           {props.user && inCart.includes(props.manga.product_name) ? 
-          <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.manga.id)}>Delete From Cart</button> :
+           <Link to={`/cart/${props.user?.id}`}>
+           <button className="cart-btns-category">View Cart</button> 
+           
+                       </Link>
+                        :
           <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.manga.id)}>Add to Cart</button>
         }
           </div>  

@@ -112,7 +112,11 @@ function Comic(props){
         <br></br>
         <div className="button-container">
           {props.user && inCart.includes(props.comic.product_name) ? 
-            <button className="cart-btns-category" onClick={() => deleteCartItem(props.user?.id , props.comic.id)}>Delete From Cart</button> :
+            <Link to={`/cart/${props.user?.id}`}>
+<button className="cart-btns-category">View Cart</button> 
+
+            </Link>
+            :
             <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.comic.id)}>Add to Cart</button>
           }
         </div>

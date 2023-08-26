@@ -160,7 +160,7 @@
    .delete-trash{
     
      border: none;
-   background-color: black;
+   background-color: transparent
    }
 
   .title-trash{
@@ -226,7 +226,7 @@ align-items: center;
 .delete-trash{
 
  border: none;
-background-color: black;
+background-color: transparent
 }
 
 .title-trash{
@@ -281,7 +281,7 @@ align-items: center;
 .delete-trash{
 
  border: none;
-background-color: black;
+background-color: transparent
 }
 
 .title-trash{
