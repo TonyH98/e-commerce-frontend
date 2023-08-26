@@ -250,7 +250,7 @@
   padding: 15px;
   height: 30px;
   width: 300px;
-  background-color: black;
+  background-color: white;
   color: white;
   border: white 1px solid;
   
@@ -258,6 +258,8 @@
 
 .searchIcon{
   border: 1px white solid;
+  background-color: white;
+  border-left: solid black 1px;
   height: 30px;
 }
 /* CSS for the search container */
@@ -341,7 +343,7 @@
   padding: 15px;
   height: 30px;
   width: 200px;
-  background-color: black;
+  background-color: white;
   color: white;
   border: white 1px solid;
   
@@ -349,6 +351,8 @@
 
 .searchIcon{
   border: 1px white solid;
+  background-color: white;
+  border-left: black solid 1px;
   height: 30px;
 }
 /* CSS for the search container */

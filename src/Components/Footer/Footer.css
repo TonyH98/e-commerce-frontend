@@ -1,3 +1,8 @@
+.footer-name{
+    text-align: left;
+    margin-left: 20px;
+    color: white;
+}
 
 @media(min-width: 993px){
     .footer-link{
@@ -10,10 +15,6 @@
         height: 100px;
     }
     
-    .footer-name{
-        text-align: left;
-        margin-left: 20px;
-    }
     
     
     .footers{
@@ -76,6 +77,7 @@
     .footer-name{
         text-align: left;
         margin-left: 20px;
+        color: white;
     }
     
     

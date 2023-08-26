@@ -1,7 +1,10 @@
 .buy-again{
   border: none;
   color: white;
-  background-color: blue;
+
+ 
+    background-color: rgb(48, 166, 216);
+
   border-radius: 5px;
   height: 33px;
   cursor: pointer;
@@ -191,7 +194,7 @@ input[type=radio]{
   }
   
   .cart-btns{
-    background-color: blue;
+    background-color: rgb(48, 166, 216);
     color: white;
     border: none;
     height: 45px;
@@ -199,16 +202,12 @@ input[type=radio]{
     border-radius: 5px;
   }
   
-  .cart-btns:hover{
-    background-color: rgb(25, 17, 68);
-  }
+ 
   
   
 
   
-  .add-delete:hover{
-    background-color: rgb(25, 17, 68);
-  }
+
   
   .products-cart{
     display: grid;
@@ -240,7 +239,7 @@ input[type=radio]{
   
   input[type=submit] {
     width: 30%;
-    background-color: blue;
+    background-color: rgb(48, 166, 216);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -456,7 +455,7 @@ input[type=radio]{
 
   input[type=submit] {
     width: 300px;
-    background-color: blue;
+    background-color: rgb(48, 166, 216);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -584,7 +583,7 @@ input[type=radio]{
   
     input[type=submit] {
       width: 300px;
-      background-color: blue;
+      background-color: rgb(48, 166, 216);
       color: white;
       padding: 14px 20px;
       margin: 8px 0;
@@ -710,7 +709,7 @@ input[type=radio]{
   
     input[type=submit] {
       width: 300px;
-      background-color: blue;
+      background-color: rgb(48, 166, 216);
       color: white;
       padding: 14px 20px;
       margin: 8px 0;

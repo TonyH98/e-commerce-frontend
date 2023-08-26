@@ -79,8 +79,7 @@ function Review({ review, handleDelete,  user, show , handleShow}) {
           {!hidden ? 
           <div>
 
-            <button className="delete" onClick={() => handleDelete(review.id)}>delete</button> 
-            <button className="edit" onClick={toggleView}>edit this review</button>
+            <button className="delete" onClick={() => handleDelete(review.id)}>delete</button>  <button className="edit" onClick={toggleView}>edit this review</button>
           </div> : null
         }
           </>

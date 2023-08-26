@@ -85,6 +85,10 @@ border-radius: 5px;
 background-color: rgb(48, 166, 216);
 }
 
+.add-delete:hover{
+  cursor: pointer;
+}
+
 
 .fav-btns{
 border: none;
@@ -92,6 +96,10 @@ background-color: transparent;
 text-align: left;
 }
 
+
+.fav-btns:hover{
+  cursor: pointer;
+}
 
 .des-btns{
 border: none;

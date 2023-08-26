@@ -80,6 +80,7 @@ const {detail} = props
           id="firstname"
           type="text"
           required
+          className='edit-input'
           value={user.firstname}
           onChange={handleTextChange}
         />
@@ -91,6 +92,7 @@ const {detail} = props
         
         <input
           id="lastname"
+          className='edit-input'
           type="text"
           required
           value={user.lastname}
@@ -103,6 +105,7 @@ const {detail} = props
       <input
           id="phonenumber"
           type="text"
+          className='edit-input'
           required
           value={user.phonenumber}
           placeholder="(xxx)xxx-xxxx"
