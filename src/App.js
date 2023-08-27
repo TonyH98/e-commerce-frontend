@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "./Components/landingpage/Home"
 import ProductDetails from "./Components/ProductDetails.js/ProductDetail";
-import ReviewNewForm from "./Components/Reviews/ReviewNewForm"
 import ReviewDetails from "./Components/Reviews/ReviewDetails"
 import ProductCart from "./Components/Cart/ProductCart"
 import NewProducts from "./Components/NewProducts";
@@ -74,7 +73,6 @@ console.log(user)
           <Routes>
           <Route path="/" element={<Home setProducts={setProducts} products={products} user={user} />} />
           <Route path="/products/:id" element={<ProductDetails user={user}/>}/>
-          <Route path="/products/:id/new" element={<ReviewNewForm user={user}/>}/>
           <Route path="/products/:id/reviews/:ids" element={<ReviewDetails/>}/>
           <Route path={`/cart/${user?.id}`} element={<ProductCart user={user}/>}/>
           <Route path="/newProduct" element={<NewProducts/>}/>

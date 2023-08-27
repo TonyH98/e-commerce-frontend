@@ -1,18 +1,17 @@
 import { useState , useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import axios from "axios";
-import { fontWeight } from "@mui/system";
 import {FaStar} from 'react-icons/fa'
 import {GrBold} from "react-icons/gr"
 import { GrItalic } from "react-icons/gr";
 const API = process.env.REACT_APP_API_URL;
 
-function ReviewNewForm({user}){
+function ReviewNewForm({user, open , onClose}){
   const [product , setProduct] = useState([])
 
   let { id } = useParams();
 
- let navigate = useNavigate();
+
 
 
 let [review, setReview] = useState({
@@ -136,7 +135,7 @@ let [review, setReview] = useState({
             })
             .then(
               (response) => {
-                navigate(`/products/${id}`);
+               onClose()
               },
               (error) => console.error(error)
             )
@@ -146,9 +145,16 @@ let [review, setReview] = useState({
 
       console.log(review)
      
+if(!open) return null
+
+
     return(
-      <div >
-        
+      <div className="modal-overlay">
+        <div className="modal-container2">
+          <div className="modalRight2">
+            <p className="closeBtn2" onClick={onClose}>X</p>
+          </div>
+          <div className="content2">
 
         <h1>Review: {product.product_name}</h1>
       <form onSubmit={handleSubmit} className="review-form">
@@ -176,6 +182,7 @@ let [review, setReview] = useState({
           value={review.content}
           placeholder="What do you think..."
           onChange={handleTextChange}
+          style={{ resize: 'none' }}
         />
         <div className="formatting-button-container">
         <button className="formatting-buttons" onClick={(e) => {e.preventDefault(); handleFormateButtonClick("Bold");}}><GrBold color="white" size={20}/></button>
@@ -236,10 +243,12 @@ let [review, setReview] = useState({
 
    
         <input type="submit" />
-      <Link to={`/products/${id}`}>
-        Back
-      </Link>
       </form>
+
+          </div>
+
+        </div>
+
 
 
     </div>

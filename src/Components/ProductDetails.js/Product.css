@@ -291,13 +291,13 @@ p{
     
       .fav-btns{
         border: none;
-        background-color: black;
+        background-color: transparent;
         text-align: left;
         }
     
         .des-btns{
           border: none;
-          background-color: black;
+          background-color:transparent;
           color: white;
           font-size: 20px;
           cursor: pointer;
@@ -389,13 +389,13 @@ p{
     
       .fav-btns{
         border: none;
-        background-color: black;
+        background-color: transparent;
         text-align: left;
         }
     
         .des-btns{
           border: none;
-          background-color: black;
+          background-color: transparent;
           color: white;
           font-size: 20px;
           cursor: pointer;
@@ -425,7 +425,7 @@ p{
       height: 20px;
       border-radius: 5px;
       width: 150px;
-      background-color: rgb(0, 0, 0);
+      background-color: white;
       color: white;
       border: white 1px solid;
       }

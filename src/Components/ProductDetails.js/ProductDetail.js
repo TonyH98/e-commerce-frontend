@@ -126,20 +126,7 @@ function ProductDetails({user}){
   
   
   
-  function deleteCart() {
-    if (userCart?.quantity > 0) {
-      axios.delete(`${API}/users/${user?.id}/products/${id}`)
-        .then(() => {
-          // fetch the updated cart information
-          axios.get(`${API}/users/${user?.id}/products`)
-            .then((res) => {
-              setUserCart(res.data);
-            })
-            .catch((err) => console.error('Failed to fetch cart information:', err));
-        })
-        .catch((err) => console.error('Failed to delete product from user:', err));
-    }
-  }
+
 
 
  

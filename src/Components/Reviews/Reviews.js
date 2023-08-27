@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Review from "./Review";
+import ReviewNewForm from "./ReviewNewForm";
 import "./Reviews.css"
 
 const API = process.env.REACT_APP_API_URL;
@@ -10,6 +11,9 @@ function Reviews({ user }) {
   const [reviews, setReviews] = useState([]);
   const [filterReviews, setFilterReviews] = useState([]);
   const [show , setShow] = useState(false)
+
+  const [modal , setModal] = useState(false)
+
   const { id } = useParams();
 
 const handleShow = () => {
@@ -25,7 +29,7 @@ setShow(!show)
       setReviews(res.data);
       setFilterReviews(res.data);
     });
-  }, [id , show]);
+  }, [id , show, modal]);
 
   const handleDelete = (id) => {
     axios
@@ -81,6 +85,9 @@ console.log(filterReviews)
     }
   };
 
+
+console.log(user)
+
   return (
     <section className="Reviews">
       <h2>Reviews</h2>
@@ -99,12 +106,13 @@ console.log(filterReviews)
 
       </div>
       {user ? (
-      <Link to={`/products/${id}/new`}>
-        <button className="create-review">Write a Review</button>
-      </Link>
+
+        <button onClick={() => setModal(true)} className="create-review">Write a Review</button>
+ 
 
       ) : null}
-
+      <ReviewNewForm user={user} open={modal} onClose={() => setModal(false)}/>
+      
       <div className="reviews-container">
 
       {filterReviews.map((review) => (
