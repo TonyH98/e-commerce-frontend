@@ -151,7 +151,7 @@ useEffect(() => {
            value={search}
            onChange={handleFilter} 
            className="searchbar"/>
-           <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} color="black"/>: <X  onClick={clear} size={25} color="white"className="clear-bar"/>}</div>
+           <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} color="black"/>: <X  onClick={clear} size={25} color="black"className="clear-bar"/>}</div>
          </div>
          {filterSearch.length !== 0 &&(
       

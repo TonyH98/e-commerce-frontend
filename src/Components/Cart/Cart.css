@@ -13,6 +13,11 @@
         height: 50px;
         width: 200px;
       }
+
+      .cart-btns:hover{
+        cursor: pointer;
+      }
+
       .product-card-section {
       box-sizing: border-box;
       border: 1px solid silver; 
