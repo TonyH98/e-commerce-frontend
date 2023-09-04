@@ -111,7 +111,7 @@ const maxStars = Math.min(Math.floor(average), 5);
 for (let i = 1; i <= maxStars; i++) {
   stars.push(
     <div key={i}>
-      <FaStar size={20} color="yellow" />
+      <FaStar size={15} color="yellow" />
     </div>
   );
 }
@@ -129,7 +129,7 @@ for (let i = 1; i <= maxStars; i++) {
         <div className="average_container" style={{color: "white"}}>
           Average Review:
           <div style={{color: "white"}}>
-          {average}
+          {average.toFixed(1)}
 
           </div>
           <div className="average_stars">

@@ -1,35 +1,14 @@
 
 
-@media (min-width: 993px){
     .userDetails{
-        display: grid;
-        grid-template-columns: 15% 25% 60%
+        display: flex;
+        flex-direction: column;
       }
 
       .userLink{
         margin-top: 30px;
       }
 
-      .vertical {
-      
-        margin-top: 5px;
-       
-        border-left: 2px solid #ccc;
-        margin: 0 10px;
-   
-      }
-
-
-    
-        /* .user-details {
-          text-align: center;
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 20px;
-          
-          border-radius: 5px;
-     
-        } */
       
         .bold-label {
           font-weight: bold;
@@ -39,17 +18,42 @@
          text-align: left;
         }
 
-        .info-label{
-          text-align: left;
-        }
+ 
 
         .user-details{
           text-align: center;
         }
-      
-        .usersname{
-          text-align: left;
-        }
-  
 
-}
+        .info-container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          font-family: Arial, sans-serif;
+          padding: 20px;
+          width: 320px;
+          margin: 0 auto; /* Optional: Center horizontally within its parent container */
+        }
+        
+        
+       .info-item{
+        text-align: left;
+        display: flex;
+       }
+        
+        .info-label {
+          font-weight: bold;
+          margin-right: 10px;
+          color: white;
+          
+        
+        }
+        
+        .info-value {
+          font-weight: normal;
+          color: white;
+
+        }
+        
+      
+    
+

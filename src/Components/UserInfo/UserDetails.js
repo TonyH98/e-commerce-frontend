@@ -52,30 +52,33 @@ function UserDetails({user}){
           />
         ) : (
           <>
-            <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>User Name: </span>
-              {detail.username}
-            </p>
-            <br />
-            <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>First Name: </span>
-              {detail.firstname}
-            </p>
-            <br />
-            <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>Last Name: </span>
-              {detail.lastname}
-            </p>
-            <br />
-            <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>Email: </span>
-              {detail.email}
-            </p>
-            <br />
-            <p className="info-label">
-              <span style={{ fontWeight: "bold" }}>Phone Number: </span>
-              {detail.phonenumber}
-            </p>
+         <div className="info-container">
+  <div className="info-item">
+    <span className="info-label">User Name:</span>
+    <span className="info-value">{detail.username}</span>
+  </div>
+
+  <div className="info-item">
+    <span className="info-label">First Name:</span>
+    <span className="info-value">{detail.firstname}</span>
+  </div>
+
+  <div className="info-item">
+    <span className="info-label">Last Name:</span>
+    <span className="info-value">{detail.lastname}</span>
+  </div>
+
+  <div className="info-item">
+    <span className="info-label">Email:</span>
+    <span className="info-value">{detail.email}</span>
+  </div>
+
+  <div className="info-item">
+    <span className="info-label">Phone Number:</span>
+    <span className="info-value">{detail.phonenumber}</span>
+  </div>
+</div>
+
           </>
         )}
         {!hidden ? (

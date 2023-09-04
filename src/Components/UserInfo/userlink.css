@@ -1,10 +1,13 @@
-@media (min-width: 993px){
+
+@media(min-width:993px){
 
   .userLink {
     display: flex;
-    flex-direction: column;
-    text-align: left; /* Align text to the left */
-    margin-left: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+  
+   }
 }
 
 .link-item {
@@ -17,17 +20,12 @@
 }
 
 
-}
+
 
 
 
 @media (min-width: 320px) and (max-width: 576px) {
-    .userLink {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-
-    }
+   
   
  
     .logout {

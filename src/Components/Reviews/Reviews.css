@@ -30,13 +30,13 @@
   .average_stars{
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 3px;
   }
 
   .average_container{
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 4px;
     margin-bottom: 10px;
   }
 
