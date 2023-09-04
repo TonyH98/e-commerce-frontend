@@ -5,6 +5,7 @@ import Review from "./Review";
 import ReviewNewForm from "./ReviewNewForm";
 import ReviewProgress from "./ReviewProgress";
 import "./Reviews.css"
+import { FaStar } from "react-icons/fa";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -103,7 +104,17 @@ console.log(filterReviews)
 
 let reviewState = [fiveStar , fourStar, threeStar, twoStar, oneStar]
 
+let stars = [];
 
+const maxStars = Math.min(Math.floor(average), 5);
+
+for (let i = 1; i <= maxStars; i++) {
+  stars.push(
+    <div key={i}>
+      <FaStar size={20} color="yellow" />
+    </div>
+  );
+}
 
 
 
@@ -113,6 +124,27 @@ let reviewState = [fiveStar , fourStar, threeStar, twoStar, oneStar]
       <h2>Reviews</h2>
       <div className="review-data">
         <h2>Customer Reviews</h2>
+
+        {reviews.length ? (
+        <div className="average_container" style={{color: "white"}}>
+          Average Review:
+          <div style={{color: "white"}}>
+          {average}
+
+          </div>
+          <div className="average_stars">
+          {stars.map((star) => {
+            return(
+              <div>
+                {star}
+              </div>
+            )
+          })}
+
+          </div>
+        </div>
+
+        ) : <div className="average_container" style={{color: "white"}}>No Reviews</div>}
         <div className="review_bar_graph_container">
           {reviewState.map((state, index) => {
             return(

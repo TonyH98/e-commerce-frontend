@@ -22,8 +22,8 @@ function ReviewProgress({state, review, index}){
    }
 
     const fixWidth = 300
-    const blueWidth = (fixWidth * Number(state.length)) / review.length
-    const whiteWidth = fixWidth - blueWidth
+    const yellowWidth = (fixWidth * Number(state.length)) / review.length
+    const whiteWidth = fixWidth - yellowWidth
 
 
     return(
@@ -31,7 +31,7 @@ function ReviewProgress({state, review, index}){
         <div><span style={{color: "white"}}>{indexChange()}</span><FaStar size={10} color="yellow"/></div>
 
         <div className="progress-bar" style={{ width: `${fixWidth}px` }}>
-      <div className="blue" style={{ width: `${blueWidth}px` }}></div>
+      <div className="yellow" style={{ width: `${yellowWidth}px` }}></div>
       <div className="white" style={{ width: `${whiteWidth}px` }}></div>
     </div>
 
