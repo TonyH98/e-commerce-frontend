@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Review from "./Review";
 import ReviewNewForm from "./ReviewNewForm";
+import ReviewProgress from "./ReviewProgress";
 import "./Reviews.css"
 
 const API = process.env.REACT_APP_API_URL;
@@ -86,15 +87,40 @@ console.log(filterReviews)
   };
 
 
-console.log(user)
+  const review = Array.isArray(reviews) ? reviews : [];
+
+  let fiveStar = review.filter(review => review?.rating == "5")
+
+  let fourStar = review.filter(review => review?.rating == "4")
+
+  let threeStar = review.filter(review => review?.rating == "3")
+
+  let twoStar = review.filter(review => review?.rating == "2")
+
+  let oneStar = review.filter(review => review?.rating == "1")
+
+
+
+let reviewState = [fiveStar , fourStar, threeStar, twoStar, oneStar]
+
+
+
+
+
 
   return (
     <section className="Reviews">
       <h2>Reviews</h2>
       <div className="review-data">
         <h2>Customer Reviews</h2>
-        <p>Global Review Number: {filterReviews.length}</p>
-        <p>Average Score: {isNaN(average) ? `No Reviews` : average.toFixed(2)}</p>
+        <div className="review_bar_graph_container">
+          {reviewState.map((state, index) => {
+            return(
+
+              <ReviewProgress state={state} review={review} key={index} index={index}/>
+            )
+          })}
+        </div>
         <select className="review-select-bar" onChange={(e) => handleCategory(e.target.value)}>
           <option value="">All Reviews</option>
           {[...Array(5)].map((_, i) => (
