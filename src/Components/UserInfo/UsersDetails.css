@@ -15,7 +15,9 @@
         }
       
         .edit {
-         text-align: left;
+         text-align: center;
+         font-size: 15px;
+         height: 40px;
         }
 
  
@@ -24,36 +26,45 @@
           text-align: center;
         }
 
-        .info-container {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          font-family: Arial, sans-serif;
-          padding: 20px;
-          width: 320px;
-          margin: 0 auto; /* Optional: Center horizontally within its parent container */
-        }
-        
-        
-       .info-item{
-        text-align: left;
-        display: flex;
-       }
-        
-        .info-label {
-          font-weight: bold;
-          margin-right: 10px;
-          color: white;
-          
-        
-        }
-        
-        .info-value {
-          font-weight: normal;
-          color: white;
+       /* CSS Variables */
+:root {
+  --primary-font: Arial, sans-serif;
+  --text-color: white;
+  --label-font-weight: bold;
+  --value-font-weight: normal;
+}
 
-        }
-        
-      
-    
+/* Container */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--primary-font);
+  padding: 20px;
+  max-width: 320px; /* Use 'max-width' instead of 'width' for responsiveness */
+  margin: 0 auto; /* Center horizontally within its parent container */
+  background-color: #333; /* Add a background color for contrast */
+  border-radius: 10px; /* Add rounded corners for aesthetics */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+}
 
+/* Info Item */
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Label */
+.info-label {
+  font-weight: var(--label-font-weight);
+  color: var(--text-color);
+  /* Add more styling as needed */
+}
+
+/* Value */
+.info-value {
+  font-weight: var(--value-font-weight);
+  color: var(--text-color);
+  /* Add more styling as needed */
+}

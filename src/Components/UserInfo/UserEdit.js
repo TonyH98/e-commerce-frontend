@@ -115,7 +115,7 @@ const {detail} = props
       
       </label>
   
-        <input type="submit" />
+        <input className='user_edit_submit_button' type="submit" />
       </form>
     </div>
 )

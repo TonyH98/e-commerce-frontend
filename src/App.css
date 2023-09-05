@@ -1,13 +1,11 @@
 .buy-again{
   border: none;
   color: white;
-
- 
-    background-color: rgb(48, 166, 216);
-
+  background-color: rgb(48, 166, 216);
   border-radius: 5px;
   height: 33px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
  
 input[type=radio]{
@@ -22,7 +20,16 @@ input[type=radio]{
   text-decoration: underline;
 }
 
-
+.logout{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: arial, sans-serif;
+  color:rgb(48, 166, 216);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
 
  @media (min-width: 993px){
 
@@ -157,16 +164,7 @@ input[type=radio]{
     cursor: pointer;
   }
   
-  .logout{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: arial, sans-serif;
-    color: #069;
-    text-decoration: underline;
-    cursor: pointer;
-    font-weight: bold;
-  }
+
   
   .signup-section{
     display: flex;

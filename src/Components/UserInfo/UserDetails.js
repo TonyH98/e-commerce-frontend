@@ -77,17 +77,17 @@ function UserDetails({user}){
     <span className="info-label">Phone Number:</span>
     <span className="info-value">{detail.phonenumber}</span>
   </div>
+{!hidden ? (
+<button className="edit user-edit-button" onClick={toggleView}>
+  Edit User
+</button>
+
+
+): null}
 </div>
 
           </>
         )}
-        {!hidden ? (
-        <button className="edit user-edit-button" onClick={toggleView}>
-          Edit User
-        </button>
-
-
-        ): null}
         </div>
       </UserLink>
     )

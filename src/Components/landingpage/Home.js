@@ -82,15 +82,17 @@ return (
         </div>
 
         <div className="border_product_description">
-
+        
           <h1 className="border_product_name">{product.product_name}</h1>
 
           <p className="border_product_desc">{product.description}</p>
 
-
+          <div className="border_button_container">
           <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
           <button className="border_button">Product Page</button>
           </Link>
+
+          </div>
         </div>
 
 

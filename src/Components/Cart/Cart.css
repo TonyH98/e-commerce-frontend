@@ -63,8 +63,7 @@
 
       .product-box{
        display: flex;
-       flex-direction: row;
-       justify-content: center;
+       justify-content: space-between;
       }
 
     
@@ -81,7 +80,11 @@
   }
 
   .card-info{
-    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   .count-number{

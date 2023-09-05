@@ -15,6 +15,12 @@ nav{
   background: linear-gradient(to right, #053698, #052c49);
 }
 
+.active2{
+  background-color: transparent;
+  font-weight: bold;
+
+}
+
 @media(min-width:993px){
   
     a{

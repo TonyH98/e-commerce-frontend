@@ -14,3 +14,15 @@
     height: 30px;
     width: 300px;
 }
+
+.user_edit_submit_button{
+    width: 200px;
+    
+}
+
+.user-edit-button{
+    background-color: rgb(48, 166, 216);
+    color: white;
+    border: none;
+}
+

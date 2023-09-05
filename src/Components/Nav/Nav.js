@@ -1,5 +1,5 @@
 import "./Nav.css"
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { ShoppingCart} from "phosphor-react";
 
 import {  MagnifyingGlass  } from "phosphor-react"
@@ -22,6 +22,13 @@ function Nav({isLogged}){
   const [totalQuantity, setTotalQuantity] = useState([]);
 let [quantity, setQuantity] = useState(null);
 const totalQuantityRef = useRef(0); // Create a mutable reference
+
+
+const location = useLocation()
+
+const isActive = (path) => {
+  return location.pathname === path ? 'active2' : ''
+}
 
 
   useEffect(() => {
@@ -116,20 +123,20 @@ useEffect(() => {
 
          <div className="nav-category">
 
-          <Link to="/videogames">
+          <Link to="/videogames" className={isActive("/videogames")}>
           <div className="category-link">
             Video Games
           </div>
           </Link>
 
-          <Link to="/mangas">
+          <Link to="/mangas" className={isActive("/mangas")}>
           <div className="category-link">
            Manga
           </div>
           </Link>
 
 
-          <Link to="/comics">
+          <Link to="/comics" className={isActive("/comics")}>
           <div className="category-link">
            Comics
           </div>
