@@ -274,12 +274,6 @@
 
 @media (min-width: 769px) and (max-width: 992px){
 
-  .cart-details{
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-  }
- 
   .cart-header {
     text-align: center;
   }
@@ -307,7 +301,7 @@
     border-radius: 5px;
     margin: 0 20px;
     padding: 10px;
-    width: 450px;
+    width: 300px;
   }
 
   .count-number {
@@ -344,13 +338,14 @@
     text-align: center;
   }
 
- 
+  .order-details {
+    margin: 0 20px;
+  }
 
   .product-box{
     display: flex;
-    flex-direction: row;
-    gap: 30px;
-    
+    flex-direction: column;
+    align-items: center;
   }
 
   .card-info{
@@ -358,20 +353,4 @@
     flex-direction: column;
     align-items: center;
   }
-
-
-    .order-details {
-      border: silver solid 1px;
-      box-shadow: 2px 2px 4px #000000;
-      text-align: left;
-      border-radius: 20px;
-      width: 1200px;
-      height: 250px;
-      padding-left: 20px;
-      padding-right: 20px;
-      margin-right: 10px;
-    }
-    hr{
-      width: 100%;
-    }
 }

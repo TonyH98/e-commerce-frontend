@@ -73,29 +73,7 @@ function Comics({user}){
       };
       
   
-      // const sortAlphabetically = (alpha) => {
-      //   if (alpha === "") {
-      //     axios
-      //     .get(`${API}/products?category=Comics`)
-      //       .then((res) => {
-      //         setProducts(res.data);
-      //       })
-      //       .catch((c) => console.warn("catch", c));
-      //   } 
-      //   else if (alpha === "A-Z"){
-      //     const sort = [...filterProducts].sort((a , b) => {
-      //       return a.product_name.localeCompare(b.product_name)
-      //     })
-      //     setFilterProducts(sort)
-      //   }
-      //   else if (alpha === "Z-A"){
-      //     const sort = [...filterProducts].sort((a , b) => {
-      //       return b.product_name.localeCompare(a.product_name)
-      //     })
-      //     setFilterProducts(sort)
-      //   }
-        
-      // }
+  
   
       const brands = ['Image Comics', 'Cartoon Books', 'DC', 'Vertigo', 'Marvel', 'Wildstorm', 'Dark Horse Comic']
 
