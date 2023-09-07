@@ -67,6 +67,10 @@
     color: white;
   }
 
+  .review-edit:hover{
+    cursor: pointer;
+  }
+
 
 @media (min-width: 993px){
   

@@ -94,8 +94,11 @@
 }
 
 
-
 @media (min-width: 993px){
+  .border_button_container{
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
   .popular_product_image{
     width: 100%;
     height: 187px;

@@ -11,7 +11,7 @@
     .product-page-container{
 
       display: grid;
-      grid-template-columns: 15% 70%;
+      grid-template-columns: 14% 70%;
 
     }
 
