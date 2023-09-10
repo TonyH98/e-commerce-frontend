@@ -2,7 +2,7 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
-import "./UserLink.css"
+import "./UsersDetails.css"
 
 function UserLink({children}) {
 

@@ -68,3 +68,90 @@
   color: var(--text-color);
   /* Add more styling as needed */
 }
+
+
+@media(min-width:993px){
+
+  .userLink {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+  
+   }
+}
+
+.link-item {
+    margin-bottom: 50px; /* Adjust the spacing between each link item as desired */
+}
+
+.link-item p {
+    display: block;
+    margin: 0; /* Optional: Remove any default margin on <p> elements */
+}
+
+
+
+
+
+
+@media (min-width: 320px) and (max-width: 576px) {
+   
+  
+ 
+   
+
+    .link-item {
+        margin-left: 40px; 
+
+      }
+
+
+  }
+  
+
+
+@media (min-width: 577px) and (max-width: 768px){
+
+  .userLink {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+   }
+ 
+
+   
+
+   .link-item {
+       margin-left: 40px; 
+
+     }
+
+
+
+}
+
+
+
+
+@media (min-width: 769px) and (max-width: 992px){
+
+
+  .userLink {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+   }
+ 
+
+   
+
+   .link-item {
+       margin-left: 40px; 
+
+     }
+
+
+}
