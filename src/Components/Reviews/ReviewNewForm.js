@@ -4,6 +4,7 @@ import axios from "axios";
 import {FaStar} from 'react-icons/fa'
 import {GrBold} from "react-icons/gr"
 import { GrItalic } from "react-icons/gr";
+import {AiFillCloseCircle} from "react-icons/ai"
 const API = process.env.REACT_APP_API_URL;
 
 function ReviewNewForm({user, open , onClose}){
@@ -152,7 +153,7 @@ if(!open) return null
       <div className="modal-overlay">
         <div className="modal-container2">
           <div className="modalRight2">
-            <p className="closeBtn2" onClick={onClose}>X</p>
+            <button className="closeBtn2" onClick={onClose}><AiFillCloseCircle size={20}/></button>
           </div>
           <div className="content2">
 

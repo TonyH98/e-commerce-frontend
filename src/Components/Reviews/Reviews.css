@@ -72,6 +72,17 @@
   }
 
 
+  .closeBtn2{
+    color: rgb(235, 26, 26);
+    border: none;
+    background-color: transparent;
+
+  }
+
+  .closeBtn2:hover{
+    cursor: pointer;
+  }
+
 @media (min-width: 993px){
   
   .review-info-container {
@@ -87,6 +98,13 @@
     height: 30px;
   }
 
+
+  .modalRight2{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
   .star_rating{
 
     display: flex;
@@ -215,7 +233,10 @@
     width: 600px;
     background-color: #012f52;
     box-shadow: 1px 2px 1px black;
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
 
