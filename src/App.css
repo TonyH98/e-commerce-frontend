@@ -394,33 +394,7 @@ input[type=radio]{
 
 
   
-  .login-form-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .login-form {
-    border: 1px solid #ccc;
-    background-color: black;
-    border-radius: 8px;
-    height: 380px;
-    box-shadow: 1px 2px 2px 2px #000;
-    display: flex;
-    flex-direction: column;
-    margin: 0 20px;
-    padding: 20px;
-    width: 330px;
-    align-items: center;
-   
-  }
-
-  .label-signup {
-    display: inline-block;
-   
-    text-align: left;
-    font-weight: bold;
-  }
+  
 
   
   .readmore-btn, .registory-btn, .sign-btn{
@@ -452,18 +426,7 @@ input[type=radio]{
   }
 
 
-  .signup-form {
-    border: 1px solid #ccc;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 8px;
-    width: 350px;
-    box-shadow: 1px 2px 2px 2px #000;
-    margin: 0 20px;
-    padding: 20px;
-  }
+
 
   .modal-btn {
     margin-left: auto;
@@ -542,12 +505,7 @@ input[type=radio]{
      
     }
   
-    .label-signup {
-      display: inline-block;
-     
-      text-align: left;
-      font-weight: bold;
-    }
+   
   
    
   
@@ -580,18 +538,7 @@ input[type=radio]{
     }
   
   
-    .signup-form {
-      border: 1px solid #ccc;
-      background-color: #012f52;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-      border-radius: 8px;
-      width: 350px;
-      box-shadow: 1px 2px 2px 2px #000;
-      margin: 0 20px;
-      padding: 20px;
-    }
+
   
     .modal-btn {
       margin-left: auto;
@@ -668,12 +615,6 @@ input[type=radio]{
      
     }
   
-    .label-signup {
-      display: inline-block;
-     
-      text-align: left;
-      font-weight: bold;
-    }
   
   
   
@@ -705,19 +646,7 @@ input[type=radio]{
      align-items: center;
     }
   
-  
-    .signup-form {
-      border: 1px solid #ccc;
-      background-color: black;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-      border-radius: 8px;
-      width: 350px;
-      box-shadow: 1px 2px 2px 2px #000;
-      margin: 0 20px;
-      padding: 20px;
-    }
+
   
     .modal-btn {
       margin-left: auto;
