@@ -214,7 +214,7 @@ console.log(userFavorite.favorites)
           <img
             key={index}
             src={pic.image}
-            className="selected-image"
+            className={index === mainImageIndex ? "active selected-image" : "notActive selected-image"}
             alt={product.product_name}
             onClick={() => handleImageIndex(index)}
           />

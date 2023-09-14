@@ -107,7 +107,26 @@
     color: white;
   }
 
+  .loading-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
   
+  .loading {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc; /* Adjust the border color and width as needed */
+    border-top: 2px solid #4371ce; /* Adjust the color to match your design */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Create a spinning animation */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
   
 
 }

@@ -37,30 +37,6 @@ function Comic(props){
   }
 
 
-  const deleteCartItem = ( id, ids) => {
-    axios
-    .delete(`${API}/users/${id}/products/${ids}`)
-    .then((res) => {
-      
-      const indexDeleteCart = userCart.findIndex((cart) => {
-        return cart.products_id === ids;
-      });
-      userCart.splice(indexDeleteCart , 1)
-      setUserCart([...userCart])
-    })
-    .then(() => {
-      axios.get(`${API}/users/${props.user?.id}/products`)
-      .then((res) => {
-        setNewCart(res.data)
-        setUserCart(res.data)
-      })
-    })
-    .catch((err) => {
-      console.log(err)
-      return err
-    })
-  }
-
   function addToSearchHistory(id, comicId) {
     if (!id) {
       return;

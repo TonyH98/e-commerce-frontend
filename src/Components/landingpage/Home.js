@@ -130,6 +130,7 @@ return (
 
       {featured.map((product) => {
         return(
+          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
           <div className="popular_products_border">
 
           <div className="popular_product_image_container">
@@ -142,20 +143,22 @@ return (
           <div className="popular_product_price_button_container">
 
 <div className="popular_product_price_container">
-  <p>${product.price}</p>
+
+  <h4 style={{color: "white"}}>
+  {product.product_name}
+  </h4>
+  <div style={{color: "white"}}>${product.price}</div>
+          
 </div>
 
-<div className="popular_button_container">
 
-<Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
-  <button className="popular_button">Product Page</button>
-</Link>
-</div>
 
 </div>
 
 
           </div>
+
+          </Link>
         )
 
 
@@ -173,6 +176,8 @@ return (
 
       {recommended.map((product) => {
         return(
+          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
+
           <div className="popular_products_border">
 
           <div className="popular_product_image_container">
@@ -184,21 +189,20 @@ return (
 
           <div className="popular_product_price_button_container">
 
-<div className="popular_product_price_container">
-  <p>${product.price}</p>
-</div>
+          <div className="popular_product_price_container">
 
-<div className="popular_button_container">
-
-<Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
-  <button className="popular_button">Product Page</button>
-</Link>
+<h4 style={{color: "white"}}>
+{product.product_name}
+</h4>
+<div style={{color: "white"}}>${product.price}</div>
+        
 </div>
 
 </div>
 
 
           </div>
+          </Link>
         )
 
 
