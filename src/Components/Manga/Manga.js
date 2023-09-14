@@ -98,7 +98,10 @@ function Manga(props){
         <div className="product-info-container">
          
           <div>
-          <Link to={`/products/${props.manga.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
+          <Link to={`/products/${props.manga.id}`}  onClick={() => {
+            addToSearchHistory(props.user?.id, props.manga.id);
+            window.scrollTo(0, 0);
+          }}>
             <img
               src={props.manga.image[props.manga.image.length - 1]?.image}
               alt={props.manga.product_name}
@@ -109,7 +112,7 @@ function Manga(props){
 
           <div className="product-info-container">
           <h3 className="product-names">
-            <Link to={`/products/${props.manga.id}`} onClick={() => addToSearchHistory(props.user?.id , props.manga.id)}>
+            <Link to={`/products/${props.manga.id}`} onClick={() => {addToSearchHistory(props.user?.id , props.manga.id); window.scrollTo(0, 0)}}>
               {props.manga.product_name}
               </Link>
           </h3>
@@ -118,7 +121,7 @@ function Manga(props){
           </p>
           <br></br>
           {props.user && inCart.includes(props.manga.product_name) ? 
-           <Link to={`/cart/${props.user?.id}`}>
+           <Link to={`/cart/${props.user?.id}`} onClick={() => window.scrollTo(0 , 0)}>
            <button className="cart-btns-category">View Cart</button> 
            
                        </Link>

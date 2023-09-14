@@ -20,22 +20,22 @@
 
       .product-card-section {
       box-sizing: border-box;
-      border: 1px solid silver; 
+
       width: 80%;
       height: 200px; /* Adjust this value to set the desired fixed height */
       box-shadow: 2px 2px 4px #000000;
       border-radius: 5px;
-      background-color: #012f52;
+      background: linear-gradient(to right, #323740, #1a3951);
     
     }
 
 
     .order-details {
-      border: silver solid 1px;
+
       box-shadow: 2px 2px 4px #000000;
       text-align: left;
       border-radius: 20px;
-      background-color: #012f52;
+      background: linear-gradient(to right, #323740, #1a3951);
       height: 220px;
     }
     

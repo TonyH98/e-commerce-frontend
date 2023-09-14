@@ -11,7 +11,7 @@ function UserLink({children}) {
  const location = useLocation()
  
  const isActive = (path) => {
-   return location.pathname === path ? 'active' : ''
+   return location.pathname === path ? 'actives' : ''
  }
 
   

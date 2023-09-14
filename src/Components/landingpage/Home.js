@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
@@ -55,11 +55,23 @@ function handlePageChange ({selected: selectedPage}){
 }
 
 
+
 const offSet = currentPage * pageData;
-  
- 
-  
-  const pageCount = Math.ceil(selectedProducts.length / pageData);
+
+
+
+const pageCount = Math.ceil(selectedProducts.length / pageData);
+
+useEffect(() => {
+
+const interval = setInterval(() => {
+  const nextPage = (currentPage + 1) % pageCount
+  setCurrentPage(nextPage)
+}, 30000 )
+
+return () => clearInterval(interval)
+
+}, [currentPage, pageCount])
 
 
 
@@ -73,12 +85,13 @@ return (
 
     <div className="border-product-container">
     {selectedProducts.slice(offSet, offSet + pageData).map((product) => {
-
+      
       return(
+        <Link to={`/products/${product.id}`} onClick={() => {addToSearchHistory(user?.id, product.id);  window.scrollTo(0 , 0)}}>
         <div className="border-product">
 
         <div className="border_images_container">
-          <img src={product.image[0]?.image} className="border_images"/>
+          <img src={product.image[product.image.length - 1]?.image} className="border_images"/>
         </div>
 
         <div className="border_product_description">
@@ -87,16 +100,15 @@ return (
 
           <p className="border_product_desc">{product.description}</p>
 
-          <div className="border_button_container">
-          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
-          <button className="border_button">Product Page</button>
-          </Link>
+        
+         
 
-          </div>
+      
         </div>
 
 
         </div>
+    </Link>
       )
     })}
 
@@ -130,7 +142,7 @@ return (
 
       {featured.map((product) => {
         return(
-          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
+          <Link to={`/products/${product.id}`} onClick={() => {addToSearchHistory(user?.id, product.id);  window.scrollTo(0 , 0)}}>
           <div className="popular_products_border">
 
           <div className="popular_product_image_container">
@@ -176,7 +188,7 @@ return (
 
       {recommended.map((product) => {
         return(
-          <Link to={`/products/${product.id}`} onClick={() => addToSearchHistory(user?.id, product.id)}>
+          <Link to={`/products/${product.id}`} onClick={() => {addToSearchHistory(user?.id, product.id);  window.scrollTo(0 , 0)}}>
 
           <div className="popular_products_border">
 

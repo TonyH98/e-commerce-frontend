@@ -11,7 +11,7 @@ nav{
   z-index: 100;
 }
 nav{
-  border-bottom: silver solid 2px;
+
   background: linear-gradient(to right, #053698, #052c49);
 }
 
@@ -19,6 +19,15 @@ nav{
   background-color: transparent;
   font-weight: bold;
 
+}
+
+.quantity{
+  border: solid white 1px;
+  border-radius: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 @media(min-width:993px){

@@ -69,7 +69,9 @@
   /* Add more styling as needed */
 }
 
-
+.actives{
+  font-weight: bold;
+}
 @media(min-width:993px){
 
   .userLink {

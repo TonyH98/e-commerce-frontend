@@ -97,7 +97,7 @@ const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) :
       <div className="product-info-container">
          
       <div>
-      <Link to={`/products/${props.game.id}`}  onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
+      <Link to={`/products/${props.game.id}`}  onClick={() => {addToSearchHistory(props.user?.id , props.game.id); window.scrollTo(0 , 0)}}>
         <img
           src={props.game.image[props.game.image.length - 1]?.image}
           alt={props.game.product_name}
@@ -108,7 +108,7 @@ const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) :
 
       <div className="product-info-container">
       <h3 className="product-names">
-        <Link to={`/products/${props.game.id}`} onClick={() => addToSearchHistory(props.user?.id , props.game.id)}>
+        <Link to={`/products/${props.game.id}`} onClick={() => {addToSearchHistory(props.user?.id , props.game.id); window.scrollTo(0 , 0)}}>
           {props.game.product_name}
           </Link>
       </h3>
@@ -119,7 +119,7 @@ const inCart = Array.isArray(newCart) ? newCart.map(cart => cart.product_name) :
       </p>
       <br></br>
       {props.user && inCart.includes(props.game.product_name) ? 
-      <Link to={`/cart/${props.user?.id}`}>
+      <Link to={`/cart/${props.user?.id}`} onClick={() => window.scrollTo(0 , 0)}>
       <button className="cart-btns-category">View Cart</button> 
       </Link> 
       :

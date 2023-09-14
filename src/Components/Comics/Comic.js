@@ -67,7 +67,7 @@ function Comic(props){
   return (
     <div className="product-info-container">
       <div>
-        <Link to={`/products/${props.comic.id}`} onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
+        <Link to={`/products/${props.comic.id}`} onClick={() => {addToSearchHistory(props.user?.id , props.comic.id); window.scrollTo(0, 0)}}>
           <img
             src={props.comic.image[props.comic.image.length - 1]?.image}
             alt={props.comic.product_name}
@@ -78,7 +78,7 @@ function Comic(props){
 
       <div className="product-info">
         <h3 className="product-names">
-          <Link to={`/products/${props.comic.id}`} onClick={() => addToSearchHistory(props.user?.id , props.comic.id)}>
+          <Link to={`/products/${props.comic.id}`} onClick={() => {addToSearchHistory(props.user?.id , props.comic.id); window.scrollTo(0 , 0)}}>
             {props.comic.product_name}
           </Link>
         </h3>
@@ -88,7 +88,7 @@ function Comic(props){
         <br></br>
         <div className="button-container">
           {props.user && inCart.includes(props.comic.product_name) ? 
-            <Link to={`/cart/${props.user?.id}`}>
+            <Link to={`/cart/${props.user?.id}`} onClick={() => window.scrollTo(0 , 0)}>
 <button className="cart-btns-category">View Cart</button> 
 
             </Link>
