@@ -114,7 +114,7 @@
 
 }
 
-@media (min-width: 320px) and (max-width: 576px){
+@media (min-width: 320px) and ( max-width: 768px){
 
   select {
     width: 80%;
@@ -168,13 +168,14 @@
   .product {
     height: 360px;
     width: 350px;
-    border: 1px solid silver;
+    overflow: hidden;
     border-radius: 2%;
-    background: linear-gradient(to right, #053698, #052c49);
-    box-shadow: 0px 1px 2px rgb(228, 224, 224)
+    background: linear-gradient(to right, #4371ce, #1d3c53);
+
 } 
 
 .product-image {
+  display: block;
   height: 180px;
   width: 349px;
   border-radius: 2% 2% 0 0; /* top-left, top-right, bottom-right, bottom-left */
@@ -236,127 +237,10 @@ hr{
 }
 
 
-@media (min-width: 577px) and (max-width: 768px){
-
-  select {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    
-  }
-
-  .select-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-   
-  }
-
-  .filter-products{
-    margin-bottom: 20px;
-  }
-  
-  .select-container div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .select-container label {
-    font-weight: bold;
-  }
-
-  
-  
 
 
-  .category-heading{
-    text-align: center;
-  }
-
-  .product-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .product {
-    height: 360px;
-    width: 350px;
-    border: 1px solid silver;
-    border-radius: 2%;
-    background: linear-gradient(to right, #053698, #052c49);
-    box-shadow: 0px 1px 2px rgb(228, 224, 224)
-} 
-
-.product-image {
-  height: 180px;
-  width: 349px;
-  border-radius: 2% 2% 0 0; /* top-left, top-right, bottom-right, bottom-left */
-}
-
-  .product-info-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-hr{
-  width: 100%;
-}
-
-  
-  .cart-btns-category:hover{
-    cursor: pointer;
-  }
-  
-  .cart-btns-category:active{
-    background-color: blue;
-  }
-
-  
-  h1{
-    color: white;
-    text-align: center;
-  }
-  label{
-    color: white;
-  }
-
-  .section-name{
-    text-align: center;
-  }
-
-  .price{
-    color: white;
-  }
-
-  .brand-name{
-    color: white;
-  }
-
-  .filter-toggle {
-    display: flex; /* Use flex container */
-    overflow-x: auto;
-    white-space: nowrap;
-    align-items: center;
-  }
-  
-  /* Optionally, you can add spacing between each checkbox and brand name */
-  .filter-toggle > div {
-    margin-right: 10px; /* Adjust as needed */
-  }
 
 
-  
-}
 
 @media (min-width: 769px) and (max-width: 992px){
 
