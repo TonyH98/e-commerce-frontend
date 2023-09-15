@@ -123,20 +123,20 @@ useEffect(() => {
 
          <div className="nav-category">
 
-          <Link to="/videogames" className={isActive("/videogames")}>
+          <Link to="/videogames" className={isActive("/videogames")} onClick={() => window.scrollTo(0 , 0)}>
           <div className="category-link">
             Video Games
           </div>
           </Link>
 
-          <Link to="/mangas" className={isActive("/mangas")}>
+          <Link to="/mangas" className={isActive("/mangas")}  onClick={() => window.scrollTo(0 , 0)}>
           <div className="category-link">
            Manga
           </div>
           </Link>
 
 
-          <Link to="/comics" className={isActive("/comics")}>
+          <Link to="/comics" className={isActive("/comics")}  onClick={() => window.scrollTo(0 , 0)}>
           <div className="category-link">
            Comics
           </div>
@@ -151,15 +151,22 @@ useEffect(() => {
         <div className="nav-2">
 
       <div className="search">
-         <div className="searchInputs">
-           <input 
-           type="text"
-           placeholder="Search..."
-           value={search}
-           onChange={handleFilter} 
-           className="searchbar"/>
-           <div className="searchIcon">{filterSearch.length === 0 ? <MagnifyingGlass size={25} color="black"/>: <X  onClick={clear} size={25} color="black"className="clear-bar"/>}</div>
-         </div>
+      <div className="searchInputs">
+  <input
+    type="text"
+    placeholder="Search..."
+    value={search}
+    onChange={handleFilter}
+    className="searchbar"
+  />
+  <div className="searchIcon">
+    {filterSearch.length === 0 ? (
+      <MagnifyingGlass size={25} color="black" />
+    ) : (
+      <X onClick={clear} size={25} color="black" className="clear-bar" />
+    )}
+  </div>
+</div>
          {filterSearch.length !== 0 &&(
       
          <div className="dataResult">
