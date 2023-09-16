@@ -168,7 +168,7 @@ useEffect(() => {
   </div>
 </div>
          {filterSearch.length !== 0 &&(
-      
+      <div className="dataResult_container">
          <div className="dataResult">
            {filterSearch.slice(0 , 10).map((product) => {
              return(
@@ -182,6 +182,8 @@ useEffect(() => {
              )
            })}
          </div>
+
+      </div>
          )}
       </div>
 
