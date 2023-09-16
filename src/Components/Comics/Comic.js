@@ -66,36 +66,36 @@ function Comic(props){
 
   return (
     <div className="product-info-container">
+         
       <div>
-        <Link to={`/products/${props.comic.id}`} onClick={() => {addToSearchHistory(props.user?.id , props.comic.id); window.scrollTo(0, 0)}}>
-          <img
-            src={props.comic.image[props.comic.image.length - 1]?.image}
-            alt={props.comic.product_name}
-            className="product-image"
-          ></img>
-        </Link>
+      <Link to={`/products/${props.comic.id}`}  onClick={() => {addToSearchHistory(props.user?.id , props.comic.id); window.scrollTo(0 , 0)}}>
+        <img
+          src={props.comic.image[props.comic.image.length - 1]?.image}
+          alt={props.comic.product_name}
+          className="product-image"
+        ></img>
+      </Link>
       </div>
 
-      <div className="product-info">
-        <h3 className="product-names">
-          <Link to={`/products/${props.comic.id}`} onClick={() => {addToSearchHistory(props.user?.id , props.comic.id); window.scrollTo(0 , 0)}}>
-            {props.comic.product_name}
+      <div className="product-info-container">
+      <h3 className="product-names">
+        <Link to={`/products/${props.comic.id}`} onClick={() => {addToSearchHistory(props.user?.id , props.comic.id); window.scrollTo(0 , 0)}}>
+          {props.comic.product_name}
           </Link>
-        </h3>
-        <p className="price">
-          <span style={{fontWeight: "bold"}}>Price:</span> ${props.comic.price}
-        </p>
-        <br></br>
-        <div className="button-container">
-          {props.user && inCart.includes(props.comic.product_name) ? 
-            <Link to={`/cart/${props.user?.id}`} onClick={() => window.scrollTo(0 , 0)}>
-<button className="cart-btns-category">View Cart</button> 
+      </h3>
+      <p className="price">
 
-            </Link>
-            :
-            <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.comic.id)}>Add to Cart</button>
-          }
-        </div>
+
+      <span style={{fontWeight: "bold"}}>Price:</span> ${props.comic.price}
+      </p>
+      <br></br>
+      {props.user && inCart.includes(props.comic.product_name) ? 
+      <Link to={`/cart/${props.user?.id}`} onClick={() => window.scrollTo(0 , 0)}>
+      <button className="cart-btns-category">View Cart</button> 
+      </Link> 
+      :
+      <button className="cart-btns-category" onClick={() => addToUser(props.user?.id , props.comic.id)}>Add to Cart</button>
+    }
       </div>  
     </div>
   );

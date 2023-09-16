@@ -296,16 +296,13 @@ hr{
   .product {
     height: 360px;
     width: 350px;
-    border: 1px solid silver;
+    overflow: hidden;
     border-radius: 2%;
-    background: linear-gradient(to right, #053698, #052c49);
-    box-shadow: 0px 1px 2px rgb(228, 224, 224)
+    background: linear-gradient(to right, #4371ce, #1d3c53);
+
 } 
 
-  .product-image{
-    height: 170px;
-    width: 115px;
-  }
+ 
 
 
   .product-info-container{
@@ -361,6 +358,7 @@ hr{
   }
 
   .product-image {
+    display: block;
     height: 180px;
     width: 349px;
     border-radius: 2% 2% 0 0; /* top-left, top-right, bottom-right, bottom-left */
